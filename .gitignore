@@ -1,0 +1,18 @@
+# Local environment and business data
+.DS_Store
+._*
+node_modules/
+.env
+.env.*
+*.token
+*.pat
+*hubspot.config*
+credentials*
+.local/
+audit/
+campaigns/
+*.xlsx
+*.xls
+*.csv
+*.eml
+*.pptx
