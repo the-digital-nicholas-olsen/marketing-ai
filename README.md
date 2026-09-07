@@ -19,6 +19,13 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Understand the rollout and token discipline | [Six foundations](guides/ai-foundations.md) |
 | Check coverage and unresolved decisions | [Coverage](guides/knowledge-coverage.md) · [Readiness](STATUS.md) |
 
+## Naming and placement
+
+- Use descriptive lowercase, hyphen-separated names for new files/folders: `topic-name.md`. Keep standard filenames such as `README.md`, `AGENTS.md` and `SKILL.md`.
+- Keep official product spelling in content. Use `YYYY-MM-DD` only when a date identifies the document; avoid `final-v2` names.
+- Reuse the closest existing folder; add a focused subfolder when needed. Its README may specialize these rules and link its contents. Do not rename established paths without updating callers.
+- Follow [contribution and review rules](CONTRIBUTING.md). AI should read root instructions and the destination folder's guidance before placing files.
+
 ## Structure
 
 ```text
