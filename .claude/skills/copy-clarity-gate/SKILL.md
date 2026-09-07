@@ -63,7 +63,7 @@ Fluent copy is the camouflage: a vague referent reads smooth, which is why a rea
 
 **Output convention (default is LOUD)**
 
-- **Substantial deliverables** (decks, emails, campaign or public-facing copy, one-pagers): show the short three-part audit next to the copy so Ted can see the gate ran, not just trust it. Keep it tight: 
+- **Substantial deliverables** (decks, emails, campaign or public-facing copy, one-pagers): show the short three-part audit next to the copy so Ted can see the gate ran, not just trust it. Keep it tight:
 
   - **Decode:** one line confirming headers say what they are, or naming the fix.
 
