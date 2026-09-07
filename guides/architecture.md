@@ -1,6 +1,6 @@
 # One workspace for both divisions
 
-Git holds how we work: reusable procedures, blank templates and public-safe standards. The same skills take explicit division/product/market/audience inputs. Actual mappings and approved claims are supplied through authorized private references; this public preview does not contain them.
+Git holds how we work: reusable procedures, blank templates and public-safe standards. The same skills take explicit division/product/market/audience inputs. Reusable scoped mappings are published with dated observations and target requirements. Current live state, consent decisions and approval evidence still come from their authorized sources.
 
 | Information | Intended authority |
 |---|---|
@@ -15,4 +15,4 @@ The event manager maintains logistics in Smartsheet; marketing operations mainta
 
 Assess the existing document library before adding Notion. Store transcripts and approved summaries with stable identifiers and permissions; reference them from the operational record. A second knowledge product is optional, not a prerequisite.
 
-A private companion workspace can hold controlled mappings and internal evidence. Keep those files in a separate private repository or document system, never a public branch. Public and private Git branches share repository visibility.
+A private companion workspace can hold confidential configuration and internal evidence. Keep those files in a separate private repository or document system, never a public branch. Public and private Git branches share repository visibility.

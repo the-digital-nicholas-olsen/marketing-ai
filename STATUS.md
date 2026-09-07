@@ -1,12 +1,21 @@
 # Readiness
 
-Public collaboration preview, 2026-09-06.
+Updated 2026-09-07. The repository now goes beyond the initial public preview: five canonical skills, including the detailed Accelerate workflow and Ted's copy clarity gate, with generated Claude copies.
 
-- Three reusable skills support drafting, webinar planning and filtered image lookup.
-- Naming and image helpers are locally tested. Claude copies are generated from the same canonical sources.
-- Editorial files are contribution drafts, not approved company policy.
-- Vision and Aesthetics use explicit scope inputs. No live division mappings, consent rules or regulatory approval records are distributed publicly.
-- Smartsheet integration is an architecture proposal, not a configured live connector.
-- Full operational workflows have not been accepted through a second-person Codex/Claude pilot.
+## Available
 
-Before team rollout: review editorial guidance; provide approved private mappings and asset evidence; integrate reviewed upstream references; test one appropriate task per division/client and one missing-prerequisite case. Keep results containing business information outside public Git.
+- Accelerate blueprint and eleven focused references covering forms, pages, campaigns/segments, all four email types, workflows, assets/flyers, internal communications, Smartsheet lessons and acceptance.
+- Both division field mappings, with source-observed state separated from intended requirements; HubSpot access/read-back lessons.
+- Six selected AI foundations with selective context loading and bounded metadata discovery.
+- Source coverage and explicit conflict handling rather than conflicting instructions copied wholesale.
+
+## Still required for production readiness
+
+- Current system access and relevant object/asset inputs for each teammate; the repository supplies methods, not credentials or event records.
+- Resolve shared EM4 sender/subscription and consent decisions, approved campaign type/status/date/budget and any missing asset/claims evidence.
+- Verify intended UTM and Aesthetic Position changes in the live forms; they are not implemented by editing YAML.
+- A second-person Vision and Aesthetics pilot in Codex and Claude. No end-to-end production campaign was created or tested in this release.
+- Shared Smartsheet schema/connector deployment and original-media hosting remain separate work.
+- Reporting, imports, fulfillment and product regulatory guidance need their own scoped extraction/review. Tone/storytelling files remain contribution drafts.
+
+See [coverage](guides/knowledge-coverage.md) and [known conflicts](guides/known-conflicts.md). A newcomer can follow the documented process, but cannot finish a real campaign without the required inputs, access and unresolved business decisions.

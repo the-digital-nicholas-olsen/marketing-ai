@@ -16,3 +16,5 @@ Reusable draft procedure; subject-owner review required.
 6. Record approved logistics and status in the operational system. Keep recording, transcript, final copy and campaign results in the document/work system. Publication and sending follow the explicit task authorization.
 
 Content writer review: narrative and copy. Event manager review: logistics and speakers. Marketing ops review: registration, routing, reminders, reporting. Required named reviewers and lead times remain to be set; no timelines are invented here.
+
+Before delivering copy, run [Ted's clarity gate](../copy-clarity-gate/SKILL.md). It checks clarity without supplying missing clinical evidence.

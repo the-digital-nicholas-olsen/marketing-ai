@@ -7,7 +7,7 @@ Prefer plain language: when the rule applies, required inputs, the procedure, a 
 | Contributor | Typical work |
 |---|---|
 | Content writer | Tone of voice, storytelling, webinar narrative and copy rules |
-| Marketing operations | System procedures, schema meanings, validation and mapping templates; actual internal configuration stays private |
+| Marketing operations | System procedures, exact reusable field mappings, validation and observed-versus-intended corrections; credentials and confidential evidence stay external |
 | Event marketing | Reusable event requirements and blank documents; actual logistics stay in the operational system |
 | Division owners | Vision/Aesthetics scope, business accuracy and acceptance |
 | Technical maintainer | Packaging, checks, access and releases |

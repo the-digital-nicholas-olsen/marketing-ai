@@ -1,0 +1,65 @@
+# Published with Nicholas's authorization on 2026-09-07.
+# Source-reported observation date: 2026-09-06; NOT independently read live in this release.
+# Below is the documented TARGET schema, not proof the donor currently matches it.
+# Revalidate current property definitions and owner-approved requirements before writes.
+# subscriptions and record_types remain intentionally unresolved.
+# Vision — HubSpot field mappings
+# owner: Nick Olsen
+# source: live read of portal 278427, form "VIS-US-Accelerate Nashville-Q3 2026"
+# validated: 2026-09-06
+#
+# Internal property names; see the Accelerate forms reference for procedure.
+
+division_code: VIS
+portal: 278427
+
+routing:
+  imported_record_type__c:
+    value: Ophthalmic                      # NOT "Vision" — there is no Vision value
+    allowed: [Ophthalmic, Aesthetics, Service, Beauty]
+    status: source-reported-2026-09-06
+  goes_to_sf_:
+    value: Sync                            # NOT "Yes"
+    allowed: [Sync, "Not Sync"]
+    status: source-reported-2026-09-06
+
+properties:
+  email:                {type: text,        required: true}
+  firstname:            {type: text,        required: true}
+  lastname:             {type: text,        required: true}
+  company:              {type: text,        required: true, form_label: Practice Name}
+  phone:                {type: phonenumber, required: true}
+  city:                 {type: text,        required: false}
+  state:                {type: select,      required: false}
+  zip:                  {type: text,        required: true}
+  country:              {type: select,      required: true}
+  ophthalmology_position:
+    type: select
+    required: true
+    allowed: ["Practice Manager", "MD", "Nurse", "OD", "Staff",
+              "Patient", "Other", "Ophthalmologist", "Optometrist"]
+  vision_specialty:
+    type: select
+    required: false
+    allowed: ["Cataract surgeon", "Glaucoma specialist", "Ophthalmology",
+              "Optometry", "Retina specialist", "Other"]
+
+
+# No jobtitle field on Vision forms. Aesthetics has one and requires it.
+
+# REQUIRED on Vision forms. Missing from the live Nashville form today — D27.
+utm: [utm_campaign, utm_content, utm_medium, utm_source, utm_term]
+
+subscriptions: {}     # BLOCKED on D07
+record_types: {}
+
+source_observation:
+  recorded_date: 2026-09-06
+  independently_verified_this_release: false
+  donor_utm_fields_present: false
+  donor_country_required: true
+
+release_requirements:
+  confirm_current_portal_schema: true
+  confirm_consent_and_subscription: true
+  confirm_owner_acceptance_of_target_changes: true

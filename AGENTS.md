@@ -1,6 +1,6 @@
 # Shared operating contract
 
-This repository holds reusable marketing methods for Vision and Aesthetics. It is public. Never write credentials, contact lists, actual campaign records, transcripts, internal mappings or approval evidence here. Completed outputs belong in a user-provided external work folder.
+This repository holds reusable marketing methods for Vision and Aesthetics. It is public. Never write credentials, contact lists, actual campaign records, transcripts or confidential approval evidence here. User-authorized reusable mapping definitions belong in divisions/ with observed state separated from intended requirements. Completed outputs belong in a user-provided external work folder.
 
 ## Context loading
 
@@ -8,7 +8,7 @@ Resolve the workflow and division from the task or established context. Ask only
 
 ## Sources and scope
 
-Shared standards set the floor. Product and division rules apply only to their documented scope. Public product copy, a file title or a modification date is not approval evidence. Use authorized external references for current claims and mappings. Preserve citations, restrictions and qualifications. Never borrow another product's claims or another division's CRM values.
+Shared standards set the floor. Product and division rules apply only to their documented scope. Public product copy, a file title or a modification date is not approval evidence. Use scoped repository mappings as dated references and revalidate current system values before writes. Use authorized external evidence for claims and consent. Preserve citations, restrictions and qualifications. Never borrow another product's claims or another division's CRM values.
 
 Operational facts come from the authorized live source, or a user-supplied dated source explicitly accepted for drafting. State when live verification is unavailable. Do not infer consent or opt-in. Missing prerequisites block the affected step; independent drafting can continue with gaps identified.
 

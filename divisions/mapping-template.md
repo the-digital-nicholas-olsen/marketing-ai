@@ -1,6 +1,6 @@
-# Private mapping record — blank template
+# Mapping record — blank template
 
-Complete this in the approved private system, not public Git.
+Reusable mapping definitions may be proposed here with publication authorization. Store confidential configuration and approval evidence in the approved external system. Never include contact records or credentials.
 
 - Division:
 - System and environment:

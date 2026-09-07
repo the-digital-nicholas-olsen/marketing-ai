@@ -21,3 +21,11 @@ node .agents/skills/lumenis-image-search/find-images.mjs --brand OptiLIFT --json
 A sibling `lumenis-web-catalog/catalog.json` is the fallback location. Missing rights metadata stays unverified. Image bytes need not be local when the catalog provides hosted URLs. Do not put personal paths or the catalog's confidential approval evidence in Git.
 
 Supply an output folder outside the repository. A fresh-clone pilot must verify both clients, each relevant division, asset access and missing-input behavior before production use.
+
+## Daily use and updates
+
+The technical helper sets up each teammate's own account and verifies skill discovery in their chosen client. A first task can be a webinar outline for the writer, a form-field audit for operations, or a KBYG draft for events. State division and desired output; the assistant uses the relevant skill rather than requiring a giant pasted prompt.
+
+Before a new task, fetch reviewed updates with `git pull --ff-only` from the repository root. If local edits or divergent history prevent it, preserve them and ask the maintainer to reconcile; do not discard contributions. Updates do not arrive automatically just because a change was merged. Record `git rev-parse --short HEAD` in the external handoff when version traceability matters. Update between tasks, not silently mid-task.
+
+Search metadata with `node scripts/discover.mjs --query forms --limit 5`. A teammate should be able to explain what files and live systems the assistant actually accessed. See [the foundations plan](ai-foundations.md) for the small first pilot.

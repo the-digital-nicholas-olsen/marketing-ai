@@ -1,5 +1,7 @@
 # Division scope
 
-Always resolve Vision or Aesthetics explicitly. A shared workflow does not imply shared CRM fields, consent rules, claims, product availability or audiences.
+Resolve Vision or Aesthetics explicitly. Shared procedures do not imply shared CRM fields, consent, claims, products or audiences.
 
-Use [the blank mapping template](mapping-template.md) to document approved private configuration outside this public repository. Record observed live state separately from intended requirements. Product-specific work also needs the exact market and audience scope. Missing mappings stop the affected operational step, not unrelated drafting.
+Published mappings: [Vision](vision/hubspot/field-mappings.yaml) and [Aesthetics](aesthetics/hubspot/field-mappings.yaml). These preserve September 6 source-reported values and separate intended targets from donor drift. They were not re-read from production in this release. Load only the selected division and validate before live changes.
+
+Use the [mapping template](mapping-template.md) for additional mappings. Consent/subscription and Salesforce record-type gaps remain explicit. Never borrow another division's values.
