@@ -60,7 +60,7 @@ for (const [businessUnit, items] of byBusinessUnit) {
 
 if (failures > 0) {
   console.error(
-    `${failures} of ${pending.length} uploads failed. Run "npx hs account auth" if that's the cause, fix any other failures, then re-run.`,
+    `${failures} of ${pending.length} uploads failed. Run `hs account info --account 278427` and `hs doctor` to diagnose access; do not reauthenticate or re-upload blindly.`,
   );
   process.exit(1);
 }

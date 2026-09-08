@@ -14,3 +14,7 @@ Local adjustments:
 - Did not copy Git history, staging image bytes, credentials or deployment workflows. No HubSpot upload, folder migration or website deployment is part of this integration.
 
 The original instructions and tools remain attributed to their upstream source. This adoption does not assert a new license, confer image rights, or replace brand approval evidence. Existing rights/approval fields, if supplied in future records, must remain intact.
+
+## CLI verification September 7 2026
+
+Live read-only checks confirmed CLI 8.14.0, valid account 278427 authentication, the Files scope, zero doctor errors, and a successful Files API search. The optional non-Codex MCP configuration warning does not block CLI image uploads. No upload was performed. The helper now invokes installed hs directly and pins --account 278427 on every request; it no longer invokes npx or depends on the default account. Upload and sync dispatch were checked with a local mock, not a production write.

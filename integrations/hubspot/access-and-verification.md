@@ -48,3 +48,8 @@ For writes, confirm target account and follow existing task authorization. File 
 ## Browser recovery
 
 Use fresh accessible state before action. Menus can lag; values and screen coordinates shift after validation. Use exact search then inspect IDs; a fuzzy city match may select another year. Supported real dropdown interaction may be needed where synthetic events fail. Avoid concurrent stale editors, confirm persisted state after reload, and search before repeating a clone/create. If a session expires, preserve the handoff and have the user sign in normally.
+
+
+## Image library CLI path
+
+For catalog image uploads, follow the [image-library CLI procedure](../../assets/image-library/README.md#upload-to-hubspot-and-verify-links). Use `hs filemanager upload`, not CMS source upload or browser control, for routine media files. The helper pins account 278427 for both upload and Files API verification. Reuse existing authentication and check command help for supported flags. A successful upload command still needs returned-URL verification and content inspection.
