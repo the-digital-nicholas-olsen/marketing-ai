@@ -11,14 +11,14 @@ node scripts/validate.mjs
 node scripts/name.mjs VIS "Example Webinar" "Q1 2030" US
 ```
 
-For image lookup, point at a reviewed catalog on your machine:
+Image lookup defaults to `assets/image-library/catalog.json` in this repository. To override it with another reviewed catalog:
 
 ```sh
 export LUMENIS_ASSET_CATALOG="/path/to/reviewed/catalog.json"
 node .agents/skills/lumenis-image-search/find-images.mjs --brand OptiLIFT --json
 ```
 
-A sibling `lumenis-web-catalog/catalog.json` is the fallback location. Missing rights metadata stays unverified. Image bytes need not be local when the catalog provides hosted URLs. Do not put personal paths or the catalog's confidential approval evidence in Git.
+See [image-library setup and maintenance](../assets/image-library/README.md) for intake, resizing and HubSpot uploads. Missing rights metadata stays unverified. Image bytes need not be local when the catalog provides hosted URLs. Do not put personal paths or the catalog's confidential approval evidence in Git.
 
 Supply an output folder outside the repository. A fresh-clone pilot must verify both clients, each relevant division, asset access and missing-input behavior before production use.
 

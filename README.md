@@ -1,6 +1,6 @@
 # Lumenis Marketing AI
 
-Shared ways of working for **Vision and Aesthetics**, designed for Codex and Claude. Reusable methods, detailed HubSpot lessons, scoped field mappings and blank templates live here. Actual campaigns, contact records and transcripts stay in the work systems.
+Shared ways of working for **Vision and Aesthetics**, designed for Codex and Claude. Reusable methods, detailed HubSpot lessons, scoped field mappings and blank templates live here. Campaign records stay in work systems.
 
 ## Start here
 
@@ -15,6 +15,7 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Check copy before delivery | [Ted's copy clarity gate](.agents/skills/copy-clarity-gate/SKILL.md) |
 | Prepare a page brief | [Page draft](.agents/skills/lumenis-hubspot-page-draft/SKILL.md) |
 | Plan webinar content | [Webinar skill](.agents/skills/lumenis-webinar-production/SKILL.md) |
+| Add, resize and upload library images | [Image library](assets/image-library/README.md) |
 | Find hosted image candidates | [Image search](.agents/skills/lumenis-image-search/SKILL.md) |
 | Use HubSpot and verify saves | [Access and verification](integrations/hubspot/access-and-verification.md) |
 | Understand the rollout and token discipline | [Six foundations](guides/ai-foundations.md) |
@@ -40,7 +41,7 @@ templates/        Blank briefs and process blueprints
 scripts/          Discovery, naming, synchronization and validation
 ```
 
-Use `node scripts/discover.mjs --query emails --limit 5` to find relevant metadata without loading every document.
+Use `node scripts/discover.mjs --query emails --limit 5` for discovery.
 
 The detailed manual is source-derived. It does not mean the live systems have been fixed or a newcomer pilot has passed. [Known conflicts](guides/known-conflicts.md) identify decisions required for a sendable campaign. GitHub access does not grant HubSpot, Salesforce or Smartsheet access.
 
