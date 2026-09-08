@@ -12,7 +12,7 @@ Prefer plain language: when the rule applies, required inputs, the procedure, a 
 | Division owners | Vision/Aesthetics scope, business accuracy and acceptance |
 | Technical maintainer | Packaging, checks, access and releases |
 
-A subject owner reviews accuracy where needed. Nicholas (`@nicholasolsen211-debug`) is the default code owner, reviews contributions and handles merging. GitHub approval is a repository review, not clinical or regulatory approval.
+A subject owner reviews accuracy where needed. Nicholas (`@the-digital-nicholas-olsen`) is the default code owner, reviews contributions and handles merging. GitHub approval is a repository review, not clinical or regulatory approval.
 
 Edit `.agents/skills/`, then run `node scripts/sync-skills.mjs` and `node scripts/validate.mjs`. Never edit generated `.claude/skills/` directly. Describe validation and unresolved gaps in the PR. Do not add a second editable copy of an existing procedure.
 
