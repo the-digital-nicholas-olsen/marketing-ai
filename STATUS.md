@@ -1,8 +1,10 @@
 # Readiness
 
-Updated 2026-09-07. The repository now goes beyond the initial public preview: five canonical skills, including the detailed Accelerate workflow and Ted's copy clarity gate, with generated Claude copies.
+Updated 2026-09-07. The repository now goes beyond the initial public preview: six canonical skills, including the detailed Accelerate workflow and Ted's copy clarity gate, with generated Claude copies.
 
 ## Available
+
+- Integrated image-library instructions, catalog and scripts in assets/image-library, with a canonical intake/upload skill and generated Claude copy. Local intake/resizing tested; production HubSpot upload/sync not exercised during adoption.
 
 - Accelerate blueprint and eleven focused references covering forms, pages, campaigns/segments, all four email types, workflows, assets/flyers, internal communications, Smartsheet lessons and acceptance.
 - Both division field mappings, with source-observed state separated from intended requirements; HubSpot access/read-back lessons.

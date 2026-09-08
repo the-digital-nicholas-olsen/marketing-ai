@@ -15,6 +15,7 @@ for (const path of walk(root)) {
   if (/\.(md|mjs)$/.test(path)) {
     for (const match of text.matchAll(/\]\(([^)]+)\)/g)) {
       const target = match[1].split('#')[0];
+      if (path.endsWith('.mjs') && target.includes('${')) continue; // Runtime-generated links
       if (target && !/^[a-z]+:/i.test(target) && !existsSync(resolve(dirname(path),target))) failures.push(`Missing link in ${path}: ${target}`);
     }
   }

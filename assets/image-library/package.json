@@ -1,0 +1,18 @@
+{
+  "name": "lumenis-web-catalog",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "generate-metadata": "node scripts/generate-metadata.mjs",
+    "process-image": "node scripts/process-image.mjs",
+    "validate-catalog": "node scripts/validate-catalog.mjs",
+    "build-catalog": "node scripts/build-catalog.mjs",
+    "build-pages": "node scripts/build-github-page.mjs",
+    "upload": "node scripts/upload-to-hubspot.mjs",
+    "sync-catalog": "node scripts/sync-catalog.mjs"
+  },
+  "devDependencies": {
+    "@hubspot/cli": "^8.14.0",
+    "sharp": "0.34.3"
+  }
+}

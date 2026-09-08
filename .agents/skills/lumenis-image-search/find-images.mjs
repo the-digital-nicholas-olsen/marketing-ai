@@ -18,7 +18,7 @@
  *   --alt                       also print altText
  *   --json                      machine-readable output
  *
- * Source: LUMENIS_ASSET_CATALOG or sibling lumenis-web-catalog/catalog.json.
+ * Source: LUMENIS_ASSET_CATALOG or assets/image-library/catalog.json.
  * Search results are candidates; URLs do not establish clearance.
  */
 
@@ -27,7 +27,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const catalogPath = process.env.LUMENIS_ASSET_CATALOG || join(here, '../../../..', 'lumenis-web-catalog', 'catalog.json');
+const catalogPath = process.env.LUMENIS_ASSET_CATALOG || join(here, '../../..', 'assets/image-library/catalog.json');
 
 let assets;
 try {

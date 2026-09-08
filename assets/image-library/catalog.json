@@ -1,0 +1,4224 @@
+{
+  "_meta": {
+    "description": "Lumenis web-ready image catalog adopted into marketing-ai/assets/image-library from lumenis-web-catalog commit 38b56997a6795746e4382e7bdcfdbdc8bbb90109. Coordinate upstream changes during consolidation.",
+    "howToUse": {
+      "usageRestrictions": "There is no approval or rights-clearance flag on an asset \u2014 usageRestrictions is free-text, AI-drafted notes on what a human should check (identifiable people, competitor branding, on-screen PHI, etc.) before using the image. Read it yourself; nothing in this catalog enforces it.",
+      "imageUrl": "Use derivative.hubspotUrl \u2014 the live, HubSpot-verified public delivery URL. Never use derivative.path: that's a local file path inside the source repo (3-processed/...) and will not resolve outside it. A derivative with no hubspotUrl hasn't been uploaded yet and isn't usable externally.",
+      "derivativeWidths": "Each asset has up to three derivatives \u2014 640w, 1280w, 1920w \u2014 capped at the source image's own size, so smaller sources may have fewer. Pick the smallest width that satisfies your placement rather than always grabbing the largest."
+    },
+    "hubspot": {
+      "portalId": "278427",
+      "note": "Every asset lives in the same HubSpot portal, so portalId is recorded once here rather than repeated on each asset. Each asset's own asset.hubspot.folderId/folderName identifies which folder within this portal holds it."
+    },
+    "vocabularies": {
+      "allowedBrands": [
+        "OptiLIGHT",
+        "OptiLIFT",
+        "Folix",
+        "Lumenis corporate",
+        "cross-brand approved"
+      ],
+      "businessUnit": [
+        "Vision",
+        "Aesthetics",
+        "Corporate"
+      ],
+      "collection": [
+        "accelerate-events",
+        "trade-shows",
+        "product-demos",
+        "optilift",
+        "optilight",
+        "brand-assets"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "card",
+        "testimonial",
+        "technology",
+        "product-detail",
+        "social",
+        "email"
+      ],
+      "orientation": [
+        "landscape",
+        "portrait",
+        "square",
+        "panoramic"
+      ],
+      "note": "These lists can grow over time. Treat a value you don't recognize as valid-but-unclassified, not an error."
+    },
+    "lastSyncedAt": "2026-08-30T18:05:45.097Z",
+    "updatedAt": "2026-08-30T18:05:45.099Z"
+  },
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "folix-scalp-treatment-demo-001",
+      "allowedBrands": [
+        "Folix"
+      ],
+      "businessUnit": "Aesthetics",
+      "collection": "product-demos",
+      "subject": "Folix scalp treatment in progress",
+      "description": "A practitioner uses a Folix laser handpiece near a reclining patient's hairline; both wear safety goggles.",
+      "productShown": "Folix laser system (console and handpiece)",
+      "audience": [
+        "patient",
+        "practice staff"
+      ],
+      "placements": [
+        "hero",
+        "product-detail",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Modern treatment room with a brick accent wall, warm task lighting, and potted plants",
+      "tags": [
+        "Folix",
+        "scalp treatment",
+        "laser treatment",
+        "aesthetic device",
+        "patient demo",
+        "treatment room"
+      ],
+      "altText": "A practitioner uses a Folix laser handpiece near a reclining patient's hairline during a scalp treatment.",
+      "usageRestrictions": "Contains two identifiable individuals (patient and practitioner) with visible faces \u2014 confirm signed model/participant releases for both before approval. Device touchscreen shows only generic UI icons, no visible patient data.",
+      "source": {
+        "filename": "folix_tipol_15_new.jpg",
+        "format": "jpeg",
+        "width": 1672,
+        "height": 941,
+        "bytes": 666373,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 360,
+          "bytes": 25350,
+          "format": "webp",
+          "path": "3-processed/product-demos/folix-scalp-treatment-demo-001/folix-scalp-treatment-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20Web%20Image%20Catalog/Aesthetics/folix-scalp-treatment-demo-001/folix-scalp-treatment-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "bytes": 60280,
+          "format": "webp",
+          "path": "3-processed/product-demos/folix-scalp-treatment-demo-001/folix-scalp-treatment-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20Web%20Image%20Catalog/Aesthetics/folix-scalp-treatment-demo-001/folix-scalp-treatment-demo-001-1280w.webp"
+        },
+        {
+          "width": 1672,
+          "height": 941,
+          "bytes": 80166,
+          "format": "webp",
+          "path": "3-processed/product-demos/folix-scalp-treatment-demo-001/folix-scalp-treatment-demo-001-1672w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20Web%20Image%20Catalog/Aesthetics/folix-scalp-treatment-demo-001/folix-scalp-treatment-demo-001-1672w.webp"
+        }
+      ],
+      "importedAt": "2026-08-30T16:45:42.660Z",
+      "hubspot": {
+        "folderId": "220678784826",
+        "folderName": "US - Web Image Catalog/Aesthetics"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-attendee-conversation-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Attendees in conversation",
+      "description": "Two women converse in a lively, plant-filled event lounge during a Lumenis gathering.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Warm lounge interior with attendees and greenery.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "attendees",
+        "conversation",
+        "event lounge",
+        "networking"
+      ],
+      "altText": "Two women talking in a Lumenis event lounge.",
+      "usageRestrictions": "Confirm participant and event releases before publication.",
+      "source": {
+        "filename": "IMG_8698.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 13479374,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 61090,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-attendee-conversation-001/lumenis-accelerate-attendee-conversation-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-attendee-conversation-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 168640,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-attendee-conversation-001/lumenis-accelerate-attendee-conversation-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-attendee-conversation-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 317252,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-attendee-conversation-001/lumenis-accelerate-attendee-conversation-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-attendee-conversation-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:34.288Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-device-presentation-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate device presentation",
+      "description": "Two presenters stand beside a Lumenis device on the Accelerate by Lumenis stage.",
+      "productShown": "Lumenis aesthetic device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "event attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "White Accelerate by Lumenis presentation backdrop.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "presentation",
+        "event stage",
+        "device",
+        "speakers"
+      ],
+      "altText": "Two presenters stand beside a Lumenis device on an event stage.",
+      "usageRestrictions": "Confirm participant and product-marketing approval before publication. Do not make product-specific claims.",
+      "source": {
+        "filename": "DSC03383 - Kreative Kor Video Marketing - Lumenis Orlando.jpg",
+        "format": "jpeg",
+        "width": 5805,
+        "height": 3870,
+        "bytes": 7719130,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 426,
+          "bytes": 22774,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-device-presentation-001/lumenis-accelerate-device-presentation-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-presentation-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 60768,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-device-presentation-001/lumenis-accelerate-device-presentation-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-presentation-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 107496,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-device-presentation-001/lumenis-accelerate-device-presentation-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-presentation-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:24.355Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-device-station-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Lumenis device station",
+      "description": "A Lumenis device station at the Accelerate event, with an attendee seated in front of the equipment.",
+      "productShown": "Lumenis aesthetic device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "event attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Accelerate by Lumenis event backdrop.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "device station",
+        "event",
+        "treatment technology"
+      ],
+      "altText": "A Lumenis device station at an event.",
+      "usageRestrictions": "Confirm participant and product-marketing approval before publication. Do not make product-specific claims.",
+      "source": {
+        "filename": "DSC07592 - Kreative Kor Video Marketing - Lumenis Orlando.jpg",
+        "format": "jpeg",
+        "width": 4000,
+        "height": 6000,
+        "bytes": 10504189,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 47214,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-device-station-001/lumenis-accelerate-device-station-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-station-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 136844,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-device-station-001/lumenis-accelerate-device-station-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-station-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 273966,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-device-station-001/lumenis-accelerate-device-station-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-station-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:30.412Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-dinner-setting-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate dinner table setting",
+      "description": "Portrait event detail of flowers, place settings, and a printed menu at an Accelerate by Lumenis dinner.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Warmly lit dinner table with floral arrangement.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "dinner",
+        "table setting",
+        "flowers",
+        "event detail"
+      ],
+      "altText": "Flowers and a menu on a dinner table at a Lumenis event.",
+      "usageRestrictions": "Confirm venue, menu, and event clearance before publication.",
+      "source": {
+        "filename": "IMG_9035.jpg",
+        "format": "jpeg",
+        "width": 3789,
+        "height": 5683,
+        "bytes": 6048602,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 88012,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-dinner-setting-001/lumenis-accelerate-dinner-setting-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-dinner-setting-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 251326,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-dinner-setting-001/lumenis-accelerate-dinner-setting-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-dinner-setting-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 595128,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-dinner-setting-001/lumenis-accelerate-dinner-setting-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-dinner-setting-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:39.668Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-event-lounge-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate event lounge",
+      "description": "Wide view of attendees networking in a warm lounge beneath an Accelerate by Lumenis sign.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Dimly lit lounge with chandeliers, seating, and attendees.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "event lounge",
+        "networking",
+        "attendees",
+        "hospitality"
+      ],
+      "altText": "Attendees networking in a Lumenis event lounge.",
+      "usageRestrictions": "Confirm participant, venue, and event releases before publication.",
+      "source": {
+        "filename": "IMG_9161.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 11221909,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 67934,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-lounge-001/lumenis-accelerate-event-lounge-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-lounge-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 243664,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-lounge-001/lumenis-accelerate-event-lounge-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-lounge-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 543984,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-lounge-001/lumenis-accelerate-event-lounge-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-lounge-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:42.872Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-event-materials-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Lumenis event materials",
+      "description": "Flat lay of Lumenis-branded printed materials, a lanyard, and event accessories.",
+      "productShown": "Lumenis branded event materials",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social",
+        "email"
+      ],
+      "orientation": "landscape",
+      "background": "Neutral woven surface.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "event materials",
+        "lanyard",
+        "printed collateral",
+        "flat lay"
+      ],
+      "altText": "Lumenis-branded event materials and a lanyard on a neutral surface.",
+      "usageRestrictions": "Confirm current brand, campaign, and event-material approval before publication.",
+      "source": {
+        "filename": "IMG_9145.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 9319291,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 80808,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-materials-001/lumenis-accelerate-event-materials-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-materials-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 250298,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-materials-001/lumenis-accelerate-event-materials-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-materials-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 460534,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-materials-001/lumenis-accelerate-event-materials-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-materials-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:41.754Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-event-menu-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate event menu",
+      "description": "Portrait event detail of a printed menu displayed with flowers on a table.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Outdoor or window-lit table with flowers.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "event menu",
+        "flowers",
+        "table setting",
+        "event detail"
+      ],
+      "altText": "A printed menu and flowers at a Lumenis event.",
+      "usageRestrictions": "Confirm venue, menu, and event clearance before publication.",
+      "source": {
+        "filename": "IMG_9811.jpg",
+        "format": "jpeg",
+        "width": 4000,
+        "height": 6000,
+        "bytes": 4190312,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 56558,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-menu-001/lumenis-accelerate-event-menu-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-menu-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 151734,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-menu-001/lumenis-accelerate-event-menu-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-menu-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 298992,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-menu-001/lumenis-accelerate-event-menu-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-menu-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:46.801Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-event-patio-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate patio gathering",
+      "description": "Attendees gather on a flower-lined patio during a Lumenis event.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Outdoor patio with florals, greenery, and event attendees.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "attendees",
+        "patio",
+        "networking",
+        "event"
+      ],
+      "altText": "Attendees gathering on a flower-lined patio at a Lumenis event.",
+      "usageRestrictions": "Confirm participant, venue, and event releases before publication.",
+      "source": {
+        "filename": "IMG_9937.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 9400519,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 66928,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-patio-001/lumenis-accelerate-event-patio-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-patio-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 224028,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-patio-001/lumenis-accelerate-event-patio-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-patio-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 454674,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-patio-001/lumenis-accelerate-event-patio-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-patio-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:47.827Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-event-stage-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Empty Accelerate event stage",
+      "description": "Wide view of the Accelerate by Lumenis event stage and arranged audience seating before a session.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Event room with Accelerate by Lumenis stage branding.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "event stage",
+        "audience seating",
+        "venue",
+        "conference"
+      ],
+      "altText": "An empty Accelerate by Lumenis event stage with audience seating.",
+      "usageRestrictions": "Confirm venue and event clearance before publication.",
+      "source": {
+        "filename": "IMG_8576.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 7985523,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 44594,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-001/lumenis-accelerate-event-stage-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 124656,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-001/lumenis-accelerate-event-stage-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 210566,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-001/lumenis-accelerate-event-stage-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:31.321Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-event-stage-002",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Event seating setup",
+      "description": "Portrait-oriented view of a prepared event space with transparent chairs and a white stage backdrop.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Minimal event room with neutral stage wall.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "event setup",
+        "chairs",
+        "venue",
+        "conference"
+      ],
+      "altText": "Transparent chairs arranged in a prepared event space.",
+      "usageRestrictions": "Confirm venue and event clearance before publication.",
+      "source": {
+        "filename": "IMG_8584.jpg",
+        "format": "jpeg",
+        "width": 4000,
+        "height": 6000,
+        "bytes": 10563016,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 57814,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-002/lumenis-accelerate-event-stage-002-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-002-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 187952,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-002/lumenis-accelerate-event-stage-002-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-002-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 520806,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-002/lumenis-accelerate-event-stage-002-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-002-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:33.180Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-event-stage-003",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate stage and screen",
+      "description": "Wide view of the Accelerate by Lumenis stage, presentation screen, and transparent seating.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Event stage with colorful presentation screen.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "event stage",
+        "presentation screen",
+        "conference",
+        "venue"
+      ],
+      "altText": "Accelerate by Lumenis stage with a presentation screen and seating.",
+      "usageRestrictions": "Confirm event, venue, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "IMG_9119.jpg",
+        "format": "jpeg",
+        "width": 5616,
+        "height": 3744,
+        "bytes": 6043474,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 43076,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-003/lumenis-accelerate-event-stage-003-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-003-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 118812,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-003/lumenis-accelerate-event-stage-003-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-003-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 220814,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-003/lumenis-accelerate-event-stage-003-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-003-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:40.718Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-event-stage-night-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate stage at night",
+      "description": "The illuminated Accelerate by Lumenis stage viewed from the audience in a dark event venue.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Dark venue with illuminated stage and steps.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "event stage",
+        "night",
+        "venue",
+        "conference"
+      ],
+      "altText": "An illuminated Lumenis event stage in a dark venue.",
+      "usageRestrictions": "Confirm venue and event clearance before publication.",
+      "source": {
+        "filename": "IMG_9284.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 3843128,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 26358,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-night-001/lumenis-accelerate-event-stage-night-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-night-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 70206,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-night-001/lumenis-accelerate-event-stage-night-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-night-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 128180,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-event-stage-night-001/lumenis-accelerate-event-stage-night-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-event-stage-night-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:43.584Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-interview-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate interview conversation",
+      "description": "Two women speak in an interview-style conversation at the Accelerate by Lumenis event.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Warm interior event setting.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "conversation",
+        "interview",
+        "event",
+        "leadership"
+      ],
+      "altText": "Two women speaking together at a Lumenis event.",
+      "usageRestrictions": "Confirm participant and event releases before publication.",
+      "source": {
+        "filename": "DSC07321 - Kreative Kor Video Marketing - Lumenis Orlando.jpg",
+        "format": "jpeg",
+        "width": 5882,
+        "height": 3921,
+        "bytes": 11065702,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 27500,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-interview-001/lumenis-accelerate-interview-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-interview-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 73824,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-interview-001/lumenis-accelerate-interview-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-interview-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 129622,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-interview-001/lumenis-accelerate-interview-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-interview-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:27.833Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-ny-panel-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "accelerate-events",
+      "subject": "Accelerate New York panel",
+      "description": "A speaker gestures while seated on a panel at Accelerate by Lumenis New York.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "White event stage and seated panelists.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "New York",
+        "panel",
+        "speaker",
+        "event"
+      ],
+      "altText": "A speaker gestures during an Accelerate by Lumenis New York panel.",
+      "usageRestrictions": "Confirm speaker, event, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "Accelerate by Lumenis NY-167.jpg",
+        "format": "jpeg",
+        "width": 2160,
+        "height": 1440,
+        "bytes": 1457998,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 24468,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-panel-001/lumenis-accelerate-ny-panel-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-panel-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 62472,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-panel-001/lumenis-accelerate-ny-panel-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-panel-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 114892,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-panel-001/lumenis-accelerate-ny-panel-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-panel-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:31.687Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-ny-showroom-sign-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "accelerate-events",
+      "subject": "Beauty Tech Showroom sign",
+      "description": "A close view of the Lumenis Beauty Tech Showroom sign at an Accelerate by Lumenis New York event.",
+      "productShown": "Lumenis event signage",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Reflections in a polished event-space wall.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "New York",
+        "Beauty Tech Showroom",
+        "event signage"
+      ],
+      "altText": "Lumenis Beauty Tech Showroom sign at an event.",
+      "usageRestrictions": "Confirm event, venue, and current brand approval before publication.",
+      "source": {
+        "filename": "Accelerate by Lumenis NY-22.jpg",
+        "format": "jpeg",
+        "width": 2160,
+        "height": 1440,
+        "bytes": 1536671,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 19840,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-showroom-sign-001/lumenis-accelerate-ny-showroom-sign-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-showroom-sign-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 54038,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-showroom-sign-001/lumenis-accelerate-ny-showroom-sign-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-showroom-sign-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 104506,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-showroom-sign-001/lumenis-accelerate-ny-showroom-sign-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-showroom-sign-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:32.874Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-ny-speaker-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "accelerate-events",
+      "subject": "Accelerate New York speaker",
+      "description": "A speaker presents to attendees during an Accelerate by Lumenis New York session.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "White event stage with seated panelists.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "New York",
+        "speaker",
+        "presentation",
+        "event"
+      ],
+      "altText": "A speaker presenting at Accelerate by Lumenis New York.",
+      "usageRestrictions": "Confirm speaker, event, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "Accelerate by Lumenis NY-175.jpg",
+        "format": "jpeg",
+        "width": 2160,
+        "height": 1440,
+        "bytes": 1650545,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 29096,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-speaker-001/lumenis-accelerate-ny-speaker-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-speaker-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 82854,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-speaker-001/lumenis-accelerate-ny-speaker-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-speaker-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 168546,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-ny-speaker-001/lumenis-accelerate-ny-speaker-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-ny-speaker-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:32.284Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-panel-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate event panel",
+      "description": "Four speakers stand together on the Accelerate by Lumenis stage during a live event session.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Accelerate by Lumenis stage backdrop.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "panel",
+        "speakers",
+        "event stage",
+        "leadership"
+      ],
+      "altText": "Four speakers on the Accelerate by Lumenis stage.",
+      "usageRestrictions": "Confirm speaker, event, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "DSC07065 - Kreative Kor Video Marketing - Lumenis Orlando.jpg",
+        "format": "jpeg",
+        "width": 5969,
+        "height": 3979,
+        "bytes": 8700022,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 426,
+          "bytes": 28502,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-001/lumenis-accelerate-panel-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 72606,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-001/lumenis-accelerate-panel-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 123176,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-001/lumenis-accelerate-panel-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:26.095Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-panel-002",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate panel speakers",
+      "description": "Two speakers seated in director chairs on the Accelerate by Lumenis stage.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Accelerate by Lumenis event backdrop.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "panel",
+        "speakers",
+        "director chairs",
+        "event stage"
+      ],
+      "altText": "Two speakers seated on the Accelerate by Lumenis stage.",
+      "usageRestrictions": "Confirm speaker, event, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "DSC07257 - Kreative Kor Video Marketing - Lumenis Orlando.jpg",
+        "format": "jpeg",
+        "width": 5920,
+        "height": 3947,
+        "bytes": 7982018,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 426,
+          "bytes": 27102,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-002/lumenis-accelerate-panel-002-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-002-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 69816,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-002/lumenis-accelerate-panel-002-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-002-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 118016,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-002/lumenis-accelerate-panel-002-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-002-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:26.919Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-panel-003",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate stage panel",
+      "description": "Three speakers sit together on director chairs in front of the Accelerate by Lumenis backdrop.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Accelerate by Lumenis event stage.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "panel",
+        "speakers",
+        "event stage",
+        "leadership"
+      ],
+      "altText": "Three speakers seated on the Accelerate by Lumenis stage.",
+      "usageRestrictions": "Confirm speaker, event, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "IMG_9565.jpg",
+        "format": "jpeg",
+        "width": 4030,
+        "height": 3114,
+        "bytes": 2329192,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 494,
+          "bytes": 34078,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-003/lumenis-accelerate-panel-003-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-003-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 989,
+          "bytes": 82456,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-003/lumenis-accelerate-panel-003-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-003-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1484,
+          "bytes": 152882,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-panel-003/lumenis-accelerate-panel-003-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-panel-003-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:44.388Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-presentation-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate audience presentation",
+      "description": "A presenter addresses a seated audience at an Accelerate by Lumenis event session.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Event stage, presentation screen, and audience.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "presentation",
+        "audience",
+        "event stage",
+        "conference"
+      ],
+      "altText": "A presenter speaking to an audience at a Lumenis event.",
+      "usageRestrictions": "Confirm speaker, attendee, event, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "IMG_9799.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 6467657,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 40702,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-presentation-001/lumenis-accelerate-presentation-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-presentation-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 109610,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-presentation-001/lumenis-accelerate-presentation-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-presentation-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 194460,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-presentation-001/lumenis-accelerate-presentation-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-presentation-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:45.251Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-speaker-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate event speaker",
+      "description": "A speaker addresses an audience from the Accelerate by Lumenis stage.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Accelerate by Lumenis stage and presentation screen.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "speaker",
+        "presentation",
+        "event stage",
+        "leadership"
+      ],
+      "altText": "A speaker presenting on the Accelerate by Lumenis stage.",
+      "usageRestrictions": "Confirm speaker, event, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "DSC07008 - Kreative Kor Video Marketing - Lumenis Orlando.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 8949557,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 23866,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-speaker-001/lumenis-accelerate-speaker-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-speaker-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 59190,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-speaker-001/lumenis-accelerate-speaker-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-speaker-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 99506,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-speaker-001/lumenis-accelerate-speaker-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-speaker-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:25.237Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-speaker-stage-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate speaker on stage",
+      "description": "A speaker sits in a director chair on the Accelerate by Lumenis stage.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Accelerate by Lumenis event backdrop.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "speaker",
+        "event stage",
+        "director chair",
+        "presentation"
+      ],
+      "altText": "A speaker on the Accelerate by Lumenis stage.",
+      "usageRestrictions": "Confirm speaker, event, and presentation-content clearance before publication.",
+      "source": {
+        "filename": "IMG_8986.jpg",
+        "format": "jpeg",
+        "width": 3311,
+        "height": 4967,
+        "bytes": 2740337,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 36312,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-speaker-stage-001/lumenis-accelerate-speaker-stage-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-speaker-stage-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 98046,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-speaker-stage-001/lumenis-accelerate-speaker-stage-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-speaker-stage-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 210486,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-speaker-stage-001/lumenis-accelerate-speaker-stage-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-speaker-stage-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:37.773Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-treatment-demo-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate treatment demonstration",
+      "description": "A presenter demonstrates a facial treatment device on a reclining participant during the Accelerate by Lumenis event.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "event attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Accelerate by Lumenis event stage.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "treatment demonstration",
+        "event",
+        "provider"
+      ],
+      "altText": "A presenter demonstrates a facial treatment at the Accelerate by Lumenis event.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "DSC03267 - Kreative Kor Video Marketing - Lumenis Orlando.jpg",
+        "format": "jpeg",
+        "width": 5826,
+        "height": 3884,
+        "bytes": 7620586,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 426,
+          "bytes": 21530,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-treatment-demo-001/lumenis-accelerate-treatment-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-treatment-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 56030,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-treatment-demo-001/lumenis-accelerate-treatment-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-treatment-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 96896,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-treatment-demo-001/lumenis-accelerate-treatment-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-treatment-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:23.560Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-accelerate-treatment-demo-002",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Accelerate facial treatment demo",
+      "description": "Close view of a provider using a handheld device on a reclining male participant during an event demonstration.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "event attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Event treatment demonstration setting.",
+      "tags": [
+        "Lumenis",
+        "Accelerate",
+        "treatment demonstration",
+        "facial treatment",
+        "provider",
+        "device"
+      ],
+      "altText": "A provider demonstrates a facial treatment on a reclining man.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "DSC07454 - Kreative Kor Video Marketing - Lumenis Orlando.jpg",
+        "format": "jpeg",
+        "width": 5932,
+        "height": 3955,
+        "bytes": 10708148,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 26500,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-treatment-demo-002/lumenis-accelerate-treatment-demo-002-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-treatment-demo-002-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 74536,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-treatment-demo-002/lumenis-accelerate-treatment-demo-002-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-treatment-demo-002-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 131528,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-accelerate-treatment-demo-002/lumenis-accelerate-treatment-demo-002-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-treatment-demo-002-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:28.748Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-booth-conversation-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Conversation at a trade-show booth",
+      "description": "A Lumenis representative speaks with two attendees on a busy exhibition floor.",
+      "productShown": "none",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Exhibition hall and Lumenis booth environment.",
+      "tags": [
+        "Lumenis",
+        "trade show",
+        "conversation",
+        "representative",
+        "attendees",
+        "booth"
+      ],
+      "altText": "A Lumenis representative speaking with attendees at a trade-show booth.",
+      "usageRestrictions": "Confirm participant and event releases before publication. Not suitable for product or clinical claims.",
+      "source": {
+        "filename": "50-BMAC3935.jpg",
+        "format": "jpeg",
+        "width": 4609,
+        "height": 3073,
+        "bytes": 2960680,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 31674,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-booth-conversation-001/lumenis-booth-conversation-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-booth-conversation-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 88044,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-booth-conversation-001/lumenis-booth-conversation-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-booth-conversation-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 178048,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-booth-conversation-001/lumenis-booth-conversation-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-booth-conversation-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:21.070Z",
+      "collection": "trade-shows",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-city-skyline-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "City skyline",
+      "description": "Wide view of a city skyline in soft daylight, suitable as contextual event or location imagery.",
+      "productShown": "none",
+      "audience": [
+        "event attendees",
+        "corporate partners",
+        "Lumenis employees"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Urban skyline and pale sky.",
+      "tags": [
+        "city",
+        "skyline",
+        "location",
+        "urban",
+        "event context"
+      ],
+      "altText": "A city skyline under a pale sky.",
+      "usageRestrictions": "Confirm photographer and location-use rights before publication. No product association implied.",
+      "source": {
+        "filename": "IMG_8761.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 8804146,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 47252,
+          "format": "webp",
+          "path": "3-processed/brand-assets/lumenis-city-skyline-001/lumenis-city-skyline-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-city-skyline-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 165742,
+          "format": "webp",
+          "path": "3-processed/brand-assets/lumenis-city-skyline-001/lumenis-city-skyline-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-city-skyline-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 329356,
+          "format": "webp",
+          "path": "3-processed/brand-assets/lumenis-city-skyline-001/lumenis-city-skyline-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-city-skyline-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:35.233Z",
+      "collection": "brand-assets",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-corporate-director-chair-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Lumenis-branded director chair",
+      "description": "Portrait-oriented behind-the-scenes event photograph of a black LUMENIS-branded director chair in a warm wood-paneled interior, with a second chair partly visible at the edge of frame.",
+      "productShown": "none",
+      "audience": [
+        "Lumenis employees",
+        "event attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Warm wood paneling, daylight, and a blue-grey floor.",
+      "tags": [
+        "Lumenis",
+        "corporate event",
+        "director chair",
+        "behind the scenes",
+        "warm interior",
+        "brand presence"
+      ],
+      "altText": "A Lumenis-branded director chair in a warm wood-paneled event space.",
+      "usageRestrictions": "Confirm venue, event, and brand-usage clearance before publication. Not suitable for product or clinical claims.",
+      "sourceUrl": "https://www.dropbox.com/scl/fi/d5nr9sxk762mdmkqjwimp/IMG_8260.jpg?rlkey=ui1e0ujd18hhnqq2xvq12or7s&st=vno3jtwo&dl=0",
+      "source": {
+        "filename": "IMG_8260.jpg",
+        "format": "jpeg",
+        "width": 4000,
+        "height": 6000,
+        "bytes": 16549961
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 90052,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-corporate-director-chair-001/lumenis-corporate-director-chair-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-corporate-director-chair-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 388130,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-corporate-director-chair-001/lumenis-corporate-director-chair-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-corporate-director-chair-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 1183560,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-corporate-director-chair-001/lumenis-corporate-director-chair-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-corporate-director-chair-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T16:21:54.545Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-device-closeup-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Aesthetic device touchscreen",
+      "description": "Portrait close-up of a white aesthetic device with a touchscreen interface at a trade-show booth.",
+      "productShown": "Lumenis aesthetic device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "product-detail",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Trade-show booth with people softly visible behind the device.",
+      "tags": [
+        "Lumenis",
+        "device",
+        "touchscreen",
+        "treatment technology",
+        "trade show",
+        "closeup"
+      ],
+      "altText": "Close-up of a white aesthetic device with a touchscreen.",
+      "usageRestrictions": "Confirm device identity and product-marketing approval before publication. Do not make product-specific or clinical claims.",
+      "source": {
+        "filename": "Image - 0213.jpg",
+        "format": "jpeg",
+        "width": 2832,
+        "height": 4256,
+        "bytes": 4017817,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 962,
+          "bytes": 31150,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-closeup-001/lumenis-device-closeup-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-closeup-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1924,
+          "bytes": 74148,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-closeup-001/lumenis-device-closeup-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-closeup-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2885,
+          "bytes": 152716,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-closeup-001/lumenis-device-closeup-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-closeup-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:54.007Z",
+      "collection": "product-demos",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-device-controls-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Lumenis device controls",
+      "description": "Close view of a clinician adjusting the touchscreen controls of a white Lumenis aesthetic device.",
+      "productShown": "Lumenis aesthetic device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "product-detail",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Clean light clinical interior.",
+      "tags": [
+        "Lumenis",
+        "device",
+        "touchscreen",
+        "controls",
+        "clinical studio",
+        "aesthetic technology"
+      ],
+      "altText": "A clinician adjusts the touchscreen controls of a white Lumenis device.",
+      "usageRestrictions": "Confirm device identity and product-marketing approval before publication. Do not make product-specific or clinical claims.",
+      "source": {
+        "filename": "20260417 DrSampalis-7.jpg",
+        "format": "jpeg",
+        "width": 7830,
+        "height": 5223,
+        "bytes": 3975820,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 19560,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-controls-001/lumenis-device-controls-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-controls-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 854,
+          "bytes": 49236,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-controls-001/lumenis-device-controls-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-controls-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 84998,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-controls-001/lumenis-device-controls-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-controls-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:31.099Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-device-studio-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Lumenis device in clinical studio",
+      "description": "Portrait product photograph of a white Lumenis aesthetic device with its handpieces in a clean clinical setting.",
+      "productShown": "Lumenis aesthetic device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "product-detail",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Clean light clinical interior.",
+      "tags": [
+        "Lumenis",
+        "device",
+        "product",
+        "clinical studio",
+        "handpieces",
+        "aesthetic technology"
+      ],
+      "altText": "A white Lumenis aesthetic device with handpieces in a clinical setting.",
+      "usageRestrictions": "Confirm device identity and product-marketing approval before publication. Do not make product-specific or clinical claims.",
+      "source": {
+        "filename": "20260417 DrSampalis-1.jpg",
+        "format": "jpeg",
+        "width": 4681,
+        "height": 6554,
+        "bytes": 3311187,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 896,
+          "bytes": 34634,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-studio-001/lumenis-device-studio-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-studio-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1793,
+          "bytes": 90452,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-studio-001/lumenis-device-studio-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-studio-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2688,
+          "bytes": 160964,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-studio-001/lumenis-device-studio-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-studio-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:28.102Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-device-treatment-demo-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Lumenis device treatment demo",
+      "description": "A provider operates a white Lumenis aesthetic device while a participant reclines in a clinical treatment room.",
+      "productShown": "Lumenis aesthetic device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "product-detail",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Clean treatment room with a wood cabinet.",
+      "tags": [
+        "Lumenis",
+        "device",
+        "treatment demo",
+        "provider",
+        "clinical setting",
+        "aesthetic technology"
+      ],
+      "altText": "A provider operates a Lumenis device beside a reclining participant.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "DSC_3190 1 Josh Line Photography.jpg",
+        "format": "jpeg",
+        "width": 8256,
+        "height": 5504,
+        "bytes": 29449475,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 29818,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-treatment-demo-001/lumenis-device-treatment-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-treatment-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 79514,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-treatment-demo-001/lumenis-device-treatment-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-treatment-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 147466,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-treatment-demo-001/lumenis-device-treatment-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-treatment-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:35.682Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-device-treatment-demo-002",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Aesthetic device treatment demo",
+      "description": "A provider demonstrates a facial treatment beside a white Lumenis aesthetic device in a bright treatment room.",
+      "productShown": "Lumenis aesthetic device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "product-detail",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Bright clinical room with Lumenis treatment system.",
+      "tags": [
+        "Lumenis",
+        "device",
+        "facial treatment",
+        "provider",
+        "treatment demo",
+        "clinical setting"
+      ],
+      "altText": "A provider demonstrates a facial treatment beside a white Lumenis device.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "DSC_3235 1 1 Josh Line Photography.jpg",
+        "format": "jpeg",
+        "width": 8256,
+        "height": 5504,
+        "bytes": 27208705,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 23184,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-treatment-demo-002/lumenis-device-treatment-demo-002-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-treatment-demo-002-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 51448,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-treatment-demo-002/lumenis-device-treatment-demo-002-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-treatment-demo-002-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 81808,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-device-treatment-demo-002/lumenis-device-treatment-demo-002-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-treatment-demo-002-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:40.344Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-event-dinner-setting-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Event dinner table setting",
+      "description": "Portrait-oriented event photograph of a flower arrangement and dinner menu on a dark table, set against a dramatic wall of repeating illuminated cans.",
+      "productShown": "none",
+      "audience": [
+        "Lumenis employees",
+        "event attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Dark event interior with an illuminated patterned display wall.",
+      "tags": [
+        "corporate event",
+        "dinner",
+        "table setting",
+        "floral arrangement",
+        "hospitality",
+        "event detail"
+      ],
+      "altText": "Flowers and a dinner menu on a table at an evening event.",
+      "usageRestrictions": "Confirm event, venue, menu, and third-party brand clearances before publication. Not suitable for product or clinical claims.",
+      "sourceUrl": "https://www.dropbox.com/scl/fi/nqulg6z6u1764eq2hkqwr/IMG_8303.jpg?rlkey=ixzfh319kwfea5r4ui97gc8sf&st=c9f12mef&dl=0",
+      "source": {
+        "filename": "IMG_8303.jpg",
+        "format": "jpeg",
+        "width": 4000,
+        "height": 6000,
+        "bytes": 14368615
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 96132,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-event-dinner-setting-001/lumenis-event-dinner-setting-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-event-dinner-setting-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 328928,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-event-dinner-setting-001/lumenis-event-dinner-setting-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-event-dinner-setting-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 1107780,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-event-dinner-setting-001/lumenis-event-dinner-setting-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-event-dinner-setting-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T16:21:56.919Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-event-lounge-conversation-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Two attendees in an event lounge",
+      "description": "Portrait-oriented lifestyle photograph of two suited attendees talking on a red leather sofa beneath a colorful neon sign in a bright, plant-filled event lounge.",
+      "productShown": "none",
+      "audience": [
+        "Lumenis employees",
+        "event attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Sunlit windows, foliage, warm wood, pendant lights, and a colorful neon artwork.",
+      "tags": [
+        "corporate event",
+        "conversation",
+        "lounge",
+        "attendees",
+        "team",
+        "hospitality",
+        "warm interior"
+      ],
+      "altText": "Two men in suits talking on a red sofa in a bright event lounge.",
+      "usageRestrictions": "Confirm event, venue, participant releases, and artwork clearance before publication. Not suitable for product or clinical claims.",
+      "sourceUrl": "https://www.dropbox.com/scl/fi/zd7bn1u4a1ecwb6gznd7e/IMG_8338.jpg?rlkey=dns4ikqr9wkkck4e0j0dmdon5&st=bw3a4mqk&dl=0",
+      "source": {
+        "filename": "IMG_8338.jpg",
+        "format": "jpeg",
+        "width": 3736,
+        "height": 5604,
+        "bytes": 14333254
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 139936,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-event-lounge-conversation-001/lumenis-event-lounge-conversation-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-event-lounge-conversation-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 662528,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-event-lounge-conversation-001/lumenis-event-lounge-conversation-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-event-lounge-conversation-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 1702970,
+          "format": "webp",
+          "path": "3-processed/accelerate-events/lumenis-event-lounge-conversation-001/lumenis-event-lounge-conversation-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-event-lounge-conversation-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T16:21:59.486Z",
+      "collection": "accelerate-events",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-express-inner-beauty-graphic-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Express Your Inner Beauty graphic",
+      "description": "Portrait graphic featuring the Lumenis line Express Your Inner Beauty and a hand holding small product cards.",
+      "productShown": "Lumenis branded campaign graphic",
+      "audience": [
+        "aesthetic providers",
+        "event attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social",
+        "email"
+      ],
+      "orientation": "portrait",
+      "background": "Clean white campaign graphic.",
+      "tags": [
+        "Lumenis",
+        "Express Your Inner Beauty",
+        "campaign graphic",
+        "event",
+        "brand message"
+      ],
+      "altText": "Lumenis Express Your Inner Beauty campaign graphic.",
+      "usageRestrictions": "Confirm current campaign, trademark, and brand-team approval before publication.",
+      "source": {
+        "filename": "IMG_8822.jpg",
+        "format": "jpeg",
+        "width": 3858,
+        "height": 4823,
+        "bytes": 1497322,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 800,
+          "bytes": 19580,
+          "format": "webp",
+          "path": "3-processed/brand-assets/lumenis-express-inner-beauty-graphic-001/lumenis-express-inner-beauty-graphic-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-express-inner-beauty-graphic-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1600,
+          "bytes": 41210,
+          "format": "webp",
+          "path": "3-processed/brand-assets/lumenis-express-inner-beauty-graphic-001/lumenis-express-inner-beauty-graphic-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-express-inner-beauty-graphic-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2400,
+          "bytes": 67454,
+          "format": "webp",
+          "path": "3-processed/brand-assets/lumenis-express-inner-beauty-graphic-001/lumenis-express-inner-beauty-graphic-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-express-inner-beauty-graphic-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:36.313Z",
+      "collection": "brand-assets",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-eye-exam-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Eye examination",
+      "description": "A clinician performs an eye examination with a slit lamp while a patient looks into the diagnostic instrument.",
+      "productShown": "Diagnostic slit lamp (not a Lumenis product)",
+      "audience": [
+        "eye-care professionals",
+        "clinical partners"
+      ],
+      "placements": [
+        "section",
+        "card",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Clean clinical examination room.",
+      "tags": [
+        "eye exam",
+        "slit lamp",
+        "patient",
+        "clinician",
+        "diagnostic",
+        "clinical setting"
+      ],
+      "altText": "A clinician performs an eye examination with a slit lamp.",
+      "usageRestrictions": "Confirm participant releases and clinical-marketing approval. Do not imply a Lumenis product is shown or make clinical claims.",
+      "source": {
+        "filename": "20260417 DrSampalis-27.jpg",
+        "format": "jpeg",
+        "width": 4020,
+        "height": 5025,
+        "bytes": 3585266,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 800,
+          "bytes": 75360,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-eye-exam-001/lumenis-eye-exam-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-eye-exam-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1600,
+          "bytes": 210976,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-eye-exam-001/lumenis-eye-exam-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-eye-exam-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2400,
+          "bytes": 390096,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-eye-exam-001/lumenis-eye-exam-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-eye-exam-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:30.296Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-eye-treatment-demo-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Eye-area treatment demonstration",
+      "description": "A clinician demonstrates a precision treatment around a participant's eye area in a bright clinical environment.",
+      "productShown": "Lumenis treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "eye-care professionals",
+        "dermatology practices"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Clean white clinical interior.",
+      "tags": [
+        "Lumenis",
+        "treatment demo",
+        "eye area",
+        "provider",
+        "clinical",
+        "precision treatment"
+      ],
+      "altText": "A clinician demonstrates a treatment around a participant's eye area.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "20260417 DrSampalis-15.jpg",
+        "format": "jpeg",
+        "width": 7616,
+        "height": 5080,
+        "bytes": 5007770,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 22068,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-eye-treatment-demo-001/lumenis-eye-treatment-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-eye-treatment-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 854,
+          "bytes": 65302,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-eye-treatment-demo-001/lumenis-eye-treatment-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-eye-treatment-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1281,
+          "bytes": 132302,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-eye-treatment-demo-001/lumenis-eye-treatment-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-eye-treatment-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:28.937Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-facial-treatment-closeup-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Facial treatment close-up",
+      "description": "Close view of a clinician using a handheld treatment device on a participant's face with protective eye shields.",
+      "productShown": "Lumenis treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Soft-focus clinical treatment setting.",
+      "tags": [
+        "Lumenis",
+        "facial treatment",
+        "closeup",
+        "eye shields",
+        "provider",
+        "device"
+      ],
+      "altText": "A clinician uses a handheld treatment device on a participant wearing eye shields.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "DSC_3210 1 1 Josh Line Photography.jpg",
+        "format": "jpeg",
+        "width": 8256,
+        "height": 5504,
+        "bytes": 28741966,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 15622,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-facial-treatment-closeup-001/lumenis-facial-treatment-closeup-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-facial-treatment-closeup-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 38064,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-facial-treatment-closeup-001/lumenis-facial-treatment-closeup-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-facial-treatment-closeup-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 67402,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-facial-treatment-closeup-001/lumenis-facial-treatment-closeup-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-facial-treatment-closeup-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:37.222Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-live-demo-facial-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Live facial treatment demonstration",
+      "description": "A clinician demonstrates a handheld facial treatment device on a reclining participant at an Accelerate event.",
+      "productShown": "Lumenis treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "event attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Event demonstration area with audience seating.",
+      "tags": [
+        "Lumenis",
+        "live demo",
+        "facial treatment",
+        "provider",
+        "event",
+        "device"
+      ],
+      "altText": "A clinician demonstrates a facial treatment on a reclining participant.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "Accelerate by Lumenis NY-97.jpg",
+        "format": "jpeg",
+        "width": 2160,
+        "height": 1440,
+        "bytes": 2186636,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 35024,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-live-demo-facial-001/lumenis-live-demo-facial-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-live-demo-facial-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 112910,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-live-demo-facial-001/lumenis-live-demo-facial-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-live-demo-facial-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 243210,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-live-demo-facial-001/lumenis-live-demo-facial-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-live-demo-facial-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:34.105Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-live-demo-laser-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Live laser treatment demonstration",
+      "description": "A clinician performs a laser treatment demonstration on a reclining participant in a darkened event environment.",
+      "productShown": "Lumenis laser treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "event attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Dark live-demo setting with warm treatment light.",
+      "tags": [
+        "Lumenis",
+        "live demo",
+        "laser",
+        "treatment demonstration",
+        "event",
+        "provider"
+      ],
+      "altText": "A clinician performs a laser treatment demonstration on a reclining participant.",
+      "usageRestrictions": "Confirm participant releases, device identity, laser-safety review, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "Accelerate by Lumenis NY-93.jpg",
+        "format": "jpeg",
+        "width": 2160,
+        "height": 1440,
+        "bytes": 1800120,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 26218,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-live-demo-laser-001/lumenis-live-demo-laser-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-live-demo-laser-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 70454,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-live-demo-laser-001/lumenis-live-demo-laser-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-live-demo-laser-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 128916,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-live-demo-laser-001/lumenis-live-demo-laser-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-live-demo-laser-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:33.470Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-provider-facial-demo-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "collection": "product-demos",
+      "subject": "Provider facial treatment demo",
+      "description": "A smiling provider demonstrates a handheld facial treatment device on a reclining participant wearing eye shields.",
+      "productShown": "Lumenis treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "corporate partners"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Clean clinical treatment room.",
+      "tags": [
+        "Lumenis",
+        "facial treatment",
+        "provider",
+        "treatment demo",
+        "eye shields",
+        "device"
+      ],
+      "altText": "A provider demonstrates a facial treatment device on a reclining participant.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "DSC_3231 1 1 Josh Line Photography.jpg",
+        "format": "jpeg",
+        "width": 8256,
+        "height": 5504,
+        "bytes": 28978648,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 21790,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-provider-facial-demo-001/lumenis-provider-facial-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-provider-facial-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 56778,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-provider-facial-demo-001/lumenis-provider-facial-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-provider-facial-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 100138,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-provider-facial-demo-001/lumenis-provider-facial-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-provider-facial-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:38.823Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-tradeshow-booth-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Lumenis trade-show booth",
+      "description": "Wide view of a Lumenis trade-show booth with product displays, treatment stations, and visitors.",
+      "productShown": "Multiple Lumenis aesthetic devices (models not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees",
+        "corporate partners"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Large exhibition hall with Lumenis booth branding.",
+      "tags": [
+        "Lumenis",
+        "trade show",
+        "booth",
+        "exhibition",
+        "event",
+        "devices"
+      ],
+      "altText": "Wide view of a Lumenis booth at a trade show.",
+      "usageRestrictions": "Confirm event, attendee, and product-marketing approval before publication. Do not make product-specific claims.",
+      "source": {
+        "filename": "8-BMAC3607.jpg",
+        "format": "jpeg",
+        "width": 5760,
+        "height": 3840,
+        "bytes": 6526244,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 41516,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-booth-001/lumenis-tradeshow-booth-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-booth-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 132218,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-booth-001/lumenis-tradeshow-booth-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-booth-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 268716,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-booth-001/lumenis-tradeshow-booth-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-booth-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:22.767Z",
+      "collection": "trade-shows",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-tradeshow-treatment-demo-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Trade-show treatment demonstration",
+      "description": "A provider demonstrates a facial treatment device while another attendee records the moment on a phone.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Busy exhibition floor with treatment booth.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "provider",
+        "trade show",
+        "phone",
+        "facial treatment"
+      ],
+      "altText": "A provider demonstrates a facial treatment at a busy trade show.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "Image - 0133.jpg",
+        "format": "jpeg",
+        "width": 4256,
+        "height": 2832,
+        "bytes": 3611447,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 426,
+          "bytes": 19920,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-001/lumenis-tradeshow-treatment-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 852,
+          "bytes": 47088,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-001/lumenis-tradeshow-treatment-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1278,
+          "bytes": 76970,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-001/lumenis-tradeshow-treatment-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:49.375Z",
+      "collection": "trade-shows",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-tradeshow-treatment-demo-002",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Provider preparing treatment demo",
+      "description": "A provider in a yellow jacket prepares a participant for a facial treatment demonstration.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Trade-show booth with dark display panels.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "provider",
+        "trade show",
+        "facial treatment",
+        "consultation"
+      ],
+      "altText": "A provider prepares a participant for a facial treatment demonstration.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "Image - 0142.jpg",
+        "format": "jpeg",
+        "width": 2832,
+        "height": 4256,
+        "bytes": 5299026,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 962,
+          "bytes": 42684,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-002/lumenis-tradeshow-treatment-demo-002-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-002-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1924,
+          "bytes": 138194,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-002/lumenis-tradeshow-treatment-demo-002-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-002-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2885,
+          "bytes": 436406,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-002/lumenis-tradeshow-treatment-demo-002-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-002-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:51.038Z",
+      "collection": "trade-shows",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-tradeshow-treatment-demo-003",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Participant at treatment demonstration",
+      "description": "A participant sits at a trade-show treatment station while a provider prepares a handheld device.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Trade-show booth with treatment equipment.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "participant",
+        "provider",
+        "trade show",
+        "device"
+      ],
+      "altText": "A participant at a trade-show treatment demonstration.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "Image - 0145.jpg",
+        "format": "jpeg",
+        "width": 2832,
+        "height": 4256,
+        "bytes": 5088351,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 962,
+          "bytes": 45058,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-003/lumenis-tradeshow-treatment-demo-003-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-003-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1924,
+          "bytes": 138334,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-003/lumenis-tradeshow-treatment-demo-003-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-003-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2885,
+          "bytes": 355530,
+          "format": "webp",
+          "path": "3-processed/trade-shows/lumenis-tradeshow-treatment-demo-003/lumenis-tradeshow-treatment-demo-003-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-tradeshow-treatment-demo-003-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:52.594Z",
+      "collection": "trade-shows",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-treatment-demo-001",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Provider demonstrating a facial treatment",
+      "description": "A Lumenis representative demonstrates a facial treatment with a handheld device on a reclining participant at a trade-show booth.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Bright exhibition hall with booth signage.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "provider",
+        "trade show",
+        "facial treatment"
+      ],
+      "altText": "A provider demonstrates a facial treatment with a handheld device at a trade show.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "31-BMAC3825.jpg",
+        "format": "jpeg",
+        "width": 5760,
+        "height": 3840,
+        "bytes": 4825085,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 25028,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-001/lumenis-treatment-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 63004,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-001/lumenis-treatment-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 111662,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-001/lumenis-treatment-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:18.001Z",
+      "collection": "product-demos",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-treatment-demo-002",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Facial treatment demonstration",
+      "description": "A provider uses a handheld aesthetic device on a reclining participant in a busy Lumenis trade-show setting.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Trade-show floor and Lumenis display environment.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "provider",
+        "trade show",
+        "facial treatment"
+      ],
+      "altText": "A provider demonstrates a facial treatment at a trade-show booth.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "39-BMAC3965.jpg",
+        "format": "jpeg",
+        "width": 5760,
+        "height": 3840,
+        "bytes": 4239820,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 27132,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-002/lumenis-treatment-demo-002-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-002-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 66796,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-002/lumenis-treatment-demo-002-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-002-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 111494,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-002/lumenis-treatment-demo-002-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-002-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:18.750Z",
+      "collection": "product-demos",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-treatment-demo-003",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Close treatment demonstration",
+      "description": "A close view of a provider holding a handheld aesthetic device over a reclining participant during a live demonstration.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Bright Lumenis exhibition booth.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "provider",
+        "device",
+        "facial treatment",
+        "trade show"
+      ],
+      "altText": "A provider holds a treatment device over a reclining participant.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "42-BMAC3981.jpg",
+        "format": "jpeg",
+        "width": 5760,
+        "height": 3840,
+        "bytes": 4375326,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 30170,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-003/lumenis-treatment-demo-003-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-003-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 75054,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-003/lumenis-treatment-demo-003-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-003-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 131750,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-003/lumenis-treatment-demo-003-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-003-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:19.503Z",
+      "collection": "product-demos",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-treatment-demo-004",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Treatment at Lumenis booth",
+      "description": "A provider performs a facial treatment demonstration on a reclining participant while an attendee observes at a Lumenis booth.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Lumenis trade-show booth with product graphics.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "provider",
+        "observer",
+        "trade show",
+        "facial treatment"
+      ],
+      "altText": "A provider demonstrates a facial treatment while another person watches.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "47-BMAC4221.jpg",
+        "format": "jpeg",
+        "width": 5760,
+        "height": 3840,
+        "bytes": 3903391,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 30404,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-004/lumenis-treatment-demo-004-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-004-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 83826,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-004/lumenis-treatment-demo-004-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-004-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 154318,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-004/lumenis-treatment-demo-004-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-004-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:20.244Z",
+      "collection": "product-demos",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-treatment-demo-005",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Provider treatment demonstration",
+      "description": "A provider demonstrates a handheld aesthetic treatment device on a reclining participant at a Lumenis booth.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Bright trade-show booth with attendees.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "provider",
+        "device",
+        "facial treatment",
+        "trade show"
+      ],
+      "altText": "A provider demonstrates a facial treatment at a Lumenis booth.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "57-BMAC4259.jpg",
+        "format": "jpeg",
+        "width": 5760,
+        "height": 3840,
+        "bytes": 4655996,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 25538,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-005/lumenis-treatment-demo-005-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-005-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 69980,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-005/lumenis-treatment-demo-005-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-005-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 134532,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-005/lumenis-treatment-demo-005-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-005-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:21.851Z",
+      "collection": "product-demos",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "lumenis-treatment-demo-006",
+      "allowedBrands": [
+        "Lumenis corporate"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Provider facial treatment demonstration",
+      "description": "A provider demonstrates a handheld facial treatment device on a reclining participant at a trade-show booth.",
+      "productShown": "Lumenis aesthetic treatment device (model not confirmed)",
+      "audience": [
+        "aesthetic providers",
+        "trade-show attendees"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Trade-show booth with treatment display.",
+      "tags": [
+        "Lumenis",
+        "treatment demonstration",
+        "provider",
+        "device",
+        "facial treatment",
+        "trade show"
+      ],
+      "altText": "A provider demonstrates a facial treatment on a reclining participant.",
+      "usageRestrictions": "Confirm participant releases, device identity, and product-marketing approval. Do not imply treatment outcomes or clinical claims.",
+      "source": {
+        "filename": "Image - 0059.jpg",
+        "format": "jpeg",
+        "width": 4256,
+        "height": 2832,
+        "bytes": 4945468,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 426,
+          "bytes": 21590,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-006/lumenis-treatment-demo-006-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-006-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 852,
+          "bytes": 57368,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-006/lumenis-treatment-demo-006-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-006-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1278,
+          "bytes": 111098,
+          "format": "webp",
+          "path": "3-processed/product-demos/lumenis-treatment-demo-006/lumenis-treatment-demo-006-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-006-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T19:21:48.629Z",
+      "collection": "product-demos",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "optilift-device-front-view-001",
+      "allowedBrands": [
+        "OptiLIFT"
+      ],
+      "businessUnit": "Vision",
+      "subject": "OptiLIFT device front view",
+      "description": "Portrait-oriented product photograph of a full OptiLIFT device viewed from the front, showing the touchscreen, paired handpieces, chassis, and Lumenis branding in a warm wood interior.",
+      "productShown": "OptiLIFT device",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "potential OptiLIFT customers"
+      ],
+      "placements": [
+        "hero",
+        "section",
+        "technology",
+        "product-detail",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Warm wood paneling and a grey-blue floor with visible power cables.",
+      "tags": [
+        "OptiLIFT",
+        "Lumenis",
+        "product",
+        "device",
+        "front view",
+        "touchscreen",
+        "handpieces",
+        "medical aesthetics"
+      ],
+      "altText": "Front view of an OptiLIFT device with two handpieces.",
+      "usageRestrictions": "Confirm product-marketing approval before publication. Background includes event/installation context and visible power cables; do not imply treatment outcomes, safety, or clinical claims.",
+      "sourceUrl": "https://www.dropbox.com/scl/fi/fr06tlhrkmomv5tn3sg5w/IMG_8424.jpg?rlkey=dckk0cypy5e8n7udrs4kt5o42&st=36ktsy9i&dl=0",
+      "source": {
+        "filename": "IMG_8424.jpg",
+        "format": "jpeg",
+        "width": 3455,
+        "height": 5183,
+        "bytes": 7133860
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 47788,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-device-front-view-001/optilift-device-front-view-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-device-front-view-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 144260,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-device-front-view-001/optilift-device-front-view-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-device-front-view-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 478426,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-device-front-view-001/optilift-device-front-view-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-device-front-view-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T16:22:02.508Z",
+      "collection": "optilift",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "optilift-live-demo-001",
+      "allowedBrands": [
+        "OptiLIFT"
+      ],
+      "businessUnit": "Vision",
+      "collection": "optilift",
+      "subject": "OptiLIFT live demonstration",
+      "description": "A clinician leads an OptiLIFT live demonstration on a participant at an event treatment station.",
+      "productShown": "OptiLIFT treatment system",
+      "audience": [
+        "aesthetic providers",
+        "event attendees",
+        "potential OptiLIFT customers"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Accelerate by Lumenis live demonstration area.",
+      "tags": [
+        "OptiLIFT",
+        "live demo",
+        "event",
+        "provider",
+        "treatment station"
+      ],
+      "altText": "A clinician leads an OptiLIFT live treatment demonstration at an event.",
+      "usageRestrictions": "Confirm participant releases, event clearance, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "2CH01546.jpg",
+        "format": "jpeg",
+        "width": 3902,
+        "height": 5853,
+        "bytes": 9260727,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 32956,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-live-demo-001/optilift-live-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-live-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 88300,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-live-demo-001/optilift-live-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-live-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 200654,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-live-demo-001/optilift-live-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-live-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:25.539Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "optilift-live-demo-002",
+      "allowedBrands": [
+        "OptiLIFT"
+      ],
+      "businessUnit": "Vision",
+      "collection": "optilift",
+      "subject": "OptiLIFT live demo station",
+      "description": "An OptiLIFT clinician performs a live treatment demonstration on a reclining participant beside OptiLIFT 2.0 signage.",
+      "productShown": "OptiLIFT treatment system",
+      "audience": [
+        "aesthetic providers",
+        "event attendees",
+        "potential OptiLIFT customers"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Event demonstration station with OptiLIFT signage.",
+      "tags": [
+        "OptiLIFT",
+        "OptiLIFT 2.0",
+        "live demo",
+        "event",
+        "provider",
+        "treatment station"
+      ],
+      "altText": "An OptiLIFT clinician performs a live treatment demonstration at an event.",
+      "usageRestrictions": "Confirm participant releases, event clearance, and current product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "2CH02515.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 11186872,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 21126,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-live-demo-002/optilift-live-demo-002-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-live-demo-002-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 51958,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-live-demo-002/optilift-live-demo-002-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-live-demo-002-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 85710,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-live-demo-002/optilift-live-demo-002-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-live-demo-002-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:26.562Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "optilift-provider-device-demo-001",
+      "allowedBrands": [
+        "OptiLIFT"
+      ],
+      "businessUnit": "Vision",
+      "subject": "OptiLIFT device demonstration",
+      "description": "Landscape-oriented documentary photograph of two women beside an OptiLIFT device, with the device controls and handpieces visible in a warmly lit interior.",
+      "productShown": "OptiLIFT device",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "potential OptiLIFT customers"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "product-detail",
+        "social"
+      ],
+      "orientation": "landscape",
+      "background": "Warm wood interior with strong window light and soft lens flare.",
+      "tags": [
+        "OptiLIFT",
+        "Lumenis",
+        "device demonstration",
+        "provider",
+        "handpieces",
+        "clinical technology",
+        "in-use"
+      ],
+      "altText": "Two women beside an OptiLIFT device during a demonstration.",
+      "usageRestrictions": "Confirm participant releases and product-marketing approval before publication. Do not imply treatment outcomes, safety, or clinical claims.",
+      "sourceUrl": "https://www.dropbox.com/scl/fi/mx1j3cjj2m1whu38k3603/IMG_8377.jpg?rlkey=em4lldwtm7q0m1ni7owvryah2&st=o2bwrs0i&dl=0",
+      "source": {
+        "filename": "IMG_8377.jpg",
+        "format": "jpeg",
+        "width": 6000,
+        "height": 4000,
+        "bytes": 8725688
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 427,
+          "bytes": 22078,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-provider-device-demo-001/optilift-provider-device-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-provider-device-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "bytes": 63092,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-provider-device-demo-001/optilift-provider-device-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-provider-device-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "bytes": 107410,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-provider-device-demo-001/optilift-provider-device-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-provider-device-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T16:22:00.571Z",
+      "collection": "optilift",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "optilift-treatment-demo-001",
+      "allowedBrands": [
+        "OptiLIFT"
+      ],
+      "businessUnit": "Vision",
+      "collection": "optilift",
+      "subject": "OptiLIFT treatment demonstration",
+      "description": "A clinician demonstrates an OptiLIFT facial treatment on a reclining participant in a bright clinical setting.",
+      "productShown": "OptiLIFT treatment system",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "potential OptiLIFT customers"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Clean light clinical interior.",
+      "tags": [
+        "OptiLIFT",
+        "treatment demo",
+        "provider",
+        "facial treatment",
+        "clinical setting"
+      ],
+      "altText": "A clinician demonstrates an OptiLIFT facial treatment on a reclining participant.",
+      "usageRestrictions": "Confirm participant releases and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "1CH09003.jpg",
+        "format": "jpeg",
+        "width": 4000,
+        "height": 6000,
+        "bytes": 11423048,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 36184,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-treatment-demo-001/optilift-treatment-demo-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 97898,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-treatment-demo-001/optilift-treatment-demo-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 204774,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-treatment-demo-001/optilift-treatment-demo-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:22.073Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "optilift-treatment-demo-002",
+      "allowedBrands": [
+        "OptiLIFT"
+      ],
+      "businessUnit": "Vision",
+      "collection": "optilift",
+      "subject": "OptiLIFT provider treatment",
+      "description": "A clinician uses an OptiLIFT handpiece during a facial treatment demonstration.",
+      "productShown": "OptiLIFT treatment system",
+      "audience": [
+        "aesthetic providers",
+        "dermatology practices",
+        "potential OptiLIFT customers"
+      ],
+      "placements": [
+        "section",
+        "technology",
+        "social"
+      ],
+      "orientation": "portrait",
+      "background": "Clean clinical interior.",
+      "tags": [
+        "OptiLIFT",
+        "treatment demo",
+        "provider",
+        "handpiece",
+        "facial treatment"
+      ],
+      "altText": "A clinician uses an OptiLIFT handpiece during a facial treatment demonstration.",
+      "usageRestrictions": "Confirm participant releases and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "source": {
+        "filename": "1CH09142.jpg",
+        "format": "jpeg",
+        "width": 4000,
+        "height": 6000,
+        "bytes": 10639251,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 35242,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-treatment-demo-002/optilift-treatment-demo-002-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-002-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 101748,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-treatment-demo-002/optilift-treatment-demo-002-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-002-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2880,
+          "bytes": 231372,
+          "format": "webp",
+          "path": "3-processed/optilift/optilift-treatment-demo-002/optilift-treatment-demo-002-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-002-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-07-28T21:18:23.773Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    }
+  ]
+}

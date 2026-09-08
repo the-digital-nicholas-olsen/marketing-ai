@@ -1,0 +1,11 @@
+# Pipeline working folders — none of these are committed. Everything that
+# matters from them is folded into catalog.json (the versioned source of
+# truth) once an asset is imported; nothing here is meant to survive as
+# history, and scripts recreate these folders on demand via mkdir.
+1-raw/
+2-metadata/
+3-processed/
+
+node_modules/
+.DS_Store
+dist/
