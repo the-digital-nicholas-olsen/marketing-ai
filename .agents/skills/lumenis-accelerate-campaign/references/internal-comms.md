@@ -7,6 +7,8 @@ reviewed: 2026-09-07
 ---
 # Internal communications
 
+Use the [seven complete Markdown examples and Word export instructions](../../../../templates/accelerate-internal-comms/README.md), adapted from the existing Word sets. They preserve historical copy; confirm current policy before exporting the event-specific Word deliverables.
+
 Finalize after the event backend URLs exist. If absent, draft with visible placeholders and mark unsendable; do not invent links.
 
 Seven documents per event:

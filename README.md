@@ -11,6 +11,7 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Build an Accelerate campaign end to end | [Accelerate skill](.agents/skills/lumenis-accelerate-campaign/SKILL.md) |
 | Configure forms and correct division fields | [Form procedure](.agents/skills/lumenis-accelerate-campaign/references/forms.md) |
 | Produce all four marketing email types | [Email procedure](.agents/skills/lumenis-accelerate-campaign/references/emails.md) |
+| Prepare sales emails and rep invitation Word files | [Seven communication examples](templates/accelerate-internal-comms/README.md) |
 | Check copy before delivery | [Ted's copy clarity gate](.agents/skills/copy-clarity-gate/SKILL.md) |
 | Prepare a page brief | [Page draft](.agents/skills/lumenis-hubspot-page-draft/SKILL.md) |
 | Plan webinar content | [Webinar skill](.agents/skills/lumenis-webinar-production/SKILL.md) |
