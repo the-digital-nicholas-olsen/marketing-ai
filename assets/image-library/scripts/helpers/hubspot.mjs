@@ -65,7 +65,11 @@ export function getHubspotFolder(businessUnit) {
 }
 
 export async function runHs(args) {
-  return execFileAsync("npx", ["hs", ...args]);
+  // Reuse the installed CLI and existing auth; never resolve/download via npx.
+  // Pin every read and write to this library's portal, regardless of defaults.
+  return execFileAsync(process.env.HUBSPOT_CLI_BIN || "hs", [
+    ...args, "--account", HUBSPOT_PORTAL_ID,
+  ]);
 }
 
 export async function runHsJson(args) {

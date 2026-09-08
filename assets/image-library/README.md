@@ -11,7 +11,7 @@ cd assets/image-library
 npm ci
 ```
 
-Run the remaining npm commands from this folder. Installation supplies Sharp and the HubSpot CLI. Reuse your existing individual HubSpot authentication; `npx hs account list`, `npx hs account info` and `npx hs doctor` help verify the account. Expected portal is 278427. Do not reinitialize or print credential files. Obtain the required Files permissions if unavailable.
+Run the remaining npm commands from this folder. Installation supplies Sharp and the HubSpot CLI. Reuse your existing individual HubSpot authentication; `hs account list`, `hs account info --account 278427` and `hs doctor` help verify the account. Expected portal is 278427. Do not reinitialize or print credential files. Obtain the required Files permissions if unavailable.
 
 | Location | Purpose |
 |---|---|
@@ -68,6 +68,25 @@ npm run validate-catalog -- --metadata-only --allow-pending
 For a mixed checkout, also inspect every newly generated image and its dimensions/file size locally. Skipping file checks is not evidence that resizing worked. The default `npm run validate-catalog` requires all local derivatives and recorded delivery URLs. URL syntax checks are not live reachability checks or rights approval.
 
 ## Upload to HubSpot and verify links
+
+CLI is the standard upload path for this library; browser control is not needed for routine file uploads. The scripts invoke installed `hs` directly (no on-demand npx download), reuse its authentication, and pass `--account 278427` on every read/write. `HUBSPOT_CLI_BIN` may point to an explicit installed binary when PATH selection is ambiguous. Within npm scripts the project-installed CLI is on PATH; both it and a global CLI use the established account configuration.
+
+Before upload, inspect `hs --version`, `hs filemanager upload --help`, `hs account info --account 278427` and `hs doctor`. The Files scope must be available. A minimal read-only probe is:
+
+```sh
+hs api '/files/v3/files/search?parentFolderIds=218370797141&limit=1' --account 278427 --json
+```
+
+For a separately authorized single-file upload, the verified CLI syntax is:
+
+```sh
+hs filemanager upload '3-processed/optilift/ASSET-ID/ASSET-ID-640w.webp' '/US - VIS - Image Catalogue - 2026/ASSET-ID/ASSET-ID-640w.webp' --account 278427
+```
+
+Replace the illustrative path with the actual derivative and division folder. Prefer `npm run upload` for catalog-managed batches, then sync. File Manager upload is distinct from `hs cms upload` or project deployment. Do not add unsupported `--json` or `--force` flags to the filemanager command.
+
+Browser use is reserved for account authorization or an operation genuinely unsupported by the installed CLI. If auth/scopes fail, diagnose them first rather than switching interfaces or creating new configuration. Never run `hs init` to repair an already working global setup.
+
 
 Only perform this stage when the user has authorized adding images to HubSpot. Confirm portal 278427 and the selected business-unit folder in `scripts/helpers/hubspot.mjs` against the live account first.
 
