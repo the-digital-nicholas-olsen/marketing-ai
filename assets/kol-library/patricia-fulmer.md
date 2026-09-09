@@ -27,6 +27,7 @@ Dr. Patricia Fulmer is the founder and owner of Legacy Vision Center in Huntsvil
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-patricia-fulmer-001/kol-patricia-fulmer-001-403w.webp) (`kol-patricia-fulmer-001`; candidate; rights unverified; low resolution)
 - Source page: https://www.legacyvisioncenter.com/
 - Image URL found: https://static.royacdn.com/Site-883426ba-81b5-4679-a500-2abf7f0f7000/new_assets/Dr_Patricia.png
-- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
+- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before external publication.

@@ -26,7 +26,8 @@ Dr. Amanda Amberg is a board-certified optometric physician and partner at Holly
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-amanda-amberg-001/kol-amanda-amberg-001-1024w.webp) (`kol-amanda-amberg-001`; candidate; rights unverified)
 - Source page: https://www.hollywoodeyeinstitute.com/our-team.html
 - Image URL found: https://static.royacdn.com/Site-50499d9b-750e-44b9-b31e-8297cfe4236d/IP_Team_Assets/Dr._A_image_Shareen_Greenbaum_MD.jpg
-- **Flag:** the image filename references a different name ("Shareen_Greenbaum_MD"), which suggests a possible mislabeling or template artifact on the practice's site. Verify visually that this photo is actually Dr. Amberg before using it anywhere.
-- Reuse restrictions: none stated on the practice site. A publicly hosted photo is not reuse approval — confirm usage rights with the practice or the KOL directly before uploading to the shared library.
+- Identity check: the practice page's Amanda Amberg profile explicitly uses this image. The filename names another doctor and appears to be a stale vendor naming artifact.
+- Reuse restrictions: none stated on the practice site. A publicly hosted photo is not reuse approval — confirm usage rights with the practice or Dr. Amberg before external publication.

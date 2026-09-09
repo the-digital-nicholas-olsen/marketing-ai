@@ -27,6 +27,8 @@ Dr. Laura M. Periman is a board-certified ophthalmologist and fellowship-trained
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-laura-periman-001/kol-laura-periman-001-1862w.webp) (`kol-laura-periman-001`; candidate; rights unverified)
+- Current library source: provided directly by Ted Carmichael.
 - Source page: https://dryeyemaster.com/about-laura-periman/
 - Image URL found: https://dryeyemaster.com/wp-content/uploads/laura-m-periman-md-684x1030.jpg
-- Reuse restrictions: this photo is hosted on a third-party dry-eye industry site, not her own practice site — confirm usage rights with Dr. Periman or Periman Eye Institute directly before uploading to the shared library.
+- Reuse restrictions: confirm any model-release or contractual requirements with Dr. Periman before external publication.

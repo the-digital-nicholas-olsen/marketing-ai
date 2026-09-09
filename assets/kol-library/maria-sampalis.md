@@ -26,6 +26,8 @@ Dr. Maria Sampalis owns Sampalis Eye Care in Cranston, RI, and is a nationally r
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-maria-sampalis-001/kol-maria-sampalis-001-1920w.webp) (`kol-maria-sampalis-001`; candidate; rights unverified)
+- Current library source: provided directly by Ted Carmichael; this is higher resolution than the website thumbnail below.
 - Source page: https://www.sampaliseyecare.com/about/
 - Image URL found: https://www.sampaliseyecare.com/wp-content/uploads/2024/08/Facetune_004-230x300.jpg
-- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library. (Note: filename suggests a retouched personal photo rather than a studio headshot — worth asking her for a higher-resolution/professional alternative.)
+- Reuse restrictions: confirm any model-release or contractual requirements with Dr. Sampalis before external publication.

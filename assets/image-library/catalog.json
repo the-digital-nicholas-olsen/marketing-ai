@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "description": "Lumenis web-ready image catalog adopted into marketing-ai/assets/image-library from lumenis-web-catalog commit 38b56997a6795746e4382e7bdcfdbdc8bbb90109. Coordinate upstream changes during consolidation.",
+    "description": "Lumenis web-ready image catalog. Source of truth for marketing imagery and their HubSpot delivery URLs. Maintained in marketing-ai/assets/image-library. Coordinate changes with the upstream catalog during consolidation; consumers should not edit generated views.",
     "howToUse": {
-      "usageRestrictions": "There is no approval or rights-clearance flag on an asset \u2014 usageRestrictions is free-text, AI-drafted notes on what a human should check (identifiable people, competitor branding, on-screen PHI, etc.) before using the image. Read it yourself; nothing in this catalog enforces it.",
-      "imageUrl": "Use derivative.hubspotUrl \u2014 the live, HubSpot-verified public delivery URL. Never use derivative.path: that's a local file path inside the source repo (3-processed/...) and will not resolve outside it. A derivative with no hubspotUrl hasn't been uploaded yet and isn't usable externally.",
-      "derivativeWidths": "Each asset has up to three derivatives \u2014 640w, 1280w, 1920w \u2014 capped at the source image's own size, so smaller sources may have fewer. Pick the smallest width that satisfies your placement rather than always grabbing the largest."
+      "usageRestrictions": "There is no approval or rights-clearance flag on an asset — usageRestrictions is free-text, AI-drafted notes on what a human should check (identifiable people, competitor branding, on-screen PHI, etc.) before using the image. Read it yourself; nothing in this catalog enforces it.",
+      "imageUrl": "Use derivative.hubspotUrl — the live, HubSpot-verified public delivery URL. Never use derivative.path: that's a local file path inside the source repo (3-processed/...) and will not resolve outside it. A derivative with no hubspotUrl hasn't been uploaded yet and isn't usable externally.",
+      "derivativeWidths": "Each asset has up to three derivatives — 640w, 1280w, 1920w — capped at the source image's own size, so smaller sources may have fewer. Pick the smallest width that satisfies your placement rather than always grabbing the largest."
     },
     "hubspot": {
       "portalId": "278427",
@@ -12,6 +12,7 @@
     },
     "vocabularies": {
       "allowedBrands": [
+        "unclassified",
         "OptiLIGHT",
         "OptiLIFT",
         "Folix",
@@ -24,6 +25,7 @@
         "Corporate"
       ],
       "collection": [
+        "kol-headshots",
         "accelerate-events",
         "trade-shows",
         "product-demos",
@@ -49,8 +51,8 @@
       ],
       "note": "These lists can grow over time. Treat a value you don't recognize as valid-but-unclassified, not an error."
     },
-    "lastSyncedAt": "2026-08-30T18:05:45.097Z",
-    "updatedAt": "2026-08-30T18:05:45.099Z"
+    "lastSyncedAt": "2026-09-09T19:11:12.778Z",
+    "updatedAt": "2026-09-09T19:11:12.785Z"
   },
   "schemaVersion": 1,
   "assets": [
@@ -84,7 +86,7 @@
         "treatment room"
       ],
       "altText": "A practitioner uses a Folix laser handpiece near a reclining patient's hairline during a scalp treatment.",
-      "usageRestrictions": "Contains two identifiable individuals (patient and practitioner) with visible faces \u2014 confirm signed model/participant releases for both before approval. Device touchscreen shows only generic UI icons, no visible patient data.",
+      "usageRestrictions": "Contains two identifiable individuals (patient and practitioner) with visible faces — confirm signed model/participant releases for both before approval. Device touchscreen shows only generic UI icons, no visible patient data.",
       "source": {
         "filename": "folix_tipol_15_new.jpg",
         "format": "jpeg",
@@ -124,6 +126,1000 @@
         "folderId": "220678784826",
         "folderName": "US - Web Image Catalog/Aesthetics"
       }
+    },
+    {
+      "id": "kol-amanda-amberg-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Amanda Amberg, OD",
+      "description": "Dr. Amanda Amberg smiles in a white clinical coat outside the Hollywood Eye Institute; the practice team page associates this image directly with her profile.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Outdoor practice entrance with glass doors and landscaping",
+      "tags": [
+        "Amanda Amberg",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Hollywood Eye Institute",
+        "Hollywood FL",
+        "unconfirmed"
+      ],
+      "altText": "Dr. Amanda Amberg, OD, smiling in a white clinical coat outside the Hollywood Eye Institute.",
+      "usageRestrictions": "The Hollywood Eye Institute team page associates this image directly with Dr. Amberg; the legacy source filename names another doctor and appears to be a vendor naming artifact. Confirm image reuse rights with Dr. Amberg or the practice before external publication.",
+      "source": {
+        "filename": "kol-amanda-amberg-001.jpg",
+        "format": "jpeg",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 84060,
+        "intake": "local-staging"
+      },
+      "sourceUrl": "https://static.royacdn.com/Site-50499d9b-750e-44b9-b31e-8297cfe4236d/IP_Team_Assets/Dr._A_image_Shareen_Greenbaum_MD.jpg",
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 640,
+          "bytes": 31586,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-amanda-amberg-001/kol-amanda-amberg-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-amanda-amberg-001/kol-amanda-amberg-001-640w.webp"
+        },
+        {
+          "width": 1024,
+          "height": 1024,
+          "bytes": 54156,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-amanda-amberg-001/kol-amanda-amberg-001-1024w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-amanda-amberg-001/kol-amanda-amberg-001-1024w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.100Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-celesta-ferreira-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Celesta Ferreira, OD",
+      "description": "Dr. Celesta Ferreira, seated, smiles in a yellow blazer with arms crossed.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Cypress Optique's boutique interior; a navy tufted chair and a dark wall lined with eyewear on display behind her.",
+      "tags": [
+        "Celesta Ferreira",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Cypress Optique",
+        "Cypress TX"
+      ],
+      "altText": "Dr. Celesta Ferreira, OD, in a yellow blazer, seated in front of an eyewear display wall at Cypress Optique.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Ferreira before external publication.",
+      "source": {
+        "filename": "kol-celesta-ferreira-001.png",
+        "format": "png",
+        "width": 1060,
+        "height": 1606,
+        "bytes": 2256969,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 970,
+          "bytes": 39072,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-celesta-ferreira-001/kol-celesta-ferreira-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-celesta-ferreira-001/kol-celesta-ferreira-001-640w.webp"
+        },
+        {
+          "width": 1060,
+          "height": 1606,
+          "bytes": 74470,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-celesta-ferreira-001/kol-celesta-ferreira-001-1060w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-celesta-ferreira-001/kol-celesta-ferreira-001-1060w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.021Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-chandler-mann-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Chandler R. Mann II, OD",
+      "description": "Dr. Chandler R. Mann II smiles in a white clinical coat embroidered with his name against a white studio background.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "White studio background",
+      "tags": [
+        "Chandler Mann",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Stone Oak Vision Source",
+        "San Antonio TX"
+      ],
+      "altText": "Dr. Chandler R. Mann II, OD, smiling in an embroidered white clinical coat against a white background.",
+      "usageRestrictions": "Publicly hosted on the Stone Oak Vision Source doctor profile. Confirm image reuse rights with Dr. Mann or the practice before external publication.",
+      "source": {
+        "filename": "kol-chandler-mann-001.jpeg",
+        "format": "jpeg",
+        "width": 1707,
+        "height": 2560,
+        "bytes": 313882,
+        "intake": "local-staging"
+      },
+      "sourceUrl": "https://stoneoakvisionsource.com/wp-content/uploads/2023/04/IMG_6191-scaled.jpeg",
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 960,
+          "bytes": 25020,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1920,
+          "bytes": 91544,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-1280w.webp"
+        },
+        {
+          "width": 1707,
+          "height": 2560,
+          "bytes": 186804,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-1707w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-1707w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T19:09:25.939Z",
+      "status": "candidate",
+      "rightsStatus": "unverified",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "kol-chelnis-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Candidate headshot of Dr. James G. Chelnis, MD, FACS",
+      "description": "Automated candidate pulled from his Mount Sinai institutional profile; not visually confirmed by Claude in this pipeline run.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Unknown - not inspected. Verify visually before use.",
+      "tags": [
+        "Chelnis",
+        "headshot",
+        "KOL",
+        "oculoplastics",
+        "Manhattan Face & Eye",
+        "Mount Sinai",
+        "New York NY",
+        "unconfirmed"
+      ],
+      "altText": "Candidate headshot for Dr. James G. Chelnis, MD, FACS, from his Mount Sinai profile.",
+      "usageRestrictions": "This is a Mount Sinai institutional profile photo - confirm with Mount Sinai and/or Dr. Chelnis directly before using in Lumenis marketing materials, since institutional headshots often carry usage restrictions.",
+      "source": {
+        "filename": "kol-chelnis-001.jpg",
+        "format": "jpeg",
+        "width": 448,
+        "height": 590,
+        "bytes": 143158,
+        "intake": "local-staging"
+      },
+      "sourceUrl": "https://www.mountsinai.org/files/images/fad-images/0000076810115639741411.jpg",
+      "derivatives": [
+        {
+          "width": 448,
+          "height": 590,
+          "bytes": 25144,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-chelnis-001/kol-chelnis-001-448w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chelnis-001/kol-chelnis-001-448w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.110Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-cory-lappin-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Cory Lappin, OD, MS, FAAO",
+      "description": "Dr. Cory Lappin smiles broadly in a navy suit, light blue dress shirt, and navy tie.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Plain gray studio backdrop, standard professional headshot style.",
+      "tags": [
+        "Cory Lappin",
+        "headshot",
+        "KOL",
+        "optometry",
+        "The Dry Eye Center of Ohio",
+        "Cincinnati OH"
+      ],
+      "altText": "Dr. Cory Lappin, OD, MS, FAAO, smiling in a navy suit against a gray studio background.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Lappin before external publication.",
+      "source": {
+        "filename": "kol-cory-lappin-001.png",
+        "format": "png",
+        "width": 1358,
+        "height": 1618,
+        "bytes": 1990432,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 763,
+          "bytes": 23816,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-cory-lappin-001/kol-cory-lappin-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1525,
+          "bytes": 60732,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-cory-lappin-001/kol-cory-lappin-001-1280w.webp"
+        },
+        {
+          "width": 1358,
+          "height": 1618,
+          "bytes": 65360,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-1358w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-cory-lappin-001/kol-cory-lappin-001-1358w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.072Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-elise-kramer-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Candidate headshot of Dr. Elise Kramer, OD, FAAO, FSLS",
+      "description": "Automated candidate pulled from Miami Contact Lens Institute's site; not visually confirmed by Claude in this pipeline run.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Unknown - not inspected. Verify visually before use.",
+      "tags": [
+        "Elise Kramer",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Miami Contact Lens Institute",
+        "Miami FL",
+        "unconfirmed"
+      ],
+      "altText": "Candidate headshot for Dr. Elise Kramer, OD, FAAO, FSLS, from her practice site.",
+      "usageRestrictions": "Reuse rights not stated on the practice site. Ted has an existing working relationship with Dr. Kramer (prior Lumenis-sponsored CE course) - she may be able to provide a preferred headshot directly instead.",
+      "source": {
+        "filename": "kol-elise-kramer-001.png",
+        "format": "png",
+        "width": 685,
+        "height": 721,
+        "bytes": 734060,
+        "intake": "local-staging"
+      },
+      "sourceUrl": "https://cdn.prod.website-files.com/682b7847967d895481a5ea83/68361bad3193aae10159a26b_Dr.%20Elise%20Kramer.png",
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 674,
+          "bytes": 33862,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-elise-kramer-001/kol-elise-kramer-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-elise-kramer-001/kol-elise-kramer-001-640w.webp"
+        },
+        {
+          "width": 685,
+          "height": 721,
+          "bytes": 39126,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-elise-kramer-001/kol-elise-kramer-001-685w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-elise-kramer-001/kol-elise-kramer-001-685w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.140Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-faten-edris-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Faten Edris (Edriskhalaf), OD",
+      "description": "Dr. Faten Edris stands with arms crossed in a black blazer, smiling, next to a white clinical device.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Neutral warm beige studio/clinical background with a white device (console/handpiece style) visible beside her.",
+      "tags": [
+        "Faten Edris",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Blinking Owl Eye Care",
+        "Miami FL"
+      ],
+      "altText": "Dr. Faten Edris, OD, in a black blazer, standing beside a clinical device.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Edris before external publication. Confirm device identity before any product-adjacent use.",
+      "source": {
+        "filename": "kol-faten-edris-001.png",
+        "format": "png",
+        "width": 1396,
+        "height": 1788,
+        "bytes": 3051159,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 820,
+          "bytes": 23986,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-faten-edris-001/kol-faten-edris-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1639,
+          "bytes": 70116,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-faten-edris-001/kol-faten-edris-001-1280w.webp"
+        },
+        {
+          "width": 1396,
+          "height": 1788,
+          "bytes": 80730,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-1396w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-faten-edris-001/kol-faten-edris-001-1396w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.035Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-hardeep-kataria-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Candidate headshot of Dr. Hardeep Kataria, OD, FAAO",
+      "description": "Automated candidate pulled from Avant Eyes' team page; not visually confirmed by Claude in this pipeline run.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Unknown - not inspected. Verify visually before use.",
+      "tags": [
+        "Hardeep Kataria",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Avant Eyes Optometry",
+        "Porter Ranch CA",
+        "unconfirmed"
+      ],
+      "altText": "Candidate headshot for Dr. Hardeep Kataria, OD, FAAO, from the Avant Eyes team page.",
+      "usageRestrictions": "Reuse rights not stated on the practice site - confirm with the practice before external use.",
+      "source": {
+        "filename": "kol-hardeep-kataria-001.jpg",
+        "format": "jpeg",
+        "width": 1170,
+        "height": 1546,
+        "bytes": 311155,
+        "intake": "local-staging"
+      },
+      "sourceUrl": "https://static.royacdn.com/Site-3756d990-bbd0-47df-8251-48d027c79768/Avant_1_.jpg",
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 846,
+          "bytes": 32922,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-hardeep-kataria-001/kol-hardeep-kataria-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-hardeep-kataria-001/kol-hardeep-kataria-001-640w.webp"
+        },
+        {
+          "width": 1170,
+          "height": 1546,
+          "bytes": 81818,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-hardeep-kataria-001/kol-hardeep-kataria-001-1170w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-hardeep-kataria-001/kol-hardeep-kataria-001-1170w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.128Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-jenn-chinn-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Jenn Chinn, OD",
+      "description": "Dr. Jenn Chinn, wearing glasses, smiles in a white coat embroidered \"Dr. Jenn\" over a black top.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Outdoors, softly blurred tan/olive background, natural light.",
+      "tags": [
+        "Jenn Chinn",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Dr. Chinn's Vision Care",
+        "San Diego CA"
+      ],
+      "altText": "Dr. Jenn Chinn, OD, wearing glasses and a white coat embroidered \"Dr. Jenn\", smiling outdoors.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Chinn before external publication.",
+      "source": {
+        "filename": "kol-jenn-chinn-001.jpg",
+        "format": "jpeg",
+        "width": 450,
+        "height": 673,
+        "bytes": 29227,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 450,
+          "height": 673,
+          "bytes": 18494,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-jenn-chinn-001/kol-jenn-chinn-001-450w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-jenn-chinn-001/kol-jenn-chinn-001-450w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:39.978Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-kiranjeet-sran-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Kiranjeet Sran, OD",
+      "description": "Dr. Kiranjeet Sran smiles outdoors in a pink blazer over a white top, arms crossed, wearing a layered pearl necklace.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Outdoors, softly blurred green foliage background, natural light, white railing visible.",
+      "tags": [
+        "Kiranjeet Sran",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Lumos Eyecare",
+        "Bridgewater NJ"
+      ],
+      "altText": "Dr. Kiranjeet Sran, OD, smiling outdoors in a pink blazer with a pearl necklace.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Sran before external publication.",
+      "source": {
+        "filename": "kol-kiranjeet-sran-001.jpg",
+        "format": "jpeg",
+        "width": 3024,
+        "height": 4032,
+        "bytes": 2764656,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 853,
+          "bytes": 75190,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1707,
+          "bytes": 278720,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2560,
+          "bytes": 513608,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.057Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-laura-periman-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Laura M. Periman, MD",
+      "description": "Dr. Laura Periman smiles in a studio portrait, wearing a dark green blazer with layered gold necklaces and gemstone drop earrings.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Solid blue studio backdrop, professional portrait lighting.",
+      "tags": [
+        "Laura Periman",
+        "headshot",
+        "KOL",
+        "ophthalmology",
+        "Periman Eye Institute",
+        "Seattle WA"
+      ],
+      "altText": "Dr. Laura M. Periman, MD, smiling in a studio portrait against a blue background.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Periman before external publication.",
+      "source": {
+        "filename": "kol-laura-periman-001.png",
+        "format": "png",
+        "width": 1862,
+        "height": 1604,
+        "bytes": 3500477,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 551,
+          "bytes": 21468,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-laura-periman-001/kol-laura-periman-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1103,
+          "bytes": 69594,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-laura-periman-001/kol-laura-periman-001-1280w.webp"
+        },
+        {
+          "width": 1862,
+          "height": 1604,
+          "bytes": 136640,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-1862w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-laura-periman-001/kol-laura-periman-001-1862w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.011Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-maria-sampalis-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Maria Sampalis, OD",
+      "description": "Dr. Maria Sampalis stands smiling in black scrubs embroidered \"Dr Maria Sampalis\", one hand resting on a chair back.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Sampalis Eye Care's optical dispensary; a wall of display eyeglasses frames behind her.",
+      "tags": [
+        "Maria Sampalis",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Sampalis Eye Care",
+        "Cranston RI"
+      ],
+      "altText": "Dr. Maria Sampalis, OD, smiling in black scrubs in front of an eyewear display wall at her practice.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Sampalis before external publication.",
+      "source": {
+        "filename": "kol-maria-sampalis-001.jpg",
+        "format": "jpeg",
+        "width": 4912,
+        "height": 6877,
+        "bytes": 5758379,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 896,
+          "bytes": 46444,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-maria-sampalis-001/kol-maria-sampalis-001-640w.webp"
+        },
+        {
+          "width": 1280,
+          "height": 1792,
+          "bytes": 152696,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-maria-sampalis-001/kol-maria-sampalis-001-1280w.webp"
+        },
+        {
+          "width": 1920,
+          "height": 2688,
+          "bytes": 371720,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-maria-sampalis-001/kol-maria-sampalis-001-1920w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:39.997Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-patricia-fulmer-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Patricia Fulmer, OD, FAAO",
+      "description": "Dr. Patricia Fulmer smiles in a studio portrait, wearing a navy top, with dark wavy hair and red lipstick.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Solid dark charcoal/gray studio backdrop, professional portrait lighting.",
+      "tags": [
+        "Patricia Fulmer",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Legacy Vision Center",
+        "Huntsville AL"
+      ],
+      "altText": "Dr. Patricia Fulmer, OD, FAAO, smiling in a studio portrait against a dark background.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Fulmer before external publication. Note: source image is low resolution (403x496px) - only a single, smaller derivative will be generated; consider requesting a higher-resolution version for hero/large placements.",
+      "source": {
+        "filename": "kol-patricia-fulmer-001.jpg",
+        "format": "jpeg",
+        "width": 403,
+        "height": 496,
+        "bytes": 24394,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 403,
+          "height": 496,
+          "bytes": 15220,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-patricia-fulmer-001/kol-patricia-fulmer-001-403w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-patricia-fulmer-001/kol-patricia-fulmer-001-403w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.148Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-sahil-dosaj-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Sahil Dosaj, OD",
+      "description": "Dr. Sahil Dosaj stands with arms crossed in black scrubs embroidered with his name, smiling, inside his optical practice.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Miller Optometry's optical dispensary; a wall-mounted eyewear display rack with dozens of glasses frames behind him.",
+      "tags": [
+        "Sahil Dosaj",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Miller Optometry",
+        "Yucaipa CA"
+      ],
+      "altText": "Dr. Sahil Dosaj, OD, smiling with arms crossed in front of an eyewear display wall at Miller Optometry.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Dosaj before external publication.",
+      "source": {
+        "filename": "kol-sahil-dosaj-001.png",
+        "format": "png",
+        "width": 1278,
+        "height": 1524,
+        "bytes": 2409961,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 763,
+          "bytes": 40650,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-sahil-dosaj-001/kol-sahil-dosaj-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sahil-dosaj-001/kol-sahil-dosaj-001-640w.webp"
+        },
+        {
+          "width": 1278,
+          "height": 1524,
+          "bytes": 87432,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-sahil-dosaj-001/kol-sahil-dosaj-001-1278w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sahil-dosaj-001/kol-sahil-dosaj-001-1278w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:39.956Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "kol-sandra-zhang-001",
+      "collection": "kol-headshots",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "Headshot of Dr. Sandra Zhang, OD",
+      "description": "Dr. Sandra Zhang, seated, wears a royal blue satin blouse, one hand resting on her knee.",
+      "productShown": "none",
+      "audience": [
+        "marketing team",
+        "KOL bio/profile use"
+      ],
+      "placements": [
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Dark studio backdrop with warm rim lighting, professional portrait style.",
+      "tags": [
+        "Sandra Zhang",
+        "headshot",
+        "KOL",
+        "optometry",
+        "Gemini Optometry",
+        "Moreno Valley CA"
+      ],
+      "altText": "Dr. Sandra Zhang, OD, seated in a royal blue blouse against a dark studio background.",
+      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Zhang before external publication.",
+      "source": {
+        "filename": "kol-sandra-zhang-001.webp",
+        "format": "webp",
+        "width": 1024,
+        "height": 1397,
+        "bytes": 111914,
+        "intake": "local-staging"
+      },
+      "derivatives": [
+        {
+          "width": 640,
+          "height": 873,
+          "bytes": 39180,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-sandra-zhang-001/kol-sandra-zhang-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sandra-zhang-001/kol-sandra-zhang-001-640w.webp"
+        },
+        {
+          "width": 1024,
+          "height": 1397,
+          "bytes": 92824,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-sandra-zhang-001/kol-sandra-zhang-001-1024w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sandra-zhang-001/kol-sandra-zhang-001-1024w.webp"
+        }
+      ],
+      "importedAt": "2026-09-09T17:20:40.085Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "lumenis-accelerate-attendee-conversation-001",

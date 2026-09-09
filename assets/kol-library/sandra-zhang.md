@@ -25,5 +25,6 @@ Dr. Sandra Zhang is an optometrist at Gemini Optometry in Moreno Valley, CA, spe
 
 ## Headshot
 
-- **Not yet sourced.** Gemini Optometry's own site (geminioptometry.com) doesn't appear to publish individual staff headshots, and her Zocdoc profile didn't yield a usable photo URL either. Best next step is asking her directly for a headshot, since Ted is already producing her interview content for an upcoming webinar.
-- Reuse restrictions: n/a until a source photo is identified.
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sandra-zhang-001/kol-sandra-zhang-001-1024w.webp) (`kol-sandra-zhang-001`; candidate; rights unverified)
+- Source: provided directly by Ted Carmichael to the Lumenis working library.
+- Reuse restrictions: confirm any model-release or contractual requirements with Dr. Zhang before external publication.

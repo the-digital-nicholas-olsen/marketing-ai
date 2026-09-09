@@ -26,5 +26,6 @@ Dr. Jenn Chinn is the second-generation optometrist at Dr. Chinn's Vision Care i
 
 ## Headshot
 
-- **Not yet sourced automatically.** Her photo is on https://www.drchinnsvisioncare.com/team/jenn-chinn-od/, but the page's image loading kept an automated tool from pulling a direct image URL. Needs a manual screenshot/save from that page.
-- Reuse restrictions: unknown — confirm with the practice before uploading to the shared library.
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-jenn-chinn-001/kol-jenn-chinn-001-450w.webp) (`kol-jenn-chinn-001`; candidate; rights unverified)
+- Source: provided directly by Ted Carmichael to the Lumenis working library.
+- Reuse restrictions: confirm any model-release or contractual requirements with Dr. Chinn before external publication.
