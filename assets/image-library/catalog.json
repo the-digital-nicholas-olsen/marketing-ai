@@ -12,6 +12,7 @@
     },
     "vocabularies": {
       "allowedBrands": [
+        "unclassified",
         "OptiLIGHT",
         "OptiLIFT",
         "Folix",
@@ -50,8 +51,8 @@
       ],
       "note": "These lists can grow over time. Treat a value you don't recognize as valid-but-unclassified, not an error."
     },
-    "lastSyncedAt": "2026-09-09T17:42:56.754Z",
-    "updatedAt": "2026-09-09T17:42:56.756Z"
+    "lastSyncedAt": "2026-09-09T19:11:12.778Z",
+    "updatedAt": "2026-09-09T19:11:12.785Z"
   },
   "schemaVersion": 1,
   "assets": [
@@ -130,11 +131,11 @@
       "id": "kol-amanda-amberg-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
-      "subject": "Candidate headshot of Dr. Amanda Amberg, OD",
-      "description": "Automated candidate pulled from Hollywood Eye Institute's team page; not visually confirmed.",
+      "subject": "Headshot of Dr. Amanda Amberg, OD",
+      "description": "Dr. Amanda Amberg smiles in a white clinical coat outside the Hollywood Eye Institute; the practice team page associates this image directly with her profile.",
       "productShown": "none",
       "audience": [
         "marketing team",
@@ -145,7 +146,7 @@
         "section"
       ],
       "orientation": "portrait",
-      "background": "Unknown - not inspected. Verify visually before use.",
+      "background": "Outdoor practice entrance with glass doors and landscaping",
       "tags": [
         "Amanda Amberg",
         "headshot",
@@ -155,8 +156,8 @@
         "Hollywood FL",
         "unconfirmed"
       ],
-      "altText": "Candidate headshot for Dr. Amanda Amberg, OD - identity not visually confirmed.",
-      "usageRestrictions": "UNCONFIRMED IDENTITY: the source filename references a different name (\"Shareen_Greenbaum_MD\"), suggesting possible mislabeling on the practice site. Visually verify this is actually Dr. Amberg before using it anywhere. Reuse rights also not confirmed - check with the practice.",
+      "altText": "Dr. Amanda Amberg, OD, smiling in a white clinical coat outside the Hollywood Eye Institute.",
+      "usageRestrictions": "The Hollywood Eye Institute team page associates this image directly with Dr. Amberg; the legacy source filename names another doctor and appears to be a vendor naming artifact. Confirm image reuse rights with Dr. Amberg or the practice before external publication.",
       "source": {
         "filename": "kol-amanda-amberg-001.jpg",
         "format": "jpeg",
@@ -188,13 +189,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-celesta-ferreira-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Celesta Ferreira, OD",
@@ -250,17 +253,19 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-chandler-mann-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
-      "subject": "Headshot of Dr. Chandler Mann II, OD",
-      "description": "Dr. Chandler Mann II smiles in a white lab coat embroidered with his name, two pens clipped in the breast pocket.",
+      "subject": "Headshot of Dr. Chandler R. Mann II, OD",
+      "description": "Dr. Chandler R. Mann II smiles in a white clinical coat embroidered with his name against a white studio background.",
       "productShown": "none",
       "audience": [
         "marketing team",
@@ -271,7 +276,7 @@
         "section"
       ],
       "orientation": "portrait",
-      "background": "Plain white studio backdrop, standard practice headshot style.",
+      "background": "White studio background",
       "tags": [
         "Chandler Mann",
         "headshot",
@@ -280,35 +285,46 @@
         "Stone Oak Vision Source",
         "San Antonio TX"
       ],
-      "altText": "Dr. Chandler Mann II, OD, smiling in a white lab coat against a plain white studio background.",
-      "usageRestrictions": "Provided directly by Ted Carmichael (Lumenis). Confirm any model-release/contractual requirements with Dr. Mann before external publication.",
+      "altText": "Dr. Chandler R. Mann II, OD, smiling in an embroidered white clinical coat against a white background.",
+      "usageRestrictions": "Publicly hosted on the Stone Oak Vision Source doctor profile. Confirm image reuse rights with Dr. Mann or the practice before external publication.",
       "source": {
-        "filename": "kol-chandler-mann-001.png",
-        "format": "png",
-        "width": 978,
-        "height": 996,
-        "bytes": 215622,
+        "filename": "kol-chandler-mann-001.jpeg",
+        "format": "jpeg",
+        "width": 1707,
+        "height": 2560,
+        "bytes": 313882,
         "intake": "local-staging"
       },
+      "sourceUrl": "https://stoneoakvisionsource.com/wp-content/uploads/2023/04/IMG_6191-scaled.jpeg",
       "derivatives": [
         {
           "width": 640,
-          "height": 652,
-          "bytes": 65928,
+          "height": 960,
+          "bytes": 25020,
           "format": "webp",
           "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-640w.webp",
           "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-640w.webp"
         },
         {
-          "width": 978,
-          "height": 996,
-          "bytes": 113118,
+          "width": 1280,
+          "height": 1920,
+          "bytes": 91544,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-978w.webp",
-          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-978w.webp"
+          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-1280w.webp"
+        },
+        {
+          "width": 1707,
+          "height": 2560,
+          "bytes": 186804,
+          "format": "webp",
+          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-1707w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-1707w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:39.967Z",
+      "importedAt": "2026-09-09T19:09:25.939Z",
+      "status": "candidate",
+      "rightsStatus": "unverified",
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
@@ -318,7 +334,7 @@
       "id": "kol-chelnis-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Candidate headshot of Dr. James G. Chelnis, MD, FACS",
@@ -369,13 +385,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-cory-lappin-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Cory Lappin, OD, MS, FAAO",
@@ -439,13 +457,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-elise-kramer-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Candidate headshot of Dr. Elise Kramer, OD, FAAO, FSLS",
@@ -503,13 +523,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-faten-edris-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Faten Edris (Edriskhalaf), OD",
@@ -573,13 +595,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-hardeep-kataria-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Candidate headshot of Dr. Hardeep Kataria, OD, FAAO",
@@ -637,13 +661,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-jenn-chinn-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Jenn Chinn, OD",
@@ -691,13 +717,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-kiranjeet-sran-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Kiranjeet Sran, OD",
@@ -761,13 +789,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-laura-periman-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Laura M. Periman, MD",
@@ -831,13 +861,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-maria-sampalis-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Maria Sampalis, OD",
@@ -901,13 +933,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-patricia-fulmer-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Patricia Fulmer, OD, FAAO",
@@ -955,13 +989,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-sahil-dosaj-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Sahil Dosaj, OD",
@@ -1017,13 +1053,15 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "kol-sandra-zhang-001",
       "collection": "kol-headshots",
       "allowedBrands": [
-        "cross-brand approved"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "subject": "Headshot of Dr. Sandra Zhang, OD",
@@ -1079,7 +1117,9 @@
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
-      }
+      },
+      "status": "candidate",
+      "rightsStatus": "unverified"
     },
     {
       "id": "lumenis-accelerate-attendee-conversation-001",

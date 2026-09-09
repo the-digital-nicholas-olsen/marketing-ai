@@ -5,6 +5,7 @@ import { HUBSPOT_PORTAL_ID } from "./hubspot.mjs";
 // here — every script and validator reads from these, nothing else
 // hardcodes a brand/business-unit/collection/etc. list.
 export const brands = [
+  "unclassified",
   "OptiLIGHT",
   "OptiLIFT",
   "Folix",

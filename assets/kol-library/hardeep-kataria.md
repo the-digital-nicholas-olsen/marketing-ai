@@ -28,6 +28,7 @@ Dr. Hardeep Kataria practices at Avant Eyes Optometry & Advanced Dry Eye Center 
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-hardeep-kataria-001/kol-hardeep-kataria-001-1170w.webp) (`kol-hardeep-kataria-001`; candidate; rights unverified)
 - Source page: https://www.avanteyes.com/meet-team.html
 - Image URL found: https://static.royacdn.com/Site-3756d990-bbd0-47df-8251-48d027c79768/Avant_1_.jpg
-- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
+- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before external publication.

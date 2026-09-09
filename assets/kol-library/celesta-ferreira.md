@@ -27,7 +27,8 @@ Dr. Celesta Ferreira is the founder of Cypress Optique in Cypress, TX, and a lic
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-celesta-ferreira-001/kol-celesta-ferreira-001-1060w.webp) (`kol-celesta-ferreira-001`; candidate; rights unverified)
 - Source page: https://cypressoptique.com/our-practice/
 - Image URL found: https://cypressoptique.com/wp-content/uploads/2024/01/cypressoptiqtue-Staff.jpg
 - **Flag:** filename is generic ("Staff") — confirm visually this is Dr. Ferreira specifically before use, since it may be a group/staff photo rather than an individual headshot.
-- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
+- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before external publication.

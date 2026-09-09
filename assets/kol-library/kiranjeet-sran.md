@@ -28,7 +28,8 @@ Dr. Kiranjeet Sran owns Lumos Eyecare, an independent optometry practice inside 
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1920w.webp) (`kol-kiranjeet-sran-001`; candidate; rights unverified)
+- Current library source: provided directly by Ted Carmichael; this replaces the low-resolution website thumbnail for working use.
 - Source page: https://www.lumoseyecare.com/
 - Image URL found: https://static.wixstatic.com/media/0481d0_e7b5b6041c03464d99c31047e36dfeb1~mv2.jpg/v1/crop/x_0,y_0,w_3980,h_5310/fill/w_218,h_291,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Lumos-Team2026_016_JPG.jpg
-- **Flag:** this is a Wix-generated cropped/compressed thumbnail URL, not a full-resolution source image — a higher-resolution version should be requested directly from the practice before this goes into the shared library.
-- Reuse restrictions: unknown — confirm with the practice before uploading.
+- Reuse restrictions: confirm any model-release or contractual requirements with Dr. Sran before external publication.

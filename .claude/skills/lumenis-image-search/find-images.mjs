@@ -13,7 +13,7 @@
  * Flags
  *   --placement <hero|section|card|social>
  *   --brand <OptiLIFT|OptiLIGHT|"Lumenis corporate">
- *   --collection <accelerate-events|product-demos|trade-shows|optilift|brand-assets>
+ *   --collection <kol-headshots|accelerate-events|product-demos|trade-shows|optilift|brand-assets>
  *   --width <640|1280|1920>     default 1920
  *   --alt                       also print altText
  *   --json                      machine-readable output

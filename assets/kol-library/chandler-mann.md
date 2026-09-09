@@ -27,5 +27,8 @@ Dr. Chandler R. Mann II owns Stone Oak Vision Source in San Antonio, TX, with a 
 
 ## Headshot
 
-- **Not yet sourced automatically.** His team photo lives on https://stoneoakvisionsource.com/meet-our-doctors/, but the page loads photos in a way automated tools couldn't pull a direct image URL from. Needs a manual screenshot/save from that page, or a request to the practice for a print-quality headshot.
-- Reuse restrictions: unknown — confirm with the practice before uploading to the shared library.
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-1707w.webp) (`kol-chandler-mann-001`; candidate; rights unverified)
+- Source page: https://stoneoakvisionsource.com/meet-our-doctors/
+- Image URL found: https://stoneoakvisionsource.com/wp-content/uploads/2023/04/IMG_6191-scaled.jpeg
+- Identity check: visually verified against the practice page; his embroidered coat reads “Chandler R. Mann II, O.D.”
+- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice or Dr. Mann before external publication.

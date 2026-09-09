@@ -36,7 +36,7 @@ npm run generate-metadata -- --file 1-raw/my-photo.jpg --id optilift-device-fron
 
 Optionally add `--source-url` with the source HTTPS URL if appropriate for this public catalog. Complete all draft fields: a short subject, one or two sentences describing subject/action, background, actual product shown, audience, placements, orientation, tags, alt text and usage restrictions. Add `collection` yourself; the generator does not scaffold it. Pick values from the schema. Keep `source.path` so the importer can locate the source.
 
-`allowedBrands` determines permissible brand use. `businessUnit` controls HubSpot folder routing; these are separate concepts. Missing rights evidence remains unverified. Inspect identifiable people, releases, competitor branding and visible personal/clinical data. Do not infer consent or approval from availability.
+`allowedBrands` determines permissible brand use. Use `unclassified` when that scope has not been decided; do not use an `approved` value as a placeholder. `businessUnit` controls HubSpot folder routing; these are separate concepts. Missing rights evidence remains unverified. Inspect identifiable people, releases, competitor branding and visible personal/clinical data. Do not infer consent or approval from availability.
 
 ## Resize and import
 

@@ -27,6 +27,7 @@ Dr. James G. Chelnis is a dual board-certified oculofacial plastic surgeon and o
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chelnis-001/kol-chelnis-001-448w.webp) (`kol-chelnis-001`; candidate; rights unverified)
 - Source page: https://profiles.mountsinai.org/james-g-chelnis
 - Image URL found: https://www.mountsinai.org/files/images/fad-images/0000076810115639741411.jpg
 - Reuse restrictions: this is a Mount Sinai institutional profile photo — confirm with Mount Sinai and/or Dr. Chelnis directly before using it in Lumenis marketing materials, since institutional headshots often carry usage restrictions.

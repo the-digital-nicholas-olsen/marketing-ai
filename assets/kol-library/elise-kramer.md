@@ -26,6 +26,7 @@ Dr. Elise Kramer is an optometrist at the Miami Contact Lens Institute specializ
 
 ## Headshot
 
+- HubSpot library: [web-ready headshot](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-elise-kramer-001/kol-elise-kramer-001-685w.webp) (`kol-elise-kramer-001`; candidate; rights unverified)
 - Source page: https://www.miamicontactlens.com/about/dr-elise-kramer
 - Image URL found: https://cdn.prod.website-files.com/682b7847967d895481a5ea83/68361bad3193aae10159a26b_Dr.%20Elise%20Kramer.png
-- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library. (Note: Ted has an existing working relationship with Dr. Kramer via a prior Lumenis-sponsored CE course — she may be able to provide a preferred headshot directly.)
+- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before external publication. (Ted has an existing working relationship with Dr. Kramer through a prior Lumenis-sponsored CE course.)
