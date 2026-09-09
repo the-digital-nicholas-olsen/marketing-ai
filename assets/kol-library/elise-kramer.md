@@ -14,11 +14,11 @@ checked: 2026-09-08
 
 Dr. Elise Kramer is a residency-trained optometrist based in Miami, Florida, specializing in ocular surface disease and custom specialty contact lens fitting at the Miami Contact Lens Institute. She earned her Doctorate in Optometry from the Université de Montréal in 2012, completed an internship focused on ocular disease at the Eye Centers of South Florida, and completed a residency at the Miami VA Medical Center that included training at the Bascom Palmer Eye Institute.
 
-She became a Fellow of the Scleral Lens Education Society following her residency and now serves as its Vice President. Dr. Kramer is also Vice President of Women in Eyecare, a member of the American Optometric Association and the International Association of Contact Lens Educators, a Fellow of the American Academy of Optometry, and a Fellow of the British Contact Lens Association. She is a published author, active clinical researcher, and lectures internationally on ocular surface disease and specialty lenses in multiple languages, and has participated in a humanitarian eye care mission to Morocco.
+She became a Fellow of the Scleral Lens Education Society following her residency and currently serves as its Immediate Past President. Dr. Kramer became President of Women in Eyecare in January 2025 and is now its Immediate Past President; she is also a member of the American Optometric Association and the International Association of Contact Lens Educators, a Fellow of the American Academy of Optometry, and a Fellow of the British Contact Lens Association. She is a published author, active clinical researcher, and lectures internationally on ocular surface disease and specialty lenses in multiple languages, and has participated in a humanitarian eye care mission to Morocco.
 
 ## Short biography
 
-Dr. Elise Kramer is an optometrist at the Miami Contact Lens Institute specializing in ocular surface disease and specialty contact lens fitting. A Fellow of the American Academy of Optometry and the Scleral Lens Education Society (where she serves as Vice President), she also serves as Vice President of Women in Eyecare and lectures internationally.
+Dr. Elise Kramer is an optometrist at the Miami Contact Lens Institute specializing in ocular surface disease and specialty contact lens fitting. A Fellow of the American Academy of Optometry and the Scleral Lens Education Society (where she serves as Immediate Past President), she is also Immediate Past President of Women in Eyecare and lectures internationally.
 
 ## Sources
 
