@@ -93,7 +93,7 @@ Fades and slow reveals; no bounce, no spring, no parallax gimmicks. `--dur-fast 
 
 ABC Arizona (Sans + Mix) is a **licensed Dinamo typeface and is not distributed in this repo.** `assets/fonts/` and `uploads/` are gitignored — nothing under either path is ever committed. `tokens/fonts.css` declares the font families by name only; each `@font-face` rule tries an OS-installed copy first (`local(...)`), then a local file, and falls through cleanly to the system stack (`Arial`/`Georgia`) in `typography.css` if neither is present. Nothing breaks without the fonts — text renders in the fallback face.
 
-For exactly where to get the licensed files and which paths to drop them at, see [README.md → Fonts](https://github.com/laarnicayetano/lumenis-design-system/blob/c2c80240eb29ac5cf0573a5d3271792b5e16e8a4/README.md#fonts--where-to-get-them-where-they-go).
+Authorized users can download the four available cuts from the local [HubSpot asset index](hubspot-assets.md). Install them on the destination computer so the `local(...)` lookup in `tokens/fonts.css` can use them. Confirm that the intended desktop or web use is covered by the applicable Lumenis font license; never commit the binaries to Git.
 
 ## Iconography
 

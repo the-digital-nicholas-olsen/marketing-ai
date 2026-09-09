@@ -50,6 +50,7 @@ Near icon-free. The one logo-native element is the **"sun" mark** beside the wor
 
 ## In this repo
 
+- [HubSpot-hosted design assets](../hubspot-assets.md) — the verified OptiLIGHT full lockup and four available ABC Arizona font cuts.
 - `tokens/subbrands.css` → `[data-subbrand="optilight"]`, `tokens/colors.css` → `--lum-blue`, `guidelines/colors-vision.tsx` already documents the accent alongside OptiLIFT's.
 - `components/Brand/Rays/` — the rays-of-light system as a real shared component (not inline SVG), carrying the "never cross live text" masking rule (`clear="center"/"left"/"right"`).
 - `products/OptiLIGHT/guidelines/brand-optilight-rays.card.html`, `-prism.card.html` — migrated specimen cards; `guidelines/brand-photography.card.html` (shared, stays at repo root) covers photography for both OptiLIFT and OptiLIGHT together.
@@ -59,10 +60,10 @@ Near icon-free. The one logo-native element is the **"sun" mark** beside the wor
 
 ## Shipping to HubSpot
 
-The original standalone system pointed to a `../HubSpot Landing Pages/` skill as the authority on HubSpot-side mechanics — naming, page architecture, the shared image library, lead forms, and portal quirks (form fields added by double-click not drag; the forms API returns the _published_ form so it reads stale after edits; "Create new contacts for new email addresses" defaults **off**, silently dropping net-new leads). **That skill does not exist in this repo** and wasn't found elsewhere on this machine as of the migration. Until it's located or rebuilt, treat HubSpot build mechanics as undocumented here — the rules above under "Calculator/form specifics" are as far as this file goes.
+Use the local Accelerate campaign references for [page implementation](../../../.agents/skills/lumenis-accelerate-campaign/references/pages.md) and [forms](../../../.agents/skills/lumenis-accelerate-campaign/references/forms.md). Use the [HubSpot asset index](../hubspot-assets.md) for the verified OptiLIGHT lockup and font downloads. Before publishing, verify the real hosted URLs, the selected native form, net-new-contact behavior and the saved public result in the intended portal.
 
 ## Caveats (carried over from the original system, still unresolved)
 
 1. The primary brand-guidelines PDF (`optiLight_Lumenis-brand guidelines_H.pdf`, 50 pages) was the main source; a referenced companion (`Lumenis-brand guidelines_S.pdf`, for shared type/color rules) was never supplied.
-2. Only `ABCArizonaMix-Regular.otf` was confirmed as the real display face at generation time — same font family as the root system, no separate license concern.
+2. Four ABC Arizona cuts are now confirmed in HubSpot: Sans Regular, Sans Light, Mix Regular and Mix Italic. Bold and Medium remain unavailable in this repository.
 3. No pre-existing OptiLIGHT digital product or component library was available — treat any OptiLIGHT ui_kit as an original construction sized to the brand, not a recreation of a real screen, once one exists.
