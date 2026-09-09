@@ -5,7 +5,7 @@ description: Prepare a Lumenis HubSpot landing-page brief, draft content and imp
 
 # HubSpot page draft
 
-Resolve division, product, market, audience, campaign label, period, desired conversion and external output folder. Read the relevant approved design and claims references; do not assume this public repository contains them. Use ../../../templates/campaign-brief.md when a brief is useful.
+Resolve division, product, market, audience, campaign label, period, desired conversion and external output folder. For OptiLIFT/OptiLIGHT, read [local design guidance](../../../assets/design-system/README.md) and the selected product reference. Consult the claims library for evidence status; source copy is not approval. Use ../../../templates/campaign-brief.md when a brief is useful.
 
 Run `node scripts/name.mjs <AES|VIS> "<campaign>" "<Qn YYYY>" <country-code>` from the repository root for proposed names. Confirm the naming convention applies to the selected market. The helper does not determine CRM values.
 

@@ -42,5 +42,5 @@ Initial library of key opinion leaders (KOLs) referenced in Lumenis marketing co
 ## Next steps
 
 1. Confirm identity/details flagged above directly with each KOL or their practice, where noted.
-2. Once a HubSpot access token is available, follow the `lumenis-image-library` skill to inspect, resize, and upload each confirmed headshot, and update `assets/image-library/catalog.json` accordingly.
+2. Once the contributor’s own HubSpot CLI authentication and required Files access are available, follow the `lumenis-image-library` skill to inspect, resize, and upload each confirmed headshot, and update `assets/image-library/catalog.json` accordingly.
 3. Add headshot links back into each KOL's file once uploaded.

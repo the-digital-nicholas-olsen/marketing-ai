@@ -1,8 +1,10 @@
 # Readiness
 
-Updated 2026-09-07. The repository now goes beyond the initial public preview: six canonical skills, including the detailed Accelerate workflow and Ted's copy clarity gate, with generated Claude copies.
+Updated 2026-09-07. The repository now goes beyond the initial public preview: seven canonical skills, including the detailed Accelerate workflow and Ted's copy clarity gate, with generated Claude copies.
 
 ## Available
+
+- Local OptiLIFT/OptiLIGHT design guidance and tokens, with available logo/specimen assets and explicit source caveats; standalone OptiLIGHT wordmark still requires approved artwork.
 
 - Integrated image-library instructions, catalog and scripts in assets/image-library, with a canonical intake/upload skill and generated Claude copy. Local intake/resizing tested; production HubSpot upload/sync not exercised during adoption.
 

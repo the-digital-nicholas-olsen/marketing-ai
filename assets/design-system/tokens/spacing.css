@@ -1,0 +1,33 @@
+:root {
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 56px; /* social-format margin (p.67) */
+  --space-9: 80px;
+  --space-10: 120px;
+  --space-11: 160px;
+
+  /* Social 1080² grid: 6 columns / 6 rows, 56px margins, 36 squares (p.67) */
+  --social-size: 1080px;
+  --social-margin: 56px;
+  --social-cols: 6; /* @kind other */
+  --social-square: 161.33px;
+  --social-logo-width: 322.67px; /* wordmark = 2 columns */
+
+  /* Page layout */
+  --page-max: 1440px;
+  --page-gutter: 56px;
+  --page-gutter-sm: 24px;
+  --section-gap: 120px;
+
+  /* Logotype & CTA clear space, expressed in multiples of the mark/x-height */
+  --logo-safety: 1em; /* = x of the wordmark, all four sides (p.12) */
+  --logo-min-width: 50px; /* screen minimum (p.13) */
+  --cta-clear-x: 1em; /* vertical clear space = x-height */
+  --cta-clear-2x: 2em; /* horizontal clear space = 2x */
+}
