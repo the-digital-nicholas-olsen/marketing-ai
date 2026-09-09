@@ -24,9 +24,8 @@ Dr. Sahil A. Dosaj is the owner of Miller Optometry in Yucaipa, CA. Glaucoma-cer
 
 - https://www.miller-optometry.com/meet-the-optometrists.html — checked 2026-09-08
 
-- ## Headshot
+## Headshot
 
-- - Source page: https://www.miller-optometry.com/meet-the-optometrists.html
-  - - Image URL found: https://static.royacdn.com/Site-79e56a4e-8b79-4807-9e25-db2020f08a8a/Team/dr_dosaj.jpg
-    - - Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
-      - 
+- Source page: https://www.miller-optometry.com/meet-the-optometrists.html
+- Image URL found: https://static.royacdn.com/Site-79e56a4e-8b79-4807-9e25-db2020f08a8a/Team/dr_dosaj.jpg
+- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
