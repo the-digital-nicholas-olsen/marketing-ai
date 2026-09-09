@@ -1,10 +1,25 @@
 # Lumenis Web Image Catalog
 
-Generated from `catalog.json`. 58 assets.
+Generated from `catalog.json`. 73 assets.
 
 | Asset | Collection | Allowed brands | Subject | HubSpot | Tags | Image |
 | --- | --- | --- | --- | --- | --- | --- |
 | folix-scalp-treatment-demo-001 | product-demos | Folix | Folix scalp treatment in progress | [1920w](https://information.lumenis.com/hubfs/US%20-%20Web%20Image%20Catalog/Aesthetics/folix-scalp-treatment-demo-001/folix-scalp-treatment-demo-001-1672w.webp) | Folix, scalp treatment, laser treatment, aesthetic device, patient demo, treatment room | ![image](https://information.lumenis.com/hubfs/US%20-%20Web%20Image%20Catalog/Aesthetics/folix-scalp-treatment-demo-001/folix-scalp-treatment-demo-001-1672w.webp) |
+| kol-amanda-amberg-001 | kol-headshots | cross-brand approved | Candidate headshot of Dr. Amanda Amberg, OD | — | Amanda Amberg, headshot, KOL, optometry, Hollywood Eye Institute, Hollywood FL, unconfirmed | — |
+| kol-celesta-ferreira-001 | kol-headshots | cross-brand approved | Headshot of Dr. Celesta Ferreira, OD | — | Celesta Ferreira, headshot, KOL, optometry, Cypress Optique, Cypress TX | — |
+| kol-chandler-mann-001 | kol-headshots | cross-brand approved | Headshot of Dr. Chandler Mann II, OD | — | Chandler Mann, headshot, KOL, optometry, Stone Oak Vision Source, San Antonio TX | — |
+| kol-chelnis-001 | kol-headshots | cross-brand approved | Candidate headshot of Dr. James G. Chelnis, MD, FACS | — | Chelnis, headshot, KOL, oculoplastics, Manhattan Face & Eye, Mount Sinai, New York NY, unconfirmed | — |
+| kol-cory-lappin-001 | kol-headshots | cross-brand approved | Headshot of Dr. Cory Lappin, OD, MS, FAAO | — | Cory Lappin, headshot, KOL, optometry, The Dry Eye Center of Ohio, Cincinnati OH | — |
+| kol-elise-kramer-001 | kol-headshots | cross-brand approved | Candidate headshot of Dr. Elise Kramer, OD, FAAO, FSLS | — | Elise Kramer, headshot, KOL, optometry, Miami Contact Lens Institute, Miami FL, unconfirmed | — |
+| kol-faten-edris-001 | kol-headshots | cross-brand approved | Headshot of Dr. Faten Edris (Edriskhalaf), OD | — | Faten Edris, headshot, KOL, optometry, Blinking Owl Eye Care, Miami FL | — |
+| kol-hardeep-kataria-001 | kol-headshots | cross-brand approved | Candidate headshot of Dr. Hardeep Kataria, OD, FAAO | — | Hardeep Kataria, headshot, KOL, optometry, Avant Eyes Optometry, Porter Ranch CA, unconfirmed | — |
+| kol-jenn-chinn-001 | kol-headshots | cross-brand approved | Headshot of Dr. Jenn Chinn, OD | — | Jenn Chinn, headshot, KOL, optometry, Dr. Chinn's Vision Care, San Diego CA | — |
+| kol-kiranjeet-sran-001 | kol-headshots | cross-brand approved | Headshot of Dr. Kiranjeet Sran, OD | — | Kiranjeet Sran, headshot, KOL, optometry, Lumos Eyecare, Bridgewater NJ | — |
+| kol-laura-periman-001 | kol-headshots | cross-brand approved | Headshot of Dr. Laura M. Periman, MD | — | Laura Periman, headshot, KOL, ophthalmology, Periman Eye Institute, Seattle WA | — |
+| kol-maria-sampalis-001 | kol-headshots | cross-brand approved | Headshot of Dr. Maria Sampalis, OD | — | Maria Sampalis, headshot, KOL, optometry, Sampalis Eye Care, Cranston RI | — |
+| kol-patricia-fulmer-001 | kol-headshots | cross-brand approved | Headshot of Dr. Patricia Fulmer, OD, FAAO | — | Patricia Fulmer, headshot, KOL, optometry, Legacy Vision Center, Huntsville AL | — |
+| kol-sahil-dosaj-001 | kol-headshots | cross-brand approved | Headshot of Dr. Sahil Dosaj, OD | — | Sahil Dosaj, headshot, KOL, optometry, Miller Optometry, Yucaipa CA | — |
+| kol-sandra-zhang-001 | kol-headshots | cross-brand approved | Headshot of Dr. Sandra Zhang, OD | — | Sandra Zhang, headshot, KOL, optometry, Gemini Optometry, Moreno Valley CA | — |
 | lumenis-accelerate-attendee-conversation-001 | accelerate-events | Lumenis corporate | Attendees in conversation | [1920w](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-attendee-conversation-001-1920w.webp) | Lumenis, Accelerate, attendees, conversation, event lounge, networking | ![image](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-attendee-conversation-001-1920w.webp) |
 | lumenis-accelerate-device-presentation-001 | accelerate-events | Lumenis corporate | Accelerate device presentation | [1920w](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-presentation-001-1920w.webp) | Lumenis, Accelerate, presentation, event stage, device, speakers | ![image](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-presentation-001-1920w.webp) |
 | lumenis-accelerate-device-station-001 | accelerate-events | Lumenis corporate | Lumenis device station | [1920w](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-station-001-1920w.webp) | Lumenis, Accelerate, device station, event, treatment technology | ![image](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-accelerate-device-station-001-1920w.webp) |

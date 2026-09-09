@@ -13,6 +13,7 @@ export const brands = [
 ];
 export const businessUnits = ["Vision", "Aesthetics", "Corporate"];
 export const collections = [
+  "kol-headshots",
   "accelerate-events",
   "trade-shows",
   "product-demos",
