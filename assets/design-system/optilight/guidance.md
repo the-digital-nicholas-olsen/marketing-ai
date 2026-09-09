@@ -84,6 +84,12 @@ documented substitution (parallel to the root system's own Phosphor
 substitution for corporate work) — flag it as a substitution if used, and
 keep it minimal/monochrome.
 
+## Assets
+
+Use the [HubSpot asset index](../hubspot-assets.md) for the verified
+OptiLIGHT full lockup and the four available ABC Arizona font cuts. Do not
+redraw the wordmark or commit licensed font binaries to Git.
+
 ## How to use this
 
 - Inherit global tokens; apply only the deltas listed here.
