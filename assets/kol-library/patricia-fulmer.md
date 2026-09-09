@@ -12,7 +12,7 @@ checked: 2026-09-08
 
 ## Longer biography
 
-Dr. Patricia Fulmer is the founder and owner of Legacy Vision Center in south Huntsville, Alabama. She graduated from the UAB School of Optometry in 2012 and is a Fellow of the American Academy of Optometry. She has held extensive leadership roles in organized optometry, including a seven-year run through past secretary/treasurer, vice president, and president of the North Alabama Optometric Association, and currently serves as Vice President and Education Committee Chair for the Alabama Optometric Association.
+Dr. Patricia Fulmer is the founder and owner of Legacy Vision Center in south Huntsville, Alabama. She graduated from the UAB School of Optometry in 2012 and is a Fellow of the American Academy of Optometry. She has held extensive leadership roles in organized optometry, including a seven-year run through past secretary/treasurer, vice president, and president of the North Alabama Optometric Association, and currently serves as President-elect of the Alabama Optometric Association.
 
 Dr. Fulmer also contributes to HEALs, Inc., a Huntsville nonprofit providing medical, dental, and optometric services to underserved children in schools, where she serves as optometry director on the board and advises on clinical standards. In 2024, she received the Young Alumnus of the Year award from the UAB School of Optometry Alumni Association in recognition of her professional achievements and community contributions.
 
