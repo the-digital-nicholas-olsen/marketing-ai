@@ -16,7 +16,7 @@ This collection catalogs claims and statistics that appear in Lumenis marketing 
 
 - **In scope:** public-use clinical, regulatory, epidemiological and procedural claims and statistics that appear in Lumenis product/patient marketing materials, with public sources (published studies, public regulatory filings, public epidemiology sources).
 - **Out of scope, by design:** internal business figures (practice revenue models, ROI projections, per-practice sales results), confidential or unpublished evidence beyond what a public-facing document already discloses, campaign records, and anything that would require reproducing a restricted internal document. This is a public repository (see [AGENTS.md](../../AGENTS.md)); do not add confidential source material or internal-only data here.
-- A claim's presence in a deck is not itself approval evidence, and a study existing is not the same as a claim being cleared for a specific market/audience — see [known conflicts](../../guides/known-conflicts.md) (D09/D10) and [Ted's copy clarity gate](../../.agents/skills/copy-clarity-gate/SKILL.md), which owns compliance/prohibited-terms review downstream of this reference.
+- A claim's presence in a deck is not itself approval evidence, and a study existing is not the same as a claim being cleared for a specific market/audience — see [known conflicts](../../guides/known-conflicts.md) (D09/D10) and [Ted's copy clarity gate](../../.agents/skills/copy-clarity-gate/SKILL.md), which checks copy clarity; it does not confer clinical or regulatory approval.
 
 ## Fields
 

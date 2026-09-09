@@ -1,0 +1,11 @@
+:root {
+  /* No bounce, no spring. Fades and slow reveals only — "sublime, refined". */
+  --dur-fast: 160ms; /* @kind other */
+  --dur-base: 320ms; /* @kind other */
+  --dur-slow: 600ms; /* @kind other */
+  --dur-reveal: 900ms; /* @kind other */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-linear: linear; /* @kind other */
+  --hover-opacity: 0.6; /* @kind other */
+  --press-opacity: 0.4; /* @kind other */
+}

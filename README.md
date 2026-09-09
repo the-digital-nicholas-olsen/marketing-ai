@@ -21,6 +21,8 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Understand the rollout and token discipline | [Six foundations](guides/ai-foundations.md) |
 | Check coverage and unresolved decisions | [Coverage](guides/knowledge-coverage.md) · [Readiness](STATUS.md) |
 
+Design: [OptiLIFT and OptiLIGHT](assets/design-system/README.md). Reference libraries: [KOLs](assets/kol-library/index.md) and [claims](assets/claims-reference/index.md).
+
 ## Naming and placement
 
 - Use descriptive lowercase, hyphen-separated names for new files/folders: `topic-name.md`. Keep standard filenames such as `README.md`, `AGENTS.md` and `SKILL.md`.
@@ -43,6 +45,6 @@ scripts/          Discovery, naming, synchronization and validation
 
 Use `node scripts/discover.mjs --query emails --limit 5` for discovery.
 
-The detailed manual is source-derived. It does not mean the live systems have been fixed or a newcomer pilot has passed. [Known conflicts](guides/known-conflicts.md) identify decisions required for a sendable campaign. GitHub access does not grant HubSpot, Salesforce or Smartsheet access.
+The manual is source-derived, not proof of live-system readiness. [Known conflicts](guides/known-conflicts.md) identify decisions required for a sendable campaign. GitHub access does not grant HubSpot, Salesforce or Smartsheet access.
 
 We incorporate reviewed dependencies from [Lumenis AI](https://github.com/laarnicayetano/lumenis-ai), the [design system](https://github.com/laarnicayetano/lumenis-design-system), and [web catalog](https://github.com/laarnicayetano/lumenis-web-catalog); see [integration](guides/upstream-integration.md).

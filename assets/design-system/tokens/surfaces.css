@@ -1,0 +1,46 @@
+:root {
+  /* Radius: modest and soft — enough to read as approachable web UI without
+   becoming a "bubbly app" look. This is a deliberate departure from the
+   printed guideline's squared/architectural rule (see BRAND_GUIDELINES.md "Surfaces,
+   borders, radii" and SKILL.md "Surfaces" for the reasoning) — the corporate
+   print/brand language stays squared; digital surfaces round softly.
+   --radius-none is kept for genuinely flat cases (hairline dividers,
+   full-bleed media, the inline text HighlightBox) — it's no longer the
+   default for buttons, fields, chips, or cards. */
+  --radius-none: 0px;
+  --radius-sm: 6px; /* buttons, form controls, small chips */
+  --radius-md: 10px; /* cards, image tiles */
+  --radius-lg: 18px; /* large panels, hero media */
+  --radius-pill: 999px; /* tags, badges, switches */
+  --border-width-hairline: 1px;
+  --border-width-icon-sm: 1px; /* small-scale icon stroke = 1pt (p.56) */
+  --border-width-icon-lg: 2px; /* large-scale icon stroke = 2pt */
+
+  /* Elevation: light, diffuse, cool-neutral — never a hard drop shadow.
+   Tinted from the corporate ink (pure black) rather than an imported grey,
+   so it stays tied to this system's own palette. */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+  /* Accent glow — reserved for the ONE primary/accent call-to-action visible
+   on screen at a time (never generic UI chrome). Recolors automatically
+   with --accent inside a [data-subbrand] scope. */
+  --shadow-accent: 0 10px 30px
+    color-mix(in srgb, var(--accent) 28%, transparent); /* @kind other */
+  --shadow-media: 0 1px 0 0 rgba(0, 0, 0, 0.08); /* only ever this subtle, for photography edges */
+
+  /* Protection: photography carries a plain black scrim, never a blur capsule. */
+  --scrim-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0) 55%
+  ); /* @kind color */
+  --scrim-image-bottom: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0) 60%
+  ); /* @kind color */
+  --overlay-glass: rgba(255, 255, 255, 0.88); /* @kind color */
+  --blur-glass: blur(12px); /* @kind other */
+}

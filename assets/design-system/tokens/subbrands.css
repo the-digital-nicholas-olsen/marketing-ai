@@ -1,0 +1,83 @@
+/* Sub-brand accent scopes (p.79-96). Apply on any container:
+   <div data-subbrand="optilight"> … </div>
+   Never show two sub-brand accents at once, and keep accent ≤ ~20% of the format. */
+[data-subbrand="corporate"] {
+  --accent: var(--lum-black);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-image-grey);
+}
+[data-subbrand="stellar-m22"] {
+  --accent: var(--lum-silken-rose);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-peach-beige);
+}
+[data-subbrand="trilift"] {
+  --accent: var(--lum-rose-gold);
+  --accent-contrast: var(--lum-black);
+  --accent-soft: var(--lum-rose-gold-light);
+}
+[data-subbrand="legendpro"] {
+  --accent: var(--lum-red);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-pastel-brown);
+}
+[data-subbrand="nuera"] {
+  --accent: var(--lum-peach-red);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-gradient-yellow);
+}
+[data-subbrand="ultrapulse"] {
+  --accent: var(--lum-orchid-purple);
+  --accent-contrast: var(--lum-black);
+  --accent-soft: var(--lum-light-purple);
+}
+[data-subbrand="acupulse"] {
+  --accent: var(--lum-purple);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-light-purple);
+}
+[data-subbrand="femtouch"] {
+  --accent: var(--lum-purple);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-light-purple);
+}
+[data-subbrand="folix"] {
+  --accent: var(--lum-turquoise);
+  --accent-contrast: var(--lum-black);
+  --accent-soft: var(--lum-organic-tone);
+}
+[data-subbrand="splendorx"] {
+  --accent: var(--lum-dark-brown);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-soft-brown);
+}
+[data-subbrand="lightsheer"] {
+  --accent: var(--lum-light-brown);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-pastel-brown);
+}
+[data-subbrand="optilight"] {
+  --accent: var(--lum-blue);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-image-grey);
+}
+[data-subbrand="optiplus"] {
+  --accent: var(--lum-magenta);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-image-grey);
+}
+[data-subbrand="optilift"] {
+  --accent: var(--lum-violet);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-image-grey);
+}
+[data-subbrand="digital-duet"] {
+  --accent: var(--lum-light-green);
+  --accent-contrast: var(--lum-black);
+  --accent-soft: var(--lum-image-grey);
+}
+[data-subbrand="digital-trio"] {
+  --accent: var(--lum-green);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-image-grey);
+}

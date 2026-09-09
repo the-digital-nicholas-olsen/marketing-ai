@@ -1,0 +1,46 @@
+:root {
+  /* Families — Sans is the workhorse; Mix highlights 1–2 words only (p.20-21). */
+  --font-sans:
+    "ABC Arizona Sans", "Lumenis Arial", Arial, Helvetica, sans-serif;
+  --font-mix: "ABC Arizona Mix", Georgia, "Times New Roman", serif;
+  --font-system:
+    "Lumenis Arial", Arial, Helvetica, sans-serif; /* email, invoices, letterheads */
+  --font-hebrew: "Noto Sans Hebrew", "ABC Arizona Sans", sans-serif;
+  --font-cjk: "Noto Sans TC", sans-serif; /* = Noto Sans CJK TC, web name */
+  --font-cjk-serif: "Noto Serif SC", serif;
+
+  --weight-light: 300;
+  --weight-regular: 400;
+
+  /* Sizes — literal values from the hierarchy spec (p.24-25) */
+  --text-display: 80px; /* TITLE — "as big as can be" */
+  --text-title: 56px;
+  --text-title-sm: 40px;
+  --text-subtitle: 28px;
+  --text-button: 18px;
+  --text-body: 18px;
+  --text-form: 16px;
+  --text-caption: 14px; /* 75-80% of paragraph */
+
+  /* Leading — titles run tight (88-92%), body loose (120-130%) */
+  --leading-display: 0.9;
+  --leading-title: 0.92;
+  --leading-subtitle: 1.16;
+  --leading-body: 1.39; /* 25px on 18px */
+  --leading-form: 1.4; /* 22.4px on 16px */
+  --leading-caption: 1.14;
+  --leading-button: 1; /* 90-100% of font size */
+
+  /* Tracking is 0 everywhere. Optical kerning on titles, metric on buttons. */
+  --tracking-title: 0;
+  --tracking-body: 0;
+  --tracking-caption: 0.02em;
+
+  /* Social formats (1080²) — minimum sizes, p.69 */
+  --social-headline-min: 52px;
+  --social-subhead-min: 40px;
+  --social-caption-min: 24px;
+
+  --case-title: uppercase; /* @kind other */
+  --case-caption: uppercase; /* @kind other */
+}

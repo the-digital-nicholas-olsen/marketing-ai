@@ -1,0 +1,53 @@
+/* Regional typefaces named in the guidelines (p.33-34), served from Google
+   Fonts under their web-distribution names. Replace with self-hosted files if
+   the brand team supplies them. */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+SC:wght@400;700&display=swap");
+
+/* Arizona (Dinamo) — the Lumenis primary typeface. Licensed, not redistributed:
+   no font files ship in this repo (assets/fonts/ is gitignored). Each rule
+   tries the OS-installed font by name first, then a local copy at
+   assets/fonts/ if you have one — see README.md "Fonts" for where to put it.
+   Neither is present, everything falls through to the system stack in
+   typography.css. Supplied cuts: Sans Regular + Light, Mix Regular + Italic.
+   Bold and Medium (used only for the social high-contrast pairings, p.22-23)
+   are not yet supplied. Arial is the sanctioned system fallback (p.32). */
+@font-face {
+  font-family: "ABC Arizona Sans";
+  src:
+    local("ABC Arizona Sans Regular");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ABC Arizona Sans";
+  src:
+    local("ABC Arizona Sans Light");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ABC Arizona Mix";
+  src:
+    local("ABC Arizona Mix Regular");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ABC Arizona Mix";
+  src:
+    local("ABC Arizona Mix Regular Italic");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lumenis Arial";
+  src:
+    local("Arial");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

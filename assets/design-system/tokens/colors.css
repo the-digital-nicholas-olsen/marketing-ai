@@ -1,0 +1,55 @@
+:root {
+  /* ---- Primary palette (p.42). Black & white carry every Lumenis surface. ---- */
+  --lum-black: #000000;
+  --lum-white: #ffffff;
+  --lum-shine-grey: #404040; /* Pantone Cool — Stellar / device UI grey */
+  --lum-image-grey: #f2f2f2; /* product & people photography backgrounds only */
+  --lum-organic-tone: #f9f0e8; /* FoLix warm off-white */
+
+  /* ---- Secondary palette — Aesthetics sub-brands (p.43) ---- */
+  --lum-dark-brown: #834436; /* LightSheer / SPLENDOR X — dark skin */
+  --lum-light-brown: #a27369; /* LightSheer */
+  --lum-brown: #c69275; /* LightSheer / SPLENDOR X — medium skin */
+  --lum-soft-brown: #e5c9a8; /* SPLENDOR X — light skin */
+  --lum-pastel-brown: #f2e3d4;
+  --lum-turquoise: #00c0af; /* FoLix */
+  --lum-light-purple: #bc9aff; /* ULTRApulse Alpha / FemTouch */
+  --lum-orchid-purple: #d690ff; /* ULTRApulse Alpha */
+  --lum-purple: #6c62f9; /* AcuPulse / FemTouch */
+  --lum-silken-rose: #ba6d81; /* Stellar M22 */
+  --lum-peach-beige: #deaa9b; /* Stellar M22 */
+  --lum-rose-beige: #cf9684; /* Stellar M22 */
+  --lum-red: #ed124a; /* LegendPro */
+  --lum-peach-red: #ff5532; /* NuEra Tight */
+  --lum-gradient-yellow: #ffbc6e; /* NuEra Tight — gradient partner to peach-red */
+  --lum-rose-gold: #fabcad; /* triLift */
+  --lum-rose-gold-light: #ffd1ca; /* triLift */
+
+  /* ---- Secondary palette — Vision sub-brands (p.44) ---- */
+  --lum-green: #00a37b; /* Digital Trio */
+  --lum-light-green: #3dd47a; /* Digital Duet */
+  --lum-blue: #578fff; /* OptiLIGHT */
+  --lum-violet: #6f20d2; /* OptiLIFT */
+  --lum-magenta: #d23460; /* OptiPLUS */
+
+  /* ---- Semantic aliases ---- */
+  --text-primary: var(--lum-black);
+  --text-inverse: var(--lum-white);
+  --text-muted: var(--lum-shine-grey);
+  --text-accent: var(--lum-black);
+  --surface-page: var(--lum-white);
+  --surface-inverse: var(--lum-black);
+  --surface-image: var(--lum-image-grey);
+  --surface-accent: var(--lum-black);
+  --border-hairline: var(--lum-black);
+  --border-subtle: rgba(0, 0, 0, 0.16);
+  --border-hairline-inverse: var(--lum-white);
+  --link-color: var(--lum-black);
+  --link-color-hover: var(--lum-shine-grey);
+
+  /* Accent = the ONE secondary colour allowed on screen at a time (p.46).
+   Defaults to black for corporate work; sub-brand scopes below override it. */
+  --accent: var(--lum-black);
+  --accent-contrast: var(--lum-white);
+  --accent-soft: var(--lum-image-grey);
+}
