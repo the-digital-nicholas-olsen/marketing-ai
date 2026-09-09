@@ -16,11 +16,11 @@ checked: 2026-09-08
 
 Dr. Hardeep Kataria is an optometrist at Avant Eyes Optometry & Advanced Dry Eye Center in Porter Ranch, California. She is a graduate of the New England College of Optometry in Boston, completed a residency in ocular disease at the Baltimore VA Medical Center, and received additional training at the Bascom Palmer Eye Institute (University of Miami) and the Wilmer Eye Institute (Johns Hopkins University).
 
-Dr. Kataria was ranked #5 in the United States on Newsweek's America's Top Eye Doctors list in both 2022 and 2023. Her clinical focus includes advanced dry eye disease, glaucoma, diabetes management, uveitis, red eye conditions, and post-surgical eye care. She is a Fellow of the American Academy of Optometry, an Advisory Board member of Women in Optometry, an editorial board member for optometric publications, and former adjunct faculty at Western University College of Optometry. She has volunteered internationally through Vision Optometric Humanitarian Services in Nicaragua and Panama, and established a local volunteer eye clinic in Los Angeles with the Salvation Army and Rotary Club.
+Dr. Kataria was ranked #5 in the United States on Newsweek's America's Top Eye Doctors list in both 2022 and 2023. Her clinical focus includes advanced dry eye disease, glaucoma, diabetes management, uveitis, red eye conditions, and post-surgical eye care. She is a Fellow of the American Academy of Optometry, an editorial board member for optometric publications, and former adjunct faculty at Western University College of Optometry. She has volunteered internationally through Vision Optometric Humanitarian Services in Nicaragua and Panama, and established a local volunteer eye clinic in Los Angeles with the Salvation Army and Rotary Club.
 
 ## Short biography
 
-Dr. Hardeep Kataria practices at Avant Eyes Optometry & Advanced Dry Eye Center in Porter Ranch, CA, and was ranked #5 in the US on Newsweek's America's Top Eye Doctors list in 2022 and 2023. A Fellow of the American Academy of Optometry specializing in advanced dry eye disease, she also serves on the Advisory Board of Women in Optometry.
+Dr. Hardeep Kataria practices at Avant Eyes Optometry & Advanced Dry Eye Center in Porter Ranch, CA, and was ranked #5 in the US on Newsweek's America's Top Eye Doctors list in 2022 and 2023. A Fellow of the American Academy of Optometry, she specializes in advanced dry eye disease.
 
 ## Sources
 
