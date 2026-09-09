@@ -24,8 +24,7 @@ Dr. Jenn Chinn is an optometrist at Dr. Chinn's Vision Care in San Diego, CA, an
 
 - https://www.drchinnsvisioncare.com/team/jenn-chinn-od/ — checked 2026-09-08
 
-- ## Headshot
+## Headshot
 
-- - **Not yet sourced automatically.** Her photo is on https://www.drchinnsvisioncare.com/team/jenn-chinn-od/, but the page's image loading kept an automated tool from pulling a direct image URL. Needs a manual screenshot/save from that page.
-  - - Reuse restrictions: unknown — confirm with the practice before uploading to the shared library.
-    - 
+- **Not yet sourced automatically.** Her photo is on https://www.drchinnsvisioncare.com/team/jenn-chinn-od/, but the page's image loading kept an automated tool from pulling a direct image URL. Needs a manual screenshot/save from that page.
+- Reuse restrictions: unknown — confirm with the practice before uploading to the shared library.
