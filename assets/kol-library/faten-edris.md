@@ -14,9 +14,9 @@ checked: 2026-09-08
 
 ## Longer biography
 
-Dr. Faten Edris founded Blinking Owl Eye Care with a mission centered on accessible, high-quality eye care and a preventative, early-detection approach to optometry. She earned her Doctor of Optometry from Southeastern University and completed a specialized ocular disease residency at the Bascom Palmer Eye Institute. Under her leadership, Blinking Owl Eye Care has expanded to multiple locations across Miami and Broward County, offering advanced services including ophthalmology co-management.
+Dr. Faten Edris founded Blinking Owl Eye Care with a mission centered on accessible, high-quality eye care and a preventative, early-detection approach to optometry. She earned her Doctor of Optometry from Nova Southeastern University and completed a specialized ocular disease residency at the Bascom Palmer Eye Institute. Under her leadership, Blinking Owl Eye Care has expanded to multiple locations across Miami and Broward County, offering advanced services including ophthalmology co-management.
 
-Beyond her practice, Dr. Edris is a mentor OD for EssilorLuxottica, a speaker for CooperVision, Vice President of the Civetta Group, and a consultant to AI companies — reflecting a broader role in optometry innovation and expanding patient access to care.
+Beyond her practice, Dr. Edris is a mentor OD for EssilorLuxottica, a speaker for CooperVision, and a consultant to AI companies — reflecting a broader role in optometry innovation and expanding patient access to care.
 
 ## Short biography
 
@@ -26,8 +26,9 @@ Dr. Faten Edris is the founder and CEO of Blinking Owl Eye Care, a multi-locatio
 
 - https://www.blinkingowleyecare.com/meet-the-team.html — checked 2026-09-08
 
-## Headshot
+- ## Headshot
 
-- Source page: https://www.blinkingowleyecare.com/meet-the-team.html
-- Image URL found: https://static.royacdn.com/Site-97e16f42-6b68-493d-8d2c-779d9833dcef/TeamAssetsV2/Dr_Edris_n.png
-- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
+- - Source page: https://www.blinkingowleyecare.com/meet-the-team.html
+  - - Image URL found: https://static.royacdn.com/Site-97e16f42-6b68-493d-8d2c-779d9833dcef/TeamAssetsV2/Dr_Edris_n.png
+    - - Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
+      - 
