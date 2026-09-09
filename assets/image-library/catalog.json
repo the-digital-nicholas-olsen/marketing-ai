@@ -50,8 +50,8 @@
       ],
       "note": "These lists can grow over time. Treat a value you don't recognize as valid-but-unclassified, not an error."
     },
-    "lastSyncedAt": "2026-08-30T18:05:45.097Z",
-    "updatedAt": "2026-09-09T17:20:40.157Z"
+    "lastSyncedAt": "2026-09-09T17:42:56.754Z",
+    "updatedAt": "2026-09-09T17:42:56.756Z"
   },
   "schemaVersion": 1,
   "assets": [
@@ -172,17 +172,23 @@
           "height": 640,
           "bytes": 31586,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-amanda-amberg-001/kol-amanda-amberg-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-amanda-amberg-001/kol-amanda-amberg-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-amanda-amberg-001/kol-amanda-amberg-001-640w.webp"
         },
         {
           "width": 1024,
           "height": 1024,
           "bytes": 54156,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-amanda-amberg-001/kol-amanda-amberg-001-1024w.webp"
+          "path": "3-processed/kol-headshots/kol-amanda-amberg-001/kol-amanda-amberg-001-1024w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-amanda-amberg-001/kol-amanda-amberg-001-1024w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.100Z"
+      "importedAt": "2026-09-09T17:20:40.100Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-celesta-ferreira-001",
@@ -228,17 +234,23 @@
           "height": 970,
           "bytes": 39072,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-celesta-ferreira-001/kol-celesta-ferreira-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-celesta-ferreira-001/kol-celesta-ferreira-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-celesta-ferreira-001/kol-celesta-ferreira-001-640w.webp"
         },
         {
           "width": 1060,
           "height": 1606,
           "bytes": 74470,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-celesta-ferreira-001/kol-celesta-ferreira-001-1060w.webp"
+          "path": "3-processed/kol-headshots/kol-celesta-ferreira-001/kol-celesta-ferreira-001-1060w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-celesta-ferreira-001/kol-celesta-ferreira-001-1060w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.021Z"
+      "importedAt": "2026-09-09T17:20:40.021Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-chandler-mann-001",
@@ -284,17 +296,23 @@
           "height": 652,
           "bytes": 65928,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-640w.webp"
         },
         {
           "width": 978,
           "height": 996,
           "bytes": 113118,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-978w.webp"
+          "path": "3-processed/kol-headshots/kol-chandler-mann-001/kol-chandler-mann-001-978w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chandler-mann-001/kol-chandler-mann-001-978w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:39.967Z"
+      "importedAt": "2026-09-09T17:20:39.967Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-chelnis-001",
@@ -343,10 +361,15 @@
           "height": 590,
           "bytes": 25144,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-chelnis-001/kol-chelnis-001-448w.webp"
+          "path": "3-processed/kol-headshots/kol-chelnis-001/kol-chelnis-001-448w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-chelnis-001/kol-chelnis-001-448w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.110Z"
+      "importedAt": "2026-09-09T17:20:40.110Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-cory-lappin-001",
@@ -392,24 +415,31 @@
           "height": 763,
           "bytes": 23816,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-cory-lappin-001/kol-cory-lappin-001-640w.webp"
         },
         {
           "width": 1280,
           "height": 1525,
           "bytes": 60732,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-1280w.webp"
+          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-cory-lappin-001/kol-cory-lappin-001-1280w.webp"
         },
         {
           "width": 1358,
           "height": 1618,
           "bytes": 65360,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-1358w.webp"
+          "path": "3-processed/kol-headshots/kol-cory-lappin-001/kol-cory-lappin-001-1358w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-cory-lappin-001/kol-cory-lappin-001-1358w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.072Z"
+      "importedAt": "2026-09-09T17:20:40.072Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-elise-kramer-001",
@@ -457,17 +487,23 @@
           "height": 674,
           "bytes": 33862,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-elise-kramer-001/kol-elise-kramer-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-elise-kramer-001/kol-elise-kramer-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-elise-kramer-001/kol-elise-kramer-001-640w.webp"
         },
         {
           "width": 685,
           "height": 721,
           "bytes": 39126,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-elise-kramer-001/kol-elise-kramer-001-685w.webp"
+          "path": "3-processed/kol-headshots/kol-elise-kramer-001/kol-elise-kramer-001-685w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-elise-kramer-001/kol-elise-kramer-001-685w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.140Z"
+      "importedAt": "2026-09-09T17:20:40.140Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-faten-edris-001",
@@ -513,24 +549,31 @@
           "height": 820,
           "bytes": 23986,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-faten-edris-001/kol-faten-edris-001-640w.webp"
         },
         {
           "width": 1280,
           "height": 1639,
           "bytes": 70116,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-1280w.webp"
+          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-faten-edris-001/kol-faten-edris-001-1280w.webp"
         },
         {
           "width": 1396,
           "height": 1788,
           "bytes": 80730,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-1396w.webp"
+          "path": "3-processed/kol-headshots/kol-faten-edris-001/kol-faten-edris-001-1396w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-faten-edris-001/kol-faten-edris-001-1396w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.035Z"
+      "importedAt": "2026-09-09T17:20:40.035Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-hardeep-kataria-001",
@@ -578,17 +621,23 @@
           "height": 846,
           "bytes": 32922,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-hardeep-kataria-001/kol-hardeep-kataria-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-hardeep-kataria-001/kol-hardeep-kataria-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-hardeep-kataria-001/kol-hardeep-kataria-001-640w.webp"
         },
         {
           "width": 1170,
           "height": 1546,
           "bytes": 81818,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-hardeep-kataria-001/kol-hardeep-kataria-001-1170w.webp"
+          "path": "3-processed/kol-headshots/kol-hardeep-kataria-001/kol-hardeep-kataria-001-1170w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-hardeep-kataria-001/kol-hardeep-kataria-001-1170w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.128Z"
+      "importedAt": "2026-09-09T17:20:40.128Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-jenn-chinn-001",
@@ -634,10 +683,15 @@
           "height": 673,
           "bytes": 18494,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-jenn-chinn-001/kol-jenn-chinn-001-450w.webp"
+          "path": "3-processed/kol-headshots/kol-jenn-chinn-001/kol-jenn-chinn-001-450w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-jenn-chinn-001/kol-jenn-chinn-001-450w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:39.978Z"
+      "importedAt": "2026-09-09T17:20:39.978Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-kiranjeet-sran-001",
@@ -683,24 +737,31 @@
           "height": 853,
           "bytes": 75190,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-640w.webp"
         },
         {
           "width": 1280,
           "height": 1707,
           "bytes": 278720,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1280w.webp"
+          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1280w.webp"
         },
         {
           "width": 1920,
           "height": 2560,
           "bytes": 513608,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1920w.webp"
+          "path": "3-processed/kol-headshots/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-kiranjeet-sran-001/kol-kiranjeet-sran-001-1920w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.057Z"
+      "importedAt": "2026-09-09T17:20:40.057Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-laura-periman-001",
@@ -746,24 +807,31 @@
           "height": 551,
           "bytes": 21468,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-laura-periman-001/kol-laura-periman-001-640w.webp"
         },
         {
           "width": 1280,
           "height": 1103,
           "bytes": 69594,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-1280w.webp"
+          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-laura-periman-001/kol-laura-periman-001-1280w.webp"
         },
         {
           "width": 1862,
           "height": 1604,
           "bytes": 136640,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-1862w.webp"
+          "path": "3-processed/kol-headshots/kol-laura-periman-001/kol-laura-periman-001-1862w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-laura-periman-001/kol-laura-periman-001-1862w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.011Z"
+      "importedAt": "2026-09-09T17:20:40.011Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-maria-sampalis-001",
@@ -809,24 +877,31 @@
           "height": 896,
           "bytes": 46444,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-maria-sampalis-001/kol-maria-sampalis-001-640w.webp"
         },
         {
           "width": 1280,
           "height": 1792,
           "bytes": 152696,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-1280w.webp"
+          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-1280w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-maria-sampalis-001/kol-maria-sampalis-001-1280w.webp"
         },
         {
           "width": 1920,
           "height": 2688,
           "bytes": 371720,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-1920w.webp"
+          "path": "3-processed/kol-headshots/kol-maria-sampalis-001/kol-maria-sampalis-001-1920w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-maria-sampalis-001/kol-maria-sampalis-001-1920w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:39.997Z"
+      "importedAt": "2026-09-09T17:20:39.997Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-patricia-fulmer-001",
@@ -872,10 +947,15 @@
           "height": 496,
           "bytes": 15220,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-patricia-fulmer-001/kol-patricia-fulmer-001-403w.webp"
+          "path": "3-processed/kol-headshots/kol-patricia-fulmer-001/kol-patricia-fulmer-001-403w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-patricia-fulmer-001/kol-patricia-fulmer-001-403w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.148Z"
+      "importedAt": "2026-09-09T17:20:40.148Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-sahil-dosaj-001",
@@ -921,17 +1001,23 @@
           "height": 763,
           "bytes": 40650,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-sahil-dosaj-001/kol-sahil-dosaj-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-sahil-dosaj-001/kol-sahil-dosaj-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sahil-dosaj-001/kol-sahil-dosaj-001-640w.webp"
         },
         {
           "width": 1278,
           "height": 1524,
           "bytes": 87432,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-sahil-dosaj-001/kol-sahil-dosaj-001-1278w.webp"
+          "path": "3-processed/kol-headshots/kol-sahil-dosaj-001/kol-sahil-dosaj-001-1278w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sahil-dosaj-001/kol-sahil-dosaj-001-1278w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:39.956Z"
+      "importedAt": "2026-09-09T17:20:39.956Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "kol-sandra-zhang-001",
@@ -977,17 +1063,23 @@
           "height": 873,
           "bytes": 39180,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-sandra-zhang-001/kol-sandra-zhang-001-640w.webp"
+          "path": "3-processed/kol-headshots/kol-sandra-zhang-001/kol-sandra-zhang-001-640w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sandra-zhang-001/kol-sandra-zhang-001-640w.webp"
         },
         {
           "width": 1024,
           "height": 1397,
           "bytes": 92824,
           "format": "webp",
-          "path": "3-processed/kol-headshots/kol-sandra-zhang-001/kol-sandra-zhang-001-1024w.webp"
+          "path": "3-processed/kol-headshots/kol-sandra-zhang-001/kol-sandra-zhang-001-1024w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/kol-sandra-zhang-001/kol-sandra-zhang-001-1024w.webp"
         }
       ],
-      "importedAt": "2026-09-09T17:20:40.085Z"
+      "importedAt": "2026-09-09T17:20:40.085Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
     },
     {
       "id": "lumenis-accelerate-attendee-conversation-001",
