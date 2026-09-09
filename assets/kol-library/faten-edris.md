@@ -26,9 +26,8 @@ Dr. Faten Edris is the founder and CEO of Blinking Owl Eye Care, a multi-locatio
 
 - https://www.blinkingowleyecare.com/meet-the-team.html — checked 2026-09-08
 
-- ## Headshot
+## Headshot
 
-- - Source page: https://www.blinkingowleyecare.com/meet-the-team.html
-  - - Image URL found: https://static.royacdn.com/Site-97e16f42-6b68-493d-8d2c-779d9833dcef/TeamAssetsV2/Dr_Edris_n.png
-    - - Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
-      - 
+- Source page: https://www.blinkingowleyecare.com/meet-the-team.html
+- Image URL found: https://static.royacdn.com/Site-97e16f42-6b68-493d-8d2c-779d9833dcef/TeamAssetsV2/Dr_Edris_n.png
+- Reuse restrictions: none stated on the practice site. Confirm usage rights with the practice before uploading to the shared library.
