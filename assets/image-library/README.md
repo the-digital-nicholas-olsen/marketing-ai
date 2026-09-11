@@ -94,7 +94,6 @@ Only perform this stage when the user has authorized adding images to HubSpot. C
 npm run upload
 npm run sync-catalog
 npm run validate-catalog -- --metadata-only
-npm run build-pages
 ```
 
 `upload` writes pending derivatives to the configured folder, with a subfolder per asset. It scans all pending entries, so inspect the catalog diff and pending set before running it. `--all` reuploads everything and is not a routine option. Reuse existing live files and URLs; this repository consolidation does not move them.
@@ -107,7 +106,7 @@ Shared fonts/logos already in HubSpot are outside this image catalog. Do not del
 
 ## Browse and contribute
 
-Open `dist/index.html` locally after `npm run build-pages`. This build does not deploy a website; no GitHub Pages workflow was copied. From the repository root, image search uses this catalog automatically:
+From the repository root, image search uses this catalog automatically:
 
 ```sh
 node .agents/skills/lumenis-image-search/find-images.mjs --brand OptiLIFT --json
