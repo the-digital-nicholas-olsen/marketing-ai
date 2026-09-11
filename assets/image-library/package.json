@@ -7,7 +7,6 @@
     "process-image": "node scripts/process-image.mjs",
     "validate-catalog": "node scripts/validate-catalog.mjs",
     "build-catalog": "node scripts/build-catalog.mjs",
-    "build-pages": "node scripts/build-github-page.mjs",
     "upload": "node scripts/upload-to-hubspot.mjs",
     "sync-catalog": "node scripts/sync-catalog.mjs"
   },

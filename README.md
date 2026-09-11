@@ -46,5 +46,3 @@ scripts/          Discovery, naming, synchronization and validation
 Use `node scripts/discover.mjs --query emails --limit 5` for discovery.
 
 The manual is source-derived, not proof of live-system readiness. [Known conflicts](guides/known-conflicts.md) identify decisions required for a sendable campaign. GitHub access does not grant HubSpot, Salesforce or Smartsheet access.
-
-We incorporate reviewed dependencies from [Lumenis AI](https://github.com/laarnicayetano/lumenis-ai), the [design system](https://github.com/laarnicayetano/lumenis-design-system), and [web catalog](https://github.com/laarnicayetano/lumenis-web-catalog); see [integration](guides/upstream-integration.md).
