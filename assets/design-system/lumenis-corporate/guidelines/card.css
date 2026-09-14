@@ -1,0 +1,20 @@
+/* Shared chrome for guideline specimen cards */
+body{background:var(--lumenis-white)}
+.card{padding:24px 28px;font-family:var(--font-sans);color:var(--text-primary)}
+.eyebrow{font-size:12px;line-height:1.2;text-transform:uppercase;color:var(--text-secondary);margin-bottom:14px}
+.note{font-size:13px;line-height:1.35;color:var(--text-secondary)}
+.row{display:flex;gap:14px}
+.col{display:flex;flex-direction:column;gap:8px}
+.hl{height:.72em;width:auto;vertical-align:baseline;margin-right:.02em}
+.t{font-family:var(--font-sans);text-transform:uppercase;line-height:.9;letter-spacing:0}
+.mix{font-family:var(--font-mix)}
+.do,.dont{font-size:11px;text-transform:uppercase;margin-top:6px}
+.do{color:var(--success)}
+.dont{color:var(--error)}
+.x{position:relative}
+.x::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - .5px),var(--error) 50%,transparent calc(50% + .5px));pointer-events:none}
+.sw{border:1px solid var(--border-subtle)}
+.chip{height:72px}
+.meta{padding:8px 10px;font-size:11px;line-height:1.35}
+.meta b{font-weight:400;font-size:12px;display:block;text-transform:uppercase}
+.meta span{color:var(--text-secondary);display:block}

@@ -2,6 +2,8 @@
 
 Start here when designing a page, email, flyer, slide or other material for either product. Core brand instructions, CSS tokens, product logo variants and product specimen cards are stored in this repository. This is a design reference package, not a runnable copy of the upstream React/Storybook application.
 
+For **Lumenis corporate (master-brand)** work — corporate decks, website, events, social — use the [Lumenis corporate design system](lumenis-corporate/README.md), a Claude Design export built from the 2026 brandbook with tokens, logos, the Hero L, brand line icons, components and specimen cards. Its README lists where it differs from the shared baseline below.
+
 ## Read in order
 
 1. Resolve product, market, audience and output format. Use official spelling: OptiLIFT and OptiLIGHT.

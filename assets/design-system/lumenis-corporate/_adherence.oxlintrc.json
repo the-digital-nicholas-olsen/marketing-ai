@@ -1,0 +1,51 @@
+{
+  "plugins": ["react", "import"],
+  "rules": {
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": ["components/core/**", "components/forms/**", "components/navigation/**", "components/layout/**", "ui_kits/**"],
+            "message": "Import design-system components from the bundle namespace, not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a Lumenis color token via var() (primary: --lumenis-black / --lumenis-white; one --sb-* secondary per view)."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:ABC Arizona Sans|ABC Arizona Mix|Arial|Noto Sans Hebrew|Noto Sans TC|Noto Serif SC))/i]",
+        "message": "Font not provided by the design system. Available: ABC Arizona Sans, ABC Arizona Mix (highlight only), Arial (system fallback), Noto Sans Hebrew, Noto Sans CJK TC / Noto Serif SC."
+      },
+      {
+        "selector": "Literal[value=/border-?radius\\s*:\\s*(?!0)/i]",
+        "message": "Lumenis surfaces and CTAs are square — use --radius-none."
+      },
+      {
+        "selector": "Literal[value=/letter-?spacing\\s*:\\s*(?!0|normal)/i]",
+        "message": "Brand rule: 0 tracking at every level."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|inverse|outline|accent|text)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'inverse' | 'outline' | 'accent' | 'text'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:black|white)$/]",
+        "message": "The Lumenis wordmark is black or white only — never colored."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute[name.name='name'] > Literal[value!=/^(?:crossover|burst|zigzag|wave|sparkle|rings|star|cross|lines|orbit)$/]",
+        "message": "<Icon> name must be one of the 10 brand line illustrations."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Headline'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:xl|l|m|s)$/]",
+        "message": "<Headline> size must be 'xl' | 'l' | 'm' | 's'."
+      }
+    ]
+  }
+}

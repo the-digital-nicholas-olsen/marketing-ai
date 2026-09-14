@@ -1,0 +1,39 @@
+<!-- @dsCard group="UI Kit — Corporate Website" viewport="1440x900" name="Lumenis Corporate Homepage" subtitle="Header, Hero L headline, marquee, products, testimonial, what's new, footer" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Lumenis — corporate website UI kit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="kit.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="Products.jsx"></script>
+<script type="text/babel" src="Testimonial.jsx"></script>
+<script type="text/babel" src="WhatsNew.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+<script type="text/babel">
+function App(){
+  return (
+    <div data-accent="rose-gold">
+      <window.Header/>
+      <window.Hero/>
+      <window.Products/>
+      <window.Testimonial/>
+      <window.WhatsNew/>
+      <window.Footer/>
+    </div>
+  );
+}
+function mount(){
+  if(!window.Header||!window.Hero||!window.Products||!window.Testimonial||!window.WhatsNew||!window.Footer){requestAnimationFrame(mount);return;}
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+}
+mount();
+</script>
+</body></html>

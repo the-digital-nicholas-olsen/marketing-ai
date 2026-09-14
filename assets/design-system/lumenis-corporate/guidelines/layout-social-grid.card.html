@@ -1,0 +1,27 @@
+<!-- @dsCard group="Layout" viewport="700x360" name="Social Media Grid" subtitle="1080×1080 · 6×6 grid · 56px margins · logo = 2 columns" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="card.css">
+<style>
+.post{width:300px;height:300px;position:relative;flex-shrink:0;overflow:hidden}
+.grid{position:absolute;inset:15.5px;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,1fr)}
+.grid div{border:.5px solid rgba(120,120,120,.35)}
+</style>
+<div class="card" style="display:flex;gap:20px;align-items:flex-start">
+  <div class="post" style="background:var(--lumenis-light-grey)">
+    <div class="grid"><div></div><div></div><div></div><div></div><div></div><div style="background:rgba(0,0,0,.08)"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <span style="position:absolute;top:2px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--text-secondary)">1080 px</span>
+    <span style="position:absolute;top:18px;left:2px;font-size:8px;color:var(--text-secondary)">56</span>
+    <img src="../assets/logo/lumenis-wordmark-black.svg" style="position:absolute;left:15.5px;bottom:15.5px;width:89.6px">
+  </div>
+  <div class="post" style="background:var(--lumenis-light-grey)">
+    <img src="https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-treatment-demo-001-1280w.webp" alt="" style="position:absolute;right:0;top:0;width:50%;height:100%;object-fit:cover">
+    <div class="t" style="position:absolute;left:15.5px;top:15.5px;font-size:30px">Unvei<span style="white-space:nowrap">&#8288;<img class="hl" src="../assets/logo/lumenis-hero-l-black.svg">&#8288;</span><br>the best<br>in you.</div>
+    <img src="../assets/logo/lumenis-hero-l-black.svg" style="position:absolute;left:15.5px;bottom:15.5px;height:44.8px">
+  </div>
+  <div class="note" style="font-size:12px;line-height:1.45">
+    <div class="eyebrow">Logo placement</div>
+    Wordmark = 2 columns wide, in a corner. Hero L = 1 row (or ½ row) tall, in a corner. Wordmark + Hero L may face each other in diagonal corners.
+    <div class="eyebrow" style="margin-top:12px">Type minimums on 1080</div>
+    Headline 52pt all caps · subheadline &amp; body 40pt sentence case · caption 24pt all caps.
+  </div>
+</div>

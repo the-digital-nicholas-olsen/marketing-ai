@@ -1,0 +1,36 @@
+/* Lumenis Corporate — spacing, radius, elevation, motion, grid */
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+
+/* The brand is architectural: square blocks, rectangular CTA buttons. */
+--radius-none:0px;
+--radius-s:2px;
+--radius-pill:999px;          /* small utility chips only (e.g. language switch, step counters) */
+
+--shadow-soft:0 12px 40px rgba(0,0,0,0.08);   /* floating card over a colored block (treatment card) */
+--shadow-hairline:0 0 0 1px var(--border-subtle);
+
+--stroke-graphic:1px;         /* line illustration, small scale (1pt) */
+--stroke-graphic-large:2px;   /* line illustration, large scale (2pt) */
+
+--ease-standard:cubic-bezier(.4,0,.2,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-base:200ms; /* @kind other */
+
+/* Social post grid: 1080×1080, 6×6, 56px margins; wordmark = 2 columns wide, Hero L = 1 row tall */
+--social-size:1080px;
+--social-margin:56px;
+--social-columns:6; /* @kind other */
+
+--content-max:1280px;
+--gutter:24px;
+}

@@ -1,0 +1,16 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font-sans);font-weight:400;font-size:var(--text-body);line-height:var(--leading-form);color:var(--text-primary);background:var(--surface-page);-webkit-font-smoothing:antialiased;font-kerning:normal;letter-spacing:0}
+h1,h2,h3,h4{font-family:var(--font-sans);font-weight:400;margin:0;letter-spacing:0}
+h1{font-size:var(--text-display-l);line-height:var(--leading-title);text-transform:uppercase}
+p{margin:0}
+a{color:inherit;text-underline-offset:3px}
+
+/* Semantic type helpers */
+.lc-title{font-family:var(--font-sans);font-size:var(--text-display-l);line-height:var(--leading-title);text-transform:uppercase;letter-spacing:0}
+.lc-subtitle{font-family:var(--font-sans);font-size:var(--text-subtitle-l);line-height:var(--leading-subtitle)}
+.lc-paragraph{font-family:var(--font-sans);font-size:var(--text-paragraph);line-height:var(--leading-paragraph)}
+.lc-caption{font-family:var(--font-sans);font-size:var(--text-caption);line-height:var(--leading-caption);text-transform:uppercase}
+/* Arizona Mix highlight — only inside an uppercase title, 1–2 words */
+.lc-mix{font-family:var(--font-mix);font-weight:400}
+/* Box highlight (social/digital ads only) */
+.lc-box{background:var(--lumenis-black);color:var(--lumenis-white);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 .08em}

@@ -1,0 +1,102 @@
+/* Lumenis Corporate — color tokens
+   Source: Lumenis brand guidelines 2026 (pp. 42–47) + 03_Colors/Lumenis_Colors_02.pdf.
+   Primary palette is BLACK + WHITE. Secondary (sub-brand) colors are used sparingly:
+   ≤ ~20% of any format, and only ONE secondary color visible at a time. */
+:root{
+/* ── Primary palette ───────────────────────────── */
+--lumenis-black:#000000;      /* CMYK 50 50 50 100 · Pantone Black C · RAL 9004 */
+--lumenis-white:#ffffff;      /* CMYK 0 0 0 0 · RAL 9003 */
+--lumenis-light-grey:#f2f2f2; /* CMYK 5 0 0 0 · backgrounds for product & people photography */
+
+/* ── Neutral scale (derived for UI — not printed brand colors) ── */
+--neutral-0:#ffffff;
+--neutral-50:#f8f8f8;
+--neutral-100:#f2f2f2;
+--neutral-200:#e6e6e6;
+--neutral-300:#cfcfcf;
+--neutral-400:#a6a6a6;
+--neutral-500:#7a7a7a;
+--neutral-600:#575757;
+--neutral-700:#404040;        /* = Shine Grey (Stellar M22 sheet) */
+--neutral-800:#231f20;        /* rich print black as rendered in the color sheet */
+--neutral-900:#000000;
+
+/* ── Secondary palette · Aesthetic sub-brands ───── */
+--sb-peach:#ff5532;           /* NuEra Tight · CMYK 0 80 85 0 · Pantone 171 C */
+--sb-red:#ed124a;             /* LegendPro · CMYK 0 100 45 0 · Pantone 192 C */
+--sb-rose-gold:#fabcad;       /* triLift · CMYK 0 30 25 0 · Pantone 488 C */
+--sb-rose-gold-light:#ffd1ca; /* triLift · CMYK 0 20 15 0 · Pantone 196 C */
+--sb-dark-brown:#834436;      /* LightSheer · Splendor X · CMYK 30 75 70 40 · Pantone 498 C */
+--sb-brown:#a27369;           /* LightSheer · CMYK 25 55 45 25 · Pantone 4093 C */
+--sb-light-brown:#c69275;     /* LightSheer · Splendor X · CMYK 15 40 45 5 · Pantone 480 C */
+--sb-soft-brown:#e5c9a8;      /* LightSheer · Splendor X · CMYK 10 20 35 0 · Pantone 4685 C */
+--sb-pastel-brown:#f2e3d4;    /* LightSheer · Splendor X · CMYK 5 10 15 2 */
+--sb-purple:#6c62f9;          /* AcuPulse · FemTouch · CMYK 80 70 0 0 · Pantone 2125 C */
+--sb-orchid-purple:#d690ff;   /* ULTRApulse · CMYK 25 45 0 0 · Pantone 2577 C */
+--sb-light-purple:#bc9aff;    /* ULTRApulse · FemTouch · CMYK 30 30 0 0 · Pantone 270 C */
+--sb-turquoise:#00c0af;       /* FoLix · CMYK 70 0 35 0 · Pantone 2398 C */
+--sb-organic-tone:#f9f0e8;    /* FoLix companion tone · CMYK 0 5 10 0 */
+--sb-gradient-yellow:#ffbc6e; /* NuEra gradient partner · Pantone 156 C */
+--sb-stellar-silken-rose:#ba6d81;    /* Stellar M22 · Pantone 695 CP */
+--sb-stellar-soft-rose-beige:#deaa9b;/* Stellar M22 · Pantone 7612 CP */
+--sb-stellar-rose-beige:#cf9684;     /* Stellar M22 · Pantone 7613 CP */
+--sb-dark-blue:#2b50a2;       /* SmoothGLO · PhotoFABULOUS · ResurFX · CMYK 100 75 0 0 · Pantone 7686 C */
+--sb-light-blue:#61c3d9;      /* SmoothGLO · PhotoFABULOUS · ResurFX · Stellar · Pantone 663 C (sheet RGB reads 82 198 216) */
+
+/* ── Secondary palette · Vision sub-brands ──────── */
+--sb-blue:#578fff;            /* OptiLIGHT · CMYK 60 20 0 0 · Pantone 2727 C */
+--sb-optilift-purple:#6f20d2; /* OptiLIFT · CMYK 75 80 0 0 · Pantone Violet C */
+--sb-magenta:#d23460;         /* OptiPLUS · OptiGLIDE · CMYK 0 95 25 0 · Pantone 7635 C */
+--sb-green:#00a37b;           /* Digital Trio · CMYK 100 20 80 15 · Pantone 2243 C */
+--sb-light-green:#3dd47a;     /* Digital Duet · Digital Trio · CMYK 70 0 65 0 · Pantone 7479 C */
+
+/* ── Semantic ─────────────────────────────────── */
+--surface-page:var(--lumenis-white);
+--surface-muted:var(--lumenis-light-grey);
+--surface-card:var(--lumenis-white);
+--surface-inverse:var(--lumenis-black);
+
+--text-primary:var(--lumenis-black);
+--text-secondary:var(--neutral-600);
+--text-tertiary:var(--neutral-500);
+--text-inverse:var(--lumenis-white);
+
+--border-subtle:var(--neutral-200);
+--border-default:var(--neutral-300);
+--border-strong:var(--lumenis-black);
+
+/* The corporate CTA is black (white on black grounds). */
+--cta-bg:var(--lumenis-black);
+--cta-fg:var(--lumenis-white);
+--cta-bg-hover:var(--neutral-700);
+
+/* One secondary color per view. Defaults to none (black) — set via [data-accent] below. */
+--accent:var(--lumenis-black);
+--accent-contrast:var(--lumenis-white);
+
+--focus-ring:var(--neutral-500);
+--success:#1f7a4d;
+--error:#c4262e;
+}
+
+/* Choose the single secondary color for a view/section (in context with its sub-brand). */
+[data-accent="peach"]{--accent:var(--sb-peach);--accent-contrast:var(--lumenis-black)}
+[data-accent="red"]{--accent:var(--sb-red);--accent-contrast:var(--lumenis-white)}
+[data-accent="magenta"]{--accent:var(--sb-magenta);--accent-contrast:var(--lumenis-white)}
+[data-accent="rose-gold"]{--accent:var(--sb-rose-gold);--accent-contrast:var(--lumenis-black)}
+[data-accent="rose-gold-light"]{--accent:var(--sb-rose-gold-light);--accent-contrast:var(--lumenis-black)}
+[data-accent="dark-brown"]{--accent:var(--sb-dark-brown);--accent-contrast:var(--lumenis-white)}
+[data-accent="brown"]{--accent:var(--sb-brown);--accent-contrast:var(--lumenis-white)}
+[data-accent="light-brown"]{--accent:var(--sb-light-brown);--accent-contrast:var(--lumenis-black)}
+[data-accent="soft-brown"]{--accent:var(--sb-soft-brown);--accent-contrast:var(--lumenis-black)}
+[data-accent="pastel-brown"]{--accent:var(--sb-pastel-brown);--accent-contrast:var(--lumenis-black)}
+[data-accent="purple"]{--accent:var(--sb-purple);--accent-contrast:var(--lumenis-white)}
+[data-accent="orchid-purple"]{--accent:var(--sb-orchid-purple);--accent-contrast:var(--lumenis-black)}
+[data-accent="light-purple"]{--accent:var(--sb-light-purple);--accent-contrast:var(--lumenis-black)}
+[data-accent="turquoise"]{--accent:var(--sb-turquoise);--accent-contrast:var(--lumenis-black)}
+[data-accent="dark-blue"]{--accent:var(--sb-dark-blue);--accent-contrast:var(--lumenis-white)}
+[data-accent="light-blue"]{--accent:var(--sb-light-blue);--accent-contrast:var(--lumenis-black)}
+[data-accent="blue"]{--accent:var(--sb-blue);--accent-contrast:var(--lumenis-black)}
+[data-accent="optilift-purple"]{--accent:var(--sb-optilift-purple);--accent-contrast:var(--lumenis-white)}
+[data-accent="green"]{--accent:var(--sb-green);--accent-contrast:var(--lumenis-white)}
+[data-accent="light-green"]{--accent:var(--sb-light-green);--accent-contrast:var(--lumenis-black)}

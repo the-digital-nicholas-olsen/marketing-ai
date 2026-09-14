@@ -1,0 +1,25 @@
+<!-- @dsCard group="Components" viewport="900x220" name="Navigation" subtitle="NavBar with wordmark, text tabs" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+<div id="root" style="background:var(--surface-page)"></div>
+<script type="text/babel">
+const { NavBar, Tabs, Button } = window.LumenisCorporateDesignSystem;
+function Demo(){
+  const [tab,setTab]=React.useState('Insights');
+  return (
+    <div>
+      <div style={{background:'var(--lumenis-light-grey)'}}>
+        <NavBar links={['About','Products','Treatments','Science','Contact us']} cta={<Button size="s">Find a provider</Button>}/>
+      </div>
+      <div style={{padding:'24px 48px'}}>
+        <Tabs items={['News','Events','Insights','Case studies']} value={tab} onChange={setTab}/>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>

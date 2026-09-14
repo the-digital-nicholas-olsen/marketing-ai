@@ -1,0 +1,44 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Buttons, Type, Logo, Icons, Cards" subtitle="Core primitives" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+<div id="root" style="padding:24px;background:var(--surface-page)"></div>
+<script type="text/babel">
+const { Button, Headline, HeroL, Mix, Subtitle, Caption, Logo, Icon, ICON_NAMES, Card, Tag } = window.LumenisCorporateDesignSystem;
+function Demo(){
+  const [sel,setSel]=React.useState('Aesthetics');
+  return (
+    <div style={{display:'flex',flexDirection:'column',gap:20}}>
+      <div style={{display:'flex',gap:12,alignItems:'center',flexWrap:'wrap'}}>
+        <Button>Discover more</Button>
+        <Button variant="outline">Discover more</Button>
+        <Button variant="text">Learn more</Button>
+        <span style={{background:'var(--lumenis-black)',padding:8}}><Button variant="inverse" size="s">Discover more</Button></span>
+        <span data-accent="rose-gold"><Button variant="accent" size="s">Sub-brand</Button></span>
+      </div>
+      <div style={{display:'grid',gridTemplateColumns:'1.4fr 1fr',gap:24,alignItems:'end'}}>
+        <div>
+          <Headline size="s">Unvei<HeroL/> the best in you</Headline>
+          <Subtitle size="m" style={{marginTop:10}}>Empowering you, your way.</Subtitle>
+        </div>
+        <Card variant="muted" padding="16px">
+          <Caption>Option B</Caption>
+          <Headline as="div" size="s" style={{fontSize:28,marginTop:6}}>Express your <Mix>inner beauty.</Mix></Headline>
+        </Card>
+      </div>
+      <div style={{display:'flex',gap:22,alignItems:'center',flexWrap:'wrap'}}>
+        <Logo width="120px"/>
+        <Logo variant="hero-l" height="36px"/>
+        {ICON_NAMES.map(n=><Icon key={n} name={n} size="28px"/>)}
+      </div>
+      <div style={{display:'flex',gap:8}}>
+        {['Aesthetics','Vision'].map(t=><Tag key={t} selected={sel===t} onClick={()=>setSel(t)}>{t}</Tag>)}
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
