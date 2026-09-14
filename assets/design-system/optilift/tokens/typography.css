@@ -1,0 +1,24 @@
+:root{
+--font-display:'ABC Arizona Mix',Georgia,serif;
+--font-sans:'ABC Arizona Sans',Helvetica,Arial,sans-serif;
+--text-display-xl:96px;
+--text-display-l:64px;
+--text-display-m:48px;
+--text-headline:36px;
+--text-title-l:28px;
+--text-title-m:22px;
+--text-body-l:19px;
+--text-body-m:16px;
+--text-caption:13px;
+--text-eyebrow:13px;
+--leading-tight:1.05;
+--leading-snug:1.2;
+--leading-normal:1.45;
+--leading-relaxed:1.6;
+--tracking-tight:-0.01em;
+--tracking-normal:0;
+--tracking-wide:0.08em;
+--tracking-wider:0.16em;
+--weight-light:300;
+--weight-regular:400;
+}

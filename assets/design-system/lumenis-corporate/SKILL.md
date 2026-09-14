@@ -1,6 +1,6 @@
 ---
 name: lumenis-corporate-design
-description: Use this skill to generate well-branded interfaces and assets for the Lumenis corporate (master) brand — corporate decks, website and landing pages, social posts, print, events, recruitment and any Lumenis communication not owned by a single product sub-brand. Contains the 2026 brand guidelines distilled into rules, tokens, fonts, logos, the Hero L, brand line icons, cleared imagery, components and UI kits.
+description: Use this skill to generate well-branded interfaces and assets for the Lumenis corporate (master) brand — corporate decks, website and landing pages, social posts, print, events, recruitment and any communication that speaks as Lumenis the company. One of three separate Lumenis brand systems (Lumenis Corporate, OptiLIGHT, OptiLIFT); use it when Lumenis Corporate is requested. Contains the 2026 brand guidelines distilled into rules, tokens, fonts, logos, the Hero L, brand line icons, cleared imagery, components and UI kits.
 user-invocable: true
 ---
 
@@ -8,9 +8,13 @@ Read the `README.md` file within this skill, and explore the other available fil
 If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
 If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.
 
-**Which system?** Lumenis corporate / master-brand work → this one. Work about one product
-(OptiLIFT, OptiLIGHT) → that product's own design system in the sibling folder. Each Lumenis
-sub-brand has its own guidelines; this system only carries their one signature color.
+**Scope.** This is the **Lumenis Corporate** brand system — one of three separate Lumenis brand
+systems (Lumenis Corporate, OptiLIGHT, OptiLIFT), each a complete brand book for a different
+purpose. Use it when Lumenis Corporate is requested or the work speaks as Lumenis the company.
+It is complete on its own: don't mix in rules, tokens, motifs or components from the OptiLIGHT
+or OptiLIFT systems, and don't treat their different choices as conflicts. The secondary
+palette in README.md lists each product's signature colour as the corporate brandbook defines it for
+corporate materials — it is part of this system, not an import of those product systems.
 
 ## Non-negotiables
 - **Black + white is the primary palette.** Every piece of Lumenis communication uses it.
@@ -55,19 +59,10 @@ sub-brand has its own guidelines; this system only carries their one signature c
 
 ## Shipping this to HubSpot
 
-This skill covers **how it looks**. It does not cover how a page gets built,
-formed, published, or verified in HubSpot — that lives in
-**the repository's HubSpot page and form references**, starting with its `SKILL.md`.
+This skill covers **how it looks**. Page building, forms, publishing and verification follow the
+repository's page implementation and forms references
+(`.agents/skills/lumenis-accelerate-campaign/references/pages.md` and `forms.md`). Read both; neither
+replaces the other.
 
-Read both. Neither replaces the other.
-
-That playbook is the **authority** on anything HubSpot-side: naming, page
-architecture, the shared image library, lead forms, and the portal quirks that
-silently break builds. Several are genuinely non-obvious and have each cost a
-build session — form fields are added by double-click and not by dragging, the
-forms API returns the *published* form so it reads stale after every edit, and
-"Create new contacts for new email addresses" defaults to **Off**, silently
-dropping every net-new lead.
-
-Page photography comes from the shared image library — 51 of its assets are
-cleared for `Lumenis corporate`; check `allowedBrands` before using anything.
+Page photography comes from the image library (`assets/image-library/`); use only assets whose
+`allowedBrands` includes `Lumenis corporate`.

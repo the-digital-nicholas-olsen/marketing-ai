@@ -1,19 +1,14 @@
 # Lumenis Corporate Design System
 
-> **Repository copy.** This is the Claude Design export of the Lumenis corporate system, built
-> from the 2026 brandbook on 2026-09-14. Two things differ from the working copy on the Vision Home
-> SSD (`marketing-work/reference-sources/design-systems-for-ai/Lumenis Corporate Design System/`):
-> licensed ABC Arizona font files are **not** included (install them via
-> [hubspot-assets.md](../hubspot-assets.md); `tokens/fonts.css` looks up installed fonts), and
-> photographs are **linked to their cleared HubSpot-hosted copies** from the image library instead
-> of being committed. The brandbook's own people/product reference photos stay on the SSD.
->
-> **Relationship to the existing baseline.** [shared-guidance.md](../shared-guidance.md),
-> [brand-guidelines.md](../brand-guidelines.md) and `../tokens/` are the earlier upstream import.
-> This package follows the brandbook where they differ, pending a decision on which is canonical:
-> CTA buttons and cards are square (brandbook p.40) rather than rounded with shadows; Brown is
-> `#A27369` and Light Brown `#C69275` per the official color sheet (the baseline swaps them); token
-> names use `--lumenis-*` / `--sb-*` rather than `--lum-*`.
+> **Repository copy.** This is the Lumenis Corporate brand system — one of three separate brand
+> systems in [assets/design-system](../README.md) (Lumenis Corporate, OptiLIGHT, OptiLIFT), each a
+> complete brand book for a different purpose. It was exported from Claude Design on 2026-09-14,
+> built from the 2026 Lumenis brandbook, and replaces the retired upstream corporate baseline.
+> Unlike the internal working copy, licensed ABC Arizona font files are **not** included (install
+> them via [hubspot-assets.md](../hubspot-assets.md); `tokens/fonts.css` looks up installed fonts),
+> and photographs are **linked to their cleared HubSpot-hosted copies** from the image library
+> instead of being committed. The brandbook's own people and product reference photos stay in the
+> internal working copy.
 
 Design system for the **Lumenis corporate (master) brand** — the global energy-based medical
 technology company for the Aesthetic and Vision markets. It turns the 2026 Lumenis brand
@@ -21,15 +16,18 @@ guidelines into rules an AI (or a person) can design with: tokens, fonts, logos,
 the brand line icons, cleared photography, React components, guideline specimen cards and
 two UI kits.
 
-Sibling systems in this folder cover single product lines — **OptiLIFT** and **OptiLIGHT**.
-Use this one for anything that speaks as *Lumenis*: corporate decks, the corporate website and
-landing pages, events (Accelerate by Lumenis), recruitment, social, print and stationery.
+It is one of three separate Lumenis brand systems — **Lumenis Corporate**, **OptiLIGHT** and
+**OptiLIFT** — each a complete brand book for a different purpose. Use this one when Lumenis
+Corporate is requested or the work speaks as *Lumenis* the company: corporate decks, the corporate
+website and landing pages, events (Accelerate by Lumenis), recruitment, social, print and
+stationery. It does not inherit from, override or constrain the product systems, and they do not
+constrain it.
 
 ---
 
 ## Sources
 
-Everything here comes from `../Corporate Brand Guidelines/01-Brand Guidelines/`:
+Everything here comes from the Lumenis corporate brand guideline source files (`Corporate Brand Guidelines/01-Brand Guidelines/`, kept outside Git):
 
 | Source | Used for |
 |---|---|
@@ -42,7 +40,7 @@ Everything here comes from `../Corporate Brand Guidelines/01-Brand Guidelines/`:
 Fonts (ABC Arizona Sans Regular/Light, ABC Arizona Mix Regular/Italic) are the same licensed
 Dinamo files already used by the OptiLIFT system. In this repository, photography is referenced by its
 HubSpot delivery URL from the [image library](../../image-library/README.md) (`allowedBrands:
-Lumenis corporate`). The SSD working copy also carries the brandbook's people and product
+Lumenis corporate`). The internal working copy also carries the brandbook's people and product
 reference photographs, confirmed cleared by Nicholas Olsen on 2026-09-14.
 
 ## What's here
@@ -102,6 +100,12 @@ reference photographs, confirmed cleared by Nicholas Olsen on 2026-09-14.
   keep sub-brand spellings exactly as the brandbook writes them (Stellar M22, triLift,
   LegendPro, NuEra Tight, ULTRApulse Alpha, AcuPulse, FemTouch, SPLENDOR X, LightSheer, FoLix,
   SmoothGLO, PhotoFABULOUS, ResurFX, OptiLIGHT, OptiPLUS, OptiLIFT, Digital Duet, Digital Trio).
+- **Tone by surface** (carried over from the retired upstream corporate guide): practitioner
+  surfaces lead with capability and evidence; patient surfaces lead with feeling and reassurance;
+  corporate surfaces lead with scale and legacy.
+- **Product marks** (as recorded from lumenis.com in that upstream guide — verify against current
+  legal usage before publishing): Stellar M22™, NuEra™ Tight, LightSheer®, ULTRApulse®, BLEND X®,
+  TriPollar®, OPT™, FocalRF®.
 - **Claims:** keep medical and performance claims out of design mocks unless supplied by the user
   with approval; use clearly marked placeholders instead.
 - **No emoji.**
@@ -263,18 +267,15 @@ collateral and concept mockups, not a coded component library.
    Sans Regular/Light and Mix Regular/Italic only; the highlighting card simulates weight. The
    brandbook's own embedded fonts include several "Unlicensed Trial" cuts — confirm licensing with
    Dinamo before production use.
-2. **Brandbook photography.** The PDF states its images are illustrative and uncleared; Nicholas
-   Olsen confirmed on 2026-09-14 that the photos can be treated as cleared. Per repository rules the
-   photo files are not committed here — they are in the SSD working copy's `assets/imagery/`, and
-   this copy links first-party HubSpot-hosted photography instead.
+2. **Brandbook photography.** Confirmed cleared by Nicholas Olsen on 2026-09-14. Per repository
+   rules the photo files are not committed here; they are in the internal working copy, and this
+   copy links first-party HubSpot-hosted photography instead.
 3. **Source inconsistencies I resolved:** Light Blue lists HEX `61C3D9` but RGB `82 198 216`
    (`#52C6D8`) — the HEX is used. The FemTouch page lists Light Purple as `#bc9lff` (typo for
    `#BC9AFF`). The Aesthetic page lists Stellar Peach Beige with Pantone 192 C (the LegendPro red's
    Pantone) — its HEX `#DEAA9B` and Pantone 7612 CP from the Stellar page are used. Page 95 is titled
    "Vision – OptiLift" but carries the Digital Duet description; OptiLIFT's color is taken from the
-   Vision palette page. The brandbook groups OptiLIFT under Vision, while the OptiLIFT design
-   system describes an aesthetic device — confirm which market grouping to use in corporate
-   materials.
+   Vision palette page. The brandbook lists OptiLIFT Purple in its Vision palette; take a piece's market grouping from its brief, not from any brand system.
 4. **Mockups use colors outside the palette** (a lime green and a soft orange in the 2022 posters,
    welcome pack and presentation wall). They are treated as concept illustrations, not palette.
 5. **No print grid values** could be read from `06_Grids/LUMENIS_Grid.ai` (the file has no

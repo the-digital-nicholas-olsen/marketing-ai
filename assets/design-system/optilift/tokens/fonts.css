@@ -1,0 +1,6 @@
+/* ABC Arizona (Dinamo) is licensed and not stored in Git. Install the cuts locally
+   (download links: ../../hubspot-assets.md); otherwise typography.css falls back to Georgia/Helvetica/Arial. */
+@font-face{font-family:'ABC Arizona Mix';src:local('ABC Arizona Mix Regular'),local('ABCArizonaMix-Regular');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'ABC Arizona Mix';src:local('ABC Arizona Mix Regular Italic'),local('ABCArizonaMix-Italic');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'ABC Arizona Sans';src:local('ABC Arizona Sans Light'),local('ABCArizonaSans-Light');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'ABC Arizona Sans';src:local('ABC Arizona Sans Regular'),local('ABCArizonaSans-Regular');font-weight:400;font-style:normal;font-display:swap}
