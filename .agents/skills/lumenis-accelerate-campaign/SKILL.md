@@ -22,6 +22,7 @@ Resolve division(s), market, city, event dates/timezone, products, audience, req
 | Venue assets, design and flyers | [Assets and flyers](references/assets-and-flyers.md) |
 | Rep/prospect communications and registration backend | [Internal communications](references/internal-comms.md); [Smartsheet](references/smartsheet.md) only for backend work |
 | Account access, API reads, editor failures | [HubSpot access and verification](../../../integrations/hubspot/access-and-verification.md) |
+| Pipeline amount, stage and expected value on rep approval sheets | [Pipeline sync skill](../lumenis-accelerate-pipeline-sync/SKILL.md) |
 | Readiness or launch | [Acceptance checklist](references/acceptance.md) |
 
 Use [known conflicts](../../../guides/known-conflicts.md) when a cited issue affects the step. Do not choose an arbitrary winner between conflicting source documents. For final copy, run [Ted's clarity gate](../copy-clarity-gate/SKILL.md). Clarity is not clinical or regulatory approval.
