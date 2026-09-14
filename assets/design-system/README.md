@@ -1,38 +1,38 @@
-# OptiLIFT and OptiLIGHT design library
+# Lumenis brand systems
 
-Start here when designing a page, email, flyer, slide or other material for either product. Core brand instructions, CSS tokens, product logo variants and product specimen cards are stored in this repository. This is a design reference package, not a runnable copy of the upstream React/Storybook application.
+Three separate brand systems live here. Each is a complete brand book on its own — rules, tokens, assets and specimen cards — for a different purpose. They are not layers: no system inherits from, overrides or corrects another, so a rule that differs between two systems is not a conflict.
 
-## Read in order
+| Call it | Use it for | Start with | Detail |
+|---|---|---|---|
+| **Lumenis Corporate** | The Lumenis company brand: corporate decks, website, events such as Accelerate by Lumenis, recruitment, social, print — anything that speaks as Lumenis | [SKILL](lumenis-corporate/SKILL.md) | [README](lumenis-corporate/README.md) |
+| **OptiLIGHT** | OptiLIGHT product marketing for eye-care professionals and patients | [guidance](optilight/guidance.md) | [reference](optilight/reference.md) |
+| **OptiLIFT** | OptiLIFT product marketing for practices and patients | [guidance](optilift/guidance.md) | [reference](optilift/reference.md) |
 
-1. Resolve product, market, audience and output format. Use official spelling: OptiLIFT and OptiLIGHT.
-2. Read this page, [shared guidance](shared-guidance.md) and the selected product's [OptiLIFT guidance](optilift/guidance.md) or [OptiLIGHT guidance](optilight/guidance.md). Product overrides apply only to that product.
-3. Use [full brand guidance](brand-guidelines.md), [OptiLIFT reference](optilift/reference.md) or [OptiLIGHT reference](optilight/reference.md) for detailed composition, logo, imagery and typography questions. Use the [HubSpot asset index](hubspot-assets.md) to obtain the verified OptiLIGHT lockup and ABC Arizona font files. Their descriptions and example clinical copy are design-source context, not evidence of a cleared indication or approved claim.
-4. Use the local [image library](../image-library/README.md) for photography and hosted delivery links; [KOL profiles](../kol-library/index.md) for biographies/headshot candidates; and [claims references](../claims-reference/index.md) for citations and qualifications. Neither a candidate image nor a confirmed citation establishes marketing approval.
+## Choosing and using a system
 
-## Current local direction and source caveats
+1. Use the system the requester names. When none is named, infer it only when it is unambiguous — a piece about one of these products uses that product's system; a piece that speaks as Lumenis the company uses Lumenis Corporate. Otherwise ask. Never default to one system.
+2. Use exactly one system per piece. Read its entry file, then only the references the step needs.
+3. Keep the selected system whole. Take palette, type treatment, surfaces, motifs, components, tokens and logos from that folder only. Do not mix them across systems or "correct" one system with another's rule. For example, Lumenis Corporate uses square black CTAs, OptiLIGHT a blue CTA and OptiLIFT pill buttons — each is right inside its own system.
+4. If a piece covers more than one product and no system is named, ask which one leads. (The Lumenis Corporate brandbook is the one that defines how several product colours sit together, for example on an exhibition stand.)
+5. Other Lumenis products (triLift, Stellar M22, LegendPro and others) have no system here. Do not borrow one of these three for them; ask for the applicable brand guidance.
 
-The local product skills record September 2026 leadership direction: use white/off-white backgrounds for both products, including heroes, slides and product imagery. Choose light assets when available. A near-black inverse section is an exception, at most once per piece, never the default hero. This local direction takes precedence over dark starter examples in the upstream snapshot. It is source-recorded guidance, not a new independent approval obtained during this integration.
+## Shared operational references
 
-H1/page heroes and slide titles are uppercase. H2/H3, body and buttons are sentence case; small eyebrows may be uppercase. Arizona has no bold weight: emphasize a few words with the product accent instead of synthetic bold. Corporate rules limit Arizona Mix to short emphasis; the OptiLIFT product rule explicitly uses it for headlines/pull-quotes. Apply that exception only to OptiLIFT. Do not mix casing within a headline.
+These are not brand rules. They apply whichever system is selected.
 
-OptiLIFT uses violet #6F20D2, near-black #161413, white and warm neutrals; sunburst details and clean warm portraits/product photography. Violet was sampled from artwork in the upstream source, and its print swatches still need confirmation. OptiLIGHT uses blue #578FFF with black/white and light photography backgrounds; its rays and prism treatment are described in the product guide. Blue is unsuitable for small text on white. The upstream OptiLIGHT guide allows violet body links despite its blue-only palette wording; use black body text and an underline for an unambiguous default, or obtain the applicable brand decision before introducing the violet exception.
+- [Image library](../image-library/README.md) for photography and hosted delivery links. Check each asset's `allowedBrands` (`Lumenis corporate`, `OptiLIGHT`, `OptiLIFT`) against the selected system.
+- [KOL profiles](../kol-library/index.md) for biographies and headshot candidates, and [claims references](../claims-reference/index.md) for citations and qualifications. Neither a candidate image nor a confirmed citation establishes marketing approval, and design-source example copy is not evidence of a cleared indication or approved claim.
+- [HubSpot asset index](hubspot-assets.md) for the ABC Arizona font downloads (all three systems use ABC Arizona, each in its own way) and the verified OptiLIGHT lockup. Font binaries are licensed and never committed to Git; each system's `tokens/fonts.css` looks up installed fonts.
+- HubSpot delivery: [page implementation](../../.agents/skills/lumenis-accelerate-campaign/references/pages.md), [forms](../../.agents/skills/lumenis-accelerate-campaign/references/forms.md) and [email implementation](../../.agents/skills/lumenis-accelerate-campaign/references/emails.md). Use one scoped Custom HTML module where that pattern applies, real hosted assets, the correct native form and approved footer/privacy controls. Email needs inline CSS and fallback fonts.
 
-The source describes OptiLIFT in facial-contouring language; do not infer indication, business-unit routing or claims from it. Use the actual market/product brief and the claims library, where “confirmed” means evidence checked, not regulatory clearance. Unresolved entries remain unresolved after merging.
+Before delivery, check the piece against the selected system only: product casing, ground colour, typography, contrast, logo fidelity, image rights, claim context and real link destinations. Inspect desktop and mobile output.
 
-## Assets and implementation
+## Folder layout
 
-CSS tokens are in `tokens/`. Inspect colors, typography, spacing, surfaces and subbrands, then copy only the scoped rules needed into the output. Full component code and runnable UI kits remain in the attributed upstream repository; the linked product source references identify them. They are optional starting points, not required for using these instructions or writing scoped HTML/CSS.
-
-OptiLIFT SVG logos are under `optilift/assets/logo/`. The verified OptiLIGHT full lockup and its HubSpot delivery link are in the [HubSpot asset index](hubspot-assets.md). For supplied logos, preserve the artwork, proportions, clear space and by-Lumenis endorsement. Product specimen cards are under `guidelines/`. Some source references use older `brand-optilift-...` names; the local files use `brand-...`. Inspect the actual filenames. Do not substitute a drawn wordmark for a supplied logo.
-
-Arizona font binaries are licensed and are not included in Git. Authorized users can obtain the four available cuts from the [HubSpot asset index](hubspot-assets.md); confirm applicable desktop or web-font license coverage for the intended use. Upload only authorized asset derivatives to HubSpot using the image-library CLI instructions and record real returned URLs. A local SVG path cannot be pasted as a public page URL.
-
-For HubSpot pages, read [page implementation](../../.agents/skills/lumenis-accelerate-campaign/references/pages.md) and [forms](../../.agents/skills/lumenis-accelerate-campaign/references/forms.md). Use one scoped Custom HTML module where that pattern applies, actual hosted assets, the correct native form, and approved footer/privacy controls. Website mockup forms are not real registrations. Keep form headings with a one-column form, visible select carets and brand-appropriate buttons. Avoid internal sales/workbook language in customer-facing copy.
-
-For email, follow [email implementation](../../.agents/skills/lumenis-accelerate-campaign/references/emails.md): inline CSS and compatible assets; do not transplant page scripts or rely on web fonts loading in inboxes. For slides/print, follow the product hierarchy and destination dimensions, with approved print-resolution sources.
-
-Before delivery check product casing, light-background direction, typography, contrast, logo fidelity, image rights/identity, claim context and real link destinations. Inspect desktop/mobile output and the form; email also needs inbox checks. Publishing follows the existing task authorization.
+Each system folder is self-contained: its own `styles.css` and `tokens/`, its own guidance and reference files, and specimen cards under `guidelines/` that load only that folder's stylesheet. Lumenis Corporate also carries logos, brand line icons, components and UI kits.
 
 ## Provenance
 
-Imported September 9, 2026 from [lumenis-design-system commit c2c8024](https://github.com/laarnicayetano/lumenis-design-system/tree/c2c80240eb29ac5cf0573a5d3271792b5e16e8a4). Font CSS retains local family lookup but removes nonexistent font-file URLs. Specimen stylesheet paths are adjusted for this folder. Local copies retain the shared/product source text; Markdown links are adjusted to local copies or pinned upstream references. Local OptiLIFT and OptiLIGHT skills supplied the light-background and page-heading refinements above. Existing source caveats remain visible. No licensed fonts, deployment pipelines or unrelated product libraries were imported. No upstream files or production HubSpot pages were changed.
+- **OptiLIFT and OptiLIGHT** were imported on September 9, 2026 from [lumenis-design-system commit c2c8024](https://github.com/laarnicayetano/lumenis-design-system/tree/c2c80240eb29ac5cf0573a5d3271792b5e16e8a4) as product layers over a shared corporate baseline. On September 14, 2026 they were made standalone: each now has its own tokens, taken from the matching Claude Design system, and the baseline references were removed. One cross-system dependency was replaced with an in-system equivalent: OptiLIGHT coloured body text and links now use OptiLIGHT's own deep blue `#2F63D6` instead of OptiLIFT violet.
+- **Lumenis Corporate** was added on September 14, 2026 as a Claude Design export of the 2026 Lumenis brandbook. It replaces the upstream corporate baseline (`shared-guidance.md`, `brand-guidelines.md`, and the top-level `tokens/` and `styles.css`), which was retired so there is one corporate brand book. The retired files remain in Git history.
+- Internal working copies with licensed fonts and full imagery are kept outside Git. No production HubSpot pages or upstream repositories were changed.

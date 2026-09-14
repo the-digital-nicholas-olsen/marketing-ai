@@ -1,0 +1,125 @@
+<!-- @dsCard group="UI Kit — Communication Formats" viewport="1440x900" name="Posters, Social Posts &amp; Slides" subtitle="A4 split layouts, 1080 social templates, 16:9 presentation slides" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Lumenis — communication formats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+body{background:var(--neutral-200)}
+.page{padding:48px;display:flex;flex-direction:column;gap:56px}
+.band h2{font-size:14px;text-transform:uppercase;margin-bottom:6px}
+.band p{font-size:14px;color:var(--text-secondary);margin-bottom:20px;max-width:760px}
+.row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.fill{width:100%;height:100%;object-fit:cover;display:block}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { SplitLayout, SocialPost, Headline, HeroL, Mix, Subtitle, Caption, Logo, Icon, Button } = window.LumenisCorporateDesignSystem;
+const IMG = 'https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/';
+const img = (f) => <img className="fill" src={IMG+f} alt=""/>;
+
+function A4({children}){ return <div style={{width:298,height:421,boxShadow:'0 10px 30px rgba(0,0,0,.12)'}}>{children}</div>; }
+
+function Slide({children,tone='white'}){
+  const bg={white:'var(--lumenis-white)',grey:'var(--lumenis-light-grey)',black:'var(--lumenis-black)'}[tone];
+  return (
+    <div style={{width:640,height:360,overflow:'hidden',boxShadow:'0 10px 30px rgba(0,0,0,.12)'}}>
+      <div style={{width:1920,height:1080,transform:'scale(.3333)',transformOrigin:'0 0',background:bg,position:'relative',color:tone==='black'?'#fff':'#000'}}>{children}</div>
+    </div>
+  );
+}
+
+function App(){
+  return (
+    <div className="page">
+      <section className="band">
+        <h2>Print · A4 split layouts</h2>
+        <p>The basic format for all Lumenis communication. Split horizontally or vertically; white, light grey, or one secondary color. Wordmark bottom-left, © year bottom-right.</p>
+        <div className="row">
+          <A4><SplitLayout direction="vertical" tone="light-grey" year="2026" mediaFirst media={img('lumenis-device-controls-001-1280w.webp')}>
+            <Headline size="s" style={{fontSize:31}}>Leading<br/>technologies<br/>for your body.</Headline>
+          </SplitLayout></A4>
+          <div data-accent="rose-gold"><A4><SplitLayout direction="horizontal" tone="accent" ratio={0.56} year="2026" media={img('lumenis-eye-exam-001-1280w.webp')}>
+            <Headline size="s" style={{fontSize:31}}>Open<br/>yourse<HeroL/>f.<br/>Discover<br/>a new you.</Headline>
+          </SplitLayout></A4></div>
+          <A4><SplitLayout direction="vertical" tone="white" year="2026" media={img('lumenis-facial-treatment-closeup-001-1280w.webp')}>
+            <Headline size="s" style={{fontSize:31}}>Unveil<br/>the best<br/>in you.</Headline>
+          </SplitLayout></A4>
+          <A4><div style={{width:'100%',height:'100%',background:'var(--lumenis-light-grey)',padding:22,display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
+            <Headline size="s" style={{fontSize:31}}>Leading</Headline>
+            <Headline as="div" size="s" style={{fontSize:31,paddingLeft:40}}>Technologies</Headline>
+            <Headline as="div" size="s" style={{fontSize:31}}>For</Headline>
+            <Headline as="div" size="s" style={{fontSize:31,display:'flex',justifyContent:'space-between'}}><span><Mix>Your</Mix></span><span><Mix>body.</Mix></span></Headline>
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',fontSize:10}}><Logo width="64px"/><span>©2026</span></div>
+          </div></A4>
+        </div>
+      </section>
+
+      <section className="band">
+        <h2>Social · 1080 × 1080</h2>
+        <p>6×6 grid, 56px margins. Wordmark 2 columns wide or Hero L 1 row tall, in a corner. Color used as split background, stroke, subtitle highlight, small icon stroke, or full background — one color at a time.</p>
+        <div className="row">
+          <SocialPost tone="light-grey" logo="wordmark" logoCorner="bottom-left" scale={0.3}>
+            <Headline as="div" style={{fontSize:110}}>Unvei<HeroL/><br/>the best<br/>in you.</Headline>
+          </SocialPost>
+          <div data-accent="light-purple">
+            <SocialPost tone="light-grey" logo="hero-l" logoCorner="bottom-left" scale={0.3}
+              background={<div style={{position:'absolute',right:0,top:0,width:'50%',height:'100%',background:'var(--accent)'}}/>}>
+              <Headline as="div" style={{fontSize:84,maxWidth:460}}>Beauty tech for life</Headline>
+            </SocialPost>
+          </div>
+          <div data-accent="light-purple">
+            <SocialPost tone="accent" logo="wordmark" logoCorner="bottom-left" scale={0.3}
+              background={<div style={{position:'absolute',left:'50%',top:'50%',transform:'translate(-50%,-50%)',color:'#fff'}}><Icon name="wave" size="560px" scale="large"/></div>}>
+              <Headline as="div" style={{fontSize:96}}>Empowering<br/>you</Headline>
+              <Headline as="div" align="right" style={{fontSize:96,position:'absolute',right:0,bottom:0}}>Your<br/>way</Headline>
+            </SocialPost>
+          </div>
+          <SocialPost tone="white" logo="wordmark" logoCorner="top-right" scale={0.3}
+            background={<div style={{position:'absolute',left:0,right:0,bottom:0,height:'52%'}}>{img('lumenis-treatment-demo-001-1280w.webp')}</div>}>
+            <Headline as="div" style={{fontSize:84}}>Our <Icon name="cross" size="60px"/> focus<br/>is entirely<br/>on you</Headline>
+            <Subtitle style={{fontSize:40,marginTop:28}}>We are leading technologies for you.</Subtitle>
+          </SocialPost>
+        </div>
+      </section>
+
+      <section className="band">
+        <h2>Presentation · 16:9</h2>
+        <p>Title slides lead with a large uppercase headline and a single Hero L; content slides keep paragraphs left-aligned with generous white space and the wordmark as a quiet footer.</p>
+        <div className="row">
+          <Slide tone="grey">
+            <div style={{position:'absolute',right:0,top:0,width:780,height:'100%'}}>{img('lumenis-device-studio-001-1280w.webp')}</div>
+            <div style={{position:'absolute',left:96,top:96,width:980}}>
+              <Caption style={{fontSize:28}}>Global sales meeting · 2026</Caption>
+              <Headline style={{fontSize:150,marginTop:40}}>Empowering you, your way</Headline>
+            </div>
+            <div style={{position:'absolute',left:96,bottom:80}}><Logo width="300px"/></div>
+          </Slide>
+          <Slide tone="white">
+            <div style={{position:'absolute',left:96,top:96,right:96,display:'grid',gridTemplateColumns:'1fr 1fr',gap:96}}>
+              <div>
+                <Caption style={{fontSize:26,color:'var(--text-secondary)'}}>Our purpose</Caption>
+                <Headline as="h2" style={{fontSize:84,marginTop:32}}>A leading tech company that empowers people</Headline>
+              </div>
+              <div style={{paddingTop:96}}>
+                <Subtitle style={{fontSize:48}}>By broadening the horizons of health and celebrating a beauty that matters.</Subtitle>
+                <p style={{fontSize:32,lineHeight:1.3,marginTop:40,color:'var(--text-secondary)'}}>We develop best-in-class solutions and move technology forward — for our clients, our talents and their patients.</p>
+              </div>
+            </div>
+            <div style={{position:'absolute',left:96,right:96,bottom:64,display:'flex',justifyContent:'space-between',alignItems:'center',fontSize:22}}>
+              <Logo width="190px"/><span>02</span>
+            </div>
+          </Slide>
+        </div>
+      </section>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body></html>

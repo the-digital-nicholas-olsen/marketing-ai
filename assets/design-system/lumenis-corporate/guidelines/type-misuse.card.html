@@ -1,0 +1,19 @@
+<!-- @dsCard group="Type" viewport="700x270" name="Typography Misuse" subtitle="Six things to avoid" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="card.css">
+<style>
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.c{background:var(--lumenis-light-grey);height:78px;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px}
+.c .t{font-size:18px}
+.lbl{font-size:11px;line-height:1.25;color:var(--error);margin-top:4px}
+</style>
+<div class="card">
+  <div class="g">
+    <div><div class="c x"><div class="t">That wow<br>moment</div></div><div class="lbl">Center alignment (only OK for a short stand-alone headline)</div></div>
+    <div><div class="c x" style="justify-content:flex-start"><div class="t" style="text-align:left">And then<br><span style="font-size:11px">I saw my face</span></div></div><div class="lbl">Mixing different text sizes in one headline</div></div>
+    <div><div class="c x"><div class="t" style="font-family:var(--font-sans);font-weight:300">That <span class="mix" style="-webkit-text-stroke:.8px currentColor">OMG</span> moment</div></div><div class="lbl">Undefined weight pairings (Sans Thin, Mix Bold…)</div></div>
+    <div><div class="c x"><div style="font-size:20px">Love <span class="mix">Your</span> Look</div></div><div class="lbl">Sans + Mix interplay in lowercase</div></div>
+    <div><div class="c x"><div class="t">Unvei<span style="white-space:nowrap">&#8288;<img class="hl" src="../assets/logo/lumenis-hero-l-black.svg">&#8288;</span> the <span class="mix">best</span></div></div><div class="lbl">Mixing Option A (Hero L) and Option B (Mix)</div></div>
+    <div><div class="c x"><div class="t" style="font-weight:300">That wow moment</div></div><div class="lbl">Stand-alone Sans in any weight other than Regular</div></div>
+  </div>
+</div>

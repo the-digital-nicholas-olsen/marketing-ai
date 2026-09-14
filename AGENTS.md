@@ -4,7 +4,7 @@ This repository holds reusable marketing methods for Vision and Aesthetics. It i
 
 ## Context loading
 
-Resolve the workflow and division from the task or established context. Ask only if ambiguous; never default to Vision. Resolve product, market and audience when relevant. Read the selected SKILL.md, then only the specific reference needed for the step. Do not load all corporate files, product libraries, catalogs or operational history. README routes people; STATUS is read on demand.
+Resolve the workflow and division from the task or established context. Ask only if ambiguous; never default to Vision. Resolve product, market and audience when relevant. Read the selected SKILL.md, then only the specific reference needed for the step. Do not load all corporate files, product libraries, catalogs or operational history; visual work loads one named brand system. README routes people; STATUS is read on demand.
 
 ## Sources and scope
 

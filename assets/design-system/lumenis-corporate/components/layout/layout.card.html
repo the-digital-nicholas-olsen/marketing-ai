@@ -1,0 +1,33 @@
+<!-- @dsCard group="Components" viewport="900x460" name="Layout Formats" subtitle="SplitLayout (A4) and SocialPost (1080 grid)" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script src="../../_ds_bundle.js"></script>
+<div id="root" style="padding:24px;background:var(--neutral-200)"></div>
+<script type="text/babel">
+const { SplitLayout, SocialPost, Headline, HeroL, Mix, Icon } = window.LumenisCorporateDesignSystem;
+const img = (src) => <img src={src} alt="" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}}/>;
+function Demo(){
+  return (
+    <div style={{display:'flex',gap:20,alignItems:'flex-start'}}>
+      <div style={{width:270,height:382,flexShrink:0}}>
+        <SplitLayout direction="vertical" tone="light-grey" year="2026" media={img('https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/lumenis-device-controls-001-1280w.webp')} mediaFirst>
+          <Headline size="s" style={{fontSize:30}}>Leading technologies for your body.</Headline>
+        </SplitLayout>
+      </div>
+      <SocialPost tone="light-grey" showGrid logo="wordmark" logoCorner="bottom-left" scale={0.25}>
+        <Headline as="div" style={{fontSize:110}}>Unvei<HeroL/><br/>the best<br/>in you.</Headline>
+      </SocialPost>
+      <div data-accent="light-purple">
+        <SocialPost tone="accent" logo="hero-l" logoCorner="bottom-right" scale={0.25}
+          background={<div style={{position:'absolute',left:'50%',top:'55%',transform:'translate(-50%,-50%)',color:'#fff'}}><Icon name="wave" size="620px" scale="large"/></div>}>
+          <Headline as="div" style={{fontSize:96}}>Empowering<br/>you</Headline>
+        </SocialPost>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>

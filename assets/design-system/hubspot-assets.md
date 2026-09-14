@@ -17,7 +17,7 @@ This is the verified lockup with black OptiLIGHT lettering, the blue sun mark an
 | ABC Arizona Mix Regular | [Download OTF](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/ABCArizonaMix-Regular.otf) |
 | ABC Arizona Mix Italic | [Download OTF](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/ABCArizonaMix-Italic.otf) |
 
-Download and install the required cuts for desktop design work only when the user is covered by the applicable Lumenis font license. Do not commit the font binaries to Git. The CSS in `tokens/fonts.css` first uses an installed local copy, then falls back to the system stack.
+Download and install the required cuts for desktop design work only when the user is covered by the applicable Lumenis font license. Do not commit the font binaries to Git. ABC Arizona is used by all three brand systems (Lumenis Corporate, OptiLIGHT and OptiLIFT). Each system's `tokens/fonts.css` first uses an installed local copy, then falls back to that system's stack.
 
 For a website or another published digital destination, confirm the applicable web-font rights and use the destination's authorized hosting method. For email, use the documented fallback stack because inboxes do not reliably load web fonts.
 

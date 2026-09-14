@@ -7,7 +7,7 @@ reviewed: 2026-09-07
 ---
 # Assets and flyers
 
-Choose the reviewed product design system through guides/upstream-integration.md. Vision references include OptiLIGHT and OptiLIFT; this does not define all Aesthetics brands. Preserve official casing. Keep approved originals and completed artwork outside Git.
+Choose one brand system — Lumenis Corporate, OptiLIGHT or OptiLIFT — through assets/design-system/README.md and do not mix them. Other Aesthetics and Vision product brands have no system here; ask for their guidance. Preserve official casing. Keep approved originals and completed artwork outside Git.
 
 ## Reuse assets first
 

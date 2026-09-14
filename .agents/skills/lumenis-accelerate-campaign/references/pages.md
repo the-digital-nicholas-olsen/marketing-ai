@@ -7,7 +7,7 @@ reviewed: 2026-09-07
 ---
 # Pages
 
-Use the approved design system for the selected product and market. This delivery procedure does not grant approval for product claims or turn OptiLIFT design into a default for Aesthetics.
+Use the one brand system selected for the piece — Lumenis Corporate, OptiLIGHT or OptiLIFT — from assets/design-system/README.md. This delivery procedure does not grant approval for product claims or make any brand system a default for a division.
 
 ## Content and architecture
 

@@ -1,97 +1,43 @@
 ---
 name: optilight-design
-description: Design overrides for OptiLIGHT — where its visual treatment differs from the company-wide Lumenis design system. Use when creating or reviewing visuals for OptiLIGHT. These values take precedence over the global `lumenis-design-system` skill for this product only. Do NOT use for other products.
+description: The standalone OptiLIGHT brand system — the black, white and OptiLIGHT Blue palette, the rays-of-light graphic system, prism imagery, type and surfaces for OptiLIGHT marketing. Use when OptiLIGHT is requested or the piece is about OptiLIGHT. Complete on its own; never combine it with the Lumenis Corporate or OptiLIFT systems.
 ---
 
-# OptiLIGHT — design overrides
+# OptiLIGHT — brand system
 
-Only what DIFFERS from the global design system; everything else inherits
-from the root [SKILL.md](../shared-guidance.md).
+One of three separate Lumenis brand systems (Lumenis Corporate, OptiLIGHT, OptiLIFT), each a complete brand book for a different purpose. Everything OptiLIGHT work needs is in this folder: these rules, the [reference](reference.md), `styles.css` and `tokens/`, and specimen cards in `guidelines/`. It does not inherit from or defer to the other systems, and their different choices are not conflicts.
 
 ## Non-negotiables
 
-- **Palette is black + white + OptiLIGHT Blue `#578FFF`** only
-  (`--lum-blue` in `tokens/colors.css`; scoped via
-  `[data-subbrand="optilight"]` in `tokens/subbrands.css`). The rainbow
-  **prism is an imagery effect, never a UI color** — don't use it as a
-  fill, button, or text color.
-- **`#578FFF` is ~3:1 contrast on white** — display sizes and fills only.
-  Use OptiLIFT violet `#6F20D2` (~7.5:1) for colored text at body size and
-  for links.
-- **Rays of light** are the signature graphic system (see Visual
-  foundations below) — the single most load-bearing visual idea in this
-  brand. Never place rays over live text, form fields, calculator
-  controls, or other reading-critical UI.
-- **The product is `OptiLIGHT`** — capital L-I-G-H-T, matching
-  `OptiLIFT`. Never `OptiLight`/`Optilight`, except in legacy asset
-  filenames that already ship that way (e.g. `optilight-device-cart.png`
-  — left alone, renaming breaks references).
-- **OptiLIGHT™ and OPT™ carry the ™** in superscript on first/prominent
-  use.
+- **Palette is black + white + OptiLIGHT Blue `#578FFF`** (Pantone 2727 C), with `#F2F2F2` as the product-photography ground. Blue tints and neutrals in the tokens are UI derivations; keep them quiet. The rainbow **prism is an imagery effect, never a UI colour**.
+- **Colour a few words.** Emphasis comes from colour, not weight: the operative phrase in a headline, key terms or figures, eyebrows, links, table header rows — one to four words per highlight. `#578FFF` is ~3:1 on white, so use it for display sizes and fills only; use **OptiLIGHT Deep Blue `#2F63D6`** (`--blue-700`, ~5.4:1) for coloured text at body size and for links.
+- **Rays of light** are the signature graphic: straight 4px strokes from one shared origin, crossing the whole frame, at least three rays. Never place rays over live text, form fields, calculator controls or other reading-critical UI.
+- **Type is ABC Arizona.** Two title treatments, never mixed in one composition: Option A, Arizona Sans with the serifed Mix "Hero L" inside the headline; Option B, headline lines alternating Sans and Mix. Paragraphs, captions and specs are Arizona Sans Regular. **H1 is UPPERCASE**; H2/H3 running subheads are sentence case; labels and eyebrows uppercase.
+- **Product spelling:** `OptiLIGHT`, with OptiLIGHT™ and OPT™ carrying a superscript ™ on first or prominent use. Never `OptiLight`/`Optilight`, except in legacy asset filenames.
+- **Light grounds by default** (leadership review, September 2026): white or product grey `#F2F2F2`; blue remains available as a full background block. Full-black sections are the exception — at most one per piece, never the hero. Ship the light version of an asset when both exist.
+- Product-focused landing-page heroes use one clear primary product image unless a composite or lifestyle treatment is requested.
+- **Voice:** warm, optimistic, premium-clinical. No emoji.
 
 ## Visual foundations
 
-### Color
+### The rays-of-light system
 
-Structural pair is Lumenis Black `#000000` / White `#FFFFFF`; OptiLIGHT
-Blue is the one brand color; `#F2F2F2` is the prescribed
-product-photography background. Extended blue tints/neutrals for UI
-surfaces are derivations, not printed brand colors — keep them quiet and
-let blue/black/white lead.
-
-### The "rays of light" graphic system
-
-Thin straight lines ("rays") that **cross the entire format from a single
-shared starting point**:
-
-1. Stroke only · 2. Stroke + color fill · 3. Stroke + image fill · 4.
-   Stroke + multiple images · 5. Stroke + background image.
-
-- Digital stroke weight is always **4px**. Strokes are Lumenis White or
-  OptiLIGHT Blue only.
-- The wedge _between_ two rays fills with blue, white, or an image.
-- A stroke crossing a blue fill turns white (and vice versa); a stroke
-  over an image is white unless legibility forces blue.
-- **At least 3 rays.** Avoid: rays that don't cross the full frame,
-  mismatched start points, starting on the margin/edge, mismatched stroke
-  widths.
+Thin straight lines that cross the entire format from a single shared starting point: 1. stroke only · 2. stroke + colour fill · 3. stroke + image fill · 4. stroke + multiple images · 5. stroke + background image. Digital stroke weight is always 4px (print 1–4pt by scale), in Lumenis White or OptiLIGHT Blue. The wedge between two rays fills with blue, white or an image. A stroke crossing a blue fill turns white (and vice versa); a stroke over an image is white unless legibility forces blue. Avoid rays that don't cross the full frame, different start points, starting on the margin or edge, and mismatched stroke widths.
 
 ### Imagery
 
-Refined, warm, clean, **bright** — never cold, gritty, or heavily graded.
-Three subjects: people (face close-ups, ≥1 eye visible, natural light,
-optimistic, models ~30–50), nature/sky (bright skies or sunlit forests
-with natural light rays), product (sleek renders on `#F2F2F2`, may bleed
-off the edge). Signature treatment: a **colorful prism** rainbow glare
-over one eye (people) or through the scene (nature), in _Screen_ blend
-mode.
+Refined, warm, clean, bright — never cold, gritty or heavily graded. Four principles (at least two for stock, all four when commissioning): Sublime Technology, An Open Dialogue, Plug and Play, Dare to Imagine. Subjects: people (face close-ups, at least one eye visible, natural light, optimistic, models about 30–50), nature and sky (bright skies or sunlit forests with natural light rays), and product (sleek renders on `#F2F2F2`, parts may bleed off the edge). The signature treatment is a colourful prism glare over one eye or through the scene, in Screen blend mode.
 
-### Layout
+### Layout, surfaces and motion
 
-Diagonal 40-unit construction (divide the format diagonally into 40 units
-→ 1 unit = 1x = margin; inner area split into 6 columns). Otherwise
-inherits the root system's split-layout composition, digital-surface
-radius/shadow tokens (`--radius-sm/md/lg`, `--shadow-sm/md/lg/accent`),
-and 8pt spacing scale — no OptiLIGHT-specific deviation there.
+- **Grid:** divide the format diagonally into 40 equal units; 1 unit = 1x = the margin; split the inner area into 6 columns. Logo size is set by the Hero L height (1x). UI work uses an 8pt spacing scale.
+- **Surfaces:** modest soft radii — 6px controls, 10px cards, 18px large panels, pill for chips — never pill-shaped cards. Cards are white with a hairline `#E3E6EC` border or a light diffuse shadow, not both heavy. The soft blue glow (`--shadow-blue`) is reserved for the primary blue CTA: blue background, white text, 6px radius.
+- **Motion:** calm fades and short rises (12–16px), 140–480ms, ease-out; a ray can draw on. Blue elements darken one step on hover. No bounce or infinite decorative loops.
 
-## Iconography
+### Iconography
 
-Near icon-free. The one logo-native element is the **"sun" mark** beside
-the wordmark (also the logo's clear-space unit) — a logo element, not a
-general-purpose icon; don't reuse it as a UI glyph. For UI work that
-genuinely needs icons, this system used **Lucide** at 1.5px stroke as a
-documented substitution (parallel to the root system's own Phosphor
-substitution for corporate work) — flag it as a substitution if used, and
-keep it minimal/monochrome.
+Near icon-free. The "sun" mark beside the wordmark is a logo element and the logo's clear-space unit, not a UI glyph. If UI work genuinely needs icons, use a thin monochrome line set (Lucide at 1.5px) and flag it as a substitution.
 
-## Assets
+## Tokens and assets
 
-Use the [HubSpot asset index](../hubspot-assets.md) for the verified
-OptiLIGHT full lockup and the four available ABC Arizona font cuts. Do not
-redraw the wordmark or commit licensed font binaries to Git.
-
-## How to use this
-
-- Inherit global tokens; apply only the deltas listed here.
-- Full brand voice, content rules, and file inventory: see this product's
-  [README.md](reference.md).
+Link `styles.css`, which imports `tokens/colors_and_type.css`: `--optilight-blue`, `--blue-50…700`, `--lumenis-black`, `--lumenis-white`, `--product-gray`, `--ink`/`--ink-2`/`--ink-3`, `--hairline`, `--prism`, the type scale (`--fs-*`, `--lh-*`), spacing, radii, shadows, motion and `--ray-stroke`. ABC Arizona is licensed and not in Git: install the cuts, and get the verified OptiLIGHT full lockup, from the [HubSpot asset index](../hubspot-assets.md). Do not redraw the wordmark.
