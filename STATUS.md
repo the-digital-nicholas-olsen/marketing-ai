@@ -9,6 +9,7 @@ Updated 2026-09-09. The repository now goes beyond the initial public preview: s
 - Integrated image-library instructions, catalog and scripts in assets/image-library, with a canonical intake/upload skill and generated Claude copy. Local intake/resizing tested; production HubSpot upload/sync not exercised during adoption.
 
 - Accelerate blueprint and eleven focused references covering forms, pages, campaigns/segments, all four email types, workflows, assets/flyers, internal communications, Smartsheet lessons and acceptance.
+- Draft Accelerate pipeline sync skill: fills rep approval Opportunity Amount, Stage and Expected Value from Salesforce with link repair, duplicate and closed-deal rules. Tested once on an Aesthetics sheet 2026-09-14; subject-owner review pending.
 - Both division field mappings, with source-observed state separated from intended requirements; HubSpot access/read-back lessons.
 - Six selected AI foundations with selective context loading and bounded metadata discovery.
 - Source coverage and explicit conflict handling rather than conflicting instructions copied wholesale.
