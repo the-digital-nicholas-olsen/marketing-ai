@@ -3,7 +3,7 @@ title: Claims reference library
 summary: Reference tables of clinical, regulatory and epidemiological claims and statistics used in Lumenis marketing materials, with sources, so a person or an AI can find the citation and context behind a stat before reusing it.
 status: source-derived; verify each entry before external use
 owner: Kaelyn Gray
-reviewed: 2026-09-09
+reviewed: 2026-09-16
 ---
 
 # Claims reference library
@@ -45,10 +45,11 @@ One file per product: `<product-slug>.md` (e.g. `optilift.md`, `optilight.md`), 
 3. If a source can't be located, the number doesn't match, two materials give different numbers for what looks like the same claim, or the evidence is marked as unpublished/data-on-file, mark the entry `needs review` and say specifically what's unresolved — do not upgrade a claim to `confirmed` on the strength of the deck's own footnote alone.
 4. Add the row to the relevant product file and a link from `index.md`. Run `node scripts/validate.mjs` from the repository root before opening a pull request.
 
-## Known gaps in this initial pass
+## Known gaps and review boundaries
 
 - Several claims cite a public source whose exact wording or figure could not be independently reproduced from what was available during this review (search/fetch access, not a primary-database subscription) — these are marked `needs review` with the specific discrepancy noted rather than silently accepted.
 - Two OptiLIFT materials cite different sources for the same "3-8% muscle loss per decade" figure, and OptiLIGHT's two consumer/practice materials state different totals for "Americans with dry eye disease" — see the Notes sections in each product file.
 - Business/ROI figures (e.g., per-practice revenue projections, average annual practice revenue) that appear alongside clinical claims in the source decks were intentionally excluded from this library as out of scope (see above), not overlooked.
-- This first pass covers only the four documents reviewed for this contribution (two OptiLIFT, two OptiLIGHT). Lumenis' other product lines and materials are not yet represented.
-
+- The library now incorporates the original four-document pass and all 14 OptiLIFT, OptiLIGHT, OptiPLUS and triLIFT assets supplied for the 2026-09-16 pass; some supplied files overlap the earlier content as newer revisions or alternate layouts. It is still not a complete inventory of every Lumenis product line or every revision ever distributed.
+- A document count is not an evidence count: several files are alternate layouts, newer revisions, or decks that repeat the same underlying study. Repeated marketing uses are recorded as additional appearances, not treated as independent corroboration.
+- Where an asset's footnote supports only a broader category claim, an adjacent but different endpoint, a different anatomy/device/protocol, or a secondary marketing summary, the entry remains `needs review` even when the cited publication exists.
