@@ -34,6 +34,15 @@ Each product file is a table with one row per claim:
 
 Longer notes that don't fit a table cell live in a "Notes and flags" section at the bottom of each file, referenced by ID.
 
+## Citation and document rules
+
+These rules apply to every entry in this library.
+
+1. **Reference** may only be a real, publicly locatable citation: a journal article (authors, title, journal, year, volume:pages, and PMID or DOI where one exists), a regulatory record, or a public report or web page (publisher, title, date and link). A Lumenis document identified by its PB number and revision is also acceptable.
+2. **Appears in** may only name a Lumenis document with a PB number (title, PB number, revision, and slide or page). Never name drafts, working files, decks or other materials without a PB number, speaker notes, emails or internal file names. Use "—" when a public-source claim is not yet in a PB-numbered document.
+3. A claim with neither a real citation nor a PB-numbered source document is not added.
+4. Before replacing a citation, re-open the old source. If it is valid and the claim quotes it correctly, keep it. If the source is valid but the material misquotes it, keep the source and record the correct figure. Add a new source only when the old one does not support the claim, record why, and keep the original row rather than deleting it.
+
 ## File naming and placement
 
 One file per product: `<product-slug>.md` (e.g. `optilift.md`, `optilight.md`), lowercase hyphenated, matching the naming rule in the [root README](../../README.md#naming-and-placement). `index.md` is the master table across all products. Add a new product file the same way rather than growing one file indefinitely; link it from `index.md`.
@@ -50,5 +59,5 @@ One file per product: `<product-slug>.md` (e.g. `optilift.md`, `optilight.md`), 
 - Several claims cite a public source whose exact wording or figure could not be independently reproduced from what was available during this review (search/fetch access, not a primary-database subscription) — these are marked `needs review` with the specific discrepancy noted rather than silently accepted.
 - Two OptiLIFT materials cite different sources for the same "3-8% muscle loss per decade" figure, and OptiLIGHT's two consumer/practice materials state different totals for "Americans with dry eye disease" — see the Notes sections in each product file.
 - Business/ROI figures (e.g., per-practice revenue projections, average annual practice revenue) that appear alongside clinical claims in the source decks were intentionally excluded from this library as out of scope (see above), not overlooked.
-- This first pass covers only the four documents reviewed for this contribution (two OptiLIFT, two OptiLIGHT). Lumenis' other product lines and materials are not yet represented.
+- The first pass covered four PB-numbered documents (two OptiLIFT, two OptiLIGHT). A second pass (2026-09-16) re-opened cited dry eye sources, corrected misquoted figures, and added public-source OptiPLUS and Lumenis corporate entries. Lumenis' other product lines and materials are not yet represented.
 
