@@ -1,10 +1,10 @@
 # Guardrails
 
-These rules sit apart from the main process so it can stay focused on writing good emails. They still apply every time.
-
-- **Drafts only.** The skill never sends an email, creates one in an email platform or schedules one. The person running it copies, pastes and sends.
-- **Read-only in Smartsheet.** Read the event sheets; never edit, add or delete rows. If the sheet looks wrong, tell the requester instead of fixing it.
-- **Confirmed logistics only.** Parking, travel, badges and meeting spots go in only when Show Details or the requester supplies them. When something is unknown, leave it out or mark it "to be confirmed onsite."
-- **No deck links.** Link placeholders only; the sender adds links (process step 6).
-- **Contact details stay out.** Staff and vendor emails and phone numbers in Show Details are for the event team, not the KOL emails.
-- **Word choice.** Open with "We're excited", never "genuinely excited" (the intensifier makes it sound doubtful). Don't use "Come early if you can": say when they're actually needed. No sign-off block, since the sender's signature covers it.
+- **Drafts only.** Never send, schedule or create an email in an email platform.
+- **Read-only in Smartsheet.** Read and report the event records; do not repair missing or conflicting data as part of this skill.
+- **Smartsheet is the operational source.** Do not use a public agenda page or a remembered folder structure to fill event-content gaps.
+- **Consume deck metadata only.** Read deck requirements and Dropbox links already recorded in Smartsheet. Do not create, edit, upload, locate, select or change access to a deck.
+- **No inferred deck requirement.** A presentation role alone does not prove that a deck is required. Follow the KOL-to-deck mapping.
+- **Confirmed content only.** Omit or report missing logistics, descriptions and preparation details rather than inventing them.
+- **Contact details stay out.** Do not copy staff or vendor contact details into KOL emails.
+- **Word choice.** Open with "We're excited," state when the KOL is actually needed, and omit a sign-off block because the sender's signature supplies it.

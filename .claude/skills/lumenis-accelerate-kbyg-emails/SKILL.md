@@ -1,88 +1,67 @@
 ---
 name: lumenis-accelerate-kbyg-emails
-description: Draft individual Know Before You Go (KBYG) emails for the KOLs presenting at a Lumenis Accelerate event, built from that event's Smartsheet (agenda, rooms, times, presenters, venue). Use when someone asks for KBYG emails, presenter schedules or "know before you go" notes for an Accelerate city. Produces plain-text drafts ready to paste into an email, with deck-link slots the sender fills in.
+description: Draft individual Know Before You Go (KBYG) emails for KOLs presenting at a Lumenis Accelerate event. Discover the event in Smartsheet, use its KOL-to-session and KOL-to-deck mappings, and include Dropbox deck links already recorded there. Use for KBYG emails, presenter schedules or presenter briefing notes for an Accelerate city. Does not prepare or locate decks.
 ---
 
 # Accelerate KBYG emails
 
-## What this produces
+## Outcome and boundary
 
-One plain-text email per KOL, ready to copy and paste. Each tells the doctor exactly when they're needed, what they're presenting, where and with whom, and what else is happening that weekend, in a warm, organized voice that makes them feel expected and looked after.
+Produce one plain-text email per KOL from the event's current Smartsheet records. Each draft states when the doctor is needed, their sessions, rooms, co-presenters, confirmed logistics and any Dropbox deck links assigned to them.
 
-Every email follows one template ([references/kbyg-template.md](references/kbyg-template.md)). What changes from email to email is the KOLs, sessions, times, rooms, dates, city and venue, and all of it comes from Smartsheet. [references/exemplar.txt](references/exemplar.txt) (a fictional event) shows a finished email to match for tone, spacing and detail.
+This skill consumes deck metadata. It does not create, edit, upload, locate or change permissions on decks, and it does not search Dropbox. A separate deck workflow prepares the file, creates the appropriate view-only link and records the KOL-to-deck relationship in Smartsheet before this workflow runs.
 
-The drafts leave slots for deck links rather than links themselves. The person sending the emails adds those, and the skill tells them exactly where (step 6).
+Use [references/kbyg-template.md](references/kbyg-template.md) for the output structure and [references/exemplar.txt](references/exemplar.txt) for tone and spacing.
 
 ## Process
 
-### 1. Pin down the event
+### 1. Identify the event
 
-Ask the requester for the **city** and **year**, and which **track** the emails are for: Vision (eye care) or Aesthetics. Vision is the usual case.
+Ask for the city, year and track when they are not already clear. Do not assume a division or a fixed Smartsheet workspace, folder hierarchy, sheet name or column name.
 
-### 2. Find the event in Smartsheet
+Search authorized Smartsheet content using the city and year. Inspect candidate results for the event identity and the fields needed below. Prefer a current event record that contains or relates:
 
-Accelerate events live in the **Vision Marketing Events** workspace, in a folder per year (e.g. **2026 Accelerates**), with one subfolder per event named by month and city (e.g. **09 Nashville**). If the folder isn't where expected, search Smartsheet for the city name. If more than one folder could match, show the options and let the requester choose.
+- event dates, city, venue, address, check-in and confirmed logistics;
+- sessions, tracks, dates, start/end times and rooms;
+- KOL names, credentials, roles, arrival or preparation times and co-presenters;
+- the KOL-to-session mapping; and
+- the KOL-to-deck mapping, including whether a deck is required and its Dropbox view-only link.
 
-Read three sheets in the event folder:
+Smartsheet structures may evolve. Match fields by their meaning and relationships, not by a hardcoded location or exact label. If multiple event records match, show the candidates and ask the requester to choose. If the necessary records cannot be found, identify what is missing rather than substituting another source.
 
-| Sheet | What it supplies |
-|---|---|
-| **Agenda** | Day header rows (e.g. "DAY 2 – SATURDAY, SEPTEMBER 26"), then per session: Session, Track, Room Assignment, Start, End, **Speaker / KOL Credentials**, **KOL Arrival / Mic Time**, Notes |
-| **Show Details** | City, Hotel / Venue, Venue Address, Valet Info, and the public agenda page link (the "Hubspot Agenda-Page Content" row) |
-| **Lumenis Personnel** | Lumenis staff names, used to tell staff apart from KOLs |
+### 2. Build and confirm the KOL roster
 
-Order each day's sessions by start time. Rows may not come back in time order.
+From the selected track and shared event sessions, build one table: **KOL -> sessions (day, time, room, role, co-presenters)**. Use the event's personnel or role data to distinguish KOLs from staff and team labels.
 
-### 3. Build the KOL roster
+Ask the requester to confirm the roster and supply only information absent from Smartsheet, such as an incomplete name or genuinely personal note. Do not use a public agenda page to fill gaps or resolve conflicts. Ask the event owner when Smartsheet is ambiguous.
 
-For each session in the chosen track (plus "All" sessions), read the Speaker column. A name is a **KOL** when it isn't on the Lumenis Personnel sheet and isn't a team label (Clinical, Sales, Meded, and so on). Speakers are usually listed by last name. Roles come in parentheses: "Rivera (MC)" means that doctor hosts the session rather than presenting it.
+### 3. Resolve deck links from Smartsheet
 
-Before drafting anything, show the requester one table: **KOL → each session (day, time, room, role, co-presenters)**. Ask them to confirm it and to supply what the sheet doesn't hold:
+For each KOL-session assignment, read the associated deck requirement and Dropbox link from the KOL-to-deck mapping:
 
-- the KOL's first name and title, if the sheet has only a last name;
-- what the **KOL Arrival / Mic Time** is for (a presenter review, a mic check, a rehearsal) and where it happens;
-- any session that's **new** or **replaces** one on the public agenda, and what to tell the KOL about it (for example, "remixes material you already know");
-- anything personal: a returning KOL, someone who wants a review call.
+- When a deck is required and one unambiguous Dropbox view-only link is recorded, include it in the relevant session entry.
+- When the mapping explicitly says no deck is required, omit the deck line.
+- When a deck is required but the mapping or link is missing, ambiguous or malformed, flag that session for the event owner and leave the affected draft incomplete.
+- Never infer that a deck is required merely because the KOL presents, and never search Dropbox manually for a replacement link.
 
-Confirming first costs one message; a wrong roster costs every email.
+Report mapping problems together before drafting so the source record can be corrected through the separate operational workflow.
 
-### 4. Pull the public-facing details
+### 4. Write each email
 
-Open the agenda page linked in Show Details and read every day. Later days usually sit in hidden tabs, so read the page's full text rather than only what's visible. Take **session taglines** from here, since Smartsheet has titles only. For **times, rooms and presenters, Smartsheet wins**. When the page and the sheet disagree, name the difference in your summary so the requester knows the public page may need updating.
+Fill [the template](references/kbyg-template.md) from confirmed Smartsheet values:
 
-### 5. Write each email
+- Build "When we need you" from that KOL's earliest recorded commitment, including an arrival, review, rehearsal or mic time when applicable.
+- Include session descriptions or taglines only when they are stored in Smartsheet. A title is sufficient when no tagline is recorded.
+- Explain a new or replacement session only when Smartsheet identifies it and contains the approved preparation note; otherwise ask the event owner.
+- Name co-presenters and distinguish presenting from MC, hosting or introduction roles.
+- Include the rest of the relevant track's agenda from Smartsheet so the KOL can plan around their assignments.
+- Include only confirmed logistics held in Smartsheet or explicitly supplied by the requester.
+- Use the Dropbox link only where the KOL-to-deck mapping requires it.
 
-Fill [the template](references/kbyg-template.md) for each KOL. The patterns that make these emails work:
+### 5. Check and deliver
 
-- **Their weekend, first.** "When we need you" is built from that KOL's own earliest commitment: their Arrival / Mic Time, or their first session if that's earlier. Invite them to the check-in and reception, then say plainly they're not needed until that first commitment. Doctors are busy, and a clear "you're free until 7 PM Friday" is a kindness.
-- **Explain what's new.** When a KOL is in a new or replacement session, add the short "A new session" section: the slot it takes over from the public agenda, when you'll review it together, and how much prep it needs.
-- **Show who's beside them.** Each session line names co-presenters ("with Dr. Patel and Dr. Lee") so they know who they're sharing the stage with.
-- **Give a full picture.** "The rest of <track>'s <City> agenda" lists meals, receptions, showcases and the sessions they aren't in, so they can plan the time around their own.
-- **Keep logistics to what's confirmed.** Use the Venue, Address and Valet Info from Show Details. Leave out anything the sheet doesn't hold.
-- **Keep the tone warm and plain.** Open with "We're excited to have you…" and close with the thank-you and "See you in <City>."
+Run [references/checks.md](references/checks.md). Deliver each email as its own plain-text block or file named `KBYG - Dr. <First> <Last>.txt`, followed by one consolidated list of unresolved Smartsheet fields or mappings. Do not represent a draft with unresolved required data as ready to send.
 
-### 6. Deck links: hand-off to the sender
+If a sent email's schedule changes, draft a short correction containing only the updated information and any affected deck link.
 
-Under every session where the KOL presents, add this line:
-
-`Deck: [ADD DECK LINK — <Session name>]`
-
-Leave it off hosting or MC slots (for example, when the KOL introduces a keynote speaker).
-
-Then, after the drafts, **always** give the sender this notice, filled in for the event:
-
-> **Before you send: deck links needed.** These drafts don't include deck links. Add a link in each place marked `[ADD DECK LINK — …]`:
-> - Dr. <Name>: <Session>, <Session>
-> - Dr. <Name>: <Session>
->
-> Use view-only links from the event's content folder in Dropbox. If a session has no deck, delete its placeholder line. Search each email for "ADD DECK LINK" before sending, and make sure nothing is left.
-
-### 7. Check and deliver
-
-Before handing over, run the checks in [references/checks.md](references/checks.md). Deliver each email as its own plain-text block or file named `KBYG - Dr. <First> <Last>.txt`, followed by the deck-link notice and any Smartsheet vs. agenda-page differences you found.
-
-If an email has already gone out and the schedule changes, write a short correction with just the updated schedule (and deck-link slots), not a full re-send.
-
-Scope and handling rules are in [references/guardrails.md](references/guardrails.md).
-
-Before delivering, run [Ted's clarity gate](../copy-clarity-gate/SKILL.md) on the drafts.
+Apply [references/guardrails.md](references/guardrails.md) and run [Ted's clarity gate](../copy-clarity-gate/SKILL.md) before delivery.

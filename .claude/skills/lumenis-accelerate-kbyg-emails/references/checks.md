@@ -1,17 +1,17 @@
 # Checks before handing over
 
-Each check names the slip, why it happens and how to test for it.
+**The event source is unambiguous.** The city, year and track match one confirmed Smartsheet event record. No fixed workspace path or public agenda page supplied operational content.
 
-**The roster matches the sheet.** It's tempting to trust the public agenda page because it reads well, but it can lag Smartsheet by days. Test: every session in each email appears in the Agenda sheet with that KOL in its Speaker column, with the same time and room.
+**The roster matches Smartsheet.** Every session in each email has that KOL in the associated session record with the same role, time and room.
 
-**"When we need you" is this KOL's time.** Copying one email to make the next carries the first doctor's call time along with it. Test: the time in "When we need you" equals this KOL's earliest Arrival / Mic Time or first session, whichever is earlier.
+**The earliest commitment is correct.** "When we need you" matches the KOL's earliest recorded arrival, preparation or session commitment.
 
-**Co-presenters are named both ways.** When one email lists a co-presenter, the other doctor's email should list them back. Test: for every shared session, each KOL's email names all the others.
+**Co-presenters are consistent.** Every shared session lists the same participants and roles across the affected drafts.
 
-**Every presenting session has a deck slot and every hosting slot has none.** Test: count the `ADD DECK LINK` placeholders. The count should equal the sessions this KOL presents, not counting MC or hosting roles.
+**Deck requirements follow the mapping.** Each deck line is supported by an explicit KOL-to-deck mapping. Required mappings contain one Dropbox view-only link; explicit no-deck mappings produce no deck line. Missing or ambiguous mappings are reported and the affected draft is not marked ready.
 
-**The rest-of-agenda list doesn't repeat their own sessions.** Test: no session in "Your session schedule" appears again under "The rest of… agenda."
+**No Dropbox discovery occurred.** Links came from Smartsheet; the workflow did not browse Dropbox or choose among deck files.
 
-**The spacing survives a paste.** Plain text loses anything that isn't a real blank line. Test: there's a blank line between every schedule entry and every bullet, and the email ends on "See you in <City>."
+**Agenda content comes from Smartsheet.** Titles, optional taglines, logistics and the rest-of-agenda section are sourced from the selected event records or clearly identified requester input.
 
-**The deck-link notice is there.** Test: the reply includes the "Before you send: deck links needed" notice, listing every KOL and session that has a placeholder.
+**The spacing survives a paste.** There is a blank line between schedule entries and bullets, and the email ends on "See you in <City>."
