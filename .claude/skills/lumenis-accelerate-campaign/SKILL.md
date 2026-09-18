@@ -17,7 +17,8 @@ Resolve division(s), market, city, event dates/timezone, products, audience, req
 | CRM properties or native form configuration | [Forms](references/forms.md), then the selected division mapping only |
 | Registration or agenda page implementation | [Pages](references/pages.md) |
 | Salesforce campaign, HubSpot campaign or segment | [Campaigns and segments](references/campaigns-and-segments.md) |
-| Promo, KBYG, post-event or autoresponder email | [Emails](references/emails.md), then [copy templates](references/email-copy-templates.md) if drafting |
+| Promo, attendee KBYG, post-event or autoresponder email | [Emails](references/emails.md), then [copy templates](references/email-copy-templates.md) if drafting |
+| KOL presenter KBYG email | [KOL KBYG skill](../lumenis-accelerate-kbyg-emails/SKILL.md) |
 | Enrollment, branches and Salesforce membership | [Workflows](references/workflows.md) |
 | Venue assets, design and flyers | [Assets and flyers](references/assets-and-flyers.md) |
 | Rep/prospect communications and registration backend | [Internal communications](references/internal-comms.md); [Smartsheet](references/smartsheet.md) only for backend work |
