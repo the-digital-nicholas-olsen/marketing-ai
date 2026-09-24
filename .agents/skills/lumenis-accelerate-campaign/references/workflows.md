@@ -27,10 +27,11 @@ The sales new-lead notification ("New Lead Assigned!") is sent by **Salesforce**
 
 A HubSpot form fill writes a generic value into Latest Lead Info straight away (`from: <page title>: <form name>`), and the contact can sync to Salesforce before a delayed workflow step runs. If the workflow sets Latest Lead Info after a delay or after the Salesforce campaign action, the rep receives the generic form-name text and the plain-language description arrives too late.
 
+- **Exclude the form from the portal-wide override.** A published corporate workflow, *Corporate - copy recent conversion to latest lead info*, enrolls every form submission (re-enrollment on) and about a minute later overwrites Latest Lead Info with the recent-conversion string. It skips only forms listed in its trigger's *Form name is none of* filter, and conversions whose Recent Conversion contains "Accelerate". For every new conversion form that has its own Latest Lead Info step, open that workflow → trigger → Edit criteria → add the form to the *none of* list → Save, and read the trigger back. Without this, your value is replaced before Salesforce syncs the lead, however early your step runs.
 - Put the Latest Lead Info action first in every conversion workflow, immediately after enrollment, including segment-triggered workflows.
 - In branched workflows, the per-branch description still needs to land before any delay. Branch first, then make Latest Lead Info the first action in each branch, with the delay and Salesforce actions after it.
 - Moving an existing action: use the card's move icon, choose the first **Place here** under the trigger, then **Save**. Read the numbered steps back; the DOM text order can differ from the step numbers.
-- Test with an identifiable submission and check the notification email itself, not only the contact record. A later workflow write can make the contact look right while the email already went out with the generic value.
+- Test with an identifiable submission and check the notification email itself, not only the contact record. Read the contact's Latest Lead Info **history** after the Salesforce lead ID appears (a few minutes), not seconds after submission: another workflow can overwrite a correct value after you look.
 - Contacts already waiting in a delay when you reorder will skip the moved action. Re-test with a new submission.
 
 ## Member-status and action pitfalls
