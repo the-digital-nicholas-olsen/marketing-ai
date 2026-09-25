@@ -2,7 +2,7 @@
 
 **OptiLIGHT™** is an IPL (Intense Pulsed Light) device built on Lumenis' patented Optimal Pulse Technology (OPT™), positioned both as a precise medical device for eye-care professionals and as an elegant, desirable experience for patients. Brand idea: **"Establishing light as a healing energy."** Marketing lines in the source include "A bright solution for dry eyes" and "New age of dry eyes solution".
 
-This reference belongs to the standalone OptiLIGHT brand system; the rules are in [guidance.md](guidance.md). It is one of three separate Lumenis brand systems and is used only for OptiLIGHT work. Regulatory and clinical statements in the design source are context, not approval: check the [claims library](../../claims-reference/index.md) and the brief.
+This reference belongs to the standalone OptiLIGHT brand system; the rules are in [guidance.md](guidance.md). It is one of three separate Lumenis brand systems and is used only for OptiLIGHT work. Regulatory and clinical statements in the design source are context, not approval: check the [regulatory language](../../regulatory/optilight.md), the [claims library](../../claims-reference/index.md) and the brief.
 
 ## Content fundamentals
 

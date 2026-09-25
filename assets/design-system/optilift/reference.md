@@ -4,7 +4,7 @@
 
 This reference belongs to the standalone OptiLIFT brand system; the rules are in [guidance.md](guidance.md). It is one of three separate Lumenis brand systems and is used only for OptiLIFT work.
 
-The source describes OptiLIFT in facial-contouring language. Do not infer indication, market grouping (Aesthetics or Vision), CRM routing or claims from design copy — take them from the brief and the [claims library](../../claims-reference/index.md), where "confirmed" means evidence checked, not regulatory clearance.
+The source describes OptiLIFT in facial-contouring language. Do not infer indication, market grouping (Aesthetics or Vision), CRM routing or claims from design copy — take them from the brief, the [regulatory do's and don'ts](../../regulatory/optilift.md) and the [claims library](../../claims-reference/index.md), where "confirmed" means evidence checked, not regulatory clearance.
 
 ## Content fundamentals
 
