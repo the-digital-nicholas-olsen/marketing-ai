@@ -16,7 +16,7 @@ Nothing here is approval. It is a record of the source documents so drafts start
 | Product | File | What the sources cover |
 |---|---|---|
 | OptiLIFT | [optilift.md](optilift.md) | Indication, warnings, legal do's and don'ts |
-| OptiLIGHT | [optilight.md](optilight.md) | EU and US indications, contraindications, side effects. No legal do's-and-don'ts list was found. |
+| OptiLIGHT | [optilight.md](optilight.md) | EU and US indications, contraindications, side effects, FDA status. No legal do's-and-don'ts list was found. |
 | OptiPLUS | [optiplus.md](optiplus.md) | Legal do's and don'ts (October 2023) |
 
 ## How to use it

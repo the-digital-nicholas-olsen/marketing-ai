@@ -40,7 +40,18 @@ The title cards also carry the device's Risk Group 3 label (400–1200 nm, max f
 - **Treatment area.** The skin on the malar region, eyes fully covered. Do not describe light applied to the eyes or eyelids.
 - **Doxycycline patients.** Doxycycline is photosensitizing and must be stopped 3 months before treatment. Do not present current doxycycline users as ready-to-treat candidates without that caveat.
 
+## FDA status
+
+Checked 2026-09-25 against public FDA sources.
+
+- **Authorization:** FDA granted Lumenis's De Novo request [DEN200028](https://www.accessdata.fda.gov/cdrh_docs/pdf20/DEN200028.pdf) on February 23, 2021, for the Lumenis Stellar M22 IPL platform. The indication is the US text above. The order classified it Class II under 21 CFR 886.5201, "Intense pulsed light device for managing dry eye," product code QIU. Lumenis announced OptiLIGHT on this authorization on [April 29, 2021](https://www.prnewswire.com/news-releases/lumenis-receives-fda-approval-for-its-ipl-device-to-manage-dry-eye-disease-and-launches-optilight-301280500.html).
+- **"First and only":** the openFDA premarket database lists one device under product code QIU, the Lumenis De Novo, and no 510(k) clearances for other devices. The claim held on the check date. Re-check it before each redistribution, because any competitor can now be cleared under this code.
+- **Wording:** Lumenis's press release, [product page](https://lumenis.com/vision/products/optilight/) and trade coverage all describe OptiLIGHT as "FDA-approved." Use the established Lumenis wording, and keep the qualifier:
+
+> OptiLIGHT is the first and only IPL FDA-approved for the management of dry eye disease due to MGD.
+
+The legal-precise term is a De Novo authorization. OptiLIGHT's "FDA-approved" wording does not transfer to OptiLIFT or OptiPLUS. Both are "FDA-cleared," and "FDA-approved" is a don't in their legal lists.
+
 ## Open questions for the regulatory owner
 
-1. **"FDA-approved" or another term.** Lumenis materials and the public product page say OptiLIGHT is "the first and only IPL FDA-approved for the management of dry eye disease due to MGD." Authorization was a De Novo grant (see [OG-13](../claims-reference/optilight.md)). The OptiLIFT and OptiPLUS lists forbid "FDA-approved" for those devices. Confirm the correct wording for OptiLIGHT, and whether "first and only" is still current.
-2. **No word list.** Confirm whether an OptiLIGHT legal do's-and-don'ts list exists. If it does, add it here.
+1. **No word list.** Confirm whether an OptiLIGHT legal do's-and-don'ts list exists. If it does, add it here.
