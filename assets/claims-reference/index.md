@@ -8,7 +8,7 @@ reviewed: 2026-09-16
 
 # Claims reference index
 
-See [README.md](README.md) for scope, fields and how to add an entry. This index links to one table per product; each row below is a quick pointer, not the full record — follow the link for sources, qualifications and status.
+See [README.md](README.md) for scope, fields and how to add an entry. Check product wording against [regulatory do's and don'ts](../regulatory/README.md) first: a confirmed citation does not make a claim on-label. This index links to one table per product; each row below is a quick pointer, not the full record — follow the link for sources, qualifications and status.
 
 ## Products covered
 

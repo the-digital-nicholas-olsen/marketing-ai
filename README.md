@@ -21,7 +21,7 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Understand the rollout and token discipline | [Six foundations](guides/ai-foundations.md) |
 | Check coverage and unresolved decisions | [Coverage](guides/knowledge-coverage.md) · [Readiness](STATUS.md) |
 
-Design: [Lumenis Corporate, OptiLIGHT and OptiLIFT brand systems](assets/design-system/README.md). Reference libraries: [KOLs](assets/kol-library/index.md) and [claims](assets/claims-reference/index.md).
+Design: [Lumenis Corporate, OptiLIGHT and OptiLIFT brand systems](assets/design-system/README.md). References: [KOLs](assets/kol-library/index.md), [claims](assets/claims-reference/index.md), [regulatory](assets/regulatory/README.md).
 
 ## Naming and placement
 
