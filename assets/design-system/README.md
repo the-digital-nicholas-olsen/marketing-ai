@@ -12,7 +12,7 @@ Three separate brand systems live here. Each is a complete brand book on its own
 
 1. Use the system the requester names. When none is named, infer it only when it is unambiguous — a piece about one of these products uses that product's system; a piece that speaks as Lumenis the company uses Lumenis Corporate. Otherwise ask. Never default to one system.
 2. Use exactly one system per piece. Read its entry file, then only the references the step needs.
-3. Keep the selected system whole. Take palette, type treatment, surfaces, motifs, components, tokens and logos from that folder only. Do not mix them across systems or "correct" one system with another's rule. For example, Lumenis Corporate uses square black CTAs, OptiLIGHT a blue CTA and OptiLIFT pill buttons — each is right inside its own system.
+3. Keep the selected system whole. Take palette, type treatment, surfaces, motifs, components, tokens and logos from that folder only. Do not mix them across systems or "correct" one system with another's rule. A system's own explicit permissions still apply: OptiLIFT, for example, allows OptiLIGHT Blue at display sizes in combined OptiLIFT/OptiLIGHT material. For example, Lumenis Corporate uses square black CTAs, OptiLIGHT a blue CTA and OptiLIFT pill buttons — each is right inside its own system.
 4. If a piece covers more than one product and no system is named, ask which one leads. (The Lumenis Corporate brandbook is the one that defines how several product colours sit together, for example on an exhibition stand.)
 5. Other Lumenis products (triLift, Stellar M22, LegendPro and others) have no system here. Do not borrow one of these three for them; ask for the applicable brand guidance.
 
