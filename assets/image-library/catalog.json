@@ -4860,17 +4860,16 @@
     {
       "id": "optilift-live-demo-001",
       "allowedBrands": [
-        "OptiLIFT"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "collection": "optilift",
-      "subject": "OptiLIFT live demonstration",
-      "description": "A clinician leads an OptiLIFT live demonstration on a participant at an event treatment station.",
-      "productShown": "OptiLIFT treatment system",
+      "subject": "Clinician preparing a live treatment demonstration at an event",
+      "description": "A clinician dispenses coupling gel beside a reclining participant wearing eye shields, at an Accelerate by Lumenis live demonstration station. The console in frame is the black-and-copper chassis seen in optilift-live-demo-002, not the white OptiLIFT console.",
+      "productShown": "Not identified — black/copper console, not OptiLIFT. See usageRestrictions.",
       "audience": [
         "aesthetic providers",
-        "event attendees",
-        "potential OptiLIFT customers"
+        "event attendees"
       ],
       "placements": [
         "section",
@@ -4880,14 +4879,15 @@
       "orientation": "portrait",
       "background": "Accelerate by Lumenis live demonstration area.",
       "tags": [
-        "OptiLIFT",
         "live demo",
         "event",
         "provider",
-        "treatment station"
+        "treatment station",
+        "not-optilift",
+        "needs-product-verification"
       ],
-      "altText": "A clinician leads an OptiLIFT live treatment demonstration at an event.",
-      "usageRestrictions": "Confirm participant releases, event clearance, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "altText": "A clinician dispenses coupling gel beside a reclining participant at an event demonstration.",
+      "usageRestrictions": "NOT OPTILIFT — do not use in OptiLIFT materials. Verified against the 1920w derivative on 2026-09-21: the device shown is not OptiLIFT. Brand scope reset to unclassified pending owner identification of the actual product. Confirm participant releases, event clearance, and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
       "source": {
         "filename": "2CH01546.jpg",
         "format": "jpeg",
@@ -4931,17 +4931,16 @@
     {
       "id": "optilift-live-demo-002",
       "allowedBrands": [
-        "OptiLIFT"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "collection": "optilift",
-      "subject": "OptiLIFT live demo station",
-      "description": "An OptiLIFT clinician performs a live treatment demonstration on a reclining participant beside OptiLIFT 2.0 signage.",
-      "productShown": "OptiLIFT treatment system",
+      "subject": "triLIFT 2.0 live demo station",
+      "description": "A clinician performs a live treatment demonstration on a reclining participant beside a pull-up banner reading 'Introducing triLIFT 2.0 — Face & Body: Muscle Defined Beauty Refined'. The console is the black-and-copper triLIFT chassis with two large applicators. The previous record described this as 'OptiLIFT 2.0 signage'; there is no OptiLIFT 2.0.",
+      "productShown": "triLIFT 2.0, per the banner and console in frame — not OptiLIFT.",
       "audience": [
         "aesthetic providers",
-        "event attendees",
-        "potential OptiLIFT customers"
+        "event attendees"
       ],
       "placements": [
         "section",
@@ -4949,17 +4948,18 @@
         "social"
       ],
       "orientation": "landscape",
-      "background": "Event demonstration station with OptiLIFT signage.",
+      "background": "Event demonstration station with triLIFT 2.0 signage.",
       "tags": [
-        "OptiLIFT",
-        "OptiLIFT 2.0",
+        "triLIFT",
         "live demo",
         "event",
         "provider",
-        "treatment station"
+        "treatment station",
+        "not-optilift",
+        "needs-product-verification"
       ],
-      "altText": "An OptiLIFT clinician performs a live treatment demonstration at an event.",
-      "usageRestrictions": "Confirm participant releases, event clearance, and current product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "altText": "A clinician performs a live treatment demonstration beside a triLIFT 2.0 banner.",
+      "usageRestrictions": "NOT OPTILIFT — do not use in OptiLIFT materials. Verified against the 1920w derivative on 2026-09-21: the device shown is not OptiLIFT. Brand scope reset to unclassified pending owner identification of the actual product. Competitor-adjacent sibling-product branding is legible in frame. Confirm participant releases, event clearance, and current product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
       "source": {
         "filename": "2CH02515.jpg",
         "format": "jpeg",
@@ -5003,16 +5003,15 @@
     {
       "id": "optilift-provider-device-demo-001",
       "allowedBrands": [
-        "OptiLIFT"
+        "unclassified"
       ],
       "businessUnit": "Vision",
-      "subject": "OptiLIFT device demonstration",
-      "description": "Landscape-oriented documentary photograph of two women beside an OptiLIFT device, with the device controls and handpieces visible in a warmly lit interior.",
-      "productShown": "OptiLIFT device",
+      "subject": "Two people beside a Lumenis console during a demonstration",
+      "description": "Two women talk beside a large dark Lumenis console with an overhead applicator arm carrying several thick cabled applicators, in a warm wood interior with heavy lens flare. This is not the OptiLIFT console, and the product could not be identified from the image.",
+      "productShown": "Not identified — large multi-applicator Lumenis console, not OptiLIFT. See usageRestrictions.",
       "audience": [
         "aesthetic providers",
-        "dermatology practices",
-        "potential OptiLIFT customers"
+        "dermatology practices"
       ],
       "placements": [
         "section",
@@ -5023,16 +5022,15 @@
       "orientation": "landscape",
       "background": "Warm wood interior with strong window light and soft lens flare.",
       "tags": [
-        "OptiLIFT",
-        "Lumenis",
         "device demonstration",
         "provider",
-        "handpieces",
         "clinical technology",
-        "in-use"
+        "in-use",
+        "not-optilift",
+        "needs-product-verification"
       ],
-      "altText": "Two women beside an OptiLIFT device during a demonstration.",
-      "usageRestrictions": "Confirm participant releases and product-marketing approval before publication. Do not imply treatment outcomes, safety, or clinical claims.",
+      "altText": "Two women stand beside a large Lumenis console during a demonstration.",
+      "usageRestrictions": "NOT OPTILIFT — do not use in OptiLIFT materials. Verified against the 1920w derivative on 2026-09-21: the device shown is not OptiLIFT. Brand scope reset to unclassified pending owner identification of the actual product. Confirm participant releases and product-marketing approval before publication. Do not imply treatment outcomes, safety, or clinical claims.",
       "sourceUrl": "https://www.dropbox.com/scl/fi/mx1j3cjj2m1whu38k3603/IMG_8377.jpg?rlkey=em4lldwtm7q0m1ni7owvryah2&st=o2bwrs0i&dl=0",
       "source": {
         "filename": "IMG_8377.jpg",
@@ -5077,17 +5075,16 @@
     {
       "id": "optilift-treatment-demo-001",
       "allowedBrands": [
-        "OptiLIFT"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "collection": "optilift",
-      "subject": "OptiLIFT treatment demonstration",
-      "description": "A clinician demonstrates an OptiLIFT facial treatment on a reclining participant in a bright clinical setting.",
-      "productShown": "OptiLIFT treatment system",
+      "subject": "Clinician performing a facial treatment demonstration",
+      "description": "A clinician in a Lumenis coat holds a treatment handpiece against a reclining patient's temple in a clean clinical interior. The handpiece is a large face/body applicator, not the OptiLIFT periocular applicator, and the clinician's name badge reads 'triLift Success Manager'.",
+      "productShown": "Not identified — face/body treatment handpiece, not OptiLIFT. See usageRestrictions.",
       "audience": [
         "aesthetic providers",
-        "dermatology practices",
-        "potential OptiLIFT customers"
+        "dermatology practices"
       ],
       "placements": [
         "section",
@@ -5097,14 +5094,15 @@
       "orientation": "portrait",
       "background": "Clean light clinical interior.",
       "tags": [
-        "OptiLIFT",
         "treatment demo",
         "provider",
         "facial treatment",
-        "clinical setting"
+        "clinical setting",
+        "not-optilift",
+        "needs-product-verification"
       ],
-      "altText": "A clinician demonstrates an OptiLIFT facial treatment on a reclining participant.",
-      "usageRestrictions": "Confirm participant releases and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "altText": "A clinician holds a treatment handpiece against a reclining patient's temple.",
+      "usageRestrictions": "NOT OPTILIFT — do not use in OptiLIFT materials. Verified against the 1920w derivative on 2026-09-21: the device shown is not OptiLIFT. Brand scope reset to unclassified pending owner identification of the actual product. Clinician's name badge is legible at full size. Confirm participant releases and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
       "source": {
         "filename": "1CH09003.jpg",
         "format": "jpeg",
@@ -5148,17 +5146,16 @@
     {
       "id": "optilift-treatment-demo-002",
       "allowedBrands": [
-        "OptiLIFT"
+        "unclassified"
       ],
       "businessUnit": "Vision",
       "collection": "optilift",
-      "subject": "OptiLIFT provider treatment",
-      "description": "A clinician uses an OptiLIFT handpiece during a facial treatment demonstration.",
-      "productShown": "OptiLIFT treatment system",
+      "subject": "Clinician using a treatment handpiece on a patient's jawline",
+      "description": "A clinician in a Lumenis coat uses a treatment handpiece on a reclining patient's cheek and jaw, in a bright clinical interior. Same shoot as optilift-treatment-demo-001; the handpiece is a large face/body applicator, not the OptiLIFT periocular applicator, and the clinician's name badge reads 'triLift Success Manager'.",
+      "productShown": "Not identified — face/body treatment handpiece, not OptiLIFT. See usageRestrictions.",
       "audience": [
         "aesthetic providers",
-        "dermatology practices",
-        "potential OptiLIFT customers"
+        "dermatology practices"
       ],
       "placements": [
         "section",
@@ -5168,14 +5165,15 @@
       "orientation": "portrait",
       "background": "Clean clinical interior.",
       "tags": [
-        "OptiLIFT",
         "treatment demo",
         "provider",
         "handpiece",
-        "facial treatment"
+        "facial treatment",
+        "not-optilift",
+        "needs-product-verification"
       ],
-      "altText": "A clinician uses an OptiLIFT handpiece during a facial treatment demonstration.",
-      "usageRestrictions": "Confirm participant releases and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
+      "altText": "A clinician uses a treatment handpiece on a reclining patient's jawline.",
+      "usageRestrictions": "NOT OPTILIFT — do not use in OptiLIFT materials. Verified against the 1920w derivative on 2026-09-21: the device shown is not OptiLIFT. Brand scope reset to unclassified pending owner identification of the actual product. Clinician's name badge is legible at full size. Confirm participant releases and product-marketing approval. Do not imply treatment outcomes, safety, or clinical claims.",
       "source": {
         "filename": "1CH09142.jpg",
         "format": "jpeg",
