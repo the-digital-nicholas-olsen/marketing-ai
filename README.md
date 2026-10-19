@@ -17,6 +17,7 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Plan webinar content | [Webinar skill](.agents/skills/lumenis-webinar-production/SKILL.md) |
 | Add, resize and upload library images | [Image library](assets/image-library/README.md) |
 | Find hosted image candidates | [Image search](.agents/skills/lumenis-image-search/SKILL.md) |
+| Find or add content in OneDrive and Mimeo | [Content hub](.agents/skills/lumenis-content-hub/SKILL.md) |
 | Use HubSpot and verify saves | [Access and verification](integrations/hubspot/access-and-verification.md) |
 | Understand the rollout and token discipline | [Six foundations](guides/ai-foundations.md) |
 | Check coverage and unresolved decisions | [Coverage](guides/knowledge-coverage.md) · [Readiness](STATUS.md) |
