@@ -58,7 +58,7 @@ All in the **Vision Content Repository Hub** workspace.
 | `Division`, `Product`, `Folder`, `Library Path` | Where it is filed |
 | `Asset Type`, `Audience`, `Content Role` | What it is and who it is for |
 | `Control ID`, `Revision` | Lumenis document control number (for example `PB-00032060`) and revision letter, when the file name carries them |
-| `Lifecycle` | `Current`, `Current - placement to check`, `Superseded (...)`, `Archive` or `Not content` |
+| `Lifecycle` | `Current`, `Current - placement to check` (current, but filing still to be confirmed), `Superseded (...)`, `Archive` or `Not content` (internal or working file) |
 | `Newest Revision On File` | The latest revision held for that control ID |
 | `Standard Name` | The name the file would have under the naming pattern |
 | `Needs Review`, `Placement Confidence`, `Placement Reason` | Whether the filing was confirmed; low-confidence rows are still being checked |

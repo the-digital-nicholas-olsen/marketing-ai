@@ -4,9 +4,21 @@ For people and AI assistants adding a new file, or a new revision of an existing
 
 ## Before you add anything
 
-1. Search the **Content Library Catalog** for the title and the control ID. If it is already there, you are adding a new revision, or nothing at all.
+1. Search the **Content Library Catalog** for the title and the control ID. If something matches, decide what the new file is before going on (next section).
 2. Decide division, product and folder using [the folder scheme](hub-structure.md#onedrive-folder-scheme).
 3. Make sure it is a finished, approved piece, or put it in `6 Source Files` if it is a working file. Approval (brand, legal, regulatory) happens outside the hub.
+
+## Revision or variant
+
+A match in the catalog can mean any of these. Only the first one supersedes anything.
+
+| The new file is | How to tell | What to do |
+|---|---|---|
+| A **new revision** | Same control ID, later revision letter (for example Rev B to Rev C), same language, market and format | Add it; fill `Replaces` with the older revision |
+| A **variant** | Same piece in another language (EN/ES), market (US/EU/Canada), size or format (print, web, A4/Letter, poster/rollup) | Add it as its own row; leave `Replaces` empty and describe the variant in `Notes` |
+| An **identical copy** | Same file already in the catalog (same name, size and content) | Do not add it. Use the existing link |
+| A **different piece** with a similar title | Different control ID, or different content | Add it as new; leave `Replaces` empty |
+| **Unclear** | No control ID, or you cannot tell | Add it with `Replaces` empty and say what you are unsure about in `Notes`. Never mark something superseded on a guess |
 
 ## File names
 
@@ -62,6 +74,7 @@ With the Smartsheet connector: `get_columns` on Content Intake, then `add_rows`,
 
 ## Retire an old version
 
+- Only a true new revision retires anything (see [revision or variant](#revision-or-variant)). A language, market or format variant does not.
 - Do not delete it. Log the new version with `Replaces` filled in.
 - In the next catalog refresh the old one is marked `Superseded` and moved to `7 Archive` in OneDrive.
 - In Mimeo, old revisions are retired by hand (moved out of the active folders); the `Retirement Candidate` column in the Mimeo Library lists candidates. Do it only when asked, and record what was moved.

@@ -20,7 +20,17 @@ Read [how the hub is organised](references/hub-structure.md) before the first se
 ## Find an asset
 
 1. **Start with the Content Library Catalog sheet.** One row per asset. Search by product plus a few words of the title, or by control ID (for example `PB-00032060`). With the connector, use `get_sheet_summary` filtered on `Product` and a `CONTAINS`-style match on `Asset Name`, or `search` for the words; call `get_columns` first for exact column names.
-2. **Check it is current** before you share it: `Lifecycle` should be `Current`. If it says `Superseded` or `Archive`, or `Newest Revision On File` names a later revision, use the newer row instead. Never send a superseded or archived piece without saying so.
+2. **Check it is current** before you share it, by `Lifecycle`:
+
+   | Lifecycle | What to do |
+   |---|---|
+   | `Current` | Use it. |
+   | `Current - placement to check` | The file is current but its product or folder was assigned with low confidence. Open the file and confirm it is the piece asked for (product, audience, language, market). Share it if it matches, and say "filing not yet confirmed"; if it does not match, say so and keep searching. |
+   | `Superseded (...)` | A newer revision exists. Find and use the row named in `Newest Revision On File`. |
+   | `Archive` | Old brand or legacy material. Do not share it as current; say it is archived. |
+   | `Not content` | An internal or working file (quote, inventory, template). Not for customers. |
+
+   Never send a superseded or archived piece without saying so.
 3. **Open it.** `OneDrive Folder` opens the folder that holds the file; `File Name` is the file inside it. For print items, the `Mimeo` column holds the Mimeo link. `PartnerZone` and `Modus` hold links on those portals.
 4. **If the catalog has no match**, search the `Content Library Placements` sheet (one row per copy on each platform, with a direct link per file) and the `Mimeo Library` sheet (everything in Mimeo, refreshed 2026-10-09), then ask Nicholas. Do not guess a file from a similar title.
 5. **Report** the asset name, product, revision, lifecycle, and the link. If several versions or languages exist, list them and say which is current.
@@ -38,7 +48,7 @@ Read [how the hub is organised](references/hub-structure.md) before the first se
 
 Short version (full rules in [adding and retiring content](references/adding-content.md)):
 
-1. Search the catalog first. If the asset exists, you are adding a new revision, not a new asset.
+1. Search the catalog first. A match does not always mean a new revision: the file may be the same piece in another language, market or format, or an identical copy. See [revision or variant](references/adding-content.md#revision-or-variant).
 2. Name the file by the [naming pattern](references/adding-content.md#file-names).
 3. Upload to the right OneDrive folder (`<Division>/<Product>/<Folder>`) or the right Mimeo folder.
 4. Add a row to the **Content Intake** sheet with the link, product, folder, control ID, revision and what it replaces. Nicholas folds intake rows into the catalog.
