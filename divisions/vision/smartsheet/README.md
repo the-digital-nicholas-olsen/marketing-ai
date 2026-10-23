@@ -10,3 +10,4 @@ Conventions:
 Contents:
 - [Purchase requisition form rules](purchase-requisition-form.md): preparing event and non-event Vision Marketing requests.
 - [Trade show PO-to-budget reconciliation](po-budget-reconciliation.md): finding missing POs and allocating trade show budget lines against shared PO pools, with a separate optional SAP balance check.
+- [Accelerate flight approval check](accelerate-flight-approval-check.md) (draft): matching Vision travelers on the shared flight sheet against VIS rep approvals, then filling rep, RSM and cost center details after review.
