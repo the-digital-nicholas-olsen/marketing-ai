@@ -27,7 +27,7 @@ If either sheet is missing, or the city has more than one event folder, stop and
 
 Observed 2026-10-23: the `Division` picklist offers only `Vision`, but Aesthetics rows hold a typed `Aesthetics` value because validation is off. A blank or other value is unclear. List it in the review rather than guessing.
 
-**VIS Rep Approval sheet.** Read `Rep Name`, `RSM Name`, `RSM Approval`, `Practice / Account Name` and both attendee name pairs (`Attendee #1` and `Attendee #2`). Each approval row can approve two people.
+**VIS Rep Approval sheet.** Read `Rep Name`, `RSM Name`, `RSM Approval`, `Practice / Account Name` and both attendee name pairs (`Attendee #1` and `Attendee #2`). Each approval row can approve two people. A traveler qualifies as flight-approved only when their matching VIS Rep Approval row has `RSM Approval` = `Yes`. A matching name and practice alone is not approval. Blank, `No`, pending or unexpected values are not approved; list the current value in the review and leave those travelers' flight-sheet cells unchanged. Approval of the review list does not replace this requirement.
 
 Confirm that every row was read, not a sample.
 
@@ -37,7 +37,8 @@ A match needs the **name and the practice** to line up: flight `Company Name` ag
 
 | Group | Meaning |
 |---|---|
-| In both sheets | Vision traveler found on the VIS Rep Approval sheet with a matching practice |
+| In both sheets — approved | Vision traveler found on the VIS Rep Approval sheet with matching name and practice, and `RSM Approval` = `Yes` |
+| In both sheets — not approved | Name and practice match, but `RSM Approval` is blank, `No`, pending or another value. Report the value; do not fill the flight row |
 | Possible match (flag) | Nickname, maiden/married name or small practice-name difference. Show both versions and why they look alike; don't decide |
 | Flight sheet only | Vision traveler not found on the VIS Rep Approval sheet |
 
@@ -48,7 +49,8 @@ For each flight-only traveler, find their sales rep and say where it came from: 
 Include:
 
 - Name, practice and the sheets each traveler is on.
-- Flags, with both spellings side by side.
+- Flags, with both spellings side by side, and the matching approval row's `RSM Approval` value.
+- Matched travelers whose `RSM Approval` is not `Yes`, with the current value; these are not flight-approved and remain unchanged.
 - For flight-only travelers: the salesperson's name and email, and their RSM's email (looked up as in step 4). This is for the report only; nothing is written to these rows.
 - Practices with more than one Vision traveler.
 - **Always flag a practice with more than two Vision travelers**, with every name, the practice's sales rep and that rep's RSM. If the rep or RSM can't be found, say so.
@@ -58,7 +60,7 @@ Ask: "Does this look good?" Apply the reviewer's corrections before writing.
 
 ## 4. After approval, fill the flight sheet
 
-For travelers in **In both sheets**, plus flags the reviewer confirms:
+For travelers in **In both sheets — approved**, plus identity-match flags the reviewer confirms **whose matching VIS row also has `RSM Approval` = `Yes`**. Re-read the approval field immediately before writing; if it is no longer `Yes`, leave the flight row unchanged and flag it. A reviewer confirming an identity match or approving the review list does not override a missing or negative RSM approval:
 
 1. **Sales rep:** `Rep Name` from the VIS Rep Approval row.
 2. **`Salesperson Email`:** the rep's company address.
@@ -102,11 +104,12 @@ Find the rep and use `Reports To` and `Manager Cost Center`.
 
 ### Fictional example
 
-A practice has three Vision travelers on the flight sheet. Two match an approval row exactly. The third is listed as "Liz" on the flight sheet and "Elizabeth" on the approval row. The review list flags the Liz/Elizabeth pair, flags the practice for having more than two travelers, and names its rep and RSM. After the reviewer confirms Liz is Elizabeth, all three rows get the rep's email, the RSM's email, the RSM's cost center and a note listing all three names.
+A practice has three Vision travelers on the flight sheet. Two match an approval row exactly. The third is listed as "Liz" on the flight sheet and "Elizabeth" on the approval row. The review list flags the Liz/Elizabeth pair, flags the practice for having more than two travelers, and names its rep and RSM. The matching VIS rows have `RSM Approval` = `Yes`. After the reviewer confirms Liz is Elizabeth and approves the review list, all three rows get the rep's email, the RSM's email, the RSM's cost center and a note listing all three names.
 
 ## Avoid
 
 - Writing to any sheet before the review list is approved.
+- Treating a name/practice match as flight approval, or filling a flight row when its matching VIS row does not have `RSM Approval` = `Yes`.
 - Changing the AES or VIS Rep Approval sheets. They are read-only references.
 - Adding rows or columns to the flight sheet.
 - Using the DSM as the sales manager.
