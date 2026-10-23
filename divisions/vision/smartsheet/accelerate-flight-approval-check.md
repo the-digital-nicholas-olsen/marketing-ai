@@ -2,7 +2,7 @@
 
 - Division: US Vision Marketing only. The flight sheet holds both divisions; ignore every Aesthetics row and the AES Rep Approval sheet. Do not apply this procedure to Hospital.
 - Scope: Accelerate events with a shared flight registration sheet. Non-flight registrations are out of scope.
-- System: Smartsheet event folder (see the [event backend shape](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#shape)) and the monthly sales org chart. Traveler names, practices, contact details, sheet links, IDs, cost center codes and named interim managers remain in the internal work system.
+- System: Smartsheet event folder (see the [event backend shape](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#shape)) and the internal sales org chart sheet, a Smartsheet copy of the monthly sales org chart. Traveler names, practices, contact details, sheet links, IDs and cost center codes remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: draft for review.
 - Source and review: Kaelyn Gray's working procedure, set 2026-10-07 and narrowed to Vision only on 2026-10-23. Sheet names, column names and Division values were observed read-only in two Q4 2026 event folders on 2026-10-23.
@@ -16,7 +16,7 @@ The check is **read-only until the review list is approved**. Post the list and 
 ## Required inputs
 
 - Read access to the event folder's `<City> Flight Registration (AES+VIS)` and `VIS Rep Approval - <Event>` sheets.
-- The newest monthly sales org chart. Say which edition was used.
+- Read access to the sales org chart sheet. Its name carries the org chart edition date; say which edition was used. If a newer monthly org chart PDF has been issued, update the sheet from it first (see "Reading the org chart").
 - Write access to the flight sheet, used only after approval.
 
 If either sheet is missing, or the city has more than one event folder, stop and ask.
@@ -62,20 +62,34 @@ For travelers in **In both sheets**, plus flags the reviewer confirms:
 
 1. **Sales rep:** `Rep Name` from the VIS Rep Approval row.
 2. **`Salesperson Email`:** the rep's company address.
-3. **`Sales Manager EMail`:** the rep's **RSM** on the org chart's Vision Sales page, not the DSM.
-4. **`Cost Center`:** the RSM's cost center from the org chart. **Canadian guests always get the designated Canada cost center** (recorded internally), whoever the rep or manager is. Decide by where the guest or practice is located, not the rep's territory. If the country is unclear but the rep covers a Canadian territory, flag it instead of guessing.
+3. **`Sales Manager EMail`:** the rep's **RSM** (the sheet's `Reports To` on the rep's Vision Sales row), not the DSM.
+4. **`Cost Center`:** the RSM's cost center (the rep row's `Manager Cost Center`). **Canadian guests always get the designated Canada cost center** (recorded internally), whoever the rep or manager is. Decide by where the guest or practice is located, not the rep's territory. If the country is unclear but the rep covers a Canadian territory, flag it instead of guessing.
 5. **`Lumenis Notes`:** when more than one Vision traveler comes from the same practice, list all of their names on each of their rows so it's clear who flies together.
 
-Leave flight-only rows unchanged unless told otherwise. If a rep or manager isn't on the org chart, or a name is truncated or unusually formatted, leave the cell blank and list it in the report.
+Leave flight-only rows unchanged unless told otherwise. If a rep or manager isn't on the org chart sheet, or a name is truncated or unusually formatted, leave the cell blank and list it in the report.
 
 ## Reading the org chart
 
-Use only the **Vision Sales** page. RSM boxes show the region and an 8-digit cost center. Reps sit beneath their RSM: DSM, SM / Sr. SM and ASM / Sr. ASM boxes show territory, not a cost center. Purple OPEN boxes are vacancies.
+Look reps up in the **sales org chart sheet**, not the PDF. It is a Smartsheet transcription of the org chart's sales pages, one row per box:
 
-- **Open RSM:** use the designated interim RSM and **their** cost center (both recorded internally), not the open region's cost center. Note in the report which reps were routed this way.
+| Column | Holds |
+|---|---|
+| `Name` | Person, or `OPEN` for a vacancy |
+| `Title`, `Territory / Region` | As printed on the chart (RSM, DSM, SM / Sr. SM, ASM / Sr. ASM) |
+| `Department` | `Vision Sales` or `Aesthetic Sales` |
+| `Reports To` | The rep's RSM; for an RSM, the VP |
+| `Cost Center` | Filled for RSMs and VPs only; reps' boxes show territory, not a cost center |
+| `Manager Cost Center` | Formula: the `Cost Center` of the `Reports To` person |
+| `Status` | Formula: `Filled` or `OPEN` |
+| `Email` | Formula: `firstname.lastname@` the company domain |
+
+Filter `Department` = `Vision Sales`, find the rep, and use `Reports To` and `Manager Cost Center`.
+
+- **Open RSM:** leave `Sales Manager EMail` and `Cost Center` blank for that region's reps and list them in the review for the reviewer to decide. Never borrow an Aesthetics RSM.
 - **Interim or acting titles:** treat them as the manager, and mention them in the report.
-- **Same person on both charts:** use the Vision page entry.
-- **Truncated names:** don't guess the email. Flag it.
+- **Same name in both departments:** use the `Vision Sales` row. Similar surnames are not the same person.
+- **Truncated or unusual names:** the `Email` formula can't be trusted. Flag it.
+- **Keeping it current:** org charts come out monthly. When a newer PDF arrives, update the sheet from its sales pages (or make a new sheet named for the new edition) before running the check. Only then is the PDF read.
 
 ### Fictional example
 
@@ -91,7 +105,7 @@ A practice has three Vision travelers on the flight sheet. Two match an approval
 
 ## Missing information and decisions
 
-- The VIS Rep Approval sheet has its own `RSM Name` column. The procedure uses the org chart. If they disagree, which one wins?
+- The VIS Rep Approval sheet has its own `RSM Name` column. The procedure uses the org chart sheet. If they disagree, which one wins?
 - The flight sheet's `Division` picklist lists only `Vision`. The [event backend reference](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#known-source-template-failures) already records this. Until the template offers both values, typed values can vary.
 
 ## Maintenance
