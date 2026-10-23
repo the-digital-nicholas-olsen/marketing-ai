@@ -82,8 +82,8 @@ Look reps up in the **sales org chart sheet**, not the PDF. It is a Smartsheet t
 | `Reports To` | The rep's RSM; for an RSM, the VP |
 | `Manager Cost Center` | The `Reports To` person's cost center, typed from the chart |
 | `Status` | Formula |
-| `Email` | Preserved company address: an existing manual correction takes precedence over any generated candidate. Generate a candidate only for a blank cell and mark it unverified in Notes |
-| `Notes` | Caveats only, such as the Canada cost center or a name that is easy to confuse |
+| `Email` | Preserved company address: an existing manual correction takes precedence over any generated candidate. Generate candidates for blank cells; refresh a prior candidate only if Notes explicitly marks it generated and unverified. Mark candidates unverified in Notes |
+| `Notes` | Caveats, identity aliases, and email provenance: `manually corrected` / `confirmed`, or `generated - unverified`. An address with unknown provenance is protected, not assumed generated |
 
 Find the rep and use `Reports To` and `Manager Cost Center`.
 
@@ -108,10 +108,10 @@ A new org chart updates names, titles, territories, reporting relationships and 
 
 1. Before editing, preserve an internal snapshot of the existing sheet, including every Email value, its formula (if present), and relevant identity/alias notes. Keep this snapshot outside public Git.
 2. Match people between editions using a stable employee identifier if one is available internally. Otherwise use the prior name/aliases and supporting identity information; do not match by row position, territory or a similar surname alone. A renamed person or someone changing region keeps their corrected email. Ambiguous matches are flagged rather than guessed.
-3. Carry existing email values forward unchanged, especially manual corrections. An explicit, separately authorized email correction may replace one; a PDF refresh alone is not that authorization. Retain alias context internally when the displayed name changes.
-4. Generate a `firstname.lastname@` candidate only when no existing address is available for that person. Mark it unverified in Notes. Do not apply or reapply an Email column formula over corrected cells, or rebuild the column from names. If the current column formula prevents corrected values, stop the affected refresh and resolve that formula setup before proceeding; do not discard corrections to fit the template.
+3. Carry manually corrected or confirmed emails forward unchanged, even when names or territories change. Protect nonblank addresses with unknown provenance too. An explicit, separately authorized email correction may replace a protected value; a PDF refresh alone is not that authorization. Record corrected/confirmed status in Notes and retain alias context internally when the displayed name changes.
+4. Generate a `firstname.lastname@` candidate when no existing address is available. An existing candidate may be recalculated from an updated name only when Notes explicitly identifies that address as generated and unverified, and identity matching is unambiguous. Keep such replacements marked generated and unverified. New people and corrected org-chart names therefore still receive updated candidates; corrected or confirmed emails always win. Do not apply or reapply an Email column formula over corrected cells, or rebuild the column from names. If the current column formula prevents corrected values, stop the affected refresh and resolve that formula setup before proceeding; do not discard corrections to fit the template.
 5. If making a new edition sheet instead of updating the old one, transfer the preserved email values by confirmed identity. Keep the old sheet/snapshot until the new sheet has been checked. Do not silently drop a corrected address because its owner is absent or unresolved in the new edition; retain it in the internal snapshot for review.
-6. Read the refreshed sheet back and compare all carried-forward emails with the snapshot. Report any changed, missing or ambiguous address and resolve it before treating the new edition as ready. In the same read-back, confirm that a changed display name did not regenerate a corrected email.
+6. Read the refreshed sheet back and compare all carried-forward emails with the snapshot. Confirm every protected address is unchanged; separately list intentional updates to generated, unverified candidates. Report any unexpected change, missing or ambiguous address and resolve it before treating the new edition as ready. In the same read-back, confirm that a changed display name did not regenerate a corrected email.
 
 Fictional check: the PDF lists "Jonathan Example", but his previously corrected address uses "Jon". A later PDF changes his title or displays his full name. Preserve the corrected address rather than deriving a new one from Jonathan.
 
@@ -131,7 +131,7 @@ A practice has three Vision travelers on the flight sheet. Two match an approval
 
 ## Missing information and decisions
 
-- The VIS Rep Approval sheet has its own `RSM Name` column. The procedure uses the org chart sheet. If they disagree, which one wins?
+- The VIS Rep Approval sheet has its own `RSM Name` column. The procedure uses the org chart sheet. If they disagree, flag both values and ask the reviewer to resolve the conflict before filling the affected manager fields.
 - The flight sheet's `Division` picklist lists only `Vision`. The [event backend reference](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#known-source-template-failures) already records this. Until the template offers both values, typed values can vary.
 
 ## Maintenance
