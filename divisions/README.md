@@ -7,4 +7,4 @@ Published mappings: [Vision](vision/hubspot/field-mappings.yaml) and [Aesthetics
 
 Use the [mapping template](mapping-template.md) for additional mappings. Consent/subscription and Salesforce record-type gaps remain explicit. Never borrow another division's values.
 
-Vision Smartsheet procedures: [folder index](vision/smartsheet/README.md) — purchase requisition form rules and trade show PO-to-budget reconciliation.
+Vision Smartsheet procedures: [folder index](vision/smartsheet/README.md) — purchase requisition form rules, trade show PO-to-budget reconciliation and Accelerate flight approval checks.
