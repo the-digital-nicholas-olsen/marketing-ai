@@ -70,25 +70,35 @@ Leave flight-only rows unchanged unless told otherwise. If a rep or manager isn'
 
 ## Reading the org chart
 
-Look reps up in the **sales org chart sheet**, not the PDF. It is a Smartsheet transcription of the org chart's Vision Sales page, one row per box:
+Look reps up in the **sales org chart sheet**, not the PDF. It is a Smartsheet transcription of the org chart's Vision Sales page, named `Vision Sales Org Chart (<edition date>)`, with one row per named person:
 
 | Column | Holds |
 |---|---|
-| `Name` | Person, or `OPEN` for a vacancy |
+| `Name` | Person |
 | `Title`, `Territory / Region` | As printed on the chart (RSM, DSM, SM / Sr. SM, ASM / Sr. ASM) |
 | `Department` | `Vision Sales` |
 | `Reports To` | The rep's RSM; for an RSM, the VP |
 | `Manager Cost Center` | The `Reports To` person's cost center, typed from the chart |
-| `Status` | Formula: `Filled` or `OPEN` |
+| `Status` | Formula |
 | `Email` | Formula: `firstname.lastname@` the company domain |
+| `Notes` | Caveats only, such as the Canada cost center or a name that is easy to confuse |
 
 Find the rep and use `Reports To` and `Manager Cost Center`.
 
-- **Open RSM:** leave `Sales Manager EMail` and `Cost Center` blank for that region's reps and list them in the review for the reviewer to decide. Never borrow an Aesthetics RSM.
+**No vacancy rows.** Vacant (`OPEN`) positions were removed from the sheet on 2026-10-23, so it lists named people only. To find out whether an RSM spot is open, check the org chart PDF. A rep or RSM who isn't in the sheet is flagged, never guessed.
+
+**Format for new org charts.** When a new org chart is provided, copy the current sheet's format exactly. Read the existing sheet first to confirm the layout:
+
+- Use the same columns in the same order (above). Don't add columns. Keep `Status` and `Email` as column formulas.
+- One row per person, grouped by region: each RSM's row first, then that RSM's reports.
+- Leave out vacant (`OPEN`) positions.
+- Name the sheet `<Team> Org Chart (YYYY.MM.DD)` with the chart's edition date.
+
+- **Open RSM** (confirmed from the PDF): leave `Sales Manager EMail` and `Cost Center` blank for that region's reps and list them in the review for the reviewer to decide. Never borrow an Aesthetics RSM.
 - **Interim or acting titles:** treat them as the manager, and mention them in the report.
 - **Same name on the Aesthetics chart:** the sheet holds Vision only, so ignore the Aesthetics page. Similar surnames are not the same person.
 - **Truncated or unusual names:** the `Email` formula can't be trusted. Flag it.
-- **Keeping it current:** org charts come out monthly. When a newer PDF arrives, update the sheet from its Vision Sales page, including each row's `Manager Cost Center` (or make a new sheet named for the new edition), before running the check. Only then is the PDF read.
+- **Keeping it current:** org charts come out monthly. When a newer PDF arrives, update the sheet from its Vision Sales page, including each row's `Manager Cost Center` (or make a new sheet named for the new edition, in the format above), before running the check. Read the PDF only for that refresh or to confirm an open position.
 
 ### Fictional example
 
