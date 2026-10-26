@@ -24,7 +24,7 @@ One of three separate Lumenis brand systems (Lumenis Corporate, OptiLIGHT, OptiL
 
 ### The rays-of-light system
 
-Thin straight lines from a single shared starting point: 1. stroke only · 2. stroke + colour fill · 3. stroke + image fill · 4. stroke + multiple images · 5. stroke + background image. Digital stroke weight is always 4px (print 1–4pt by scale), in Lumenis White or OptiLIGHT Blue. The wedge between two rays fills with blue, white or an image. A stroke crossing a blue fill turns white (and vice versa).
+Source: OptiLIGHT brand book, “Illuminating rays of light,” PDF pages 27–31 (see Sources and implementation decisions). Thin straight lines from a single shared starting point: 1. stroke only · 2. stroke + colour fill · 3. stroke + image fill · 4. stroke + multiple images · 5. stroke + background image. Digital stroke weight is always 4px (print 1–4pt by scale), in Lumenis White or OptiLIGHT Blue. The wedge between two rays fills with blue, white or an image. A stroke crossing a blue fill turns white (and vice versa).
 
 - **One origin, one direction.** Put the origin at a corner of the frame (usually a top corner) or outside the frame, so every ray travels the same way. Never start rays inside the layout or let lines from different directions meet mid-frame: a burst of crossing lines in the middle of content reads as shattered glass.
 - **Plan the fan before the content.** Each ray runs from the origin to the frame edge through empty space only. Lay out text, cards, charts and the hero image outside the fan, or narrow the fan to fit the empty area.
@@ -50,3 +50,11 @@ Near icon-free. The "sun" mark beside the wordmark is a logo element and the log
 ## Tokens and assets
 
 Link `styles.css`, which imports `tokens/colors_and_type.css`: `--optilight-blue`, `--blue-50…700`, `--lumenis-black`, `--lumenis-white`, `--product-gray`, `--ink`/`--ink-2`/`--ink-3`, `--hairline`, `--prism`, the type scale (`--fs-*`, `--lh-*`), spacing, radii, shadows, motion and `--ray-stroke`. ABC Arizona is licensed and not in Git: install the cuts, and get the verified OptiLIGHT full lockup, from the [HubSpot asset index](../hubspot-assets.md). Do not redraw the wordmark.
+
+## Sources and implementation decisions
+
+Source: *optiLight_Lumenis-brand guidelines_H.pdf*, PDF pages 27–31: ray shapes, white/blue treatments, 4px digital strokes, 1–4pt print strokes, combinations and incorrect usages. The source PDF stays in the approved external brand library.
+
+Repository reviewer: Nicholas Olsen. The corner/off-frame placement convention, content exclusion zones, omission on dense layouts, optional maximum 15% background-ray opacity, ban on simulated sky/prism gradients and flush-crop rule are repository implementation guidance adopted in this change, not verbatim brand-book requirements. Future changes to source-derived brand requirements should be checked with the product brand/design owner.
+
+The gradient in `guidelines/brand-prism.card.html` and the `--prism` token are illustrative colour swatches only. Do not copy them into production designs or use them to recreate photographic prism effects; use a cleared photographic asset.
