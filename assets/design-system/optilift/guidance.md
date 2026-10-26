@@ -13,6 +13,9 @@ One of three separate Lumenis brand systems (Lumenis Corporate, OptiLIGHT, OptiL
 - **Colour a few words.** Neither ABC Arizona cut available here has a bold weight, so emphasis comes from colour: the operative phrase in a headline, key terms or figures in body, eyebrows, links and table header rows. **Violet `#6F20D2` is the accent** (~7.5:1 on white, so it works at body size and for links). In combined OptiLIFT/OptiLIGHT material, OptiLIGHT Blue `#578FFF` is also permitted — an explicit OptiLIFT rule — at display sizes only (~3:1 on white). One accent per composition, one to four words per highlight; never a large fill.
 - **Product spelling:** `OptiLIFT`. The sibling product is written `OptiLIGHT`. Never `OptiLight` or `Optilight`.
 - **Light grounds by default** (leadership review, September 2026): white or off-white heroes, pages and slide grounds; product renders and photography on white or the light neutral. A near-black inverse section is the exception — at most once per piece, never the hero. Where light and dark versions of an asset exist, ship the light one.
+- **No soft colour gradients.** Grounds are flat: white, off-white `--neutral-50`, the light neutral `--neutral-100`, or a flat OptiLIFT Purple `#6F20D2` block. The brand book’s “Sunset” style is real sky photography; never imitate it with a CSS gradient, radial glow or purple wash.
+- **Rays never intersect text.** Rays start at one origin at a corner of the frame or outside it and fan out in one direction; they never cross text, numbers, charts or a photo’s subject (see Illuminating rays of light).
+- **Cropped images sit flush.** A photo or cutout with a hard crop (a person cut at the chest, a device cut at the base) sits with that cut edge flush against the edge or corner of its container: the slide, card or page. Never float a hard-cropped edge in open space. A complete, uncropped product image may float.
 - **Logos:** use the supplied lockups in `assets/logo/`. Preserve artwork, proportions, clear space and the "by Lumenis" endorsement; never redraw the wordmark.
 - **Voice:** confident, clinical-premium, reassuring. No hype, no exclamation points, no emoji.
 
@@ -24,7 +27,17 @@ One of three separate Lumenis brand systems (Lumenis Corporate, OptiLIGHT, OptiL
 - **Surfaces:** 1px light-neutral hairlines; radius 4px by default, 8px for cards, pill for buttons, badges and tags; a soft, low-contrast card shadow (`--shadow-card`). No hard or inner shadows, no border-left accent bars. One translucent, blurred sticky header is the only use of blur.
 - **Motion and states:** 200ms standard ease; buttons and links darken slightly on hover; selected tabs/tags get a full fill or underline. No bounce.
 - **Photography:** warm greige-backdrop studio portraits of patients, and clean neutral-grey or black-background product renders. Bright, clean, true-to-life; no grading or grain.
-- **Sunburst motif:** the violet ray mark that forms the dot of the "i" in the wordmark, reused decoratively (`guidelines/brand-sunburst.card.html`). It is the one graphic device; there is no functional icon set. If UI work needs icons, use thin monochrome line icons and flag them as a substitution.
+- **Sunburst motif:** the violet ray mark that forms the dot of the "i" in the wordmark, reused decoratively (`guidelines/brand-sunburst.card.html`). With the rays below, it is the only graphic device; there is no functional icon set. If UI work needs icons, use thin monochrome line icons and flag them as a substitution.
+
+### Illuminating rays of light
+
+From the OptiLIFT brand book (“Illuminating rays of light”). Straight 4px strokes (print 1–4pt by scale) in OptiLIFT Purple `#6F20D2` on light grounds or white on purple, at least three, all from one shared origin. A stroke crossing a purple fill turns white, and vice versa.
+
+- **One origin, one direction.** Put the origin at a corner of the frame (usually a top corner) or outside the frame, so every ray travels the same way, like light from one source. Never start rays inside the layout or let lines from different directions meet mid-frame: a burst of crossing lines in the middle of content reads as shattered glass.
+- **Plan the fan before the content.** Each ray runs from the origin to the frame edge through empty space only. Lay out text, cards, charts and the hero image outside the fan, or narrow the fan to fit the empty area.
+- **Never intersect text.** No ray crosses a headline, body copy, labels, numbers, table cells, a chart or a form. A ray over a transparent card or a chart counts as crossing it; on a chart, a ray reads as a data line. A very light ray (15% opacity or less) may pass behind a wide area of open background, never behind words.
+- **Images:** a cutout person or product may stand in front of the rays, so the rays read as light behind it. A ray never cuts across a face or the product.
+- **Dense layouts get no rays.** Text-heavy slides, tables, forms and dashboards go without them. Use rays on covers, section dividers, quotes, hero banners and social posts.
 
 ## Tokens and assets
 
