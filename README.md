@@ -9,16 +9,13 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Task | Entry point |
 |---|---|
 | Build an Accelerate campaign end to end | [Accelerate skill](.agents/skills/lumenis-accelerate-campaign/SKILL.md) |
-| Configure forms and correct division fields | [Form procedure](.agents/skills/lumenis-accelerate-campaign/references/forms.md) |
-| Produce all four marketing email types | [Email procedure](.agents/skills/lumenis-accelerate-campaign/references/emails.md) |
+| Build HubSpot pages, emails, forms and workflows | [HubSpot](integrations/hubspot/README.md) |
 | Prepare sales emails and rep invitation Word files | [Seven communication examples](templates/accelerate-internal-comms/README.md) |
 | Check copy before delivery | [Ted's copy clarity gate](.agents/skills/copy-clarity-gate/SKILL.md) |
-| Prepare a page brief | [Page draft](.agents/skills/lumenis-hubspot-page-draft/SKILL.md) |
 | Plan webinar content | [Webinar skill](.agents/skills/lumenis-webinar-production/SKILL.md) |
 | Add, resize and upload library images | [Image library](assets/image-library/README.md) |
 | Find hosted image candidates | [Image search](.agents/skills/lumenis-image-search/SKILL.md) |
 | Find or add content in OneDrive and Mimeo | [Content hub](.agents/skills/lumenis-content-hub/SKILL.md) |
-| Use HubSpot and verify saves | [Access and verification](integrations/hubspot/access-and-verification.md) |
 | Understand the rollout and token discipline | [Six foundations](guides/ai-foundations.md) |
 | Check coverage and unresolved decisions | [Coverage](guides/knowledge-coverage.md) · [Readiness](STATUS.md) |
 

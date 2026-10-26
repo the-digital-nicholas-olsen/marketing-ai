@@ -8,7 +8,7 @@
 # source: live read of portal 278427, form "VIS-US-Accelerate Nashville-Q3 2026"
 # validated: 2026-09-06
 #
-# Internal property names; see the Accelerate forms reference for procedure.
+# Internal property names; see the HubSpot form skill (.agents/skills/lumenis-hubspot-form) for procedure.
 
 division_code: VIS
 portal: 278427

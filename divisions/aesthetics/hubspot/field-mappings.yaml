@@ -9,7 +9,7 @@
 # validated: 2026-09-06
 #
 # Internal property names, read from the live form definition. Not display labels.
-# Shared configuration procedure: ../../../.agents/skills/lumenis-accelerate-campaign/references/forms.md
+# Shared configuration procedure: ../../../.agents/skills/lumenis-hubspot-form/SKILL.md
 
 division_code: AES
 portal: 278427

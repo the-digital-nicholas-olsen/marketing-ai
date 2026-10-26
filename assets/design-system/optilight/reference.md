@@ -22,7 +22,7 @@ Product renders, brand photography, the Rays component and the marketing-site UI
 
 ## Shipping to HubSpot
 
-Use the [page implementation](../../../.agents/skills/lumenis-accelerate-campaign/references/pages.md) and [forms](../../../.agents/skills/lumenis-accelerate-campaign/references/forms.md) references and the [HubSpot asset index](../hubspot-assets.md). Native forms may need form-ready inline styling: generous white form padding, black labels, pale-blue field borders, and a submit button in the OptiLIGHT primary CTA style (blue background, white text, 6px radius, soft blue shadow) — never HubSpot orange. Before publishing, verify real hosted URLs, the selected native form, net-new-contact behaviour and the saved public result.
+Use the [HubSpot landing page](../../../.agents/skills/lumenis-hubspot-landing-page/SKILL.md) and [HubSpot form](../../../.agents/skills/lumenis-hubspot-form/SKILL.md) skills and the [HubSpot asset index](../hubspot-assets.md). Native forms may need form-ready inline styling: generous white form padding, black labels, pale-blue field borders, and a submit button in the OptiLIGHT primary CTA style (blue background, white text, 6px radius, soft blue shadow) — never HubSpot orange. Before publishing, verify real hosted URLs, the selected native form, net-new-contact behaviour and the saved public result.
 
 ## Caveats
 

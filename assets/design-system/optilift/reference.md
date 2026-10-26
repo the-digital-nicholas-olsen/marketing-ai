@@ -25,7 +25,7 @@ Product renders, patient photography, components and the marketing-site UI kit l
 
 ## Shipping to HubSpot
 
-Use the [page implementation](../../../.agents/skills/lumenis-accelerate-campaign/references/pages.md) and [forms](../../../.agents/skills/lumenis-accelerate-campaign/references/forms.md) references. Keep form headings with a one-column form, visible select carets and on-brand buttons, and avoid internal sales or workbook language in customer-facing copy.
+Use the [HubSpot landing page](../../../.agents/skills/lumenis-hubspot-landing-page/SKILL.md) and [HubSpot form](../../../.agents/skills/lumenis-hubspot-form/SKILL.md) skills. Keep form headings with a one-column form, visible select carets and on-brand buttons, and avoid internal sales or workbook language in customer-facing copy.
 
 ## Caveats
 

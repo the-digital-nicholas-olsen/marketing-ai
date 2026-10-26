@@ -14,12 +14,12 @@ Resolve division(s), market, city, event dates/timezone, products, audience, req
 | Current step | Load |
 |---|---|
 | Names, inputs, deliverables, dependencies | [Blueprint](references/blueprint.md) |
-| CRM properties or native form configuration | [Forms](references/forms.md), then the selected division mapping only |
-| Registration or agenda page implementation | [Pages](references/pages.md) |
+| CRM properties or native form configuration | [Accelerate forms](references/forms.md), then the [HubSpot form skill](../lumenis-hubspot-form/SKILL.md) |
+| Registration or agenda page implementation | [Accelerate pages](references/pages.md), then the [HubSpot landing page skill](../lumenis-hubspot-landing-page/SKILL.md) |
 | Salesforce campaign, HubSpot campaign or segment | [Campaigns and segments](references/campaigns-and-segments.md) |
-| Promo, attendee KBYG, post-event or autoresponder email | [Emails](references/emails.md), then [copy templates](references/email-copy-templates.md) if drafting |
+| Promo, attendee KBYG, post-event or autoresponder email | [Accelerate emails](references/emails.md), [copy templates](references/email-copy-templates.md) if drafting, then the [HubSpot email skill](../lumenis-hubspot-email/SKILL.md) |
 | KOL presenter KBYG email | [KOL KBYG skill](../lumenis-accelerate-kbyg-emails/SKILL.md) |
-| Enrollment, branches and Salesforce membership | [Workflows](references/workflows.md) |
+| Enrollment, branches and Salesforce membership | [Accelerate workflows](references/workflows.md), then the [HubSpot workflow skill](../lumenis-hubspot-workflow/SKILL.md) |
 | Venue assets, design and flyers | [Assets and flyers](references/assets-and-flyers.md) |
 | Rep/prospect communications and registration backend | [Internal communications](references/internal-comms.md); [Smartsheet](references/smartsheet.md) only for backend work |
 | Account access, API reads, editor failures | [HubSpot access and verification](../../../integrations/hubspot/access-and-verification.md) |

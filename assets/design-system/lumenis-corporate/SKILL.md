@@ -60,9 +60,9 @@ corporate materials — it is part of this system, not an import of those produc
 ## Shipping this to HubSpot
 
 This skill covers **how it looks**. Page building, forms, publishing and verification follow the
-repository's page implementation and forms references
-(`.agents/skills/lumenis-accelerate-campaign/references/pages.md` and `forms.md`). Read both; neither
-replaces the other.
+repository's HubSpot landing page and form skills
+(`.agents/skills/lumenis-hubspot-landing-page/SKILL.md` and `.agents/skills/lumenis-hubspot-form/SKILL.md`).
+Read both; neither replaces the other.
 
 Page photography comes from the image library (`assets/image-library/`); use only assets whose
 `allowedBrands` includes `Lumenis corporate`.
