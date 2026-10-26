@@ -7,7 +7,7 @@ reviewed: 2026-10-26
 ---
 # Workflow patterns
 
-Recorded patterns were built in source campaigns. Proposed patterns are ideas for activities that have no recorded build here yet. Confirm their design with marketing operations, and their consent and subscription rules, before building one.
+Recorded patterns are source-derived: they were built in past campaigns and haven't been re-checked against today's portal. Both are conversion workflows. Proposed patterns are ideas for activities that have no recorded build here yet. Confirm their design with marketing operations, and their consent and subscription rules, before building one.
 
 ## Recorded: form conversion to a Salesforce campaign
 
@@ -30,11 +30,12 @@ For an approved single conversion tracked by a segment, the source event pattern
 
 None of these has a recorded build in this repository. Each needs a named owner, the consent and subscription decision, and a test plan before it's built.
 
-| Activity | Trigger | Likely actions | Open questions |
-|---|---|---|---|
-| Webinar registration and attendance | ON24 registration or attendance, if ON24's HubSpot connection is set up | Latest Lead Info, Salesforce campaign status (registered, attended, no-show), reminder or recording email | Whether the ON24 connection is live; otherwise attendee data arrives by import, which needs its own consent and import rules |
-| Post-event thank-you and survey | Membership in a confirmed attended list or segment | Thank-you and survey email, attended member status | Who confirms attendance; never use the interest segment as the attended audience |
-| Content download or contact request | A dedicated form | Latest Lead Info, Salesforce campaign, auto-reply with the asset link | Which assets are gated; sender and subscription per division |
-| Follow-up series after a conversion | Form or segment membership | Several timed emails with exit conditions | Subscription types, frequency caps and unsubscribe handling |
+| Activity | Conversion workflow? | Trigger | Likely actions | Open questions |
+|---|---|---|---|---|
+| Webinar registration | Yes | ON24 registration, if ON24's HubSpot connection is set up | Latest Lead Info, Salesforce campaign status (registered), confirmation email | Whether the ON24 connection is live; otherwise registrant data arrives by import, which needs its own consent and import rules |
+| Webinar attendance and reminders | No: leave Latest Lead Info alone | ON24 attendance data, or registration for reminders | Salesforce status (attended or no-show), reminder or recording email | Same ON24 question; who decides attended versus no-show |
+| Post-event thank-you and survey | No: leave Latest Lead Info alone | Membership in a confirmed attended list or segment | Thank-you and survey email, attended member status | Who confirms attendance; never use the interest segment as the attended audience |
+| Content download or contact request | Yes | A dedicated form | Latest Lead Info, Salesforce campaign, auto-reply with the asset link | Which assets are gated; sender and subscription per division |
+| Follow-up series after a conversion | No: leave Latest Lead Info alone | Form or segment membership | Several timed emails with exit conditions | Subscription types, frequency caps and unsubscribe handling; must not re-enroll contacts into a conversion workflow |
 
 When one of these is built and tested, move it into the recorded section with its source and date.

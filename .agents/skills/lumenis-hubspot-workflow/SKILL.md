@@ -1,6 +1,6 @@
 ---
 name: lumenis-hubspot-workflow
-description: Set up or change a Lumenis HubSpot workflow safely, kept OFF until activation is authorized, using a recorded pattern (form conversion to a Salesforce campaign, or segment membership) with Latest Lead Info as the first action. Use for any HubSpot automation in Vision or Aesthetics; lists proposed patterns for other activities.
+description: Set up or change a Lumenis HubSpot workflow safely, kept OFF until activation is authorized, using a source-derived pattern (form conversion to a Salesforce campaign, or segment membership). Conversion workflows set Latest Lead Info first; other workflows leave it alone. Use for any HubSpot automation in Vision or Aesthetics; lists proposed patterns for other activities.
 ---
 
 # HubSpot workflow
@@ -16,17 +16,28 @@ Create/configure only within task authorization; keep new workflows OFF during s
 
 Do not inherit an old playbook's automatic Turn on instruction. Activation requires the task's explicit authority and a decision about existing matches and re-enrollment. Review existing enrollment counts, exclusions, test handling and downstream sends before activation. A fresh segment is not guaranteed empty.
 
+## Is it a conversion workflow?
+
+A **conversion workflow** enrolls a contact because they just converted (a form submission, or joining a conversion segment) and hands that lead to sales. Only conversion workflows:
+- set Latest Lead Info, as the first action;
+- add their form to the corporate recent-conversion workflow's exclusion list;
+- set a Salesforce campaign and member status for the new lead.
+
+Other workflows, such as reminders, follow-up emails or status updates for people who already converted, must not write Latest Lead Info: it would overwrite the rep's context from the contact's actual latest conversion. Each pattern in the [pattern reference](references/patterns.md) says which kind it is. If you can't tell, ask marketing operations before building.
+
 ## Procedure
 
 1. **Pick the pattern** from [workflow patterns](references/patterns.md). Use a recorded pattern when one fits. A proposed pattern needs marketing operations to confirm the design before you build it.
-2. **Prepare what the workflow points at first:** the form ([HubSpot form skill](../lumenis-hubspot-form/SKILL.md)), the segment, the automated email ([HubSpot email skill](../lumenis-hubspot-email/SKILL.md)) and the Salesforce campaign with its approved member status.
+2. **Prepare only what the chosen pattern uses,** before the workflow points at it: the form ([HubSpot form skill](../lumenis-hubspot-form/SKILL.md)), the segment, the automated email ([HubSpot email skill](../lumenis-hubspot-email/SKILL.md)) and, for a conversion workflow, the Salesforce campaign with its approved member status. A missing piece blocks the step that uses it.
 3. **Clone an approved reference workflow once** and wait for it to appear in the list. Search before retrying; clones took time and repeated clicks created duplicates.
-4. **Set enrollment,** then make **Latest Lead Info the first action** (see below), then delays, branches, Salesforce actions and emails.
-5. **Exclude the form from the corporate override** when the workflow sets its own Latest Lead Info.
-6. **Read the saved canvas back:** triggers, branches, chosen email, Salesforce campaign and status, re-enrollment, and that the workflow is OFF.
+4. **Set enrollment.** In a conversion workflow, make **Latest Lead Info the first action** (see below), then delays, branches, Salesforce actions and emails. Other workflows go straight to their own actions.
+5. **Conversion workflows only: exclude the form from the corporate override,** so the workflow's own Latest Lead Info isn't replaced.
+6. **Read the saved canvas back:** triggers, branches, the chosen email and Salesforce campaign and status where the pattern has them, re-enrollment, and that the workflow is OFF.
 7. **Test** with authorized, identifiable submissions (see Acceptance). Record what was configured versus activated outside Git.
 
 ## Latest Lead Info goes first
+
+This section applies to conversion workflows only.
 
 The sales new-lead notification ("New Lead Assigned!") is sent by **Salesforce**, not HubSpot. When a lead converts, or a lead or contact reconverts, Salesforce updates the Capture Date, and that update triggers the email. The email shows whatever Latest Lead Info holds at that moment.
 
@@ -47,4 +58,4 @@ Click the action card header rather than the email title or Details link to edit
 
 ## Acceptance
 
-Use authorized test cases for each intended division, unknown routing value, repeat submission and missing consent. Verify correct branch, member status and email eligibility. A missing/unknown branch must not default to another division. Confirm final OFF/ON state directly. Record what was configured versus actually activated, whether any messages were sent, and the evidence for each result.
+Use authorized test cases for each intended division, unknown routing value, repeat submission and missing consent. Verify correct branch, member status and email eligibility. A missing/unknown branch must not default to another division. For a workflow that isn't a conversion workflow, confirm a test contact's Latest Lead Info is unchanged afterwards. Confirm final OFF/ON state directly. Record what was configured versus actually activated, whether any messages were sent, and the evidence for each result.
