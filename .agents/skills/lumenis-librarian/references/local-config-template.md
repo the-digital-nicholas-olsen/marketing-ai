@@ -35,7 +35,7 @@ can't reach the skill, stop and say so.
 | Campaign root | `<relative path to the folder holding one subfolder per project, e.g. ../Campaigns/>` |
 | Library | `Library/` (Meetings, Team-and-Process, People, Decisions, Taste, Unsorted) |
 | Archive | `Processed/YYYY-MM/` |
-| Index | `INDEX.md` (columns: Date, Source ID, Note, Projects, Status) |
+| Index | `INDEX.md` (columns: Date, Source ID, Note, Projects, Archive, Status) |
 | Division | `<Vision / Aesthetics / Both>` |
 | Project folder naming | `<e.g. Title Case with year: "Vision Expo 2027">` |
 
