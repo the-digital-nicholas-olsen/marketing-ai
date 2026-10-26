@@ -29,10 +29,17 @@ Project details never go into this repository. It's public.
 **First, reconcile unfinished runs.** Find every `INDEX.md` row with status
 `in progress`, whether or not its source is still in `Inbox/`, and finish it
 before taking new files:
-- Locate the source: in `Inbox/`, or at the row's `Archive` path.
-- If it's at both places (copy made, Inbox copy not yet removed), confirm the archived copy has the same size, then remove the Inbox copy.
-- Re-read the note(s) the row points to, and redo steps 5-9 below. Each write checks its record ID, so finished writes are skipped.
-- If the source can't be found anywhere, don't guess. Leave the row `in progress` and flag it in the report.
+- **Keep the existing row.** Never add a second row or clear its `Archive` cell. Step 5 doesn't apply.
+- **Locate the source and settle the archive state:**
+
+  | Where the source is | What to do |
+  |---|---|
+  | Only in `Inbox/` | Not archived yet. Do step 8 later as written; it reuses the `Archive` path if one is recorded. |
+  | In `Inbox/` and at the `Archive` path | The copy was made but the Inbox file wasn't removed. Confirm the archived copy has the same size, remove the Inbox copy, and don't copy again. Step 8 is done. |
+  | Only at the `Archive` path | Already archived. Confirm the file is there and readable, and don't copy again. Step 8 is done. |
+  | Nowhere | Don't guess. Leave the row `in progress` and flag it in the report. Skip the rest for this source. |
+- **Complete the missing records:** re-read the note(s) the row points to, then do steps 6 and 7. Each record ID is checked on its own, so finished records are skipped.
+- **Finish:** do step 8 only if the table says it's still needed, then step 9 (mark the existing row `done`).
 
 **Then, for each file in `Inbox/`** (skip files named `*sync-test*` and move them to `Processed/` with no note):
 
@@ -52,7 +59,7 @@ before taking new files:
    - Otherwise, add `-2`, `-3` and so on before `.md` until the name is free.
 
    Pointer notes follow the same rule. Read each note back to confirm it was saved.
-5. **Add the index row:** one row in `INDEX.md` with the source ID, note path(s), an empty `Archive` cell and status `in progress`.
+5. **Add the index row:** one row in `INDEX.md` with the source ID, note path(s), an empty `Archive` cell and status `in progress`. If a row for this source ID already exists, keep it as is and don't add another.
 6. **Update the shared records** in `Library/`. Each record gets a record ID, `<source ID>#<tag>`, e.g. `2026-10-26__Transcript_Kickoff.txt#d2`. Check each record ID on its own before writing, and skip only the ones already present:
    - `Decisions/decision-log.md`: one dated line per decision tag, with a link to the note, ending with `[id: <source ID>#dN]`.
    - `Taste/`: one dated line per taste tag, ending with `[id: <source ID>#kN]`.
@@ -73,8 +80,11 @@ procedure is designed so that a rerun picks up where the last run stopped:
 - **Each record is checked on its own.** Every decision, task, update, taste line and people line has its own record ID (`<source ID>#<tag>`). Before writing a record, search for its ID and skip only that record if it exists, never the rest of the source.
 - **Tags come from the note.** The note is written first and holds the numbered tags, so a rerun gets the same IDs.
 
-Untested: interruption walkthroughs haven't been run yet. Treat rerun safety
-as designed, not proven, until they have.
+Tested so far: on 2026-10-26, a local walkthrough with fictional data covered a run
+that stopped after archiving. Reconcile kept the single index row and its `Archive`
+path, made no second copy, wrote only the missing decision, marked the row
+`done`, and a rerun changed nothing. Other interruption points and live
+Smartsheet writes are still untested.
 
 ## Remove before writing
 
