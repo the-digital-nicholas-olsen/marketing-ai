@@ -21,21 +21,33 @@ Copilot or another).
 - **Load the procedure.** Use the local file, the repository's skill
   discovery, or the public URL
   `https://github.com/the-digital-nicholas-olsen/marketing-ai/blob/main/.agents/skills/lumenis-contribution-review/SKILL.md`.
-  When relative links don't resolve, resolve them against
-  `https://github.com/the-digital-nicholas-olsen/marketing-ai/blob/main/`.
+  Relative links in this file resolve from this file's folder
+  (`.agents/skills/lumenis-contribution-review/`), not the repository root.
+  The required guidance is also at these absolute URLs:
+  - AGENTS.md: `https://github.com/the-digital-nicholas-olsen/marketing-ai/blob/main/AGENTS.md`
+  - CONTRIBUTING.md: `https://github.com/the-digital-nicholas-olsen/marketing-ai/blob/main/CONTRIBUTING.md`
+  - PR template: `https://github.com/the-digital-nicholas-olsen/marketing-ai/blob/main/.github/pull_request_template.md`
+- **Pin the exact PR first.** Before reading any diff, get the requested PR's
+  base branch and current head commit SHA from `gh pr view <number> --json baseRefName,headRefOid`,
+  a GitHub connector, or the PR page. Review those commits, never whatever
+  branch happens to be checked out. Report both in Verification and limits as
+  `Reviewed: <base branch>@<base SHA> ... <head SHA>`.
 - **Get the change under review,** using the first method available:
-  1. a local checkout: `git diff origin/main...HEAD`
-  2. the GitHub CLI: `gh pr diff <number>` and `gh pr view <number>`
-  3. a GitHub connector or tool that returns PR files and descriptions
-  4. the public patch: `https://github.com/the-digital-nicholas-olsen/marketing-ai/pull/<number>.diff`
+  1. Git: `git fetch origin <base> pull/<number>/head`, check that the fetched head equals the head SHA, then `git diff origin/<base>...<head SHA>`.
+  2. The GitHub CLI: `gh pr diff <number>`, after confirming `headRefOid` still equals the head SHA.
+  3. A GitHub connector or tool that returns the PR's files at that head SHA.
+  4. The public patch, `https://github.com/the-digital-nicholas-olsen/marketing-ai/pull/<number>.diff`, which always shows the current head. Re-check the head SHA after reading it.
 
-  Read the PR description as well as the diff. If you can't get the full
-  diff, stop and say which files you couldn't see. Don't review a partial
-  change as if it were complete.
-- **Run the checks** when you have a shell and Node.js:
-  `node scripts/sync-skills.mjs --check` and `node scripts/validate.mjs`.
-  Without a shell, report "checks not run" under Verification and limits.
-  Never mark them passed.
+  Read the PR description as well as the diff. If the head SHA changes during
+  the review, start over on the new head. If you can't get the full diff, stop
+  and say which files you couldn't see. Don't review a partial change as if
+  it were complete.
+- **Run the checks against the PR head** when you have a shell and Node.js.
+  Use a separate copy at the head SHA (`git worktree add --detach <dir> <head SHA>`),
+  or the current checkout only if `git rev-parse HEAD` equals the head SHA. In
+  that copy, run `node scripts/sync-skills.mjs --check` and
+  `node scripts/validate.mjs`. Without a shell, report "checks not run" under
+  Verification and limits. Never mark them passed.
 - **Write the report** in the format under [Review and decide](#review-and-decide),
   using those four headings in that order, so reports from different AIs can
   be compared.
@@ -77,6 +89,6 @@ Report:
 - **Recommendation:** ready for maintainer review, changes required, or draft pending evidence. An AI recommendation is not a GitHub approval or permission to merge.
 - **Blocking findings:** file/location, unmet criterion, effect on a teammate, and the concrete correction needed. Unsupported rules, unsafe actions, restricted content, broken instructions and missing essential evidence block acceptance of the affected change.
 - **Advisory improvements:** optional refinements, kept separate from blockers. Personal style preferences do not become acceptance requirements.
-- **Verification and limits:** checks run and results, walkthroughs, untested behavior, subject review needed and remaining release limitations.
+- **Verification and limits:** the reviewed base and head SHAs, checks run and results, walkthroughs, untested behavior, subject review needed and remaining release limitations.
 
 If no blocker is found, say so with the review scope and verification limits. A safely scoped draft reference can be merged with documented limitations if the maintainer accepts it; an unresolved prerequisite must still prevent the affected live action. Leave the merge to the authorized maintainer. Never infer authority to bypass repository rules from this skill.
