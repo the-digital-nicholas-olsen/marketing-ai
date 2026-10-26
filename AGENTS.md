@@ -26,4 +26,4 @@ Follow README naming rules, then the destination folder's README and any applica
 
 ## Maintenance
 
-Edit canonical .agents/skills and run node scripts/sync-skills.mjs. Keep one procedure per skill and shared rules in one reference. New guidance is draft until reviewed. Run node scripts/validate.mjs before proposing a change. The checker is a structural guard, not a substitute for content review.
+Edit canonical .agents/skills and run node scripts/sync-skills.mjs. Keep one procedure per skill and shared rules in one reference. New guidance is draft until reviewed. Before proposing or reviewing a change, run node scripts/validate.mjs and apply .agents/skills/lumenis-contribution-review; the checker alone is not content review.

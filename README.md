@@ -4,7 +4,7 @@ Shared ways of working for **Vision and Aesthetics**, designed for Codex and Cla
 
 ## Start here
 
-Read [setup](guides/setup.md), [contributing](CONTRIBUTING.md) and [PR criteria](.agents/skills/lumenis-contribution-review/SKILL.md). AI clients follow [AGENTS.md](AGENTS.md), then load only the selected skill and relevant references.
+Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients follow [AGENTS.md](AGENTS.md), then load only the selected skill and relevant references.
 
 | Task | Entry point |
 |---|---|

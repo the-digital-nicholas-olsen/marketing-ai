@@ -1,6 +1,6 @@
 # Contributing without a terminal
 
-Use the [contribution review skill](.agents/skills/lumenis-contribution-review/SKILL.md) to prepare a PR or review one. It defines the acceptance criteria for reusable team guidance, the evidence reviewers need, and how to distinguish blockers from optional improvements. Invoke `$lumenis-contribution-review` in a client that discovers repository skills, or give your AI the linked file. Use the same criteria for manual review.
+Use the [contribution review skill](.agents/skills/lumenis-contribution-review/SKILL.md) to prepare a PR or review one. It defines the acceptance criteria for reusable team guidance, the evidence reviewers need, and how to distinguish blockers from optional improvements. Any AI can run it: ask your client to use the skill, or give the AI the linked file (it explains how to get the diff and run checks without client-specific tools). Use the same criteria for manual review.
 
 Use your own GitHub account. Open a Markdown file in GitHub, choose Edit, and propose your changes on a new branch with a pull request. If you do not have write access, GitHub can propose the change through a fork. An AI can prepare the edits and submit them when asked. A public fork must never contain internal records.
 
