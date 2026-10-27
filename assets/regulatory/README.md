@@ -28,6 +28,8 @@ Nothing here is approval. It is a record of the source documents so drafts start
 
 ## How to use it
 
+To check a finished piece against this collection and the claims library in one pass, use the [claims check skill](../../.agents/skills/lumenis-claims-check/SKILL.md).
+
 1. Open the file for every product the piece mentions. A combined piece follows **each** product's rules. Never borrow one product's permitted wording for another: "a bright solution for dry eyes" belongs to OptiLIGHT and is a don't for OptiLIFT and OptiPLUS.
 2. Check every product description, benefit line and headline against the do's and don'ts. Where a "do" carries an asterisk, it needs a reference on the piece.
 3. Add the product's indication-for-use and warnings text wherever the channel requires it. Combined materials carry both products' text, as the combined OptiLIGHT and OptiLIFT legal title card does.

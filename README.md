@@ -11,7 +11,7 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Build an Accelerate campaign end to end | [Accelerate skill](.agents/skills/lumenis-accelerate-campaign/SKILL.md) |
 | Build HubSpot pages, emails, forms and workflows | [HubSpot](integrations/hubspot/README.md) |
 | Prepare sales emails and rep invitation Word files | [Seven communication examples](templates/accelerate-internal-comms/README.md) |
-| Check copy before delivery | [Ted's copy clarity gate](.agents/skills/copy-clarity-gate/SKILL.md) |
+| Check copy before delivery | [Ted's copy clarity gate](.agents/skills/copy-clarity-gate/SKILL.md) · [Claims](.agents/skills/lumenis-claims-check/SKILL.md) |
 | Plan webinar content | [Webinar skill](.agents/skills/lumenis-webinar-production/SKILL.md) · [ON24](.agents/skills/lumenis-on24/SKILL.md) · [KOL emails](.agents/skills/lumenis-kol-comms/SKILL.md) |
 | Add a campaign to the sprint plan; get your daily brief | [Sprint plan setup](.agents/skills/lumenis-sprint-plan-setup/SKILL.md) · [Daily brief](.agents/skills/lumenis-daily-brief/SKILL.md) |
 | Create a Salesforce campaign | [Salesforce campaign](.agents/skills/lumenis-salesforce-campaign/SKILL.md) |

@@ -16,7 +16,7 @@ ON24 holds the registration page, the live room, the reminder emails and the on-
 - The **donor event ID** recorded in the campaign template's AI Instructions (step D3). It lives in Smartsheet so it can change without a repository edit.
 - The ON24 notification email HTML templates. **Not in the repository yet**: until they're added under `references/`, rebuild each email from the donor and check the preview text by hand.
 - For the page: the content owner's handoff (copy, 1200 x 800 hero image, bio, headshot link, KOL email and LinkedIn).
-- The call-to-action destination: the next Accelerate's page with a HubSpot tracking link, or Book a Meeting when no Accelerate is coming up (a planned lumenis-utm-links skill will hold the link rules).
+- The call-to-action destination: the next Accelerate's page with a HubSpot tracking link, or Book a Meeting when no Accelerate is coming up (link rules in [lumenis-utm-links](../lumenis-utm-links/SKILL.md)).
 
 Works through the person's logged-in ON24 session in the browser. Never enter credentials.
 

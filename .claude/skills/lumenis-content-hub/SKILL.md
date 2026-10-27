@@ -56,6 +56,18 @@ Short version (full rules in [adding and retiring content](references/adding-con
 
 There is no step for the Vision Home SSD. That drive is Nicholas's local master copy and he syncs it himself.
 
+## Send out a new campaign asset
+
+When a finished campaign asset is approved (for example a webinar flyer at T-30, or webinar clips after the show), it goes to the hub and to everyone who passes it on, in one pass. Drafts only; the asset's owner sends.
+
+1. **Add it to the hub** with the steps in [Add an asset](#add-an-asset) and the Content Intake sheet.
+2. **One email to the partner channels:** the Modus owner (so reps find it in Modus) and the social team. Give the social team the **clean** link with no UTMs and ask them to add their own, so they can measure their channels ([lumenis-utm-links](../lumenis-utm-links/SKILL.md) explains why).
+3. **Sales email:** to the RSMs through the usual sales channel, with the sales tracking link and one line on who the asset is for.
+4. **Website:** for events, a request to add it to the Lumenis upcoming events page, with the date, title and registration link.
+5. **Update the campaign's Smartsheet rows** with the hub row and where each draft is.
+
+Check before sending: the asset passed its check (for a webinar flyer, [lumenis-webinar-asset-check](../lumenis-webinar-asset-check/SKILL.md)), and each link is the right one for its channel.
+
 ## Do not
 
 - Edit the `Content Library Catalog`, `Content Library Placements`, `Post-Sale Hub` or `Mimeo Library` sheets. They are regenerated from the master inventory and manual edits are overwritten. Use the Content Intake sheet.

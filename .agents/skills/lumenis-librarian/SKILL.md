@@ -72,6 +72,21 @@ before taking new files:
 9. **Close it out:** set the index row's status to `done`. A source isn't finished until this step.
 10. **Report** (see [Report](#report)).
 
+## Create a project folder on request
+
+Called by [sprint plan setup](../lumenis-sprint-plan-setup/SKILL.md) when a campaign is added, or by a person directly. This is the one case where the librarian creates more than `_Context/` in a new project folder.
+
+1. Read the local config for the campaign root. Check for an existing folder with the same or a near-match name (year, abbreviation, spelling) first.
+2. Create `<Campaign root>/<Project name>/` using the exact project name from the sprint plan, then the standard subfolders for the campaign type:
+
+   | Campaign type | Subfolders |
+   |---|---|
+   | Webinar | `_Context`, `Interview`, `Flyer`, `Deck`, `Video`, `Invoices` |
+   | Other types | `_Context` only, until their playbook defines more |
+
+3. If the folder already exists, add only the missing subfolders. Never rename, move or empty anything.
+4. Wait for OneDrive to sync, then report the folder path (and the SharePoint link if the person can copy it) so it can go in the sprint plan's Key Info.
+
 ## Safe to rerun
 
 Runs can stop partway: a lost connection, a sync delay, a closed laptop. The
