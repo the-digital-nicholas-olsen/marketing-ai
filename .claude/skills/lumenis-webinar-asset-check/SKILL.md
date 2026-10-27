@@ -26,7 +26,7 @@ Ted builds the flyer and the deck his own way. This skill is the second pair of 
 | F4 | KOL | Name, credentials and practice spelled as in the KOL library; the bio matches the library or the KOL-approved version; the headshot is the approved one |
 | F5 | Host | Named only if a host is confirmed in the record |
 | F6 | Brand | One brand system for the product (Lumenis Corporate, OptiLIFT or OptiLIGHT), applied as [lumenis-product-design](../lumenis-product-design/SKILL.md) describes; logo and colors correct |
-| F7 | Clarity | [Ted's clarity gate](../copy-clarity-gate/SKILL.md) run on the headline and body |
+| F7 | Clarity and spelling | [Ted's clarity gate](../copy-clarity-gate/SKILL.md) run on the headline and body; no spelling, grammar or punctuation errors, product names styled correctly |
 | F8 | Claims | [lumenis-claims-check](../lumenis-claims-check/SKILL.md) reports nothing failing, unsupported, blocked or missing |
 | F9 | File name | Follows the naming convention, saved in the project's Flyer folder |
 
@@ -41,7 +41,7 @@ Ted builds the flyer and the deck his own way. This skill is the second pair of 
 | D5 | Title slide | Title, subtitle, KOL name and credentials, date match the record |
 | D6 | Brand | One brand system, consistent fonts and colors; no slides left from a donor deck |
 | D7 | Images | Every photo is from the image library or has recorded rights; no patient photo without documented consent |
-| D8 | Clarity | Clarity gate on slide titles |
+| D8 | Clarity and spelling | Clarity gate on slide titles; no spelling, grammar or punctuation errors on any slide |
 | D9 | ON24 ready | 16:9 slides; videos also saved as separate files for upload; no slide depends on animation to make sense |
 
 ## Procedure

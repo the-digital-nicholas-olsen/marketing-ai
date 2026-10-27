@@ -6,7 +6,7 @@ description: Draft the emails and notes a KOL receives across a Lumenis campaign
 # KOL comms
 
 Owner: Nicholas, with Ted for content-stage messages and Kaelyn for post-event messages.
-Status: draft procedure, written 2026-10-27. The webinar templates are drafts awaiting team review; don't treat their wording as approved until this status line says so.
+Status: draft procedure, written 2026-10-27. The webinar templates were reviewed with Nicholas, Ted, EJ and Kaelyn on 2026-10-27; they stay drafts until the first live webinar.
 
 KOLs hear from several people on our team over two months. This skill keeps those messages consistent, fills them from the campaign record instead of memory, and leaves sending to the person who owns the relationship.
 
@@ -19,15 +19,17 @@ KOLs hear from several people on our team over two months. This skill keeps thos
 ## Procedure
 
 1. **Pick the template** for the step. If none fits, draft from the closest one and say it's new wording.
-2. **Fill every bracket** from the campaign record. Optional lines (marked in the template notes) are dropped whole when their fact is missing, never left with a bracket. A required fact that's missing (the date, the KOL's name, the presenter link) blocks the draft: list it and stop.
-3. **Run [Ted's clarity gate](../copy-clarity-gate/SKILL.md)** on the filled draft. Any clinical statement goes through the [claims library](../../../assets/claims-reference/index.md); KOL emails should rarely need one.
-4. **Save as a draft** in the sender's mailbox when an email connector is available, otherwise return the text. Attach files named in the template (flyer, deck link) from the project folder.
-5. **Update the Smartsheet row** to Ready for Review with a note of where the draft is. The sender sends; then the row moves to Complete.
+2. **For interview scheduling (C1), find the times first.** Read Ted's Outlook calendar through the calendar connector and pick three free hours on or before T-45, in Ted's working hours. Work out the KOL's time zone from their practice location (web search, then the KOL library), save it in C1 Key Info, and show the options in that zone. With no calendar connector, ask Ted for his free times and still convert them.
+3. **Fill every bracket** from the campaign record. Optional lines (marked in the template notes) are dropped whole when their fact is missing, never left with a bracket. A required fact that's missing (the date, the KOL's name, the presenter link) blocks the draft: list it and stop.
+4. **Run [Ted's clarity gate](../copy-clarity-gate/SKILL.md)** on the filled draft. Any clinical statement goes through the [claims library](../../../assets/claims-reference/index.md); KOL emails should rarely need one.
+5. **Save as a draft** in the sender's mailbox when an email connector is available, otherwise return the text. Attach files named in the template (flyer, deck link) from the project folder.
+6. **Update the Smartsheet row** to Ready for Review with a note of where the draft is. The sender sends; then the row moves to Complete.
 
 ## Boundaries
 
 - Drafting never authorizes sending. Each message is sent by the named person.
 - Don't add promises the template doesn't make (extra fees, travel, timelines).
 - **Honorarium:** the offer (recruitment) uses the amount in the campaign record; the purchase requisition is raised only after the KOL agrees, so it can't gate the offer. The invoice request must match the approved requisition and PO.
-- **Times** come from the campaign record's confirmed live start and time zone. Never assume the usual 5:00 PM PT.
+- **Times** come from the campaign record's confirmed live start, shown to the KOL in their own time zone. Never assume the usual 5:00 PM PT.
 - Handwritten-note text goes to the note service only after the sender approves it.
+- Reading a calendar is for finding free times. Don't create, move or accept events; the sender books the meeting.

@@ -1,25 +1,25 @@
 ---
 title: Webinar KOL message templates
-status: draft for team review (2026-10-27)
+status: reviewed with the team 2026-10-27; draft until the first live webinar
 owner: Nicholas (recruitment), Ted (content stage), EJ (logistics), Kaelyn (post-event)
 ---
 # Webinar KOL messages
 
-Nine messages, in send order. Step IDs match the Vision *TEMPLATE - Webinar* sheet. Brackets are filled from the campaign's Key Info cells. Three brackets recur:
+Eight messages, in send order. Step IDs match the Vision *TEMPLATE - Webinar* sheet. Brackets are filled from the campaign's Key Info cells. These are starting points: the sender personalizes each one ("Great seeing you in Nashville..."). Four brackets recur:
 
 - **[honorarium]:** the amount in the campaign record (K1/K4 Key Info). The usual webinar honorarium is $2,000, but always use the record. No amount in the record blocks K4.
-- **[live time]:** the confirmed live start with its time zone, from the campaign record. The usual pattern is 5:00 PM PT.
+- **[live time]:** the confirmed live start, from the campaign record. The usual pattern is 5:00 PM PT.
 - **[tech check time]:** one hour before [live time], unless the record says otherwise.
+- **[KOL time zone]:** found at interview scheduling (C1) from the KOL's practice location and saved in C1 Key Info. Every time we send the KOL is shown in their time zone, so they don't have to convert.
 
 | Step | Message | Timing | Sender |
 |---|---|---|---|
 | K4 | Recruitment | T-60 | Nicholas, Ted cc'd |
 | C1 | Interview scheduling | T-53 | Ted |
-| D1 | Tech check calendar invite | T-44 | EJ |
+| D1 | Tech check calendar invite, with presenter link | T-41 | EJ |
 | C10 | Flyer approval | T-38 | Ted |
-| C21 | Deck review + walkthrough request | T-17 | Ted |
-| D18 | Presenter link + reminder | T-5 | EJ |
-| L5 | Thank-you + coaching | T-0 night | Ted |
+| C21 | Deck review, walkthrough request, social promo ask | T-17 | Ted |
+| L5 | Thank-you | T-0 night | Ted |
 | P6 | Invoice request | T+3 | Kaelyn |
 | P5 | Handwritten note | T+3 | Kaelyn, via note service |
 
@@ -29,7 +29,7 @@ Nine messages, in send order. Step IDs match the Vision *TEMPLATE - Webinar* she
 
 Hi Dr. [Last name],
 
-[RSM first name] on our team recommended you, and I'd love to have you lead a Lumenis Vision webinar on [topic]. We're looking at [day, date] at [live time], and we have some flexibility around that date if it doesn't work for you.
+[Optional: [RSM first name] on our team recommended you, and ]I'd love to have you lead a Lumenis Vision webinar on [topic]. We're looking at [day, date] at [live time], and we have some flexibility around that date if it doesn't work for you.
 
 Our webinars draw a strong audience: usually about 100 eye care professionals live and about double that on demand, with some reaching 500 viewers in total.
 
@@ -37,7 +37,7 @@ We offer a [honorarium] honorarium. Here's the time we'd ask of you:
 
 - **A 1-hour interview** with Ted, who leads webinar content on our team (cc'd), so we can build the webinar around your experience.
 - **One or two rounds of review** on the promotional flyer and the slide deck we create from that interview.
-- **A 1-hour deck walkthrough** with Ted[ and [host name], the Lumenis regional sales manager who will host the session] before the event.
+- **A 1-hour deck walkthrough** with Ted[ and the Lumenis regional sales manager who will host the session] before the event.
 - **A tech check** starting 1 hour before go-live on the day.
 - **The live webinar itself**, about 1 hour, at [live time] on [date].
 
@@ -46,7 +46,7 @@ If you're interested, just reply here and Ted will find a time for the interview
 Thank you for considering it,
 Nicholas
 
-*Notes:* include the host line only when a host is confirmed. Drop the first clause if no RSM recommended the KOL. Audience figures are the team's stated averages (2026-10-27); update them here when they change.
+*Notes:* include the host clause only when a host is confirmed; don't name the host here. Use the RSM clause only when an RSM did recommend the KOL, and replace it with a personal opener when there's a better one. Don't ask for a social promo here: it's optional, and asking up front could put a KOL off. It comes later, with the deck (C21). Audience figures are the team's stated averages (2026-10-27); update them here when they change.
 
 ## C1 Interview scheduling
 
@@ -60,7 +60,7 @@ The first step is a 1-hour conversation with me over Teams. I'll ask about your 
 
 Do any of these times work for you?
 
-- [Option 1, day, date, time PT]
+- [Option 1: day, date, time in KOL time zone]
 - [Option 2]
 - [Option 3]
 
@@ -69,7 +69,7 @@ If none of them fit, send me two or three times that do and I'll make one work.
 Thanks,
 Ted
 
-*Notes:* offer three times on or before T-45. The Teams invite is titled "Lumenis webinar interview: Dr. [Last name]", with recording on.
+*Notes:* the options come from Ted's Outlook calendar (see the skill's interview scheduling step): three free hours on or before T-45, shown in the KOL's time zone. If Ted is free at 11:00 AM PT and the KOL is on the East Coast, offer 2:00 PM ET. The Teams invite is titled "Lumenis webinar interview: Dr. [Last name]", with recording on.
 
 ## D1 Tech check calendar invite
 
@@ -77,11 +77,15 @@ Ted
 
 Hi Dr. [Last name],
 
-This holds your time on webinar day. We'll start with a tech check at [tech check time] to make sure your audio, video and slides all work, then go live at [live time]. The webinar runs about an hour.
+This holds your time on webinar day. We'll start with a tech check at [tech check time] [KOL time zone] to make sure your audio, video and slides all work, then go live at [live time] [KOL time zone]. The webinar runs about an hour.
 
-I'll send your personal presenter link the week of the webinar. Please join from a computer with a headset or good microphone, in a quiet room.
+Your personal presenter link: [presenter link]. It's just for you, so please don't share it.
+
+Please join from a computer with good audio, in a quiet room.
 
 EJ
+
+*Notes:* the invite is sent after the ON24 event exists (D3), so the presenter link goes in from the start; it comes from ON24 (see [lumenis-on24](../../lumenis-on24/SKILL.md)). Never paste the attendee link by mistake. Times are in the KOL's time zone. This replaces the separate presenter-link email the team dropped on 2026-10-27.
 
 ## C10 Flyer approval
 
@@ -117,63 +121,36 @@ When you look through them, I'd love to know two things:
 1. Are you comfortable presenting each slide in your own words?
 2. Is anything wrong, out of date, or something you wouldn't say?
 
-I'd also like to book up to an hour with you[ and [host name], who will host the session,] to walk through the deck together. We'll go slide by slide, keep it conversational, and plan how you and the host trade off during the live session. If less than an hour works better for you, that's fine.
+I'd also like to book up to an hour with you[ and [host name], who will host the session,] to walk through the deck together. Our presenters are at their best when they've gone through it with us first and can picture how it will feel live. We want to make you a star, and this is the best way we know to do that.
 
 Could you do one of these?
 
-- [Option 1, on or before T-12]
+- [Option 1, on or before T-12, in KOL time zone]
 - [Option 2]
 - [Option 3]
+
+One more thing: we'd love to record a short promo video with you that we'd post on our channels for you to share on yours. If you're interested, let us know, and we can talk through how it works at the end of the walkthrough.
 
 Thanks,
 Ted
 
-*Notes:* send only after the deck has passed the claims check.
+*Notes:* send only after the deck has passed the claims check. Keep the promo ask this light; Ted explains it at the end of the walkthrough (C22), and recording it is step C26.
 
-## D18 Presenter link and reminder
+## L5 Thank-you
 
-**To:** KOL, host · **Cc:** Ted · **Subject:** Your presenter link for [day]'s webinar, tech check at [tech check time]
-
-Hi Dr. [Last name],
-
-We're almost there. Here is your presenter link for [day, date]: [presenter link]
-
-This link is just for you, so please don't share it with attendees.
-
-**On the day:**
-
-- **[tech check time]:** join with the link above for the tech check.
-- **After the tech check:** mute and stay nearby. Please be back on at least 5 minutes before we go live.
-- **[live time]:** we go live.
-
-If anything comes up, reply here or call me at [EJ's phone].
-
-See you [day],
-EJ
-
-*Notes:* the presenter link comes from ON24 (see [lumenis-on24](../../lumenis-on24/SKILL.md)). Never send the attendee link by mistake.
-
-## L5 Thank-you and coaching
-
-**Cc:** Nicholas, host · **Subject:** Thank you for tonight's webinar, Dr. [Last name]
+**Cc:** Nicholas, host · **Subject:** Thank you for tonight, Dr. [Last name]
 
 Hi Dr. [Last name],
 
-Thank you for tonight. You did a great job, and the audience was clearly with you.
+That was great, thank you! [One personal line: something from before the show, or what the audience's questions said, e.g. "You could tell from how in-depth the questions got that people were energized."]
 
-A few moments stood out that are worth repeating next time:
-
-- **[Specific moment 1]**: [what they did and why it worked for the audience].
-- **[Specific moment 2]**: [what they did and why it worked].
-- **[Specific moment 3, optional]**.
-
-[Number] people joined live, and the recording goes out on demand this week, where it usually reaches about as many again.
+[Optional: one specific moment that worked, in a sentence.]
 
 You'll hear from Kaelyn on our team in the next few days about your honorarium. Thanks again for sharing your experience with our community.
 
 Ted
 
-*Notes:* draft from Ted's notes during the show and the ON24 Q&A log. Praise only; this email tells them what to repeat. Drop the attendance line if the number isn't confirmed.
+*Notes:* a starting point; Ted rewrites it in his own voice each time. Keep it short and informal: praise only. No attendance numbers (they may be lower than the recruitment email suggested), no promises about the recording, and nothing about what happens next apart from the honorarium line.
 
 ## P6 Invoice request
 
@@ -181,22 +158,14 @@ Ted
 
 Hi Dr. [Last name],
 
-Thank you for leading our webinar on [topic] on [date]. To process your [honorarium] honorarium, could you send me an invoice?
+**Attachment:** the prefilled invoice form
 
-Please include:
-
-- Your name or practice name as the payee
-- Your mailing address
-- "Lumenis webinar, [date]" as the description
-- The amount: [honorarium]
-- PO number [PO #]
-
-A PDF reply to this email is perfect. Once I have it, payment usually takes [X] weeks.
+Thank you for leading our webinar on [topic] on [date]. To process your [honorarium] honorarium, please fill in and return the attached invoice. A PDF reply to this email is perfect.
 
 Thank you again,
 Kaelyn
 
-*Notes:* [honorarium] must match the approved purchase requisition, and [PO #] comes from K8 Key Info; a missing PO blocks this message. [X] weeks is an open question for finance; remove the sentence until it's answered.
+*Notes:* attach the prefilled invoice form from finance (Derek), with our side filled in: [honorarium], PO number from K8 Key Info, and "Lumenis webinar, [date]" as the description. It already asks the KOL for everything else, so the email doesn't list it. [honorarium] is always a bracket, never a typed amount, and must match the approved requisition; a missing PO blocks this message. This is the same form used for trade show speakers.
 
 ## P5 Handwritten note
 
@@ -209,4 +178,4 @@ About 60 words, to fit the card.
 > With thanks,
 > The Lumenis Vision team
 
-*Notes:* take the specific line from the L5 email so the two match.
+*Notes:* a template only; personalize the middle line for each KOL. Sign as the company, never with names. **Address:** the KOL's practice address from a web search first; check Salesforce only if they have several offices (it often holds duplicate contacts), and ask Ted or Nicholas if it's still unclear. **Expense:** code the note-service charge to marketing operations.

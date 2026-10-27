@@ -31,7 +31,7 @@ Run every check against the live systems and record **pass**, **fail** with the 
 | 3 | Console CTA | Points to the right destination with the right tracking link, and the link opens |
 | 4 | Slides | Final deck uploaded; no duplicated slides; videos play |
 | 5 | ON24 emails | All five set; the 2-hour reminder is scheduled from the confirmed live start |
-| 6 | Presenter links | Sent to the KOL and host (D18), not the attendee link |
+| 6 | Presenter links | In the tech check invite (D1) for the KOL and host, and they're the presenter link, not the attendee link |
 | 7 | Tech check | On the KOL's, host's and EJ's calendars for the confirmed time |
 | 8 | HubSpot segments | Registered segment is filling; Attended segment exists |
 | 9 | Workflow | On (a person turned it on at D9), enrollment on this event ID, branches on this event ID |
