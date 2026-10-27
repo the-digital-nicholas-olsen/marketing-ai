@@ -48,7 +48,7 @@ Ted builds the flyer and the deck his own way. This skill is the second pair of 
 
 1. Run every row for the asset type. Record **pass**, **fail** with the fix, or **blocked** with what's missing.
 2. Fixes are the content owner's call. Suggest the fix, don't make design changes yourself unless asked.
-3. **After revisions,** re-run the claims and link rows on everything that changed, plus F2-F3 / D5.
+3. **After revisions,** re-run every row the change could affect, not only claims and links: new or edited copy (claims, clarity, title and date rows), a new image (rights and brand), a changed bio or credentials (KOL row), new links or a new QR code (link row). When in doubt, re-run the whole table.
 4. Save the report in the project folder and link it from the Smartsheet row (C9 for the flyer, C20 and C23 for the deck). The flyer goes to the KOL (C10), and the deck (C21), only when every row passes.
 
 ## Report

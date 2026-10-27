@@ -33,7 +33,7 @@ Partial inversion (Gmail app) and full inversion (Outlook) behave differently, s
 
 **3. Mobile responsiveness.** At 320, 375 and 414 px wide, plus the 540-600 px desktop widths in the [HTML email rules](../lumenis-hubspot-email/references/html-email-rules.md) (Litmus mobile previews, or the HubSpot mobile preview plus a real phone): columns stack in reading order, body text is at least 14 px, headings don't wrap one word per line, buttons are at least 44 px tall and full width or centered, no horizontal scroll, images scale without distortion.
 
-**4. Links.** Click every link in the test email, including the logo, footer and view-in-browser link. Each goes to its real destination with the intended tracking parameters ([lumenis-utm-links](../lumenis-utm-links/SKILL.md)); no placeholders, no stale UTMs, no recipient-specific unsubscribe links pasted from a preview.
+**4. Links.** Click every link in the test email, including the logo, footer and view-in-browser link. Each goes to its real destination. Promotional links carry the intended tracking parameters; utility, legal and subscription links don't get campaign UTMs (see the link check in [lumenis-utm-links](../lumenis-utm-links/SKILL.md)); no placeholders, no stale UTMs, no recipient-specific unsubscribe links pasted from a preview.
 
 **5. Images and accessibility.** Every image is hosted (absolute URL) and has alt text that makes sense if images are off. View the email with images off: the message and call to action still read.
 

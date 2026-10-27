@@ -43,7 +43,7 @@ Webinar links:
 
 ## Procedure
 
-1. **Build each link** from the destination and the table. Keep the destination's own query parameters; append the UTMs with `&` if the URL already has a `?`.
+1. **Build each link** from the destination and the table with a URL parser (for example a short script), not by pasting strings: keep the destination's own query parameters, replace any UTMs it already carries rather than adding a second set, and keep a `#fragment` at the end.
 2. **Save them** as tracking URLs on the HubSpot campaign (Campaign → Tracking URLs), so they report against it. If that isn't available, build them by hand with the same values.
 3. **Open every link** in a private browser window: it must reach the right page for this campaign, not a past one.
 4. **For a QR code,** encode the QR link and scan the finished artwork with a phone before it's approved.
@@ -51,7 +51,14 @@ Webinar links:
 
 ## Check links in a finished asset
 
-Used by [lumenis-webinar-asset-check](../lumenis-webinar-asset-check/SKILL.md) and [lumenis-email-check](../lumenis-email-check/SKILL.md). For every link in the asset: the destination is this campaign's; the UTMs match the channel's row above; nothing is tagged twice; there are no leftover UTMs from a donor asset; the QR code scans to the QR link. Report pass or fail per link.
+Used by [lumenis-webinar-asset-check](../lumenis-webinar-asset-check/SKILL.md) and [lumenis-email-check](../lumenis-email-check/SKILL.md). First sort every link into one of two kinds:
+
+| Kind | Examples | Check |
+|---|---|---|
+| **Promotional** | Register button, QR code, CTA, links to the campaign page | Destination is this campaign's; UTMs match the channel's row above; nothing tagged twice; no leftover UTMs from a donor asset; the QR code scans to the QR link |
+| **Utility, legal and subscription** | Logo link to the home page, privacy policy, unsubscribe and manage-preferences links, view in browser, social profile icons | Goes to its own correct destination. **No campaign UTMs added.** Unsubscribe and preference links keep the platform's tokens (for HubSpot, `{{unsubscribe_link}}` and `{{unsubscribe_link_all}}`) and are never replaced with a copied URL |
+
+Report pass or fail per link, with its kind.
 
 ## Open question
 

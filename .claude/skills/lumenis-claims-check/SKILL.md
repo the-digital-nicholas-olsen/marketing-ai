@@ -32,12 +32,14 @@ The [regulatory files](../../../assets/regulatory/README.md) say what each produ
 
    | What you find | Result |
    |---|---|
-   | A `confirmed` row whose claim, market and audience match | **Supported**: cite the row ID and its reference |
+   | A `confirmed` row whose claim, market and audience match, **and** the piece keeps the row's material qualifications | **Supported**: cite the row ID and its reference |
+   | A `confirmed` row that matches, but the piece drops or overstates a qualification | **Fail**: say which qualification must be restored |
    | A matching row marked `needs review` | **Blocked**: give the row's open issue |
    | A matching row, but the number or wording differs | **Fail**: give the library's figure and wording |
    | A row that's superseded | **Fail**: use the current row |
    | No row | **Unsupported**: needs a source added to the library (by its rules) or the claim removed |
 
+   **Qualifications count as much as the number.** Read the row's Qualifications cell and any linked note in the product file's "Notes and flags" section. Material limits (the population studied, the comparison basis, the timeframe, a single practice's reported experience, data on file) must survive in the piece's wording or its footnote. A matching headline figure and citation alone doesn't pass.
 4. **Check the references** on the piece itself: every supported claim has its citation on the piece or a references slide, matching the library row.
 5. **Write the report.** Don't rewrite the claims yourself unless asked; give the reason and the library's wording so the content owner can fix it.
 

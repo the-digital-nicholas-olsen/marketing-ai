@@ -28,20 +28,29 @@ Sales leaders want to know who's signed up, and reps want their leads the mornin
 ON24 doesn't pass country to HubSpot (a known integration gap), and leads without a country don't route correctly in Salesforce. The registration workflow runs overnight (around 2-3 AM PT for Vision), so this has to be done the same night.
 
 1. Export the ON24 registrant and attendee lists for the event. Exports and the import file contain contact data: keep them in the project folder, delete working copies after the import, and never put them in this repository.
-2. Build an import file with email and country only. Set **United States** or **Canada** from the state or province and postal code (US ZIP: 5 digits; Canadian postal code: letter-digit-letter). Anything else, or unclear rows, goes on an exceptions list, not into the file.
-3. Hand the file and the exceptions to the owner. **The owner runs the HubSpot import** (update existing contacts, match on email). An import changes live records, so the agent never runs it.
-4. After the import, spot-check five contacts for the country value and confirm it's done before the workflow time.
+2. **Merge and deduplicate** the two exports into one row per contact, keyed on email (lowercased, trimmed). If the two exports disagree about a contact's state, province or postal code, the contact goes on the exceptions list.
+3. **Check HubSpot first.** Look up each contact's current Country. Only contacts whose Country is **blank** go into the import file. A populated Country is left alone, even if it looks wrong; a populated value that conflicts with the ON24 location goes on the exceptions list for the owner.
+4. **Set the country** for the blank ones: **United States** when the state is a US state and the postal code is a 5-digit ZIP (or ZIP+4); **Canada** when the province is a Canadian province and the postal code is letter-digit-letter. State and postal code must agree. Anything else (missing, mismatched or another country) goes on the exceptions list, not into the file.
+5. The import file holds email and country only, one row per contact, with a count line in the hand-off: contacts exported, deduplicated, already had a country, set to US, set to Canada, exceptions.
+6. Hand the file and the exceptions to the owner. **The owner runs the HubSpot import** (update existing contacts, match on email). An import changes live records, so the agent never runs it.
+7. After the import, spot-check five imported contacts and two that already had a country (unchanged), and confirm it's done before the workflow time.
 
 ## 3. Post-show report (T+1, first thing in the morning)
 
 1. From ON24: total registrants, live attendees, attendance rate, average minutes watched, the engagement report, CTA clicks and who clicked.
 2. From HubSpot: the Attended segment count (cross-check against ON24).
-3. Draft an upbeat email to the RSMs: the headline numbers, the CTA clickers (they're the warmest leads), the most-asked Q&A topics, a note that attendee leads are being sent to them now, and that the recording goes on demand this week.
+3. Draft an upbeat email to the RSMs: the headline numbers, the CTA clickers (they're the warmest leads) and the most-asked Q&A topics. State lead delivery and the on-demand recording as **confirmed**, **pending** or **blocked**, based on what you checked (the workflow ran and leads reached Salesforce; the recording is live in ON24). Never promise either before it's true.
 4. Save it as a draft; the owner sends. Save the numbers in the project folder, not in Git.
 
 ## 4. Sync check (T+1)
 
-Compare HubSpot with Salesforce: Registered and Attended segment counts against the Salesforce campaign's members by status. List any contact in HubSpot but missing from Salesforce, or with the wrong status. Small gaps usually mean a contact failed a routing rule; give the list to marketing operations rather than fixing records by hand.
+Reconcile contact by contact, not by segment counts: an attendee is in both HubSpot segments, while in Salesforce their status has moved on to Attended.
+
+1. **Expected status per contact,** by precedence: in the Attended segment → **Attended**; in the Registered segment only → **Registered**. Confirm this precedence matches the workflow's branches before relying on it; if the workflow differs, use the workflow's rule.
+2. **Compare** each contact's expected status with their Salesforce campaign member status.
+3. **Report** three lists: missing from the Salesforce campaign, wrong status, and in Salesforce but not in either segment. Counts that match aren't proof; the lists are.
+
+Small gaps usually mean a contact failed a routing rule. Give the lists to marketing operations rather than fixing records by hand.
 
 ## Stop and ask
 
