@@ -73,7 +73,7 @@ Ted
 
 ## D1 Tech check calendar invite
 
-**To:** KOL, host, Ted · **When:** [date], from [tech check time] to one hour after the live session ends · **Title:** Lumenis webinar: tech check at [tech check time], live at [live time]
+**To:** KOL, host, Ted · **When:** [date], from [tech check time] to the confirmed end of the live session · **Title:** Lumenis webinar: tech check at [tech check time], live at [live time]
 
 Hi Dr. [Last name],
 
