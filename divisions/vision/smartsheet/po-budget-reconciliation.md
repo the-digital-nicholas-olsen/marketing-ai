@@ -100,6 +100,8 @@ Do not add rows. Obtain the budget owner's approval before adding a missing PR/P
 - Treating calculated funding headroom as a SAP open balance.
 - Copying actual records or restricted review evidence into public issues or pull requests.
 
+Related: [KOL invoice filing](kol-invoice-filing.md) files a single KOL honorarium invoice and updates its line item's actuals; this audit then reconciles those actuals.
+
 ## Maintenance
 
 Review date: 2026-10-06. Keep confirmation evidence in the internal work system. Revalidate live column names, statuses and comparison amounts before each audit. Missing or conflicting source records block the affected calculation, not the independent parts of the audit.
