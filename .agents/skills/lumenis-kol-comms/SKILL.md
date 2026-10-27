@@ -6,7 +6,7 @@ description: Draft the emails and notes a KOL receives across a Lumenis campaign
 # KOL comms
 
 Owner: Nicholas, with Ted for content-stage messages and Kaelyn for post-event messages.
-Status: draft procedure, written 2026-10-27. The webinar templates were reviewed with Nicholas, Ted, EJ and Kaelyn on 2026-10-27; they stay drafts until the first live webinar.
+Status: draft procedure, written 2026-10-27. The webinar templates were reviewed with Nicholas, Ted, EJ and Kaelyn on 2026-10-27; they stay drafts until the first live webinar. At that webinar's retro (P15), Nicholas and each sender compare the drafts with what was sent and update the templates; then they're approved guidance.
 
 KOLs hear from several people on our team over two months. This skill keeps those messages consistent, fills them from the campaign record instead of memory, and leaves sending to the person who owns the relationship.
 
@@ -19,11 +19,19 @@ KOLs hear from several people on our team over two months. This skill keeps thos
 ## Procedure
 
 1. **Pick the template** for the step. If none fits, draft from the closest one and say it's new wording.
-2. **For interview scheduling (C1), find the times first.** Read Ted's Outlook calendar through the calendar connector and pick three free hours on or before T-45, in Ted's working hours. Work out the KOL's time zone from their practice location (web search, then the KOL library), save it in C1 Key Info, and show the options in that zone. With no calendar connector, ask Ted for his free times and still convert them.
-3. **Fill every bracket** from the campaign record. Optional lines (marked in the template notes) are dropped whole when their fact is missing, never left with a bracket. A required fact that's missing (the date, the KOL's name, the presenter link) blocks the draft: list it and stop.
-4. **Run [Ted's clarity gate](../copy-clarity-gate/SKILL.md)** on the filled draft. Any clinical statement goes through the [claims library](../../../assets/claims-reference/index.md); KOL emails should rarely need one.
-5. **Save as a draft** in the sender's mailbox when an email connector is available, otherwise return the text. Attach files named in the template (flyer, deck link) from the project folder.
-6. **Update the Smartsheet row** to Ready for Review with a note of where the draft is. The sender sends; then the row moves to Complete.
+2. **Settle the KOL's time zone before the first time goes out.** That's recruitment (K4). If K4 Key Info already has a zone, use it. Otherwise find the practice location (KOL library, then a web search), map it to a named zone (America/Chicago) and save it in K4 Key Info. Several practices in different zones, or no location found: ask the sender which applies, and don't guess. Convert each time for its own date, so a November webinar and an October interview each get the right daylight saving offset.
+3. **For interview scheduling (C1), find the times next.** Read Ted's Outlook calendar through the calendar connector and pick three free hours on or before T-45, in Ted's working hours, then show them in the KOL's zone from K4 Key Info. With no calendar connector, ask Ted for his free times and still convert them.
+4. **Fill every bracket** from the campaign record. Optional lines (marked in the template notes) are dropped whole when their fact is missing, never left with a bracket. A required fact that's missing (the date, the KOL's name, the presenter link) blocks the draft: list it and stop.
+5. **Run [Ted's clarity gate](../copy-clarity-gate/SKILL.md)** on the filled draft. Any clinical statement goes through the [claims library](../../../assets/claims-reference/index.md); KOL emails should rarely need one.
+6. **Save as a draft** in the sender's mailbox when an email connector is available, otherwise return the text. Attach files named in the template (flyer, deck link) from the project folder.
+7. **Update the Smartsheet row** to Ready for Review with a note of where the draft is. The sender sends; then the row moves to Complete.
+
+## When an input is missing (fictional examples)
+
+- **Recruitment for a new KOL.** Dr. Example's K4 is due; nothing has a time zone yet. The KOL library lists one practice in Denver, so the agent saves America/Denver in K4 Key Info and shows the 5:00 PM PT start as 6:00 PM MT. C1 later reuses that zone.
+- **Unclear location.** Dr. Sample practices in Chicago and Atlanta. The agent doesn't pick one: it asks Nicholas which zone to use, and K4 stays Not Started with "KOL time zone?" in Notes / Blocker.
+- **No calendar access.** At C1 the calendar connector isn't available. The agent asks Ted for three free hours, converts them to the KOL's zone and drafts the reply; C1 goes Ready for Review as usual.
+- **No invoice form.** At P6 there's no prefilled invoice form in the project's `Invoices/` folder. The draft is blocked: the agent asks Kaelyn to get the form from finance and leaves P6 In Progress with "invoice form needed" in Notes / Blocker. It doesn't send the email without the attachment.
 
 ## Boundaries
 

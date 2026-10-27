@@ -1,6 +1,6 @@
 ---
 title: Webinar KOL message templates
-status: reviewed with the team 2026-10-27; draft until the first live webinar
+status: reviewed with the team 2026-10-27; draft until the first live webinar, when Nicholas and each sender review the drafts against what was sent at the retro (P15) before these become approved
 owner: Nicholas (recruitment), Ted (content stage), EJ (logistics), Kaelyn (post-event)
 ---
 # Webinar KOL messages
@@ -10,7 +10,7 @@ Eight messages, in send order. Step IDs match the Vision *TEMPLATE - Webinar* sh
 - **[honorarium]:** the amount in the campaign record (K1/K4 Key Info). The usual webinar honorarium is $2,000, but always use the record. No amount in the record blocks K4.
 - **[live time]:** the confirmed live start, from the campaign record. The usual pattern is 5:00 PM PT.
 - **[tech check time]:** one hour before [live time], unless the record says otherwise.
-- **[KOL time zone]:** found at interview scheduling (C1) from the KOL's practice location and saved in C1 Key Info. Every time we send the KOL is shown in their time zone, so they don't have to convert.
+- **[KOL time zone]:** resolved at recruitment (K4), the first message with a time in it, and saved in K4 Key Info as a named zone (America/New_York, not "UTC-5"). C1, D1 and C21 reuse it. Every time we send the KOL is shown in their zone, converted for that time's own date so daylight saving is right. See the skill's time zone step for how to find it and what to do when it's unclear.
 
 | Step | Message | Timing | Sender |
 |---|---|---|---|
@@ -29,7 +29,7 @@ Eight messages, in send order. Step IDs match the Vision *TEMPLATE - Webinar* sh
 
 Hi Dr. [Last name],
 
-[Optional: [RSM first name] on our team recommended you, and ]I'd love to have you lead a Lumenis Vision webinar on [topic]. We're looking at [day, date] at [live time], and we have some flexibility around that date if it doesn't work for you.
+[Optional: [RSM first name] on our team recommended you, and ]I'd love to have you lead a Lumenis Vision webinar on [topic]. We're looking at [day, date] at [live time] [KOL time zone], and we have some flexibility around that date if it doesn't work for you.
 
 Our webinars draw a strong audience: usually about 100 eye care professionals live and about double that on demand, with some reaching 500 viewers in total.
 
@@ -39,14 +39,14 @@ We offer a [honorarium] honorarium. Here's the time we'd ask of you:
 - **One or two rounds of review** on the promotional flyer and the slide deck we create from that interview.
 - **A 1-hour deck walkthrough** with Ted[ and the Lumenis regional sales manager who will host the session] before the event.
 - **A tech check** starting 1 hour before go-live on the day.
-- **The live webinar itself**, about 1 hour, at [live time] on [date].
+- **The live webinar itself**, about 1 hour, at [live time] [KOL time zone] on [date].
 
 If you're interested, just reply here and Ted will find a time for the interview. I'm happy to answer any questions first.
 
 Thank you for considering it,
 Nicholas
 
-*Notes:* include the host clause only when a host is confirmed; don't name the host here. Use the RSM clause only when an RSM did recommend the KOL, and replace it with a personal opener when there's a better one. Don't ask for a social promo here: it's optional, and asking up front could put a KOL off. It comes later, with the deck (C21). Audience figures are the team's stated averages (2026-10-27); update them here when they change.
+*Notes:* include the host clause only when a host is confirmed; don't name the host here. Use the RSM clause only when an RSM did recommend the KOL, and replace it with a personal opener when there's a better one. Don't ask for a social promo here: it's optional, and asking up front could put a KOL off. It comes later, with the deck (C21). Audience figures are the team's stated averages (2026-10-27); update them here when they change. Both times are in the KOL's zone (from K4 Key Info); if the zone isn't settled, the draft waits.
 
 ## C1 Interview scheduling
 
@@ -69,7 +69,7 @@ If none of them fit, send me two or three times that do and I'll make one work.
 Thanks,
 Ted
 
-*Notes:* the options come from Ted's Outlook calendar (see the skill's interview scheduling step): three free hours on or before T-45, shown in the KOL's time zone. If Ted is free at 11:00 AM PT and the KOL is on the East Coast, offer 2:00 PM ET. The Teams invite is titled "Lumenis webinar interview: Dr. [Last name]", with recording on.
+*Notes:* the options come from Ted's Outlook calendar (see the skill's interview scheduling step): three free hours on or before T-45, shown in the KOL's time zone from K4 Key Info. If Ted is free at 11:00 AM PT and the KOL is on the East Coast, offer 2:00 PM ET. The Teams invite is titled "Lumenis webinar interview: Dr. [Last name]", with recording on.
 
 ## D1 Tech check calendar invite
 
