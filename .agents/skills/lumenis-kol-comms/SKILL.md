@@ -27,5 +27,7 @@ KOLs hear from several people on our team over two months. This skill keeps thos
 ## Boundaries
 
 - Drafting never authorizes sending. Each message is sent by the named person.
-- Don't add promises the template doesn't make (extra fees, travel, timelines). Honorarium amounts come from the campaign record and the approved PR.
+- Don't add promises the template doesn't make (extra fees, travel, timelines).
+- **Honorarium:** the offer (recruitment) uses the amount in the campaign record; the purchase requisition is raised only after the KOL agrees, so it can't gate the offer. The invoice request must match the approved requisition and PO.
+- **Times** come from the campaign record's confirmed live start and time zone. Never assume the usual 5:00 PM PT.
 - Handwritten-note text goes to the note service only after the sender approves it.

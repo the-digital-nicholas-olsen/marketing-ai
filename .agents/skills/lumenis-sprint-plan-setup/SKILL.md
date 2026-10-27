@@ -22,13 +22,18 @@ Requires the Smartsheet connector with edit access to both sheets. Without it, p
 
 ## Procedure
 
-1. **Check for an existing copy.** Search the live plan for the project name. If rows already exist, update missing due dates only; never add a second set.
+1. **Check for an existing copy.** Search the live plan for the project name. If a Project row exists, compare the Step IDs under it with the template's. Add only the missing steps, each in its template position (under its Workstream row, in template order), then fill missing due dates. This also repairs a copy that stopped partway. Never add a second Project row or a second copy of a step, and never change a row a teammate has edited.
 2. **Read the template whole,** in order, keeping its hierarchy (Workstream rows with Task rows under them).
-3. **Compute each due date** from Days from Event: `due = T + days`, in calendar days. A date on a Saturday or Sunday moves to the Friday before. A blank Days from Event means the row's AI Instructions hold a rule (for example "Monday of webinar week"); apply it, and if it can't be applied, leave the date blank and list the row in the report.
+3. **Compute each due date** from Days from Event: `due = T + days`, in calendar days. Then adjust weekends:
+   - **The event date never moves,** and neither does any row with Days from Event = 0 or a Timing that starts with "T-0" (tech check, live event, night-of tasks). For a multi-day event, rows the template ties to an event day keep that day.
+   - **Pre-event deadlines** (negative days) that land on a Saturday or Sunday move to the Friday before.
+   - **Post-event steps** (positive days) that land on a weekend move to the Monday after. Moving them earlier could put them before the event.
+   - A blank Days from Event means the row's AI Instructions hold a rule (for example "Monday of webinar week"); apply it. If it can't be applied, leave the date blank and list the row in the report.
+   - **Check dependencies last.** If an adjusted date falls before the due date of a step in its Depends On, set it to that prerequisite's date and list the row in the report.
 4. **Add one Project row** at the right place in the live plan (under the campaign type's Category row when one exists), then the template's rows under it with the same hierarchy. Copy every template column as is. Set Project on every row, Status = Not Started, Done unchecked, Sprint = Backlog unless the user names a sprint.
 5. **Fill Key Info** blanks you were given (KOL, host, date). Leave the rest as the template's fill-in prompts.
 6. **Ask the librarian for the project folder.** Follow [lumenis-librarian](../lumenis-librarian/SKILL.md) to create `<campaign root>/<Project>/` with its `_Context/` folder, and put the folder path or link in the Project row's Key Info. If the shared folder isn't synced on this machine, skip this step and list it as open.
-7. **Read back** the new rows: count matches the template, every Task row has an owner, every row with Days from Event has a due date, and no date falls on a weekend.
+7. **Read back** the new rows: count matches the template, every Task row has an owner, every row with Days from Event has a due date, only event-day rows fall on a weekend, and no row is due before its prerequisites.
 
 ## Output
 
@@ -43,5 +48,6 @@ A short report: project row link, rows added, the date range (first and last due
 ## Mistakes to avoid
 
 - Counting business days. The templates use calendar days.
+- Moving event-day rows, or pulling a post-event step before the event, to avoid a weekend.
 - Flattening the hierarchy. The daily brief and reports rely on Workstream and Task rows.
 - Copying template Key Info prompts into the Notes column, or overwriting a teammate's edits in an existing project.

@@ -39,7 +39,26 @@ Partial inversion (Gmail app) and full inversion (Outlook) behave differently, s
 
 **6. Copy.** Subject and preview text are set, read naturally together, and fit (subject about 50 characters, preview about 90). No leftover placeholder text. [Ted's clarity gate](../copy-clarity-gate/SKILL.md) has been run.
 
-**7. Send settings.** Read back every field from the saved email: subject, preview text, from name, from address, reply-to, subscription type, send-to and don't-send lists, *don't send to unengaged* (where used), campaign, and the scheduled date and time with its time zone. One field reading back correctly doesn't prove the others did.
+**7. Send settings (before scheduling).** Read back every setting that applies to this email type (table below) from the saved draft and compare each with the campaign record, including the **intended** send date, time and time zone. One field reading back correctly doesn't prove the others did.
+
+## Which settings apply
+
+| Setting | HubSpot regular email | HubSpot automated email | ON24 notification |
+|---|---|---|---|
+| Subject, preview text | Yes | Yes | Yes (check the preview text in the HTML header) |
+| From name, from address, reply-to | Yes | Yes | Not applicable: set at the ON24 event level; note what it shows |
+| Subscription type | Yes | Yes | Not applicable |
+| Send-to and don't-send lists | Yes | Not applicable: the workflow decides who gets it | Not applicable: ON24 sends to registrants |
+| Don't send to unengaged | When the campaign uses it | Not applicable | Not applicable |
+| Campaign association | Yes | Yes | Not applicable |
+| Send timing | Intended date, time and time zone | The workflow step and delay that send it | The ON24 trigger (for example 2 days or 2 hours before the live start) matches the event's confirmed time |
+
+Record "not applicable" with the reason in the report; it counts as a pass for that row.
+
+## Two stages
+
+1. **Before scheduling:** run checks 1-7. The email is ready to schedule only when every applicable check passes.
+2. **After a person schedules or publishes it:** reopen the email and read back the **saved** send date, time and time zone (or the workflow or ON24 trigger) and the lists once more. Record this read-back in the same report. A mismatch means unschedule and fix before the send time.
 
 ## Report
 
@@ -53,9 +72,10 @@ Email check: <email name> · <date>
 6 Copy              pass
 7 Send settings     blocked: send-to audience list not chosen yet
 Ready to schedule: no
+After scheduling:   not run yet
 ```
 
-The email is ready to schedule only when every check passes. Put the report link in the campaign's Smartsheet row. Scheduling and sending stay with the person who owns the email.
+Put the report link in the campaign's Smartsheet row. Scheduling and sending stay with the person who owns the email.
 
 ## Mistakes to avoid
 

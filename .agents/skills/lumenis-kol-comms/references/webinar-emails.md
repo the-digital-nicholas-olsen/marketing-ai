@@ -5,7 +5,11 @@ owner: Nicholas (recruitment), Ted (content stage), EJ (logistics), Kaelyn (post
 ---
 # Webinar KOL messages
 
-Nine messages, in send order. Step IDs match the Vision *TEMPLATE - Webinar* sheet. Brackets are filled from the campaign's Key Info cells. Live time is 5:00 PM PT unless the campaign record says otherwise.
+Nine messages, in send order. Step IDs match the Vision *TEMPLATE - Webinar* sheet. Brackets are filled from the campaign's Key Info cells. Three brackets recur:
+
+- **[honorarium]:** the amount in the campaign record (K1/K4 Key Info). The usual webinar honorarium is $2,000, but always use the record. No amount in the record blocks K4.
+- **[live time]:** the confirmed live start with its time zone, from the campaign record. The usual pattern is 5:00 PM PT.
+- **[tech check time]:** one hour before [live time], unless the record says otherwise.
 
 | Step | Message | Timing | Sender |
 |---|---|---|---|
@@ -25,17 +29,17 @@ Nine messages, in send order. Step IDs match the Vision *TEMPLATE - Webinar* she
 
 Hi Dr. [Last name],
 
-[RSM first name] on our team recommended you, and I'd love to have you lead a Lumenis Vision webinar on [topic]. We're looking at [day, date] at 5:00 PM PT, and we have some flexibility around that date if it doesn't work for you.
+[RSM first name] on our team recommended you, and I'd love to have you lead a Lumenis Vision webinar on [topic]. We're looking at [day, date] at [live time], and we have some flexibility around that date if it doesn't work for you.
 
 Our webinars draw a strong audience: usually about 100 eye care professionals live and about double that on demand, with some reaching 500 viewers in total.
 
-We offer a $2,000 honorarium. Here's the time we'd ask of you:
+We offer a [honorarium] honorarium. Here's the time we'd ask of you:
 
 - **A 1-hour interview** with Ted, who leads webinar content on our team (cc'd), so we can build the webinar around your experience.
 - **One or two rounds of review** on the promotional flyer and the slide deck we create from that interview.
 - **A 1-hour deck walkthrough** with Ted[ and [host name], the Lumenis regional sales manager who will host the session] before the event.
 - **A tech check** starting 1 hour before go-live on the day.
-- **The live webinar itself**, about 1 hour, at 5:00 PM PT on [date].
+- **The live webinar itself**, about 1 hour, at [live time] on [date].
 
 If you're interested, just reply here and Ted will find a time for the interview. I'm happy to answer any questions first.
 
@@ -69,11 +73,11 @@ Ted
 
 ## D1 Tech check calendar invite
 
-**To:** KOL, host, Ted · **When:** [date], 4:00–6:00 PM PT · **Title:** Lumenis webinar: tech check at 4:00, live at 5:00 PM PT
+**To:** KOL, host, Ted · **When:** [date], from [tech check time] to one hour after the live session ends · **Title:** Lumenis webinar: tech check at [tech check time], live at [live time]
 
 Hi Dr. [Last name],
 
-This holds your time on webinar day. We'll start with a tech check at 4:00 PM PT to make sure your audio, video and slides all work, then go live at 5:00 PM PT. The webinar runs about an hour.
+This holds your time on webinar day. We'll start with a tech check at [tech check time] to make sure your audio, video and slides all work, then go live at [live time]. The webinar runs about an hour.
 
 I'll send your personal presenter link the week of the webinar. Please join from a computer with a headset or good microphone, in a quiet room.
 
@@ -128,7 +132,7 @@ Ted
 
 ## D18 Presenter link and reminder
 
-**To:** KOL, host · **Cc:** Ted · **Subject:** Your presenter link for [day]'s webinar, tech check at 4:00 PM PT
+**To:** KOL, host · **Cc:** Ted · **Subject:** Your presenter link for [day]'s webinar, tech check at [tech check time]
 
 Hi Dr. [Last name],
 
@@ -138,9 +142,9 @@ This link is just for you, so please don't share it with attendees.
 
 **On the day:**
 
-- **4:00 PM PT:** join with the link above for the tech check.
+- **[tech check time]:** join with the link above for the tech check.
 - **After the tech check:** mute and stay nearby. Please be back on at least 5 minutes before we go live.
-- **5:00 PM PT:** we go live.
+- **[live time]:** we go live.
 
 If anything comes up, reply here or call me at [EJ's phone].
 
@@ -173,18 +177,18 @@ Ted
 
 ## P6 Invoice request
 
-**Subject:** Your $2,000 honorarium for the [month] Lumenis webinar
+**Subject:** Your [honorarium] honorarium for the [month] Lumenis webinar
 
 Hi Dr. [Last name],
 
-Thank you for leading our webinar on [topic] on [date]. To process your $2,000 honorarium, could you send me an invoice?
+Thank you for leading our webinar on [topic] on [date]. To process your [honorarium] honorarium, could you send me an invoice?
 
 Please include:
 
 - Your name or practice name as the payee
 - Your mailing address
 - "Lumenis webinar, [date]" as the description
-- The amount: $2,000
+- The amount: [honorarium]
 - PO number [PO #]
 
 A PDF reply to this email is perfect. Once I have it, payment usually takes [X] weeks.
@@ -192,7 +196,7 @@ A PDF reply to this email is perfect. Once I have it, payment usually takes [X] 
 Thank you again,
 Kaelyn
 
-*Notes:* [X] weeks is an open question for finance; remove the sentence until it's answered.
+*Notes:* [honorarium] must match the approved purchase requisition, and [PO #] comes from K8 Key Info; a missing PO blocks this message. [X] weeks is an open question for finance; remove the sentence until it's answered.
 
 ## P5 Handwritten note
 

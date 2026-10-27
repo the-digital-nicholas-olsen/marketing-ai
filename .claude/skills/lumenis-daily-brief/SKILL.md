@@ -20,7 +20,7 @@ Requires the Smartsheet connector (read). Without it, say the brief can't be bui
 
 ## Procedure
 
-1. **Read the sheet** with filters: Owner includes the person, Status is not Complete or Dropped, Row Type is Task or Subtask. Use the connector's filters rather than reading every row.
+1. **Read the sheet** with filters: Owner includes the person **or** Owner includes Everyone; then Status is not Complete or Dropped, and Row Type is Task or Subtask. If the connector can't combine OR and AND in one call, run two reads (the person's rows, then Everyone's rows) with the status and row-type filters on each, and merge them without duplicates.
 2. **Group the rows:**
    - **Late:** Due Date before today.
    - **Due this week:** Due Date from today through the coming Sunday.

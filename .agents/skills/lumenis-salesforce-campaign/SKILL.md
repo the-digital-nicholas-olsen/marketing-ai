@@ -17,32 +17,34 @@ Creating a campaign needs Salesforce permission for that division. For Vision (a
 ## Inputs
 
 - Division and program type, the agreed campaign name (`node scripts/name.mjs`), budget from the owner (never from a past campaign), and the reporting dates.
-- Member statuses the HubSpot workflow will set. For a webinar: **Registered** and **Attended**.
+- Member statuses the HubSpot workflow will set, each with its approved **Responded** flag. For a webinar: **Registered** and **Attended**. Which of them count as responded is a reporting decision for marketing operations; confirm it rather than copying another campaign. A status without a confirmed Responded flag blocks step 3.
 
-## Fields by program type
+## Webinar fields (Vision, stated by the team 2026-10-27)
 
-| Field | Webinar (Vision, stated 2026-10-27) | Other programs |
-|---|---|---|
-| Record type | US Ophthalmic for Vision; the Aesthetics type confirmed live | Same |
-| Campaign name | Naming convention | Same |
-| Active | Checked | Same |
-| Status | 2/3 In Progress | Same, per the observed setup |
-| Type | Webinar | Tradeshow, or the type the brief approves |
-| Campaign Specialty | Ophthalmic for Vision; Aesthetics for Aesthetics | Same |
-| Event Coordinator | None | Per brief |
-| Start date | The day the campaign is created | Per brief |
-| End date | December 31 of the same year | Per brief |
-| Budgeted Cost / Actual Cost | The approved honorarium total (standard webinar: $2,000 each) | Owner's budget |
-| Division | Ophthalmic or Aesthetics, if the field is editable | Same |
+| Field | Value |
+|---|---|
+| Record type | US Ophthalmic. For Aesthetics, confirm the record type live; never guess it from a label |
+| Campaign name | Naming convention |
+| Active | Checked |
+| Status | 2/3 In Progress |
+| Type | Webinar |
+| Campaign Specialty | Ophthalmic |
+| Event Coordinator | None |
+| Start date | The day the campaign is created |
+| End date | December 31 of the same year |
+| Budgeted Cost / Actual Cost | The honorarium total in the campaign record |
+| Division | Ophthalmic, if the field is editable |
 
-The Division field has been read-only or missing on some create screens; see the reference above before escalating.
+**Other programs** (Accelerate, trade shows) don't inherit these values. Take every field from the brief and an approved comparable campaign. The [campaigns reference](../lumenis-accelerate-campaign/references/campaigns-and-segments.md) records one observed trade show setup; it's evidence of what was done once, not a default.
+
+The Division field has been read-only or missing on some create screens; see that reference before escalating.
 
 ## Procedure
 
 1. **Search first** for the agreed name and close variants in Salesforce. Reuse a correct existing campaign rather than creating a duplicate.
 2. **Create** the campaign with every field above, then save and capture the record ID.
-3. **Add member statuses:** Related → Campaign Member Statuses → New, once per status, with the exact text. Reload the related list and confirm each new row; a dialog that closes isn't proof it saved.
-4. **Read back** every field from the saved record.
+3. **Add member statuses.** First open Related → Campaign Member Statuses and list what already exists (new campaigns come with defaults). Reuse a matching status; don't add a near-duplicate. For each missing status: New, the exact approved text, and its approved Responded flag. Reload the related list and confirm each row shows the right text and Responded value; a dialog that closes isn't proof it saved.
+4. **Read back** every field from the saved record, and every member status with its Responded flag.
 5. **Record** the campaign name and ID in the campaign's Smartsheet row (Key Info), not in Git.
 
 ## Later updates

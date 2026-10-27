@@ -12,7 +12,7 @@ ON24 holds the registration page, the live room, the reminder emails and the on-
 
 ## Inputs
 
-- Title and subtitle (the subtitle is the ON24 event name; the title sits on the hero image), date, and division.
+- Title and subtitle (the subtitle is the ON24 event name; the title sits on the hero image), date, division, and the **confirmed live start with its time zone** from the campaign record. The usual Vision pattern is 5:00 PM PT; never assume it. No confirmed start blocks step 1.
 - The **donor event ID** recorded in the campaign template's AI Instructions (step D3). It lives in Smartsheet so it can change without a repository edit.
 - The ON24 notification email HTML templates. **Not in the repository yet**: until they're added under `references/`, rebuild each email from the donor and check the preview text by hand.
 - For the page: the content owner's handoff (copy, 1200 x 800 hero image, bio, headshot link, KOL email and LinkedIn).
@@ -22,7 +22,7 @@ Works through the person's logged-in ON24 session in the browser. Never enter cr
 
 ## Setup (around T-42)
 
-1. **Clone** the donor event with *Create a copy*. Set the event title, date, live start 5:00 PM PT and *Live video*. Save and record the new event ID and URL in Smartsheet.
+1. **Clone** the donor event with *Create a copy*. Set the event title, date, the confirmed live start and time zone, and *Live video*. Save and record the new event ID and URL in Smartsheet.
 2. **Remove carried-over media:** delete the donor's slides and video clips.
 3. **Notification emails:** registration confirmation, reminder 2 days before, reminder 2 hours before, thank you for attending, sorry we missed you. Replace each body with the template HTML, keep ON24 merge fields (event title, date, time), and check the preview text in the HTML header, which the donor got wrong before. Send each to yourself as a test and run [lumenis-email-check](../lumenis-email-check/SKILL.md) on at least the confirmation and the 2-hour reminder.
 4. **Registration page:** placeholder background and text until the handoff arrives. Form fields, all required: first name, last name, email, phone, practice name, vision position, city, postal code, state, country. Check the submit button uses the brand color.
