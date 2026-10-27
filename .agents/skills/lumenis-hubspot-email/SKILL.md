@@ -24,7 +24,7 @@ Resolve division, purpose, audience and exclusions, regular or automated, send d
 4. **Place the body** in one Custom HTML module. Select all and replace the source, remove default modules the design replaces, keep the approved footer and subscription controls, and set the containing section to zero padding.
 5. **Set every field on its own:** subject, preview text, from name, from address, reply-to, subscription type, audience and exclusions, schedule, campaign association. Read each one back; one field saving doesn't prove the others did.
 6. **Check every link** goes to its real destination. No placeholders, stale UTMs or recipient tokens. Omit an optional block whole if its links are missing.
-7. **Run QA:** layout at 320, 375, 540, 580 and 600px, image and link checks, and approved inbox tests (browser previews don't show Outlook rendering).
+7. **Run QA** with [lumenis-email-check](../lumenis-email-check/SKILL.md): Litmus client previews, dark mode, mobile layout, links, images and send settings. Browser previews don't show Outlook rendering.
 8. **Save as a draft** and record the email ID, settings read back and open gaps outside Git.
 
 Sending, scheduling and publishing an automated email need explicit task authorization. Publishing a reusable automated email and turning on a workflow are different actions. Editing an email that an active workflow already uses can reach real recipients, so check its dependencies first. Use the read-back checklist in [HubSpot access and verification](../../../integrations/hubspot/access-and-verification.md).
