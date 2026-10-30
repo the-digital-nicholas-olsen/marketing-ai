@@ -20,6 +20,8 @@ Status: draft procedure, written 2026-10-29 from the Vision Accelerate planning 
 
 Raffle tickets and boxes travel with the service team's supplies; reorder only if they run out. The raffle happens in front of the audience and winners must be present.
 
+The walk-up registration sign is built from the [OneTap registration QR sign template](../../../templates/onetap-registration-qr-sign.md). Only its QR code changes.
+
 ## Procedure
 
 ### E7 Print planner (T-30)
