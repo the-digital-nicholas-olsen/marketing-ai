@@ -12,3 +12,4 @@ Contents:
 - [Trade show PO-to-budget reconciliation](po-budget-reconciliation.md): finding missing POs and allocating trade show budget lines against shared PO pools, with a separate optional SAP balance check.
 - [KOL invoice filing](kol-invoice-filing.md) (draft): checking a KOL honorarium invoice against its requisition and PO, filing it, sending it to finance and updating actuals.
 - [Accelerate flight approval check](accelerate-flight-approval-check.md) (draft): matching Vision travelers on the shared flight sheet against VIS rep approvals, then filling rep, RSM and cost center details after review.
+- [Trade show planner from a template](trade-show-planner.md) (draft): looking a show up on the event schedule, matching its tier to a template and duplicating that template folder into the right year's Trade Shows folder.
