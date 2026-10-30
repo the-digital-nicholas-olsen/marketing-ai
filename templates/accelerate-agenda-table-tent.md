@@ -9,7 +9,7 @@ Don't redesign the table tent, rebuild it in another tool, or change the copy, p
 
 ## Inputs
 
-- **The master PDF:** the latest bleed version of the table tent, named `LMAES-Scan-for-Schedule-5x7-Card-BLEED`. It stays outside Git because finished artwork doesn't belong in this repository and its QR codes open a live event's pages. Ask Kaelyn for a copy from the Accelerates OneDrive folder.
+- **The master PDF:** `LMAES-Scan-for-Schedule-5x7-TableTentCard.pdf`, in the `Lumenis Vision US MKT - Graphic Templates` OneDrive folder with the other master graphics. It stays outside Git because finished artwork doesn't belong in this repository and its QR codes open a live event's pages.
 - **Two final agenda links:** one for Aesthetics and one for Eye Care, each with its tracking tag from [lumenis-utm-links](../.agents/skills/lumenis-utm-links/SKILL.md). If either link is missing or not final, stop. Don't reuse the last event's link or guess one.
 - **Node.js,** to run the script below.
 
