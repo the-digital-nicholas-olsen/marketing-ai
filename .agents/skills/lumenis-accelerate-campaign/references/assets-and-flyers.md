@@ -35,6 +35,7 @@ Respect the brief's choice of agenda versus session-topic edition. Use different
 Readable content, faculty portrait quality and device placement must fit the source layout. Source defects included agenda overflow, a device image overlapping the expert column and low-resolution headshots. For office-print variants, the prior build used a 0.125-inch safety margin; commercial bleed/safe-area requirements come from the actual printer.
 
 Render every final PDF page and inspect clipped headings, dates, venue, sessions, speaker names, product casing and image resolution. Verify page count with a PDF parser, not a raw strings/grep count. Recheck after every content change. Keep editable sources and provenance with the event outside Git.
+
 ## Update a finished print PDF
 
 Status: draft for review. Proposed reviewer: creative and event owners. Based on one poster update for an Accelerate event; the steps are observed practice, not an approved standard.
