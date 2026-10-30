@@ -75,7 +75,7 @@ Status: draft for review.
 
 Use this for each Accelerate event that needs the "Scan for your weekend schedule" poster, which has one QR code for Aesthetics and one for Eye Care. The graphic is reused as it is. Only the two QR codes change.
 
-**Master file:** the latest approved poster PDF, 24x36-inch trim with 0.125-inch bleed, kept in a shared folder outside Git. A teammate must be able to reach it without the author's computer.
+**Master file:** `LMAES-Poster-Scan-for-Schedule-24x36-V2-OPT2-BLEED.pdf`, 24x36-inch trim with 0.125-inch bleed, in the `Lumenis Vision US MKT - Graphic Templates` OneDrive folder with the other master graphics, outside Git.
 
 **Required inputs:** the master PDF and the event's Aesthetics and Eye Care agenda page URLs. Stop if a URL is missing or its page is not ready.
 
