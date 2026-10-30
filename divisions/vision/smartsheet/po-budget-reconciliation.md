@@ -5,11 +5,11 @@
 - System: Smartsheet PR tracking sheets (one for 2026, one for 2027), trade show Master Budgets and the Vision budget tracker in the Budget Dashboard folder. Actual PO/PR numbers, amounts, payees, identifiers, links and audit findings remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: reviewed Vision workflow guidance.
-- Source and review: working rules and layouts observed 2026-10-01, with read-only follow-up on 2026-10-05. Allocation order and trade-show-only scope reviewed 2026-10-06. Both tracking sheets and every PO status added 2026-10-21 to 2026-10-23. Budget tracker and ready-PO updates added 2026-10-27 and 2026-10-30 from Kaelyn's working rules. Restricted confirmation evidence stays internal.
+- Source and review: working rules and layouts observed 2026-10-01, with read-only follow-up on 2026-10-05. Allocation order and trade-show-only scope reviewed 2026-10-06. Both tracking sheets, every PO status, the per-PO-only check and the reverse tracker check added 2026-10-21 to 2026-10-23. Budget tracker, ready-PO and report rules added 2026-10-27 and 2026-10-30 from Kaelyn's working rules. Restricted confirmation evidence stays internal.
 
 ## Use this when
 
-Someone asks to check PRs or audit POs against budgets. The audit finds POs missing from trade show budgets, budget allocations exceeding their funding pools, and event estimates exceeding their budgets. It also keeps the budgets and the Vision budget tracker current.
+Someone asks to check PRs or audit POs against budgets. The audit finds POs missing from trade show budgets, budget POs that aren't on either tracking sheet, and budget allocations exceeding their funding pools. It also keeps the budgets and the Vision budget tracker current.
 
 **Every run makes these updates without asking:**
 
@@ -88,9 +88,9 @@ PO A has $1,000 and PO B has $500. A $600 line lists only A. A $700 line lists `
 
 The shared line is fully funded. A later $350 line listing the same pair can use only B's remaining $200 and has a $150 gap. Do not reset the pools for that later line. These calculated pools are not SAP open balances.
 
-## 5. Check each trade show's total
+## 5. Find budget POs not on a tracking sheet
 
-Flag `Estimated Total` (or the equivalent event total) above `US Budget` (or `BUDGET`). Report blank or unavailable budget values as **couldn't check**.
+Collect every PO number cited on any Master Budget and look each one up on both tracking sheets at any status. Flag any that's on neither, with its budget, line item, amount and the PO number as written. It's usually a typo on the budget or a PO that was never logged.
 
 ## 6. Add ready POs to the Master Budgets (every run)
 
@@ -145,7 +145,16 @@ Dr. Example's speaker line for Example Eye Congress says `PR In`, and the tracke
 
 ## 9. Report
 
-List what changed in **Added to Master Budgets** (budget, line item, PO# or PR#) and **Added to Budget Tracker** (rows added, PR#s filled in, PO# or PR Status refreshed), alongside the findings from sections 3 to 5.
+Give the findings in this order: POs missing from a budget (section 3), budget POs not on a tracking sheet (section 5), then POs over their pool (section 4). Then list what changed in **Added to Master Budgets** (budget, line item, PO# or PR#) and **Added to Budget Tracker** (rows added, PR#s filled in, PO# or PR Status refreshed).
+
+Report only what needs attention. If nothing does, say so in one line. Leave out:
+
+- Any section with nothing to act on.
+- POs close to or exactly at their limit.
+- Allocation tables for pools that aren't over.
+- The no-budget-to-compare list.
+- Possibly misfiled POs, unless asked.
+- Data issues on POs that aren't for a Master Budget item.
 
 ## Optional: check remaining SAP funds
 
@@ -164,6 +173,7 @@ When asked whether an unpaid expense fits an open PO:
 - Treating calculated funding headroom as a SAP open balance.
 - Writing to either PR tracking sheet, even to fix a data issue.
 - Counting a PO against a budget from a different show year.
+- Comparing an event's total to its budget. The check is per PO only.
 - Copying actual records or restricted review evidence into public issues or pull requests.
 
 Related: [KOL invoice filing](kol-invoice-filing.md) files a single KOL honorarium invoice and updates its line item's actuals; this audit then reconciles those actuals.
