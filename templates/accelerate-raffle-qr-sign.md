@@ -9,7 +9,7 @@ Don't redesign the sign, rebuild it in another tool, or change the copy. Every v
 
 ## Inputs
 
-- **The master PDF:** `Accelerate - Raffle Waiver QR Sign.pdf`. It stays outside Git because finished artwork doesn't belong in this repository and its QR opens a live form. Ask Kaelyn for a copy from the Accelerates OneDrive folder. Always start from the master, never from a previous event's sign.
+- **The master PDF:** `Accelerate - Raffle Waiver QR Sign.pdf`, in the `Lumenis Vision US MKT - Graphic Templates` OneDrive folder with the other master graphics. It stays outside Git because finished artwork doesn't belong in this repository and its QR opens a live form. Always start from the master, never from a previous event's sign.
 - **The new raffle waiver link:** supplied by the team for that event. If there's no link, stop. Don't reuse the last event's link or guess one.
 - **Node.js,** to run the script below.
 
