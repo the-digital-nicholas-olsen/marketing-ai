@@ -35,3 +35,57 @@ Respect the brief's choice of agenda versus session-topic edition. Use different
 Readable content, faculty portrait quality and device placement must fit the source layout. Source defects included agenda overflow, a device image overlapping the expert column and low-resolution headshots. For office-print variants, the prior build used a 0.125-inch safety margin; commercial bleed/safe-area requirements come from the actual printer.
 
 Render every final PDF page and inspect clipped headings, dates, venue, sessions, speaker names, product casing and image resolution. Verify page count with a PDF parser, not a raw strings/grep count. Recheck after every content change. Keep editable sources and provenance with the event outside Git.
+## Update a finished print PDF
+
+Status: draft for review. Proposed reviewer: creative and event owners. Based on one poster update for an Accelerate event; the steps are observed practice, not an approved standard.
+
+Use this when an approved print PDF must be reused for another event and the InDesign or Illustrator source is unavailable, for example to change a QR code, rename a headline or resize for a different printer. If the source exists, edit it instead; the steps below then apply only to the checks.
+
+**Required inputs:** the print-ready PDF, the approved destination URLs, the approved copy changes, one brand system, licensed fonts and, for a resize, the printer's bleed, trim and safe-area sizes. Stop the affected step if any input is missing. Do not guess a URL, reuse the prior event's QR code or estimate a safe area.
+
+**Tools:** a PDF editor or script that changes objects in place. Do not export the page to an image, which flattens vector type and can recompress photos.
+
+Work on a copy, then:
+
+1. Inspect the PDF before editing: page, trim and bleed sizes, embedded fonts, photo resolution, and whether each QR code is a vector or an image. Vector QR codes are often many separate small shapes.
+2. Replace each QR code in its original position and at its original outer size, keeping the white space around it. Use a new code generated from the exact URL. A longer URL needs more modules, so each module gets smaller. Draw vector modules as one filled shape, because abutting rectangles can show hairline gaps.
+3. Check copy and type against the selected brand system. Older files may use a bold title, a full line in a highlight cut or colors outside the palette. Apply that system's rules rather than matching the old file. For Lumenis Corporate, start with assets/design-system/lumenis-corporate/SKILL.md and take print color from tokens/colors.css.
+4. List the embedded fonts. A name containing "Trial" means the cut needs a licensed replacement. Set new text in licensed cuts and report any trial text left in the file. Never fake a missing weight.
+5. For a resize, fit the artwork to the printer's sizes rather than scaling it to the bleed. Printers may set different bleed for width and height, and a different shape leaves extra space. Scale the content to the trim or safe area, extend edge-to-edge elements to the bleed line, and set the trim and bleed boxes. Recheck QR size, which shrinks with the page.
+
+**Verify before release:**
+
+- Page, trim and bleed sizes match the original or the printer's specification.
+- Each QR code decodes to its exact URL from a render at print resolution, and scans with a phone on the printer's proof. A file check does not prove a printed code scans.
+- A before-and-after render comparison shows changes only in the intended areas.
+- Photos have the same pixel size and data as the original, or any change is explained.
+- All type and images sit inside the safe area.
+- Color is judged on a proof, because CMYK values can look muted on screen.
+
+**Fictional example:** a 24x36-inch poster moves to a new city. The designer swaps two QR codes, changes the headline and resets it in licensed Arizona Sans. A comparison shows changes only in those areas, the photos are unchanged and both codes open the new pages. If the printer then asks for a smaller card but gives no safe area, the resize stops until the printer confirms it.
+
+**Avoid:** covering an old QR code with a white box. The old code stays in the file and can resurface when the artwork is reused or edited.
+
+File approval does not authorize print dispatch. Keep the finished PDF, event URLs and proofs outside Git.
+
+## Repeat the agenda QR poster
+
+Status: draft for review.
+
+Use this for each Accelerate event that needs the "Scan for your weekend schedule" poster, which has one QR code for Aesthetics and one for Eye Care. The graphic is reused as it is. Only the two QR codes change.
+
+**Master file:** the latest approved poster PDF, 24x36-inch trim with 0.125-inch bleed, kept in a shared folder outside Git. A teammate must be able to reach it without the author's computer.
+
+**Required inputs:** the master PDF and the event's Aesthetics and Eye Care agenda page URLs. Stop if a URL is missing or its page is not ready.
+
+**Keep exactly as they are:** the wordmark, the ACCELERATE AGENDA headline, the subtitle, both photos, the division labels, the left color strip, all colors, and every position and size.
+
+1. Copy the master and name the copy for the new event.
+2. Replace both QR codes using step 2 of [Update a finished print PDF](#update-a-finished-print-pdf). The Aesthetics code goes in the Aesthetics box and the Eye Care code in the Eye Care box.
+3. Run the release checks above. The before-and-after comparison must show changes only inside the two QR boxes.
+4. Open each decoded URL and confirm it shows that division's agenda for this event, not the previous event's.
+5. Confirm the photos are still cleared for this use.
+
+If a printer needs a different size, follow step 5 of [Update a finished print PDF](#update-a-finished-print-pdf). Treat that as a new layout and check it again.
+
+**Open decision:** the master has a multicolor strip and a different accent for each division, while the Lumenis Corporate rule for single-page print is one secondary color. The event team uses this design, but the brand owner should confirm it as an approved exception.
