@@ -1,15 +1,15 @@
-# Accelerate agenda QR card
+# Accelerate agenda table tent
 
 Owner: Kaelyn (event logistics).
-Status: draft procedure, written 2026-10-30 from the approved 5 x 7 card. Review required.
+Status: draft procedure, written 2026-10-30 from the approved 5 x 7 table tent. Review required.
 
-Use this to make the 5 x 7 in "Accelerate Agenda" card for an upcoming Accelerate. The design is fixed. The only per-event change is the two QR codes: one for the Aesthetics agenda and one for the Eye Care agenda.
+Use this to make the 5 x 7 in "Accelerate Agenda" table tent for an upcoming Accelerate. The design is fixed. The only per-event change is the two QR codes: one for the Aesthetics agenda and one for the Eye Care agenda.
 
-Don't redesign the card, rebuild it in another tool, or change the copy, photos or sizes. Every version is made by editing the master PDF directly, so the fonts, spacing and sizes can't drift.
+Don't redesign the table tent, rebuild it in another tool, or change the copy, photos or sizes. Every version is made by editing the master PDF directly, so the fonts, spacing and sizes can't drift.
 
 ## Inputs
 
-- **The master PDF:** the latest bleed version of the card, named `LMAES-Scan-for-Schedule-5x7-Card-BLEED`. It stays outside Git because finished artwork doesn't belong in this repository and its QR codes open a live event's pages. Ask Kaelyn for a copy from the Accelerates OneDrive folder.
+- **The master PDF:** the latest bleed version of the table tent, named `LMAES-Scan-for-Schedule-5x7-Card-BLEED`. It stays outside Git because finished artwork doesn't belong in this repository and its QR codes open a live event's pages. Ask Kaelyn for a copy from the Accelerates OneDrive folder.
 - **Two final agenda links:** one for Aesthetics and one for Eye Care, each with its tracking tag from [lumenis-utm-links](../.agents/skills/lumenis-utm-links/SKILL.md). If either link is missing or not final, stop. Don't reuse the last event's link or guess one.
 - **Node.js,** to run the script below.
 
@@ -17,19 +17,19 @@ Encode each link exactly as supplied. Keep the links and finished PDFs in the ev
 
 ## Locked specification
 
-Check any finished card against these. All measurements are from the top-left corner of the PDF page.
+Check any finished table tent against these. All measurements are from the top-left corner of the PDF page.
 
 | Item | Value |
 |---|---|
 | Page | One page, 393.84 x 521.28 pt (5.47 x 7.24 in, 139 x 184 mm), including bleed |
 | Trim | 5 x 7.01 in (127 x 178 mm), set as the PDF trim box |
 | Safe area | 4.53 x 6.77 in, centered |
-| Aesthetics QR code | Left 233.01 pt, top 213.62 pt, 49.51 pt square (0.69 in), upper right of the card |
-| Eye Care QR code | Left 104.86 pt, top 392.60 pt, 48.47 pt square (0.67 in), lower left of the card |
+| Aesthetics QR code | Left 233.01 pt, top 213.62 pt, 49.51 pt square (0.69 in), upper right of the table tent |
+| Eye Care QR code | Left 104.86 pt, top 392.60 pt, 48.47 pt square (0.67 in), lower left of the table tent |
 | QR encoding | Error correction M, black on white, no logo or styling |
-| Edges | White. The card has no color strip, unlike the 24 x 36 in poster |
+| Edges | White. The table tent has no color strip, unlike the 24 x 36 in poster |
 
-The card's copy must stay exactly as follows:
+The table tent's copy must stay exactly as follows:
 
 - Logo: Lumenis wordmark.
 - Title: ACCELERATE AGENDA, with the Lumenis Hero L as the L in ACCELERATE.
@@ -40,16 +40,16 @@ This procedure can't change the copy, photos or sizes. If any of them needs to c
 
 ## Procedure
 
-1. **Set up.** Put the master PDF and the script below, saved as `swap-card-qrs.mjs`, in the event's work folder. In that folder, run:
+1. **Set up.** Put the master PDF and the script below, saved as `swap-table-tent-qrs.mjs`, in the event's work folder. In that folder, run:
 
    ```bash
    npm install mupdf qrcode
    ```
 
-2. **Build the card.** Put the Aesthetics link first and the Eye Care link second:
+2. **Build the table tent.** Put the Aesthetics link first and the Eye Care link second:
 
    ```bash
-   node swap-card-qrs.mjs "<master>.pdf" "<city>-agenda-qr-card-bleed.pdf" "<aesthetics-link>" "<eye-care-link>"
+   node swap-table-tent-qrs.mjs "<master>.pdf" "<city>-agenda-table-tent-bleed.pdf" "<aesthetics-link>" "<eye-care-link>"
    ```
 
 3. **Check the module size.** The script prints it for each QR code. The QR codes stay the same overall size, so a longer link means smaller modules. Below 1 pt per module, ask for a shorter link.
@@ -63,12 +63,12 @@ Printing is a separate step. See the [Accelerate print kit](../.agents/skills/lu
 ## Script
 
 ```js
-// Usage: node swap-card-qrs.mjs <master.pdf> <output.pdf> <aesthetics-url> <eye-care-url>
+// Usage: node swap-table-tent-qrs.mjs <master.pdf> <output.pdf> <aesthetics-url> <eye-care-url>
 import {readFileSync, writeFileSync} from 'node:fs';
 import * as mupdf from 'mupdf';
 import QRCode from 'qrcode';
 
-const CARD_SCALE = 0.2356; // Artwork units to card points.
+const TENT_SCALE = 0.2356; // Artwork units to table tent points.
 
 const [master, output, aesUrl, eyeUrl] = process.argv.slice(2);
 if (!aesUrl || !eyeUrl) throw new Error('Usage: <master.pdf> <output.pdf> <aesthetics-url> <eye-care-url>');
@@ -106,7 +106,7 @@ page = page.replace(qrBlock, (_, body) => {
   }
   block.push('f');
   swapped++;
-  console.log(`${division}: ${n}x${n} modules, ${(m * CARD_SCALE).toFixed(2)} pt per module on the card`);
+  console.log(`${division}: ${n}x${n} modules, ${(m * TENT_SCALE).toFixed(2)} pt per module on the table tent`);
   return block.join('\n');
 });
 
@@ -118,7 +118,7 @@ console.log(`Saved ${output}`);
 
 ## Good result and common mistake
 
-Good: a card where a 300 dpi comparison with the master shows changes only in the two QR codes, and phone scans of the proof open the right agenda page for each division.
+Good: a table tent where a 300 dpi comparison with the master shows changes only in the two QR codes, and phone scans of the proof open the right agenda page for each division.
 
 Mistake: entering the links in the wrong order, which puts each division's QR code beside the other's label. The file looks correct, so only the phone scan catches it. Mistake: pasting a QR image over the old one, which leaves the old code in the file.
 
