@@ -14,7 +14,7 @@ Use this at step E8 of the [print kit](../SKILL.md) to change the redemption dea
 
 ## Inputs
 
-- The latest voucher file. Use the editable source from the team's OneDrive folder if it exists, otherwise the print-ready PDF.
+- The latest voucher file. Use the editable source if one exists, otherwise `Accelerate-Raffle-Certificate-V4.pdf`, the print-ready master in the `Lumenis Vision US MKT - Graphic Templates` OneDrive folder.
 - The event name. If neither the request nor the file name gives it, ask.
 - The new date, or a number of days after the event.
 
