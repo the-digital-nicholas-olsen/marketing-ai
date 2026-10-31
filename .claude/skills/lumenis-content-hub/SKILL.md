@@ -79,3 +79,5 @@ Check before sending: the asset passed its check (for a webinar flyer, [lumenis-
 For a proposed Vision Mimeo reorganization, use [library and portal cleanup](../../../guides/mimeo-library-and-portal-cleanup.md). Historical folder examples here are lookup hints; inspect current approved structure rather than recreating an old layout.
 
 For Vision Mimeo print-order staging, use [print-order staging](../../../guides/mimeo-print-ordering.md); inspect current approved items and stop at the documented order handoff.
+
+For Vision Mimeo Tradeshow in a Box ordering, use [Tradeshow in a Box ordering](../../../guides/mimeo-order-tsiab.md); inspect current approved items and stop at the documented order handoff.
