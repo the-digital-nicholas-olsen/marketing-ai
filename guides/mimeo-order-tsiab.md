@@ -30,10 +30,10 @@ If any of these is missing or unclear, stop and ask.
 ## 1. Find the bundle
 
 1. Sign in at my.mimeo.com and open the **Library**.
-2. Open the cart. If anything is left from an earlier session, deal with it first, so this order holds only the bundle.
+2. Open the cart. If anything is left from an earlier session, preserve it and ask the owner how to isolate this order; do not remove unrelated items or submit them. Check recent orders before adding to avoid a duplicate.
 3. Select **My Library** in the tree. Search only looks inside the selected folder.
 4. Search for `TSIAB` and click **Search**. Pressing Enter does not submit.
-5. Read the full names and the **Found In Folder** column. The bundles are in the `TSIAB` folder.
+5. Read the full names and the **Found In Folder** column. Use current search results; `TSIAB` was a historical folder name and is not a required destination.
 
 | Bundle | Use it for |
 |---|---|
@@ -66,8 +66,8 @@ Add none unless the person placing the order asks for them. Click **Continue**.
 ## 5. Delivery
 
 1. Click **Click here to change your turnaround time**.
-2. Choose **4 Additional Business Days**, then **OK**.
-3. Choose the **latest** shipping option, the bottom row marked "by end of day".
+2. Use **4 Additional Business Days** only when it meets the confirmed need-by date; otherwise propose a suitable option and its cost for owner approval.
+3. Select a shipping option that meets the confirmed need-by date and approved cost; do not rely on row order.
 4. Leave **No signature required** selected.
 
 Check the delivery date against the date the box has to arrive. If it is too late, stop and ask.
@@ -77,7 +77,7 @@ Check the delivery date against the date the box has to arrive. If it is too lat
 1. In **Sender Details**, replace the **Telephone** and **Email** with those of the person placing the order. Keep the sender name, country and company as they are.
 2. Set **Cost Center** to the one given for this order.
 3. Set the requestor **Email** to the person placing the order.
-4. Leave the payment mode at its default.
+4. Confirm the payment mode is the authorized company method; an existing default is not authorization. Hold handoff if it is unclear.
 
 ## 7. Review and submit
 
