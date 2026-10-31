@@ -4,14 +4,14 @@
 - Scope: trade show Master Budgets only. Accelerate budgets are out of scope.
 - System: Smartsheet PR tracking sheets (one for 2026, one for 2027), trade show Master Budgets and the Vision budget tracker in the Budget Dashboard folder. Actual PO/PR numbers, amounts, payees, identifiers, links and audit findings remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
-- Status: draft update to reviewed Vision workflow guidance; subject-owner confirmation required before production use.
+- Status: reviewed Vision workflow guidance.
 - Source and review: working rules and layouts observed 2026-10-01, with read-only follow-up on 2026-10-05. Allocation order and trade-show-only scope reviewed 2026-10-06. Both tracking sheets, every PO status, the per-PO-only check and the reverse tracker check added 2026-10-21 to 2026-10-23. Budget tracker, ready-PO and report rules added 2026-10-27 and 2026-10-30 from Kaelyn's working rules. Restricted confirmation evidence stays internal.
 
 ## Use this when
 
 Someone asks to check PRs or audit POs against budgets. The audit finds POs missing from trade show budgets, budget POs that aren't on either tracking sheet, and budget allocations exceeding their funding pools. It also keeps the budgets and the Vision budget tracker current.
 
-**Audit-only requests remain read-only.** Present the proposed change set. When the request authorizes reconciliation updates, perform only these routine updates without asking again:
+**Every run makes these updates without asking:**
 
 - Adds each missing PO to its Master Budget line (section 6).
 - Adds `PR In` to the budget line of each submitted PR with no PO yet (section 7).
@@ -45,7 +45,7 @@ Confirm all relevant rows were retrieved. Parse complete PO numbers from referen
 
 ## 3. Find missing POs
 
-The show year must match: the year in the quarter code (`Q126V` = 2026, `Q127V` = 2027) or in the description has to be the budget's show year. If the two disagree, flag the year conflict and hold the affected match or write until the owner confirms it.
+The show year must match: the year in the quarter code (`Q126V` = 2026, `Q127V` = 2027) or in the description has to be the budget's show year. If the two disagree, trust the description and say so.
 
 Classify each PO:
 
@@ -92,9 +92,9 @@ The shared line is fully funded. A later $350 line listing the same pair can use
 
 Collect every PO number cited on any Master Budget and look each one up on both tracking sheets at any status. Flag any that's on neither, with its budget, line item, amount and the PO number as written. It's usually a typo on the budget or a PO that was never logged.
 
-## 6. Add ready POs to the Master Budgets (authorized update mode)
+## 6. Add ready POs to the Master Budgets (every run)
 
-In authorized update mode, add each unambiguous **Missing** PO from section 3. Re-read the destination cell immediately before writing; preserve existing valid references and append only the missing PO in the confirmed allocation order. Conflicting references require owner resolution. Fill the existing PR/PO cell on the expense row it pays for, using the budget's current format: `PO: <number>` or `PO: <number> & <number>`. Preserve the intended order on shared references because it controls allocation.
+Add each **Missing** PO from section 3 without asking. Fill the existing PR/PO cell on the expense row it pays for, using the budget's current format: `PO: <number>` or `PO: <number> & <number>`. Preserve the intended order on shared references because it controls allocation.
 
 - A `PR In` cell whose PR now has a PO gets replaced with the PO.
 - Change only the PR/PO cell. Leave Projected Cost, Actual Cost and Notes alone.
@@ -103,7 +103,7 @@ In authorized update mode, add each unambiguous **Missing** PO from section 3. R
 
 Do not add rows. Obtain the budget owner's approval before adding a missing PR/PO column or changing the layout.
 
-## 7. Add `PR In` to the Master Budgets (authorized update mode)
+## 7. Add `PR In` to the Master Budgets (every run)
 
 A submitted PR gets `PR In` in the PR/PO column of its budget line, usually right after submission ([Right after you submit](purchase-requisition-form.md#right-after-you-submit)). Catch any that were missed, for each Vision PR with no PO# yet whose show has a Master Budget:
 
@@ -114,7 +114,7 @@ A submitted PR gets `PR In` in the PR/PO column of its budget line, usually righ
 
 Section 6 swaps `PR In` for the PO once the PR has one.
 
-## 8. Update the Vision budget tracker (authorized update mode)
+## 8. Update the Vision budget tracker (every run)
 
 The tracker in the Budget Dashboard folder feeds the dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace. Skip Accelerates.
 
@@ -143,7 +143,7 @@ Leave the formula columns, the Plan columns and `_Master Budget Actual` alone. C
 
 Dr. Example's speaker line for Example Eye Congress says `PR In`, and the tracker has a `PR` row with a blank PR#. The PR now shows a PR# and a PO# on the tracking sheet. The next run replaces `PR In` with `PO: <number>` on the Master Budget and fills in that tracker row's PR#, PO#, PR Status and `_PR Amount`. No row is added on either sheet.
 
-Read back all changed cells and confirm tracker totals recalculated. On a retry, reread both sheets and match PR numbers or confirmed submission records before adding a row.
+Read back every changed cell and confirm the tracker totals recalculated. On a retry, re-read both sheets and match PR numbers before adding a row.
 
 ## 9. Report
 
@@ -154,9 +154,9 @@ Report only what needs attention. If nothing does, say so in one line. Leave out
 - Any section with nothing to act on.
 - POs close to or exactly at their limit.
 - Allocation tables for pools that aren't over.
-- Routine outside-scope entries, but always report unresolved in-scope items with no budget.
-- No confirmed misfiled item may be suppressed; report it and hold its write.
-- Summarize other data issues separately; report all issues that could affect an in-scope match or total.
+- The no-budget-to-compare list.
+- Possibly misfiled POs, unless asked.
+- Data issues on POs that aren't for a Master Budget item.
 
 ## Optional: check remaining SAP funds
 

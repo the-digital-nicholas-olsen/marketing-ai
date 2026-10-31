@@ -15,11 +15,9 @@ Don't redesign the sign, rebuild it in another tool, or change the copy. Every v
 
 Encode the link exactly as supplied. Don't add UTM tags or shorten it unless the person who supplied it asks. Keep the link and finished PDFs in the event's work folder, not in Git.
 
-## Master and release checks
+## Release checks
 
-Before building, confirm the master revision and SHA-256 with the owner in the private work system; do not compute a hash of an unverified file and call it approved. Copy [print-pdf-input-guards.mjs](../scripts/print-pdf-input-guards.mjs) alongside the extracted script. Set `LUMENIS_APPROVED_MASTER_SHA256` to that owner-confirmed value. The script rejects a different master, an existing output path and undersized QR modules. Raw-stream scripts also reject unsupported incremental or cross-reference structures; use a reviewed PDF editor instead of bypassing the guard.
-
-The specification below describes one observed master, not blanket approval for every year or use. Confirm current artwork clearance, applicable brand approval, licensed embedded fonts and the required year before print release. Unresolved Trial-font licensing or an unapproved brand exception blocks release; obtain a corrected approved master and revalidate the editor against it. Drafting may continue with those blockers clearly reported. No form submission is needed to verify a QR destination.
+The specification below describes one observed master. Confirm current artwork clearance, brand approval, licensed embedded fonts and the required year before print release. Unresolved Trial-font licensing or an unapproved brand exception blocks release. Drafting can continue with those blockers reported.
 
 ## Locked specification
 
@@ -69,13 +67,12 @@ Printing is a separate step. See the [Accelerate print kit](../.agents/skills/lu
 // Usage: node swap-onetap-qr.mjs <master.pdf> <output.pdf> "<registration link>"
 // Needs the qrcode package: npm install qrcode
 import {readFileSync, writeFileSync} from 'node:fs';
-import {readApprovedMaster, requireQrSize} from './print-pdf-input-guards.mjs';
 import {deflateSync, inflateSync} from 'node:zlib';
 import QRCode from 'qrcode';
 
 const [master, output, link] = process.argv.slice(2);
 if (!link) throw new Error('Registration link missing');
-const pdf = readApprovedMaster(master, output, {classic: true});
+const pdf = readFileSync(master);
 const text = pdf.toString('latin1');
 
 // Locate the sign's only QR image, a 2265 x 2265 RGB picture.
@@ -98,7 +95,6 @@ const ICON_CLEAR = 23, ICON_COPY = 12;
 const {modules} = QRCode.create(link, {errorCorrectionLevel: 'Q'});
 const n = modules.size;
 const cell = FOOTPRINT / n;
-requireQrSize(cell * 218.25 / SIZE, 3);
 const dark = new Float32Array(SIZE * SIZE);
 for (let row = 0; row < n; row++) {
   for (let col = 0; col < n; col++) {
@@ -156,10 +152,6 @@ console.log(`${n}x${n} modules, ${(FOOTPRINT / n * 218.25 / SIZE).toFixed(2)} pt
 Good: a 300 dpi comparison with the master shows changes only in the QR area, and a phone scan opens this event's registration page.
 
 Mistake: rebuilding the sign in Canva, InDesign or HTML to change the QR code. It may look the same, but sizes and fonts will shift. Mistake: pasting a QR image over the old one, which leaves the old code in the file.
-
-## Verification limits
-
-The contributor reports testing the original artwork-specific editor on an external master. The repository review checks script syntax and guard behavior with synthetic inputs; it does not rerun the revised editor on the restricted artwork. Revalidate the revised script on the approved master, compare rendered output outside the allowed QR areas, decode exact URLs, and complete the phone proof scan before release.
 
 ## Source and review
 

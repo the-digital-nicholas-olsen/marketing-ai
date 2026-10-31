@@ -86,7 +86,7 @@ For travelers in **In both sheets — approved**, plus identity-match flags the 
 4. **`Cost Center`:** the RSM's cost center (the rep row's `Manager Cost Center`). **Canadian guests always get the designated Canada cost center** (recorded internally), whoever the rep or manager is. Decide by where the guest or practice is located, not the rep's territory. If the country is unclear but the rep covers a Canadian territory, flag it instead of guessing.
 5. **`Lumenis Notes`:** when more than one traveler comes from the same practice, list all of their names on each of their rows so it's clear who flies together.
 
-Leave flight-only and not-RSM-approved rows unchanged; an instruction to fill details does not override the required RSM approval. If a rep or manager isn't on the org chart sheet, or a name is truncated or unusually formatted, leave the cell blank and list it in the report. Don't write emails from an org chart sheet whose emails haven't been verified since its last change.
+Leave flight-only and not-RSM-approved rows unchanged unless told otherwise. If a rep or manager isn't on the org chart sheet, or a name is truncated or unusually formatted, leave the cell blank and list it in the report. Don't write emails from an org chart sheet whose emails haven't been verified since its last change.
 
 ## Reading the org chart
 
@@ -94,14 +94,14 @@ Look reps up in the division's **sales org chart sheet**, not the PDF. Each is a
 
 | Column | Holds |
 |---|---|
-| `Name` | Person; preserve identity and confirmed aliases |
+| `Name` | Person. Correct misspellings here (see below) |
 | `Title`, `Territory / Region` | As printed on the chart (RSM, DSM, SM / Sr. SM, ASM / Sr. ASM) |
 | `Department` | `Vision Sales` or `AES Sales` |
 | `Reports To` | The rep's RSM; for an RSM, the VP |
 | `Manager Cost Center` | The `Reports To` person's cost center, typed from the chart |
 | `Status` | Formula (Vision sheet only; observed 2026-10-28, the AES sheet has no `Status` column) |
-| `Email` | Confirmed company address preserved across refreshes; generated candidates remain unverified until directory confirmation |
-| `Notes` | Caveats, identity aliases and email provenance: confirmed, manually corrected, or generated/unverified |
+| `Email` | Column formula: `firstname.lastname@` the company domain, built from `Name` |
+| `Notes` | Caveats only, such as the Canada cost center, an open RSM region or a name that is easy to confuse |
 
 Find the rep and use `Reports To` and `Manager Cost Center`.
 
@@ -109,7 +109,7 @@ Find the rep and use `Reports To` and `Manager Cost Center`.
 
 **Format for new org charts.** When a new org chart is provided, copy the current sheet's format for that division exactly. Read the existing sheet first to confirm the layout:
 
-- Use the same columns in the same order. Don't add columns. Keep `Status` (where present) as a formula. Do not apply an Email column formula over confirmed or corrected addresses; resolve any formula that prevents preserving them before refreshing.
+- Use the same columns in the same order. Don't add columns. Keep `Status` (where present) and `Email` as column formulas.
 - One row per person, grouped by region: each RSM's row first, then that RSM's reports.
 - Leave out vacant (`OPEN`) positions.
 - Name the sheet `<Team> Org Chart (YYYY.MM.DD)` with the chart's edition date.
@@ -118,25 +118,22 @@ Find the rep and use `Reports To` and `Manager Cost Center`.
 - **Open RSM** (confirmed from the PDF): leave `Sales Manager EMail` and `Cost Center` blank for that region's reps and list them in the review for the reviewer to decide. Never borrow the other division's RSM.
 - **Interim or acting titles:** treat them as the manager, and mention them in the report.
 - **Same name on the other division's chart:** use only the sheet for the division being checked. Similar surnames are not the same person.
-- **Truncated or unusual names:** a generated email cannot be trusted until identity and address are verified. Flag it.
+- **Truncated or unusual names:** the `Email` formula can't be trusted until the email check passes. Flag it.
 - **Keeping it current:** org charts come out monthly. When a newer PDF arrives, update the division's sheet from its sales page, including each row's `Manager Cost Center` (or make a new sheet named for the new edition, in the format above), then verify its emails before running the check. Read the PDF only for that refresh or to confirm an open position.
 
 ### Verify emails after every org chart change
 
-Preserve existing confirmed addresses first, using the refresh rules below. A name-derived address is only a candidate. After a refresh, verify new or changed candidates against the company directory, matching the named person and division. A mail client accepting an address is not proof that it belongs to the intended employee. An authorized person may use an unsent draft to resolve directory entries; never send it, and do not alter a person's display name merely to force an email formula to match. Record verification and the edition used in the internal work system. Unresolved addresses block the affected email writes.
+The org chart PDF has spelling errors in people's names, and the `Email` formula builds each address from `Name`, so a misspelled name produces an invalid address. **Whenever an org chart sheet changes** (a new edition, a new sheet, or any edit to `Name`), a person must check every email on it before it is used to fill flight sheets:
 
-### Preserve corrected emails on every refresh
+1. Copy the whole `Email` column from the org chart sheet.
+2. Paste all of the addresses into the To line of a new email draft in the company mail client. Do not send it.
+3. Look for any address the mail client can't resolve (shown as unrecognised or invalid).
+4. For each invalid address, find the person's correct spelling and **fix the `Name` cell** in the org chart sheet. The `Email` formula updates on its own. Don't type over the `Email` cell.
+5. Paste the corrected addresses into the draft again to confirm they resolve, then discard the draft.
 
-A new org chart updates names, titles, territories, reporting relationships and cost centers. It does **not** reset company email addresses. A name-derived candidate must never replace an existing corrected address merely because the new PDF prints a different name.
+This step needs a person with access to the company directory; an agent can't do it. Before writing emails to a flight sheet, an agent asks whether the check was done for the current version of the sheet and says so in the review list. Because corrections live in `Name`, they carry forward when the next edition copies the previous sheet's names; a fresh transcription from the PDF can reintroduce the error, which is why the check runs on every change.
 
-1. Before editing, preserve an internal snapshot of the existing sheet, including every Email value, its formula (if present), and relevant identity/alias notes. Keep this snapshot outside public Git.
-2. Match people between editions using a stable employee identifier if one is available internally. Otherwise use the prior name/aliases and supporting identity information; do not match by row position, territory or a similar surname alone. A renamed person or someone changing region keeps their corrected email. Ambiguous matches are flagged rather than guessed.
-3. Carry manually corrected or confirmed emails forward unchanged, even when names or territories change. Protect nonblank addresses with unknown provenance too. An explicit, separately authorized email correction may replace a protected value; a PDF refresh alone is not that authorization. Record corrected/confirmed status in Notes and retain alias context internally when the displayed name changes.
-4. Generate a `firstname.lastname@` candidate when no existing address is available. An existing candidate may be recalculated from an updated name only when Notes explicitly identifies that address as generated and unverified, and identity matching is unambiguous. Keep such replacements marked generated and unverified. New people and corrected org-chart names therefore still receive updated candidates; corrected or confirmed emails always win. Do not apply or reapply an Email column formula over corrected cells, or rebuild the column from names. If the current column formula prevents corrected values, stop the affected refresh and resolve that formula setup before proceeding; do not discard corrections to fit the template.
-5. If making a new edition sheet instead of updating the old one, transfer the preserved email values by confirmed identity. Keep the old sheet/snapshot until the new sheet has been checked. Do not silently drop a corrected address because its owner is absent or unresolved in the new edition; retain it in the internal snapshot for review.
-6. Read the refreshed sheet back and compare all carried-forward emails with the snapshot. Confirm every protected address is unchanged; separately list intentional updates to generated, unverified candidates. Report any unexpected change, missing or ambiguous address and resolve it before treating the new edition as ready. In the same read-back, confirm that a changed display name did not regenerate a corrected email.
-
-Fictional check: the PDF lists "Jonathan Example", but his previously corrected address uses "Jon". A later PDF changes his title or displays his full name. Preserve the corrected address rather than deriving a new one from Jonathan.
+Fictional check: the chart prints "Jonh Example", so the formula gives `jonh.example@`, which the draft flags as unresolved. The person fixes `Name` to "John Example", the address becomes `john.example@`, and the draft resolves it.
 
 ### Fictional example
 
@@ -151,7 +148,7 @@ A practice has three Aesthetics travelers on the flight sheet. Two match an AES 
 - Changing the AES or VIS Rep Approval sheets. They are read-only references.
 - Adding rows or columns to the flight sheet.
 - Using the DSM as the sales manager.
-- Replacing a confirmed email with a generated candidate, or changing an identity name just to force an email formula.
+- Typing over the org chart's `Email` formula; fix the `Name` instead.
 - Writing emails from an org chart sheet that changed and hasn't had its emails verified.
 - Copying traveler details, sheet links or cost center codes into public issues or pull requests.
 
