@@ -6,7 +6,7 @@ Status: draft, written 2026-10-30 from the October 2026 cleanup. Mimeo behavior 
 
 This is how an AI assistant and a marketer reorganized the Vision Mimeo account: the back-end **My Library** and the **Employee** and **Customer** print portals. Use it for another cleanup, or for routine upkeep when files pile up in the wrong place.
 
-**Applies to:** Vision Mimeo account. The same method should work for Aesthetics, but it has not been tried there.
+**Applies to:** Vision Mimeo account. Aesthetics is outside this observed scope until its owner confirms the procedure.
 
 **Not for:** finding or adding a single file. Use the [content hub](../.agents/skills/lumenis-content-hub/SKILL.md).
 
@@ -21,7 +21,7 @@ If the login or the owner's agreement is missing, stop. You can still build the 
 
 ## The method
 
-1. **Inventory first, change nothing.** List every library file with its folder, name, product, size and dates, and every portal item with its category, published state and type. The October inventory covered 552 library entries in 23 folders, 92 Employee portal items and 46 Customer portal items.
+1. **Inventory first, change nothing.** List every library file with its folder, name, product, size and dates, and every portal item with its category, published state and type.
 2. **Design the target structure.** Group by product line, then by file type. See [the structure we landed on](#the-structure-we-landed-on).
 3. **Propose every change with a reason.** Give each file its old path, new path and a short reason, such as "Sorted by type: Brochures & Sell Sheets". Group folder renames, new folders, file moves and portal category changes separately.
 4. **Flag anything uncertain, and do not move it.** Stale, possibly duplicated or possibly superseded files go on a separate list for a person to decide.
@@ -33,7 +33,7 @@ If the login or the owner's agreement is missing, stop. You can still build the 
 
 ## The structure we landed on
 
-**My Library** is organized by product line, then file type:
+**My Library** was organized by product line, then file type in the observed cleanup. Treat these as examples, inspect current state, and obtain owner approval for a new target structure:
 
 - Product folders such as `Dry Eye - OptiLight & OptiPLUS` and `OptiLIFT`
 - File-type subfolders inside them: `Brochures & Sell Sheets`, `Posters & Banners`, `Playbooks, eBooks & Training`, `Forms & Consents`, `Kits`
@@ -42,18 +42,9 @@ If the login or the owner's agreement is missing, stop. You can still build the 
 
 **Portals** use a flat category menu by product. Each device category that has posters or banners has a `Posters & Banners` sub-category. We first tried one top-level `Posters & Banners` category, then moved back to per-device sub-categories because people browse by device.
 
-## Results
+## Review records
 
-| Area | Outcome |
-|---|---|
-| Library | 6 folder renames, 13 new folders, 138 file moves |
-| Flagged for review | 34 files left in place: 27 unchanged in 3+ years, 4 possible duplicates, 3 possibly superseded by a newer product version |
-| Employee portal | Flat menu with 9 top-level categories and 68 items on 2026-10-30 |
-| Customer portal | Flat menu with 5 top-level categories and 28 items on 2026-10-30 |
-
-Portal counts are after the owner removed some items by hand, so they are lower than the inventory.
-
-Not finished on 2026-10-30: the flagged files and the empty old library folders still need a person's decision. The library was last checked on 2026-10-26.
+Inventories, move counts, flagged files and incomplete cleanup decisions belong in the internal plan. This guide does not publish the account's operational inventory or claim those decisions are complete.
 
 ## Portal mechanics
 
@@ -69,16 +60,9 @@ Mimeo's **Alphabetize all categories** link sorts by capitalization, so a name s
 
 Removing a category asks you to type `yes` before Delete works. The Delete button can sit off-screen in a narrow window, so widen the window.
 
-## Notes for the AI
+## Tool access
 
-These are internal Mimeo page functions, seen in October 2026. They may change without notice.
-
-- Trigger tree selects and button clicks with a string `setTimeout("...", 0)`. Mimeo's postback code fails from strict or async JavaScript.
-- Open an item on the storefront with `$find('nav').go(16, {CatalogItemId})`, then `$find('productSetting').showForm({CatalogId, Id})`.
-- Wait for the category checkboxes to load. Untick and tick over 3 passes, then call `_saveCatalogItem()`.
-- Read back with `Mimeo.Services.StoreFrontService.getService()` and `getAdminCatalogItem`.
-- `GetCatalogItems` needs `Page: 1`, not `Page: 0`. Use `activeInactiveFilter: 1`.
-- Run about 2 items per call to stay under the 45-second tool limit.
+Use only operations supported by the available tool and its documented API. Prefer the normal signed-in UI when internal Mimeo functions are unavailable or changed. Verify each saved destination before retrying; do not depend on undocumented page functions.
 
 ## What went wrong and how to avoid it
 
@@ -119,5 +103,5 @@ Source: the Vision Mimeo cleanup from 2026-10-26 to 2026-10-30. The inventories,
 Open items:
 
 - The content hub's Mimeo folder examples and the `Mimeo Library` sheet predate this cleanup. They should be checked against the new structure.
-- Decide what happens to the 34 flagged files and the empty old folders.
+- Decide what happens to the internally flagged files and the empty old folders.
 - No Aesthetics or second-person run has tested this guide.
