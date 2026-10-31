@@ -75,3 +75,5 @@ Check before sending: the asset passed its check (for a webinar flyer, [lumenis-
 - Delete, move or rename files in OneDrive or Mimeo that other people use. Ask Nicholas.
 - Put files, file links, sheet links or sheet IDs in this repository. This repository is public; the hub and the files stay in Smartsheet, SharePoint and Mimeo.
 - Treat a file's presence in the hub as approval to use it. Check the claims and regulatory references, brand review and the piece's own revision.
+
+For Vision Mimeo print-order staging, use [print-order staging](../../../guides/mimeo-print-ordering.md); inspect current approved items and stop at the documented order handoff.

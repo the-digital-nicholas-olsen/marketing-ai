@@ -6,7 +6,7 @@ Status: draft, written 2026-10-30 from Kaelyn's working reference. Mimeo behavio
 
 This is how to turn a print plan in Smartsheet into a checked Mimeo cart, then submit it.
 
-**Applies to:** Vision Mimeo account. It should work for Aesthetics, but it has not been tried there.
+**Applies to:** Vision Mimeo account. Aesthetics requires its owner's confirmation before applying these settings.
 
 **Not for:** finding a single file (use the [content hub](../.agents/skills/lumenis-content-hub/SKILL.md)) or planning an Accelerate's kit (use the [Accelerate print kit](../.agents/skills/lumenis-accelerate-print-kit/SKILL.md)).
 
@@ -19,7 +19,7 @@ This is how to turn a print plan in Smartsheet into a checked Mimeo cart, then s
 ## Rules
 
 1. **Stage the cart, then stop.** An AI builds and checks the cart. It does not click **Continue** or submit the order unless the person says so. Ordering and paying are a person's job.
-2. **Only rows with a quantity get ordered.** Everything else on the sheet is out of scope.
+2. **Only rows with a positive whole-number quantity get ordered; zero and blank mean omit, and negative or ambiguous values are flagged.** Everything else on the sheet is out of scope.
 3. **Search again for every order.** Do not reuse last time's folder or copy.
 4. **Never save from the editor.** Clicking an item name opens **Build A Document**. Leave with **Cancel**. **Save** and **Save As New** change the stored library copy.
 
@@ -36,11 +36,11 @@ The planning sheet has these columns:
 | **Print File Name** | The name to match against the Mimeo library |
 | **`<Show>` Quantity** | One column per show |
 
-Filter the show's quantity column to non-blank rows. Section-header rows, such as "Quotes" or "Table Cloth", only group the list. They and blank spacer rows are not items. A new show needs its own quantity column first.
+Filter the show's quantity column to positive whole-number quantities; do not order zero, negative or ambiguous values. Section-header rows, such as "Quotes" or "Table Cloth", only group the list. They and blank spacer rows are not items. A new show needs its own quantity column first.
 
 ### 2. Open the cart
 
-Check whether anything is already in it. Carts don't reliably last between sessions, and a cart left overnight has been found empty. If you don't submit in the same sitting, expect to rebuild it from the sheet.
+Check existing cart items and recent orders before adding anything. Preserve unrelated items; do not empty or submit someone else's cart. Carts don't reliably last between sessions, and a cart left overnight has been found empty. If you don't submit in the same sitting, expect to rebuild it from the sheet.
 
 ### 3. Find the right copy of each item
 
@@ -56,7 +56,7 @@ To search:
 For each result, check:
 
 - **Found In Folder:** which set it belongs to.
-- **Created and Last Modified:** a copy modified long after it was created had its build settings changed for a specific show. A change dated today deserves a look.
+- **Created and Last Modified:** a later modification is a reason to inspect its settings, not proof of what changed or which version is approved. A change dated today deserves a look.
 - **Type:** `Bound Document`, `Single Sheet`, `Kit`, `Poster`, `Printfile` or `Inventoried Item`. A `Printfile` is a raw upload, not a configured product, so it is almost never the one you want.
 
 Pick the source folder from what the search returns that day. Folders drift: copies get moved or deleted, and an item may have one copy left. If an item has more than one good copy, say which you picked and why at handoff. Quote items with 9-digit codes have consistently lived in **Quotes**, each next to a raw Printfile.
@@ -112,9 +112,9 @@ An AI stops here and reports the items, the copy choices it made and anything un
 
 ## When the sheet and library don't match
 
-The Print File Name should match the library name character for character. A full audit of the planning sheets found about 95% matched exactly, so treat a mismatch as worth chasing. Usually the sheet is stale because the file was revised to `_new` or `-v2`.
+The Print File Name should match the library name character for character. Treat a mismatch as worth investigating; an exact name alone does not establish an approved current version. Usually the sheet is stale because the file was revised to `_new` or `-v2`.
 
-Fix the sheet rather than translating in your head. If the row's text carries a fulfillment instruction the library name lacks, such as "PLASTIC WRAPPED + FOLDERS", move it to **Mimeo Cheat Sheet** first so the rename doesn't lose it.
+Propose the corrected name and intended item link; edit the planning sheet only within the authorized update scope and read it back. If the row's text carries a fulfillment instruction the library name lacks, such as "PLASTIC WRAPPED + FOLDERS", move it to **Mimeo Cheat Sheet** first so the rename doesn't lose it.
 
 ## Sheet hyperlinks
 
@@ -144,7 +144,7 @@ Avoid: "Added everything from Print Planner like last time and typed in the quan
 
 ## Checklist
 
-- [ ] Filter the show's quantity column for non-blank rows
+- [ ] Use positive whole-number quantities and flag invalid values
 - [ ] Open the cart and check what's already there
 - [ ] Search each item with My Library selected; check folder, dates and type
 - [ ] Confirm 9-digit codes where present
@@ -159,6 +159,8 @@ Avoid: "Added everything from Print Planner like last time and typed in the quan
 - [ ] Set the recipient and shipping address (person)
 - [ ] Compare the production banner to the needed date
 - [ ] Submit, or hand off for approval (person)
+
+Before staging, verify the approved revision, country, audience, print settings and asset clearance with the owner or approved record. Missing clearance blocks that item.
 
 ## Sources and open items
 
