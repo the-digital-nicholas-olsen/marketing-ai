@@ -14,3 +14,4 @@ Contents:
 - [Accelerate flight approval check](accelerate-flight-approval-check.md) (draft): matching Vision or Aesthetics travelers on the shared flight sheet against that division's rep approval sheet, requiring RSM approval, then filling rep, RSM and cost center details after review.
 - [BoomPop Know Before You Go](../../../.agents/skills/lumenis-boompop-kbyg/SKILL.md) (draft): building a trade show's guest page in BoomPop from the event schedule and show folder, then filing the invite link in Fast Facts.
 - [Trade show planner from a template](trade-show-planner.md) (draft): looking a show up on the event schedule, matching its tier to a template and duplicating that template folder into the right year's Trade Shows folder.
+- [Trade show invoice filing](trade-show-invoice-filing.md) (draft): filing a trade show invoice, linking it on the Master Budget and syncing actuals to the budget tracker.
