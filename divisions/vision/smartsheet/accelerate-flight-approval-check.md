@@ -1,34 +1,50 @@
-# Vision Accelerate flight approval check
+# Accelerate flight approval check (Vision or Aesthetics)
 
-- Division: US Vision Marketing only. The flight sheet holds both divisions; ignore every Aesthetics row and the AES Rep Approval sheet. Do not apply this procedure to Hospital.
+- Division: US Vision Marketing or US Aesthetics, whichever the requester names: Vision only, Aesthetics only, or both. The flight sheet holds both divisions; work only the rows and sheets for the division being checked. Do not apply this procedure to Hospital.
 - Scope: Accelerate events with a shared flight registration sheet. Non-flight registrations are out of scope.
-- System: Smartsheet event folder (see the [event backend shape](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#shape)) and the internal sales org chart sheet, a Smartsheet copy of the monthly sales org chart. Traveler names, practices, contact details, sheet links, IDs and cost center codes remain in the internal work system.
+- System: Smartsheet event folder (see the [event backend shape](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#shape)) and the internal sales org chart sheets, Smartsheet copies of the monthly sales org chart (one for Vision Sales, one for Aesthetics Sales). Traveler names, practices, contact details, sheet links, IDs and cost center codes remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: draft for review.
-- Not affected by the Aesthetics RSM approval gate (added 2026-10-27). That column and RSM email exist on the AES sheet only; Vision keeps using the rep-entered `RSM Approval` column below.
-- Source and review: Kaelyn Gray's working procedure, set 2026-10-07 and narrowed to Vision only on 2026-10-23. Sheet names, column names and Division values were observed read-only in two Q4 2026 event folders on 2026-10-23.
+- Source and review: Kaelyn Gray's working procedure, set 2026-10-07 and narrowed to Vision only on 2026-10-23; extended to Aesthetics, with a human email check after org chart changes, on 2026-10-28. Sheet names, column names and Division values were observed read-only in two Q4 2026 event folders on 2026-10-23 (Vision) and 2026-10-28 (Aesthetics).
+- Division-specific gate: Vision retains its rep-entered `RSM Approval`; Aesthetics requires `RSM Approved (RSM to complete)`, as detailed below.
 
 ## Use this when
 
-Someone asks to check flight approvals for an Accelerate city. The goal is to confirm that every Vision traveler on the flight sheet was approved through the VIS Rep Approval sheet, then fill in rep, manager and cost center details for the approved travelers.
+Someone asks to check flight approvals for an Accelerate city. The goal is to confirm that every traveler of the requested division on the flight sheet was approved through that division's rep approval sheet, with the RSM's approval, then fill in rep, manager and cost center details for the approved travelers.
+
+**Pick the division first.** If the request doesn't say Vision, Aesthetics or both, ask. When checking both, run the steps once per division and keep the results in separate sections of the review list. Never match a Vision traveler against the AES sheet or the reverse, and never use one division's org chart for the other.
 
 The check is **read-only until the review list is approved**. Post the list and ask whether it looks good. Write nothing before a clear yes.
 
+## Division settings
+
+The steps are the same for both divisions. Only these inputs change:
+
+| Setting | Vision | Aesthetics |
+|---|---|---|
+| Flight sheet rows | `Division` = `Vision` | `Division` = `Aesthetics` |
+| Rep approval sheet | `VIS Rep Approval - <Event>` | `AES Rep Approval - <Event>` |
+| RSM approval column | `RSM Approval` | `RSM Approved (RSM to complete)`. The AES sheet also has a separate `RSM Approval` column; do not use it for this check |
+| Org chart sheet | `Vision Sales Org Chart (<edition date>)` | `AES Sales Org Chart (<edition date>)` |
+
+Observed 2026-10-28: the AES column's description says marketing only sends a flight to the travel agency when it says `Yes`.
+
 ## Required inputs
 
-- Read access to the event folder's `<City> Flight Registration (AES+VIS)` and `VIS Rep Approval - <Event>` sheets.
-- Read access to the sales org chart sheet. Its name carries the org chart edition date; say which edition was used. If a newer monthly org chart PDF has been issued, update the sheet from it first (see "Reading the org chart").
+- Read access to the event folder's `<City> Flight Registration (AES+VIS)` sheet and the rep approval sheet for each division being checked.
+- Read access to the division's sales org chart sheet. Its name carries the org chart edition date; say which edition was used. If a newer monthly org chart PDF has been issued, update the sheet from it first (see "Reading the org chart").
+- **Confirmation that the org chart sheet's emails were verified by a person since the sheet last changed** (see "Verify emails after every org chart change"). If that hasn't happened, the check can still be posted for review, but no emails are written until it has.
 - Write access to the flight sheet, used only after approval.
 
-If either sheet is missing, or the city has more than one event folder, stop and ask.
+If a required sheet is missing, or the city has more than one event folder, stop and ask.
 
 ## 1. Read the sheets
 
-**Flight sheet.** Filter `Division` = `Vision` before anything else. Drop `Aesthetics` rows entirely: do not match, count, flag or fill them. Read the first, middle and last name columns (labelled "as it appears on your government ID"), `Company Name` (the practice), `Sales Rep`, `City`, `State` and the four output columns: `Salesperson Email`, `Sales Manager EMail`, `Cost Center` and `Lumenis Notes`.
+**Flight sheet.** Filter `Division` to the division being checked before anything else. Drop the other division's rows entirely: do not match, count, flag or fill them. Read the first, middle and last name columns (labelled "as it appears on your government ID"), `Company Name` (the practice), `Sales Rep`, `City`, `State` and the four output columns: `Salesperson Email`, `Sales Manager EMail`, `Cost Center` and `Lumenis Notes`.
 
 Observed 2026-10-23: the `Division` picklist offers only `Vision`, but Aesthetics rows hold a typed `Aesthetics` value because validation is off. A blank or other value is unclear. List it in the review rather than guessing.
 
-**VIS Rep Approval sheet.** Read `Rep Name`, `RSM Name`, `RSM Approval`, `Practice / Account Name` and both attendee name pairs (`Attendee #1` and `Attendee #2`). Each approval row can approve two people. A traveler qualifies as flight-approved only when their matching VIS Rep Approval row has `RSM Approval` = `Yes`. A matching name and practice alone is not approval. Blank, `No`, pending or unexpected values are not approved; list the current value in the review and leave those travelers' flight-sheet cells unchanged. Approval of the review list does not replace this requirement.
+**Rep approval sheet.** Read `Rep Name`, `RSM Name`, the division's RSM approval column (see "Division settings"), `Practice / Account Name` and both attendee name pairs (`Attendee #1` and `Attendee #2`). Each approval row can approve two people. A traveler qualifies as flight-approved only when their matching approval row's RSM approval column = `Yes`. A matching name and practice alone is not approval. Blank, `No`, pending or unexpected values are not approved; list the current value in the review and leave those travelers' flight-sheet cells unchanged. Approval of the review list does not replace this requirement.
 
 Confirm that every row was read, not a sample.
 
@@ -38,70 +54,76 @@ A match needs the **name and the practice** to line up: flight `Company Name` ag
 
 | Group | Meaning |
 |---|---|
-| In both sheets — approved | Vision traveler found on the VIS Rep Approval sheet with matching name and practice, and `RSM Approval` = `Yes` |
-| In both sheets — not approved | Name and practice match, but `RSM Approval` is blank, `No`, pending or another value. Report the value; do not fill the flight row |
+| In both sheets — approved | Traveler found on the division's rep approval sheet with matching name and practice, and the RSM approval column = `Yes` |
+| In both sheets — not RSM approved (flag) | Name and practice match, but the RSM approval column is blank, `No`, pending or another value. Report the value, the rep and the rep's RSM; do not fill the flight row |
 | Possible match (flag) | Nickname, maiden/married name or small practice-name difference. Show both versions and why they look alike; don't decide |
-| Flight sheet only | Vision traveler not found on the VIS Rep Approval sheet |
+| Flight sheet only | Traveler not found on the division's rep approval sheet |
 
 For each flight-only traveler, find their sales rep and say where it came from: the flight sheet's `Sales Rep` cell, or the practice appearing elsewhere with a rep. If it can't be found, say so.
 
 ## 3. Post the review list and ask
 
-Include:
+Include, per division:
 
 - Name, practice and the sheets each traveler is on.
-- Flags, with both spellings side by side, and the matching approval row's `RSM Approval` value.
-- Matched travelers whose `RSM Approval` is not `Yes`, with the current value; these are not flight-approved and remain unchanged.
+- **Not RSM approved:** every traveler who is on both the flight sheet and the rep approval sheet but whose RSM approval is not `Yes`. Give the traveler, practice, current approval value, **the rep's name and the rep's RSM** (name and email, from the org chart sheet; use the approval row's `RSM Name` if the rep isn't on the chart, and say so). These are not flight-approved; the list lets the team email the RSM to ask for approval.
+- Possible-match flags, with both spellings side by side and the matching approval row's RSM approval value.
 - For flight-only travelers: the salesperson's name and email, and their RSM's email (looked up as in step 4). This is for the report only; nothing is written to these rows.
-- Practices with more than one Vision traveler.
-- **Always flag a practice with more than two Vision travelers**, with every name, the practice's sales rep and that rep's RSM. If the rep or RSM can't be found, say so.
+- Practices with more than one traveler.
+- **Always flag a practice with more than two travelers**, with every name, the practice's sales rep and that rep's RSM. If the rep or RSM can't be found, say so.
 - Any Canada flag from step 4.
+- The org chart edition used, and whether its emails have been verified since it last changed.
 
 Ask: "Does this look good?" Apply the reviewer's corrections before writing.
 
 ## 4. After approval, fill the flight sheet
 
-For travelers in **In both sheets — approved**, plus identity-match flags the reviewer confirms **whose matching VIS row also has `RSM Approval` = `Yes`**. Re-read the approval field immediately before writing; if it is no longer `Yes`, leave the flight row unchanged and flag it. A reviewer confirming an identity match or approving the review list does not override a missing or negative RSM approval:
+For travelers in **In both sheets — approved**, plus identity-match flags the reviewer confirms **whose matching approval row also has the RSM approval column = `Yes`**. Re-read the approval field immediately before writing; if it is no longer `Yes`, leave the flight row unchanged and flag it. A reviewer confirming an identity match or approving the review list does not override a missing or negative RSM approval:
 
-1. **Sales rep:** `Rep Name` from the VIS Rep Approval row.
-2. **`Salesperson Email`:** the rep's company address.
-3. **`Sales Manager EMail`:** the rep's **RSM** (the sheet's `Reports To` on the rep's Vision Sales row), not the DSM.
+1. **Sales rep:** `Rep Name` from the rep approval row.
+2. **`Salesperson Email`:** the rep's company address, from the org chart sheet's `Email`.
+3. **`Sales Manager EMail`:** the rep's **RSM** (the sheet's `Reports To` on the rep's row), not the DSM.
 4. **`Cost Center`:** the RSM's cost center (the rep row's `Manager Cost Center`). **Canadian guests always get the designated Canada cost center** (recorded internally), whoever the rep or manager is. Decide by where the guest or practice is located, not the rep's territory. If the country is unclear but the rep covers a Canadian territory, flag it instead of guessing.
-5. **`Lumenis Notes`:** when more than one Vision traveler comes from the same practice, list all of their names on each of their rows so it's clear who flies together.
+5. **`Lumenis Notes`:** when more than one traveler comes from the same practice, list all of their names on each of their rows so it's clear who flies together.
 
-Leave flight-only rows unchanged unless told otherwise. If a rep or manager isn't on the org chart sheet, or a name is truncated or unusually formatted, leave the cell blank and list it in the report.
+Leave flight-only and not-RSM-approved rows unchanged; an instruction to fill details does not override the required RSM approval. If a rep or manager isn't on the org chart sheet, or a name is truncated or unusually formatted, leave the cell blank and list it in the report. Don't write emails from an org chart sheet whose emails haven't been verified since its last change.
 
 ## Reading the org chart
 
-Look reps up in the **sales org chart sheet**, not the PDF. It is a Smartsheet transcription of the org chart's Vision Sales page, named `Vision Sales Org Chart (<edition date>)`, with one row per named person:
+Look reps up in the division's **sales org chart sheet**, not the PDF. Each is a Smartsheet transcription of one sales page of the org chart (`Vision Sales Org Chart (<edition date>)` or `AES Sales Org Chart (<edition date>)`), with one row per named person:
 
 | Column | Holds |
 |---|---|
-| `Name` | Person |
+| `Name` | Person; preserve identity and confirmed aliases |
 | `Title`, `Territory / Region` | As printed on the chart (RSM, DSM, SM / Sr. SM, ASM / Sr. ASM) |
-| `Department` | `Vision Sales` |
+| `Department` | `Vision Sales` or `AES Sales` |
 | `Reports To` | The rep's RSM; for an RSM, the VP |
 | `Manager Cost Center` | The `Reports To` person's cost center, typed from the chart |
-| `Status` | Formula |
-| `Email` | Preserved company address: an existing manual correction takes precedence over any generated candidate. Generate candidates for blank cells; refresh a prior candidate only if Notes explicitly marks it generated and unverified. Mark candidates unverified in Notes |
-| `Notes` | Caveats, identity aliases, and email provenance: `manually corrected` / `confirmed`, or `generated - unverified`. An address with unknown provenance is protected, not assumed generated |
+| `Status` | Formula (Vision sheet only; observed 2026-10-28, the AES sheet has no `Status` column) |
+| `Email` | Confirmed company address preserved across refreshes; generated candidates remain unverified until directory confirmation |
+| `Notes` | Caveats, identity aliases and email provenance: confirmed, manually corrected, or generated/unverified |
 
 Find the rep and use `Reports To` and `Manager Cost Center`.
 
-**No vacancy rows.** Vacant (`OPEN`) positions were removed from the sheet on 2026-10-23, so it lists named people only. To find out whether an RSM spot is open, check the org chart PDF. A rep or RSM who isn't in the sheet is flagged, never guessed.
+**No vacancy rows.** Vacant (`OPEN`) positions are not rows; the sheets list named people only. To find out whether an RSM spot is open, check the org chart PDF or the rep row's `Notes`. A rep or RSM who isn't in the sheet is flagged, never guessed.
 
-**Format for new org charts.** When a new org chart is provided, copy the current sheet's format exactly. Read the existing sheet first to confirm the layout:
+**Format for new org charts.** When a new org chart is provided, copy the current sheet's format for that division exactly. Read the existing sheet first to confirm the layout:
 
-- Use the same columns in the same order (above). Don't add columns. Keep `Status` as a column formula. Do **not** require `Email` to be a column formula: it must support corrected values that survive refreshes. Any existing Email column formula must be reviewed before the refresh so it cannot overwrite corrections.
+- Use the same columns in the same order. Don't add columns. Keep `Status` (where present) as a formula. Do not apply an Email column formula over confirmed or corrected addresses; resolve any formula that prevents preserving them before refreshing.
 - One row per person, grouped by region: each RSM's row first, then that RSM's reports.
 - Leave out vacant (`OPEN`) positions.
 - Name the sheet `<Team> Org Chart (YYYY.MM.DD)` with the chart's edition date.
+- Carry forward any name spelling corrections from the previous edition, then run the email check below.
 
-- **Open RSM** (confirmed from the PDF): leave `Sales Manager EMail` and `Cost Center` blank for that region's reps and list them in the review for the reviewer to decide. Never borrow an Aesthetics RSM.
+- **Open RSM** (confirmed from the PDF): leave `Sales Manager EMail` and `Cost Center` blank for that region's reps and list them in the review for the reviewer to decide. Never borrow the other division's RSM.
 - **Interim or acting titles:** treat them as the manager, and mention them in the report.
-- **Same name on the Aesthetics chart:** the sheet holds Vision only, so ignore the Aesthetics page. Similar surnames are not the same person.
-- **Truncated or unusual names:** a generated email candidate cannot be trusted. Preserve any already-corrected address and flag only unresolved identity or address questions.
-- **Keeping it current:** org charts come out monthly. When a newer PDF arrives, update the sheet from its Vision Sales page, including each row's `Manager Cost Center` (or make a new sheet named for the new edition, in the format above), before running the check, following the email-preservation rules below. Read the PDF only for that refresh or to confirm an open position.
+- **Same name on the other division's chart:** use only the sheet for the division being checked. Similar surnames are not the same person.
+- **Truncated or unusual names:** a generated email cannot be trusted until identity and address are verified. Flag it.
+- **Keeping it current:** org charts come out monthly. When a newer PDF arrives, update the division's sheet from its sales page, including each row's `Manager Cost Center` (or make a new sheet named for the new edition, in the format above), then verify its emails before running the check. Read the PDF only for that refresh or to confirm an open position.
+
+### Verify emails after every org chart change
+
+Preserve existing confirmed addresses first, using the refresh rules below. A name-derived address is only a candidate. After a refresh, verify new or changed candidates against the company directory, matching the named person and division. A mail client accepting an address is not proof that it belongs to the intended employee. An authorized person may use an unsent draft to resolve directory entries; never send it, and do not alter a person's display name merely to force an email formula to match. Record verification and the edition used in the internal work system. Unresolved addresses block the affected email writes.
 
 ### Preserve corrected emails on every refresh
 
@@ -118,23 +140,27 @@ Fictional check: the PDF lists "Jonathan Example", but his previously corrected 
 
 ### Fictional example
 
-A practice has three Vision travelers on the flight sheet. Two match an approval row exactly. The third is listed as "Liz" on the flight sheet and "Elizabeth" on the approval row. The review list flags the Liz/Elizabeth pair, flags the practice for having more than two travelers, and names its rep and RSM. The matching VIS rows have `RSM Approval` = `Yes`. After the reviewer confirms Liz is Elizabeth and approves the review list, all three rows get the rep's email, the RSM's email, the RSM's cost center and a note listing all three names.
+A practice has three Aesthetics travelers on the flight sheet. Two match an AES approval row exactly; the third is listed as "Liz" on the flight sheet and "Elizabeth" on the approval row. The approval row for the first two has `RSM Approved (RSM to complete)` = `Yes`; the row for Elizabeth is blank. The review list flags the Liz/Elizabeth pair, lists Elizabeth as not RSM approved with her rep and the rep's RSM so the team can email the RSM, flags the practice for having more than two travelers, and names its rep and RSM. After the reviewer approves the list, the first two rows get the rep's email, the RSM's email, the RSM's cost center and a note listing all three names. Elizabeth's row stays unchanged until her approval row says `Yes`.
 
 ## Avoid
 
 - Writing to any sheet before the review list is approved.
-- Treating a name/practice match as flight approval, or filling a flight row when its matching VIS row does not have `RSM Approval` = `Yes`.
+- Treating a name/practice match as flight approval, or filling a flight row when its matching approval row's RSM approval column is not `Yes`.
+- Using the AES sheet's plain `RSM Approval` column instead of `RSM Approved (RSM to complete)`.
+- Mixing divisions: matching against the other division's approval sheet or looking reps up on the other division's org chart.
 - Changing the AES or VIS Rep Approval sheets. They are read-only references.
 - Adding rows or columns to the flight sheet.
 - Using the DSM as the sales manager.
-- Overwriting corrected email addresses during an org chart refresh, or losing them when creating the next edition sheet.
+- Replacing a confirmed email with a generated candidate, or changing an identity name just to force an email formula.
+- Writing emails from an org chart sheet that changed and hasn't had its emails verified.
 - Copying traveler details, sheet links or cost center codes into public issues or pull requests.
 
 ## Missing information and decisions
 
-- The VIS Rep Approval sheet has its own `RSM Name` column. The procedure uses the org chart sheet. If they disagree, flag both values and ask the reviewer to resolve the conflict before filling the affected manager fields.
+- The rep approval sheets have their own `RSM Name` column. The procedure uses the org chart sheet. If they disagree, flag both values and ask the reviewer to resolve the conflict before filling the affected manager fields.
 - The flight sheet's `Division` picklist lists only `Vision`. The [event backend reference](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#known-source-template-failures) already records this. Until the template offers both values, typed values can vary.
+- This file covers both divisions but lives in the Vision folder. Move it to a shared location if Aesthetics procedures get their own folder.
 
 ## Maintenance
 
-Review date: 2026-10-23. Revalidate sheet and column names on each new event folder; copied templates can drift. Keep the review list and approval evidence in the internal work system.
+Review date: 2026-10-28. Revalidate sheet and column names on each new event folder; copied templates can drift. Keep the review list and approval evidence in the internal work system.
