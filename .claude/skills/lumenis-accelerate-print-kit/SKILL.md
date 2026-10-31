@@ -14,7 +14,7 @@ Status: draft procedure, written 2026-10-29 from the Vision Accelerate planning 
 |---|---|---|---|
 | Agenda poster boards | 2 | Mimeo | One per division schedule (Aesthetics, eye care), each with a QR code to its agenda page |
 | Table tents | 10 | Vistaprint | Small folded tents with the schedule graphic and QR codes, scattered on tables |
-| Backup consent forms | Per clinical's count | Mimeo | Paper fallback if the clinical tablets fail. Clinical owns the digital form; the on-site QR version is printed at the venue |
+| Backup consent forms | Per clinical's count | Mimeo | Paper fallback if the clinical tablets fail. Clinical owns the digital form; the on-site QR version is printed at the venue. The [Vision consent QR sign](../../../templates/vis-consent-qr-sign.md) is a separate sign and does not replace the clinical-approved paper form |
 | Service certificate vouchers | About 20 | Mimeo | Redeem-by date in the footer, see below |
 | Lanyards, pens, journals | 200 each | Usual swag vendor | Use leftovers from the last show first |
 
@@ -25,7 +25,7 @@ Raffle tickets and boxes travel with the service team's supplies; reorder only i
 ### E7 Print planner (T-30)
 
 1. List every item above in the event's print planner with quantity, vendor, file and ship-to.
-2. **QR codes:** generate one per agenda page with its own tracking tag from [lumenis-utm-links](../lumenis-utm-links/SKILL.md). Replace the QR codes on the last show's schedule graphics; change nothing else unless the schedule changed.
+2. **QR codes:** generate one per agenda page with its own tracking tag from [lumenis-utm-links](../lumenis-utm-links/SKILL.md). Replace the QR codes on the last show's schedule graphics; change nothing else unless the schedule changed. For the table tents, follow the [agenda table tent template](../../../templates/accelerate-agenda-table-tent.md).
 3. Scan every QR code on the proof with a phone. Each must open this show's agenda page for the right division.
 
 ### E8 Service vouchers (T-21)
