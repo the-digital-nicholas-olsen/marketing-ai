@@ -32,7 +32,7 @@ The primary comparison uses the associated amount recorded as `Valuation Price` 
 
 Check both tracking sheets on every run, at every status that has a PO. A PO can be invoiced or paid before anyone puts it on a budget, so checking only new POs misses it.
 
-- **2026 sheet:** filter `Status` to `PO Created, Pending Invoice`, `Invoice Received, Sent to AP`, `Payment Issued, Process Complete` and `Invoice Received, Correction Needed`, one pull per status. Read `Quarter`, `Vendor`, `Header Text`, `Category`, `PR#`, `Valuation Price` and `PO#`.
+- **2026 sheet:** include every non-cancelled row with a PO; the observed statuses include `PO Created, Pending Invoice`, `Invoice Received, Sent to AP`, `Payment Issued, Process Complete` and `Invoice Received, Correction Needed`, read all currently available statuses and confirm no PO-bearing status was omitted. Read `Quarter`, `Vendor`, `Header Text`, `Category`, `PR#`, `Valuation Price` and `PO#`.
 - **2027 sheet:** it holds every business area, so filter `BusArea` to `VIS`. The description column is `Header Data`, and quarter codes read `Q127VIS` instead of `Q127V`. Status names can carry a bracketed prefix, so match on the words after it. Include `Partial PO amount left over (see notes)`.
 
 Skip cancelled PRs and PRs with no PO# in this pass. Count a PO logged on both sheets once. Confirm that results are complete, not sampled or truncated. Use the description to identify the likely event and confirm ambiguous matches.
