@@ -22,9 +22,9 @@ Use this at step E8 of the [print kit](../SKILL.md) to change the redemption dea
 
 | The request says | Use |
 |---|---|
-| A date, such as "change it to January 15, 2027" | That exact date. Do not look anything up. |
-| A number of days, such as "30 days after event" | The event's last day plus that many days. |
-| Neither | 30 days after the event's last day. Say in the reply that this default was used. |
+| A date, such as "change it to January 15, 2027" | Use that exact date for a draft, and verify it is after the confirmed event end before handoff. |
+| A number of days, such as "30 days after event" | Propose the event's last day plus that many calendar days; confirm that anchor with the service lead if the request does not establish it. |
+| Neither | Propose 30 days after the event's last day as an unapproved draft. State the assumption and obtain the service lead's confirmation before treating it as the redemption term. |
 
 To calculate the date:
 
@@ -46,10 +46,10 @@ Work on a copy and save it as the next version, for example V4 becomes V5. Keep 
 2. Replace the whole date, including the day and year, even if only the month changes. Earlier edits may have split the date into separate pieces of text.
 3. Edit the source if you have it, then export with the same PDF settings. If you only have the PDF, use a PDF editor or script that changes the text in place. Do not export the page to an image or cover the old date with a shape.
 4. Set the new date in licensed ABC Arizona Sans Regular, at the size and color of the text around it. A PDF only holds the letters it already uses, so a new month can fall back to another font. Never accept a substitute font.
-5. Keep both lines centered. A month with a different length changes the line width, so re-center the line rather than leaving a gap. The terms line must still fit inside the margins.
+5. Keep each line's approved alignment; re-center only where the master is centered. A month with a different length changes the line width, so re-center the line rather than leaving a gap. The terms line must still fit inside the margins.
 6. Save a full copy, not an incremental save. Each incremental save keeps the older version inside the file, including the old date.
 
-Do not fix anything else while you are in the file. Report other problems, such as a name containing "Trial" in the embedded font list, and leave them for the owner to decide. A fixed font is a separate change.
+Do not fix anything else while you are in the file. Report other problems, such as a name containing "Trial" in the embedded font list, and leave them for the owner to decide. A font correction is a separate approved master change; unresolved trial-font licensing blocks print release, even if the date edit itself is complete.
 
 ## Check before sending
 
