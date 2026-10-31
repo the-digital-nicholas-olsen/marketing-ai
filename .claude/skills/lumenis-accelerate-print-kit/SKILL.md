@@ -30,7 +30,7 @@ Raffle tickets and boxes travel with the service team's supplies; reorder only i
 
 ### E8 Service vouchers (T-21)
 
-1. Update the footer's redeem-by date (usually about a month after the show) in the voucher source files kept in the team's OneDrive folder.
+1. Update the footer's redeem-by date (usually about a month after the show) in the voucher master, `Accelerate-Raffle-Certificate-V4.pdf`, in the `Lumenis Vision US MKT - Graphic Templates` OneDrive folder. Follow [Change the service voucher date](references/voucher-date-change.md).
 2. Draft a short email to the service lead with the proof: "Is this expiry date correct? If so I'll print about 20." Print only after a written yes.
 
 ### E9 Order (T-14)
