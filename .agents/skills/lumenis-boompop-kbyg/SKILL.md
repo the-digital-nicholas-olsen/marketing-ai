@@ -95,7 +95,7 @@ Hover a section for its controls: ↑ / ↓ to move, pencil to edit, eye to show
 | Who's Going | Leave as is |
 | Point of Contact | Leave as is, but check the mobile number |
 | Workspace | **Event Venue Information.** Put the venue in *Meeting space name* and *Key Details → Location*. Body: travel guidance, rooming, huddles and exhibit hours |
-| Hotel | **Lodging Information.** Never hide it (Rule 11) |
+| Hotel | **Lodging Information.** Follow Rule 11: incomplete details remain private; hide an incomplete live section and hold distribution |
 | Agenda | Hide while empty; show it after step 7 |
 | Welcome Note | **Participating KOLs & Devices** (Rule 10). Hide it only if the schedule lists no devices |
 | Frequently Asked Questions | **FAQ FOR ATTENDEES.** Cut the generated questions down to the reference's |

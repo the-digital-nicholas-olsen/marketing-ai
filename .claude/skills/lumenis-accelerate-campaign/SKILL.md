@@ -25,7 +25,7 @@ Resolve division(s), market, city, event dates/timezone, products, audience, req
 | Rep/prospect communications and registration backend | [Internal communications](references/internal-comms.md); [Smartsheet](references/smartsheet.md) only for backend work |
 | Account access, API reads, editor failures | [HubSpot access and verification](../../../integrations/hubspot/access-and-verification.md) |
 | Pipeline amount, stage and expected value on rep approval sheets | [Pipeline sync skill](../lumenis-accelerate-pipeline-sync/SKILL.md) |
-| Vision flight approvals once flight registrations come in (Vision only, draft) | [Flight approval check](../../../divisions/vision/smartsheet/accelerate-flight-approval-check.md) |
+| Flight approvals once flight registrations come in (Vision or Aesthetics, with separate gates; draft) | [Flight approval check](../../../divisions/vision/smartsheet/accelerate-flight-approval-check.md) |
 | Landing page and form test before launch | [Landing page check](../lumenis-landing-page-check/SKILL.md) |
 | Badge, OneTap, KBYG and attended lists | [Attendee lists](../lumenis-accelerate-attendee-lists/SKILL.md) |
 | Readiness or launch | [Acceptance checklist](references/acceptance.md) |
