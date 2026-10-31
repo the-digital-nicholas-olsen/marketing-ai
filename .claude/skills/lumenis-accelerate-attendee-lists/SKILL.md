@@ -15,7 +15,7 @@ Four lists come from the same source at different times. Building them one way k
 The event folder's sheets in Smartsheet: **VIS Rep Approval**, **AES Rep Approval**, the **Flight** registration sheet and the **Non-Flight / Local** registration sheet. Read all four, then:
 
 1. **Merge** on the person. Someone on an approval sheet and a registration sheet is one attendee.
-2. **Email is not a unique ID.** A practice often routes several people through one inbox, so two names on one address are two people, not a duplicate. Match on full first and last name plus practice, using email only as supporting evidence. Keep distinct first names separate even when surname and practice match. A nickname, changed surname or ambiguous match requires a confirmed identity mapping from the attendee or owner before merging; until then keep source records separate and flag the possible duplicate.
+2. **Email is not a unique ID.** A practice often routes several people through one inbox, so two names on one address are two people, not a duplicate. Match on surname plus practice and treat email as a supporting signal only.
 3. **Keep** only rows that are approved and registered for this show (use each sheet's approval and status columns as the event's setup defines them; ask when a column's meaning is unclear).
 4. **Division** comes from the sheet (VIS or AES), or the Division column on shared sheets.
 5. **Flag, don't fix** whatever the rules below do not settle: rows without an email, duplicates that still conflict, names in all caps. Report them to the owner.
@@ -30,28 +30,28 @@ Also when reading the sheets:
 
 ### Name normalization
 
-These rules apply only to badge display fields after identity matching. Preserve original names and source row IDs separately; do not propagate badge edits to travel, OneTap, HubSpot or Salesforce identity fields. Use each destination's confirmed identity requirements; unresolved shared-email CRM mappings block that import, not badge drafting. Never infer a preferred name or relationship. Apply in order:
+The badge carries the name the person goes by. The registration sheets' name fields are filled from a government ID, so they are not always that name. Apply in order:
 
-1. **Nickname:** use an explicitly recorded or attendee/owner-confirmed preferred badge name. A familiar-looking nickname alone is not identity evidence.
-2. **Middle name used as a first name:** use it only when confirmed as the attendee's preferred badge name; otherwise flag the difference and retain the registration name in the draft.
-3. **Spelling variants:** once identity is confirmed, use the registration spelling unless a preferred spelling is explicitly confirmed. Uncertain identity stays flagged.
-4. **Two surnames on file:** neither a substring nor another attendee's surname proves truncation, marriage or professional use. Retain both source values, flag the discrepancy and obtain attendee/owner confirmation before merging identities or changing the badge surname. A registration name may remain as a clearly flagged draft.
-5. **Middle names:** omit only when they are not part of the confirmed preferred badge name; never drop a middle name used as the first name.
+1. **Nickname** wins over the legal first name.
+2. **Middle name used as a first name:** take the first name from the rep approval sheet, not the registration sheet.
+3. **Spelling variants** of one name: take the registration sheet's spelling.
+4. **Two surnames on file:** if one contains the other it is a truncation, so use the fuller surname. If they share nothing, check whether either surname matches another attendee at the same practice - a match identifies the married or professional name, so use that one. With no match, use the registration sheet.
+5. **Omit middle names** from the badge file.
 6. **A missing surname does not block the list.** Leave it blank and report it.
 
 ### Duplicate resolution
 
 1. A shared email is not a duplicate.
 2. The same person entered twice on one sheet collapses to one row. Check whether one of the two rows has values shifted into the wrong columns before choosing which to keep.
-3. The same surname at one practice does not establish a duplicate or a relationship. Different people remain separate; ambiguous full-name matches need owner confirmation.
+3. The same surname at one practice is usually a couple or a relative, not a duplicate.
 4. When duplicate rows disagree on city or practice name, confirm the practice's location from a public source instead of taking the first row. A city field sometimes holds the nearest airport rather than the practice's town.
-5. A confirmed person already counted who later appears on a second sheet does not raise the headcount. Compare confirmed identity mappings and source row IDs, not email or row counts alone. Report unresolved possible duplicates separately; do not call their count reconciled.
+5. A person already counted who later appears on a second sheet does not raise the headcount. When re-checking for additions, compare names, not row counts.
 
 ## Lists
 
 | Step | When | List | Fields | Goes to |
 |---|---|---|---|---|
-| E12 | T-11 | Badge file | First name, last name, account (practice), city, state, division, email | Badge printing vendor (they ask about ten days out). Two badge styles, Vision and Aesthetics. Tell them email is contact data, may be shared and must not print; preserve a distinct attendee key for each person |
+| E12 | T-11 | Badge file | First name, last name, account (practice), city, state, division, email | Badge printing vendor (they ask about ten days out). Two badge styles, Vision and Aesthetics. Tell them email is an ID only and must not print |
 | D11 | T-4, Monday morning | Know Before You Go | Email, first name, last name, division | HubSpot static segment attached to Em2; set **Registered** in the Salesforce campaign |
 | L1 | T-1 | OneTap upload | As OneTap's import template requires | OneTap, after the archive step below |
 | P1 | T+3, Monday after | Attended | From OneTap check-ins | HubSpot segment for Em3 (sends Tuesday); set **Attended** in the Salesforce campaign |
@@ -74,10 +74,3 @@ Counts per list and division, the flagged rows, and where each file went. Save f
 
 - Never build an attendee list from HubSpot contacts or form submissions.
 - Attendee files contain personal data: keep them in OneDrive and the target system only, never in this repository, chat history beyond the task, or public links.
-
-## Fictional walkthroughs
-
-- Alex Example and Jordan Example at one practice share an inbox. Different first names keep them as two attendees and two badge rows.
-- One sheet says Elizabeth Sample and another says Liz Sample. Flag a possible match and retain both records until the owner confirms identity and the preferred badge name.
-- Two surname variants overlap or match a coworker's surname. Neither proves identity; preserve both values and request confirmation.
-- A confirmed attendee prefers a middle name as their first name. Use that name on the badge and retain the original registration fields for travel and system matching.

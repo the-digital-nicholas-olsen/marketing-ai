@@ -27,7 +27,7 @@ The Know Before You Go is the guest-facing page attendees land on from the invit
 10. **Devices come from the event schedule.** The `DEVICES` column fills whichever devices slot the reference uses:
     - Tier 3: a *Devices Onsite* item in Important Information.
     - Tiers 1 and 2: a *Participating KOLs & Devices* section (the repurposed Welcome Note). Put `@ Booth` in bold and underlined, then a bulleted list of the devices as listed. Hide the section's logo image, as the references do. Add no counts the schedule doesn't give. Add *Confirmed KOLs* only when the Agenda sheet names them.
-11. **Lodging must be accurate before release.** Keep missing hotel details as placeholders only in an external draft or a confirmed private staging view. Never leave placeholders visible on a live guest page. If private staging is unavailable, hide the incomplete section and hold distribution until the owner supplies confirmed lodging details. Do not substitute the event venue for the hotel.
+11. **Always include Lodging; never hide it.** Use the reference's wording. Where hotel details aren't in Smartsheet, keep the sentences and bracket the variable parts: `[Hotel Name]`, `[X] miles`, `[Date]`, `[Time]`, `[Day, Date]`, `[Name]`. Set *Key Details → Location* to the venue. If the section already has real hotel details, leave them. These placeholders show on the live page, so list them in your report to be filled before invites go out.
 
 ## Inputs
 
@@ -60,7 +60,7 @@ Then open the show folder's `Fast Facts` sheet for the venue address, rooming li
 
 ### 2. Pick the reference page
 
-1. Read the show's **Tier**: `1` large, `2` small, `3` tabletop. `-` means no tier, so stop and ask. If the current schedule has no Tier, propose a prior same-series tier and obtain owner confirmation before selecting the reference.
+1. Read the show's **Tier**: `1` large, `2` small, `3` tabletop. `-` means no tier, so stop and ask. If that year's schedule has no Tier column, use the same series' tier on the newest schedule that has one.
 2. In BoomPop → **My Events** → **Past**, take the latest-dated completed event from the same tier. An upcoming event never counts, even if its page looks finished.
 3. Open it read-only: the show → **Guest Management** → **View & edit**. Note the text, the formatting (bold, underline, lists, blank lines) and which sections say *Section hidden*. Leave without changing anything.
 
@@ -83,7 +83,7 @@ The top bar holds **Manage Guest Experience**, **Preview as Guest**, **Invite** 
 
 ### 5. Set up the hero
 
-The logo, event name, city and dates come from **Event Details**, so fix wrong values there. On the page, set the **cover photos** (replace the stock images when you have real venue or brand imagery) and **Edit color theme**. Confirm one named brand system and cleared image rights. A past show or stock image alone does not establish approval.
+The logo, event name, city and dates come from **Event Details**, so fix wrong values there. On the page, set the **cover photos** (replace the stock images when you have real venue or brand imagery) and **Edit color theme**. A new page usually carries the house palette already; check it against a recent show before changing it.
 
 ### 6. Fill and hide the sections
 
@@ -95,7 +95,7 @@ Hover a section for its controls: ↑ / ↓ to move, pencil to edit, eye to show
 | Who's Going | Leave as is |
 | Point of Contact | Leave as is, but check the mobile number |
 | Workspace | **Event Venue Information.** Put the venue in *Meeting space name* and *Key Details → Location*. Body: travel guidance, rooming, huddles and exhibit hours |
-| Hotel | **Lodging Information.** Follow Rule 11: incomplete details remain private; hide an incomplete live section and hold distribution |
+| Hotel | **Lodging Information.** Never hide it (Rule 11) |
 | Agenda | Hide while empty; show it after step 7 |
 | Welcome Note | **Participating KOLs & Devices** (Rule 10). Hide it only if the schedule lists no devices |
 | Frequently Asked Questions | **FAQ FOR ATTENDEES.** Cut the generated questions down to the reference's |
@@ -133,7 +133,7 @@ Saturday, March 6: 3-10 PM
 The agenda feeds the page, and it's edited outside the page editor. Click **Done**, then **Agenda** in the event's left nav.
 
 1. On a new event, choose **Or create from scratch** in the template dialog.
-2. Read the show's `Agenda` sheet. Skip `Exhibit Hall Open` rows and all exhibit-hours or move-in and move-out times, unless the requester explicitly wants those times in the agenda; then follow the request and verify the source.
+2. Read the show's `Agenda` sheet. Skip `Exhibit Hall Open` rows and all exhibit-hours or move-in and move-out times, even if a request says to add them.
 3. For each remaining session, click an empty slot in the right day's column and set:
    - **Title:** `<Activity> w/ <Who's Involved>`, for example `Meet The Expert w/ Dr. Example`
    - **Start and End time** from the sheet, in the event's local time zone (shown above the grid)
@@ -158,7 +158,7 @@ Don't press **Publish to Guest Calendars** unless asked. The page picks up saved
 
 Run **Preview as Guest** and confirm:
 
-- No placeholder text, especially `[EventType]`, `[TIME]`, `Write something...` or `123 Main St, City, State`. Unresolved lodging fields block release under Rule 11.
+- No placeholder text, especially `[EventType]`, `[TIME]`, `Write something...` or `123 Main St, City, State`. Rule 11's lodging brackets are the only allowed exception, and they go in your report.
 - Every empty section is hidden. Count them against step 6.
 - Point of Contact is a real person with a reachable mobile.
 - The hero's dates and city match the show.
@@ -170,9 +170,9 @@ Run **Preview as Guest** and confirm:
 1. Click **Invite**. BoomPop says *You haven't set up your guest experience!* Click **Set-up RSVP**.
 2. **Questions:** uncheck everything except *How can we contact you?* The form ships with dietary, shirt size and other questions we don't collect. **Next**.
 3. **Ticketing:** not used. **Next**.
-4. **Settings:** verify internal audience access, guest-list visibility and sharing against the event owner's requirements; a notice saying internal-only is not access control. Set an RSVP deadline only when the show has a hard cutoff. **Done**.
+4. **Settings:** defaults are fine, but check guest-list visibility and sharing match what the event owner wants. Set an RSVP deadline only when the show has a hard cutoff. **Done**.
 5. **Invite** → **Invite and Share** → **Copy invite link**. Open it once to confirm it lands on the right show.
-6. Paste it into the `BoomPop URL` row of the show's `Fast Facts` sheet: URL only, no label or trailing spaces. If the row is missing, add it directly below the Main POC rows, after checking the whole sheet for a duplicate. If it already holds a link, open it and verify the event and audience first. Retain a valid link. A conflicting or inaccessible link needs owner resolution before replacement; preserve the previous value in the internal handoff.
+6. Paste it into the `BoomPop URL` row of the show's `Fast Facts` sheet: URL only, no label or trailing spaces. If the row is missing, add it directly below the Main POC rows, after checking the whole sheet for a duplicate. If the cell already holds a link, it's stale: overwrite it and say so in your report.
 7. Read the cell back. It must start with `https://app.boompop.com/invitation/` and match the event you were just in.
 
 The invite code differs from the event code in the BoomPop header, so copy the link rather than building it.
@@ -181,7 +181,7 @@ Leave the Email addresses box empty and don't press **Preview & Continue**. That
 
 ## Add one session to an existing show
 
-Both systems get the authorized item in the same pass. Search each agenda for an existing matching session before adding one; update or flag an existing entry rather than duplicating it. If only one system saves, report the partial result and resume there after checking persisted state.
+Both systems get the item in the same pass. Check each agenda for a matching session first so nothing is added twice. If only one system saves, say so in the report.
 
 - **BoomPop:** add it as in step 7, using the title exactly as given. Fill vendor, room and notes only if you were given them.
 - **Smartsheet:** add a row to the show's `Agenda` sheet, chronologically within its day. Position it with `siblingId` set to the session it follows, then check the order. Adding with `parentId` and `toBottom` lands it at the top of the day.
@@ -196,7 +196,7 @@ Both systems get the authorized item in the same pass. Search each agenda for an
 ## When an input is missing (fictional examples)
 
 - **Successful run.** "Create KBYG for Example Eye Expo, Springfield." The schedule row gives the dates, venue, Tier 2 and two devices. The agent mirrors the latest completed Tier 2 page, builds the agenda, previews as guest, files the invite link in Fast Facts and reports the reference page used.
-- **No hotel details.** Fast Facts has no rooming link. The missing lodging details remain in a private draft; hide an incomplete live section and hold distribution until details are confirmed.
+- **No hotel details.** Fast Facts has no rooming link. The Lodging section stays visible with `[Hotel Name]` and `[Date]` placeholders, and the report lists them to fill before invites go out.
 - **No tier.** The show's Tier is `-`. The agent stops and asks which reference page to use.
 - **Blank venue.** The VENUE cell is empty and the show folder doesn't name it. The agent asks and leaves the venue details out until it has an answer.
 
