@@ -25,6 +25,12 @@ At a trade show the space left by the eyebrow stays empty. Nothing moves up to f
 
 Encode the link exactly as supplied. Don't add UTM tags or shorten it unless the person who supplied it asks. Keep the link and finished PDFs in the event's work folder, not in Git.
 
+## Master and release checks
+
+Before building, confirm the master revision and SHA-256 with the owner in the private work system; do not compute a hash of an unverified file and call it approved. Copy [print-pdf-input-guards.mjs](../scripts/print-pdf-input-guards.mjs) alongside the extracted script. Set `LUMENIS_APPROVED_MASTER_SHA256` to that owner-confirmed value. The script rejects a different master, an existing output path and undersized QR modules. Raw-stream scripts also reject unsupported incremental or cross-reference structures; use a reviewed PDF editor instead of bypassing the guard.
+
+The specification below describes one observed master, not blanket approval for every year or use. Confirm current artwork clearance, applicable brand approval, licensed embedded fonts and the required year before print release. Unresolved Trial-font licensing or an unapproved brand exception blocks release; obtain a corrected approved master and revalidate the editor against it. Drafting may continue with those blockers clearly reported. No form submission is needed to verify a QR destination.
+
 ## Locked specification
 
 Check any finished sign against these. All measurements are from the top-left corner of the page.
@@ -82,17 +88,21 @@ Printing is a separate step. See the [Accelerate print kit](../.agents/skills/lu
 // Usage: node swap-consent-qr.mjs <master.pdf> <output.pdf> <matrix.txt> [--no-eyebrow]
 // matrix.txt: one line per QR row, 1 = dark, 0 = light, with no quiet zone.
 import {readFileSync, writeFileSync} from 'node:fs';
+import {readApprovedMaster, requireQrSize} from './print-pdf-input-guards.mjs';
 import {deflateSync, inflateSync} from 'node:zlib';
 
 const [master, output, matrixFile, flag] = process.argv.slice(2);
-const pdf = readFileSync(master);
+const pdf = readApprovedMaster(master, output, {classic: true});
 const text = pdf.toString('latin1');
 
 // Locate the page content stream.
 const contents = text.match(/\/Contents (\d+) 0 R/)[1];
 const obj = text.indexOf(`\n${contents} 0 obj`) + 1;
 const open = text.indexOf('stream\n', obj) + 'stream\n'.length;
-const close = text.indexOf('endstream', open);
+const streamLength = Number(text.slice(obj, open).match(/\/Length (\d+)/)?.[1]);
+if (!Number.isFinite(streamLength)) throw new Error('Unsupported stream length');
+const close = open + streamLength;
+if (!/^\s*endstream/.test(text.slice(close, close + 30))) throw new Error('Invalid stream boundary');
 const dictOld = text.slice(obj, open);
 const raw = pdf.subarray(open, close);
 let page = inflateSync(raw).toString('latin1');
@@ -101,11 +111,13 @@ let page = inflateSync(raw).toString('latin1');
 const FOOTPRINT = 21.218798 * 33;
 const rows = readFileSync(matrixFile, 'utf8').trim().split(/\r?\n/);
 const n = rows.length;
+if (n < 21 || n > 177 || (n - 21) % 4 !== 0) throw new Error('Unsupported QR matrix dimensions');
 if (!rows.every(r => r.length === n && /^[01]+$/.test(r))) throw new Error('Matrix must be square and contain only 0 and 1');
 const scale = FOOTPRINT / n;
+requireQrSize(scale * 0.24, 3);
 const paths = rows.flatMap((row, y) => [...row].flatMap((cell, x) => cell === '1'
   ? [`${x} ${y} m`, `${x + 1} ${y} l`, `${x + 1} ${y + 1} l`, `${x} ${y + 1} l`, `${x} ${y} l`, 'h'] : []));
-const quiet = 4 * 21.218798 / scale;
+const quiet = 4;
 const qr = [`${scale.toFixed(6)} 0 0 ${scale.toFixed(6)} 375.50018 1847.3752 cm`, '1 1 1 RG 1 1 1 rg', '/G3 gs', 'EMC',
   `${-quiet} ${-quiet} ${n + 2 * quiet} ${n + 2 * quiet} re`, 'f', '0 0 0 RG 0 0 0 rg', ...paths, 'f'].join('\n');
 const qrBlock = /21\.218798 0 0 21\.218798 375\.50018 1847\.3752 cm\n[\s\S]*?\n0 0 0 RG 0 0 0 rg\n(?:[-\d. ]+ [mlh]\n|h\n)+f/;
@@ -136,6 +148,10 @@ console.log(`${n}x${n} modules, ${(scale * 0.24).toFixed(3)} pt per module: ${ou
 Good: a trade show sign where a 300 dpi comparison with the master shows changes only in the QR area and the eyebrow line, and a phone scan opens the right form.
 
 Mistake: rebuilding the sign in Canva, InDesign or HTML to change the QR code. It may look the same, but sizes and fonts will shift. Mistake: pasting a QR image over the old one, which leaves the old code in the file.
+
+## Verification limits
+
+The contributor reports testing the original artwork-specific editor on an external master. The repository review checks script syntax and guard behavior with synthetic inputs; it does not rerun the revised editor on the restricted artwork. Revalidate the revised script on the approved master, compare rendered output outside the allowed QR areas, decode exact URLs, and complete the phone proof scan before release.
 
 ## Source and review
 
