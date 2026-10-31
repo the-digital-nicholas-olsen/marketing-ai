@@ -40,6 +40,8 @@ Steps without an agent of their own use the references here:
 | C12, L1 | Landing page hand-off to operations; T-1 pre-flight check | [Hand-off and pre-flight](references/handoff-and-preflight.md) |
 | P15 | Retro and playbook updates | [Retro](#retro-t30) below |
 
+After the show, cut the recording with [webinar clips](../lumenis-webinar-clips/SKILL.md) (social clips) and [webinar trailer](../lumenis-webinar-trailer/SKILL.md) (promo trailer).
+
 ## Gates
 
 A gate holds every step behind it until it's cleared, whatever the due date says.
