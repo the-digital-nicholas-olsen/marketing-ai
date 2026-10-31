@@ -14,7 +14,7 @@ Status: draft procedure, written 2026-10-29 from the Vision Accelerate planning 
 |---|---|---|---|
 | Agenda poster boards | 2 | Mimeo | One per division schedule (Aesthetics, eye care), each with a QR code to its agenda page |
 | Table tents | 10 | Vistaprint | Small folded tents with the schedule graphic and QR codes, scattered on tables |
-| Backup consent forms | Per clinical's count | Mimeo | Paper fallback if the clinical tablets fail. Clinical owns the digital form; the on-site QR version is printed at the venue |
+| Backup consent forms | Per clinical's count | Mimeo | Paper fallback if the clinical tablets fail. Clinical owns the digital form; the on-site QR version is printed at the venue. The [Vision consent QR sign](../../../templates/vis-consent-qr-sign.md) is a separate sign and does not replace the clinical-approved paper form |
 | Service certificate vouchers | About 20 | Mimeo | Redeem-by date in the footer, see below |
 | Lanyards, pens, journals | 200 each | Usual swag vendor | Use leftovers from the last show first |
 
