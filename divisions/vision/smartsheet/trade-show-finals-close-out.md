@@ -9,7 +9,7 @@
 
 ## Use this when
 
-The subject owner says "finals are in for [SHOW]" or "final actuals are in". Saying it is the go-ahead, so do every step below as one task, without waiting to be asked for the next one.
+The subject owner says "finals are in for [SHOW]" or "final actuals are in". An explicit request to close out the show authorizes the routine sync below. A status statement alone prompts a proposed close-out; it does not authorize writes.
 
 ## Required inputs
 
@@ -25,6 +25,8 @@ The subject owner says "finals are in for [SHOW]" or "final actuals are in". Say
 4. **If the show is unclear, stop and ask.** "AAO" could be either AAO Optometry or AAO Ophthalmology, for example.
 5. **Don't copy actuals into this repository.** Amounts, names, PR and PO numbers stay in Smartsheet.
 
+Before writing, run the line-total and PO-allocation checks in section 2 read-only. Hold the affected sync and Done marker if totals, allocations or finality are unresolved.
+
 ## 1. Sync the tracker
 
 The budget dashboard reads from the tracker's **`_Master Budget Actual`** column, which is typed in rather than calculated. Find the show's rows by Budget Line, not by name, because Budget Item is a formula.
@@ -32,13 +34,25 @@ The budget dashboard reads from the tracker's **`_Master Budget Actual`** column
 | Row | Enter |
 |---|---|
 | **Budget Line row** | The Estimated Total Actual Cost from the Master Budget. |
-| **PR rows** | The Actual Cost of the Master Budget line items with that PO number. Enter 0 if the line is on the Master Budget but unpaid. |
+| **PR rows** | The Actual Cost of the Master Budget line items with that PO number. Use recorded Actual Cost, including invoiced but unpaid costs; do not infer zero from payment status. Blank or unknown actuals remain unresolved until confirmed. |
 
-If a line is split across two POs, split it the same way here: fill the first PO listed up to its amount, then put the rest on the next one.
+Use the confirmed actual-cost allocation across all shared POs and shows, without resetting a shared pool per show. Do not infer invoice allocation from PO order or overwrite other shows' contributions; flag unresolved splits before syncing.
 
-## 2. Add the Done note
+## 2. Run the final audit
 
-Add `✅ DONE · ` to the front of the show's **Budget Item** on its Budget Line row. It goes in Budget Item, not Notes, so it shows on the dashboard chart labels:
+Rerun these for the show, and change nothing:
+
+1. **Line items add up.** The Master Budget's Actual Cost lines add up to its Estimated Total. The total is a formula over a fixed range of rows, so a line below that range isn't counted.
+2. **Budget Line matches.** `_Master Budget Actual` on the Budget Line row equals the Estimated Total, and the tracker's **Actuals** column shows the same figure.
+3. **PR rows match.** Each PR row equals the Master Budget lines with its PO. The PR rows should add up to the Budget Line row.
+4. **Shared POs are accounted for.** If the PR rows come up short, look for a PO that's shared with another line or show, or a PR row left blank, before calling it a mismatch.
+5. **POs are all in place.** Run [trade show PO-to-budget reconciliation](po-budget-reconciliation.md) in audit-only mode for the show's POs: none missing from the Master Budget, none missing from the PR tracking sheets, none over budget.
+6. **Roll-ups recalculated.** Category and total rows include the new figure.
+7. **Dashboard reports match.** The show's row and its category row in the chart data reports match the tracker. Verify the Done label after section 3.
+
+## 3. Add the Done note
+
+Only after all final checks pass, add `✅ DONE · ` to the front of the show's **Budget Item** on its Budget Line row. It goes in Budget Item, not Notes, so it shows on the dashboard chart labels:
 
 `✅ DONE · Example Eye Expo · Q3 · $20,000 budget`
 
@@ -48,17 +62,7 @@ Budget Item is a cell formula that builds the label from the plan. Put the prefi
 
 If it already starts with `✅ DONE`, leave it and say so.
 
-## 3. Run the final audit
-
-Rerun these for the show, and change nothing:
-
-1. **Line items add up.** The Master Budget's Actual Cost lines add up to its Estimated Total. The total is a formula over a fixed range of rows, so a line below that range isn't counted.
-2. **Budget Line matches.** `_Master Budget Actual` on the Budget Line row equals the Estimated Total, and the tracker's **Actuals** column shows the same figure.
-3. **PR rows match.** Each PR row equals the Master Budget lines with its PO. The PR rows should add up to the Budget Line row.
-4. **Shared POs are accounted for.** If the PR rows come up short, look for a PO that's shared with another line or show, or a PR row left blank, before calling it a mismatch.
-5. **POs are all in place.** Run [trade show PO-to-budget reconciliation](po-budget-reconciliation.md) for the show's POs: none missing from the Master Budget, none missing from the PR tracking sheets, none over budget.
-6. **Roll-ups recalculated.** Category and total rows include the new figure.
-7. **Dashboard reports match.** The show's row and its category row in the chart data reports match the tracker, and the Done note shows on the label.
+Read back the formula and dashboard label after adding the prefix. If the formula cannot be changed without breaking its calculation, hold the label change and report it.
 
 ## 4. Report back
 
@@ -66,7 +70,7 @@ If everything matches, say so in one line. If not, list each difference with the
 
 ## Preferred example (fictional)
 
-"Finals are in for the Example Eye Expo." The Master Budget's Estimated Total goes on the tracker's Budget Line row, and each PR row gets its PO's line items. Budget Item becomes `✅ DONE · Example Eye Expo · Q3 · $20,000 budget`. In the audit the Budget Line matches, but the PR rows come up short by the cost of two badges. Those badges were paid from a PO shared with another show, and one PR row was left blank. The audit reports that with the amounts and asks, and leaves the rows as they are.
+"Finals are in for the Example Eye Expo." The Master Budget's Estimated Total goes on the tracker's Budget Line row, and each PR row gets its PO's line items. Budget Item becomes `✅ DONE · Example Eye Expo · Q3 · $20,000 budget`. In the audit the Budget Line matches, but the PR rows come up short by the cost of two badges. Those badges were paid from a PO shared with another show, and one PR row was left blank. The preflight reports the unresolved allocation and holds the Done marker until it is resolved; the final read-only audit reports any remaining differences.
 
 ## Avoid
 
@@ -77,7 +81,7 @@ If everything matches, say so in one line. If not, list each difference with the
 
 ## Missing information and decisions
 
-- Whether a show can be reopened after it's marked done, for example when a late invoice arrives, and whether the Done note comes off.
+- A late invoice or correction must be reported to the subject owner. Until the owner confirms reopening and the label treatment, hold the changed close-out; never silently retain a Done marker for unresolved actuals.
 - Accelerate Master Budgets have no Actual Cost column, so this procedure covers trade shows only.
 
 Related: [trade show PO-to-budget reconciliation](po-budget-reconciliation.md) audits POs against budgets across shows; this procedure closes out one show.
