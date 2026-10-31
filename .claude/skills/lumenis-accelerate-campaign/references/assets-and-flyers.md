@@ -51,7 +51,7 @@ Work on a copy, then:
 1. Inspect the PDF before editing: page, trim and bleed sizes, embedded fonts, photo resolution, and whether each QR code is a vector or an image. Vector QR codes are often many separate small shapes.
 2. Replace each QR code in its original position and at its original outer size, keeping the white space around it. Use a new code generated from the exact URL. A longer URL needs more modules, so each module gets smaller. Draw vector modules as one filled shape, because abutting rectangles can show hairline gaps.
 3. Check copy and type against the selected brand system. Older files may use a bold title, a full line in a highlight cut or colors outside the palette. Apply that system's rules rather than matching the old file. For Lumenis Corporate, start with assets/design-system/lumenis-corporate/SKILL.md and take print color from tokens/colors.css.
-4. List the embedded fonts. A name containing "Trial" means the cut needs a licensed replacement. Set new text in licensed cuts and report any trial text left in the file. Never fake a missing weight.
+4. List the embedded fonts. A name containing "Trial" means the cut needs a licensed replacement. Set new text in licensed cuts and report any trial text left in the file; unresolved font licensing blocks print release. Never fake a missing weight.
 5. For a resize, fit the artwork to the printer's sizes rather than scaling it to the bleed. Printers may set different bleed for width and height, and a different shape leaves extra space. Scale the content to the trim or safe area, extend edge-to-edge elements to the bleed line, and set the trim and bleed boxes. Recheck QR size, which shrinks with the page.
 
 **Verify before release:**
@@ -89,4 +89,4 @@ Use this for each Accelerate event that needs the "Scan for your weekend schedul
 
 If a printer needs a different size, follow step 5 of [Update a finished print PDF](#update-a-finished-print-pdf). Treat that as a new layout and check it again.
 
-**Open decision:** the master has a multicolor strip and a different accent for each division, while the Lumenis Corporate rule for single-page print is one secondary color. The event team uses this design, but the brand owner should confirm it as an approved exception.
+**Release gate:** the master has a multicolor strip and a different accent for each division, while the Lumenis Corporate rule for single-page print is one secondary color. Keep a QR-only edit as a draft until the brand owner confirms the exception for this use, or supplies a compliant approved master. Historical event use alone is not approval.
