@@ -15,6 +15,12 @@ Don't redesign the table tent, rebuild it in another tool, or change the copy, p
 
 Encode each link exactly as supplied. Keep the links and finished PDFs in the event's work folder, not in Git.
 
+## Master and release checks
+
+Before building, confirm the master revision and SHA-256 with the owner in the private work system; do not compute a hash of an unverified file and call it approved. Copy [print-pdf-input-guards.mjs](../scripts/print-pdf-input-guards.mjs) alongside the extracted script. Set `LUMENIS_APPROVED_MASTER_SHA256` to that owner-confirmed value. The script rejects a different master, an existing output path and undersized QR modules. Raw-stream scripts also reject unsupported incremental or cross-reference structures; use a reviewed PDF editor instead of bypassing the guard.
+
+The specification below describes one observed master, not blanket approval for every year or use. Confirm current artwork clearance, applicable brand approval, licensed embedded fonts and the required year before print release. Unresolved Trial-font licensing or an unapproved brand exception blocks release; obtain a corrected approved master and revalidate the editor against it. Drafting may continue with those blockers clearly reported. No form submission is needed to verify a QR destination.
+
 ## Locked specification
 
 Check any finished table tent against these. All measurements are from the top-left corner of the PDF page.
@@ -65,6 +71,7 @@ Printing is a separate step. See the [Accelerate print kit](../.agents/skills/lu
 ```js
 // Usage: node swap-table-tent-qrs.mjs <master.pdf> <output.pdf> <aesthetics-url> <eye-care-url>
 import {readFileSync, writeFileSync} from 'node:fs';
+import {readApprovedMaster, requireQrSize} from './print-pdf-input-guards.mjs';
 import * as mupdf from 'mupdf';
 import QRCode from 'qrcode';
 
@@ -73,7 +80,7 @@ const TENT_SCALE = 0.2356; // Artwork units to table tent points.
 const [master, output, aesUrl, eyeUrl] = process.argv.slice(2);
 if (!aesUrl || !eyeUrl) throw new Error('Usage: <master.pdf> <output.pdf> <aesthetics-url> <eye-care-url>');
 
-const doc = new mupdf.PDFDocument(readFileSync(master));
+const doc = new mupdf.PDFDocument(readApprovedMaster(master, output));
 const art = doc.loadPage(0).getObject().get('Resources').get('XObject').get('Art');
 if (art.isNull()) throw new Error('QR blocks not found: this is not the master file');
 let page = art.readStream().asString();
@@ -82,6 +89,7 @@ let page = art.readStream().asString();
 const qrBlock = /0 0 0 1 k\n((?:-?[\d.]+ -?[\d.]+ -?[\d.]+ -?[\d.]+ re\n){50,})f/g;
 const f = v => Number(v.toFixed(3)).toString();
 let swapped = 0;
+const divisions = new Set();
 
 page = page.replace(qrBlock, (_, body) => {
   const rects = body.trim().split('\n').map(line => line.split(' ').slice(0, 4).map(Number));
@@ -92,9 +100,12 @@ page = page.replace(qrBlock, (_, body) => {
 
   // Keep each QR's exact position and overall size. Eye Care is on the left of the artwork.
   const division = (left + right) / 2 < 864 ? 'Eye Care' : 'Aesthetics';
+  if (divisions.has(division)) throw new Error('Duplicate division QR block');
+  divisions.add(division);
   const qr = QRCode.create(division === 'Eye Care' ? eyeUrl : aesUrl, {errorCorrectionLevel: 'M'});
   const n = qr.modules.size;
   const m = size / n;
+  requireQrSize(m * TENT_SCALE, 1);
   const block = ['0 0 0 1 k'];
   for (let col = 0; col < n; col++) {
     for (let row = 0; row < n; row++) {
@@ -121,6 +132,10 @@ console.log(`Saved ${output}`);
 Good: a table tent where a 300 dpi comparison with the master shows changes only in the two QR codes, and phone scans of the proof open the right agenda page for each division.
 
 Mistake: entering the links in the wrong order, which puts each division's QR code beside the other's label. The file looks correct, so only the phone scan catches it. Mistake: pasting a QR image over the old one, which leaves the old code in the file.
+
+## Verification limits
+
+The contributor reports testing the original artwork-specific editor on an external master. The repository review checks script syntax and guard behavior with synthetic inputs; it does not rerun the revised editor on the restricted artwork. Revalidate the revised script on the approved master, compare rendered output outside the allowed QR areas, decode exact URLs, and complete the phone proof scan before release.
 
 ## Source and review
 
