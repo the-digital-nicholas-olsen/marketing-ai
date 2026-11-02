@@ -2,10 +2,10 @@
 
 - Division: US Vision Marketing. Do not apply this procedure to Aesthetics or Hospital budgets.
 - Scope: trade show Master Budgets only. Accelerate budgets are out of scope.
-- System: Smartsheet PR tracking sheets (one for 2026, one for 2027), trade show Master Budgets and the Vision budget tracker in the Budget Dashboard folder. Actual PO/PR numbers, amounts, payees, identifiers, links and audit findings remain in the internal work system.
+- System: Smartsheet PR tracking sheets (one for 2026, one for 2027), trade show Master Budgets and the Vision budget trackers (FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder). Actual PO/PR numbers, amounts, payees, identifiers, links and audit findings remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: draft update to reviewed Vision workflow guidance; subject-owner confirmation required before production use.
-- Source and review: working rules and layouts observed 2026-10-01, with read-only follow-up on 2026-10-05. Allocation order and trade-show-only scope reviewed 2026-10-06. Both tracking sheets, every PO status, the per-PO-only check and the reverse tracker check added 2026-10-21 to 2026-10-23. Budget tracker, ready-PO and report rules added 2026-10-27 and 2026-10-30 from Kaelyn's working rules. Restricted confirmation evidence stays internal.
+- Source and review: working rules and layouts observed 2026-10-01, with read-only follow-up on 2026-10-05. Allocation order and trade-show-only scope reviewed 2026-10-06. Both tracking sheets, every PO status, the per-PO-only check and the reverse tracker check added 2026-10-21 to 2026-10-23. Budget tracker, ready-PO and report rules added 2026-10-27 and 2026-10-30 from Kaelyn's working rules. Separate FY26 and FY27 trackers, the Category / SAP Category split and the `Unassigned` lines added 2026-11-02. Restricted confirmation evidence stays internal.
 
 ## Use this when
 
@@ -116,7 +116,14 @@ Section 6 swaps `PR In` for the PO once the PR has one.
 
 ## 8. Update the Vision budget tracker (authorized update mode)
 
-The tracker in the Budget Dashboard folder feeds the dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace. Skip Accelerates.
+Each fiscal year has its own tracker and dashboard: FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder. Each tracker feeds its dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace. Skip Accelerates. Use the tracker for the event's fiscal year, from the quarter code (`Q426V` = FY26, `Q127V` = FY27). Both trackers use the same Budget Line codes.
+
+Two category columns:
+
+- **Category** is the primary category of the row's Budget Line. A PR takes its line's category, so a `LUMINARIES` PR on a trade show line counts as Tradeshows. The dashboard charts group by this column.
+- **SAP Category** is the category from the PR tracking sheet. It is for reference only and doesn't drive the charts.
+
+Each primary category has a $0 `Unassigned` budget line for PRs that belong to the category but have no specific line. `No FY26 Budget Line` remains for PRs whose category is unclear.
 
 1. Pull those PRs from both tracking sheets at every status except cancelled, plus cancelled PRs whose PR# is already on the tracker.
 2. **PR# already on the tracker:** don't add another row. Update its PO# and PR Status from the tracking sheet when they differ, so a cancelled PR stops counting in Committed. Change nothing else on the row.
@@ -129,15 +136,15 @@ The tracker in the Budget Dashboard folder feeds the dashboard, so this step is 
 |---|---|
 | Budget Item | The tracking sheet's description, as written |
 | Row Type | `PR` |
-| Budget Line | The event's budget line (shows in the next fiscal year: `FY27 - Not in FY26 Budget`) |
+| Budget Line | The event's budget line on that year's tracker |
 | Event Quarter | From the quarter code, such as `Q426` |
 | PR# / PO# | From the tracking sheet (PO# blank if none yet) |
 | PR Status | The tracking sheet's status |
 | _PR Amount | `Valuation Price` |
 
-5. **Event has a folder but no budget line on the tracker:** don't create one. List the PR in the report and ask.
+5. **Event has a folder but no budget line on the tracker:** don't create one. If its category is clear, add the PR under that category's `Unassigned` line and list it in the report. Otherwise list the PR in the report and ask.
 
-Leave the formula columns, the Plan columns and `_Master Budget Actual` alone. Committed and the chart columns recalculate from these rows. Actuals only moves on its own when the line's `_Master Budget Actual` is blank, and Plan is fixed. In the report, mention any line whose Committed now goes over its FY26 Plan.
+Leave the formula columns, the Plan columns and `_Master Budget Actual` alone. Committed and the chart columns recalculate from these rows. Actuals only moves on its own when the line's `_Master Budget Actual` is blank, and Plan is fixed. In the report, mention any line whose Committed now goes over its plan.
 
 ### Fictional example
 
