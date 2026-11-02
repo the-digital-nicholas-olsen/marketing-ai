@@ -10,12 +10,16 @@ Status: draft procedure, written 2026-10-29 from the Vision Accelerate planning 
 
 The Accelerate version of [lumenis-webinar-asset-check](../lumenis-webinar-asset-check/SKILL.md). Run its flyer rows with these changes, then the extra rows below.
 
+## Scope
+
+Check only assets on the show's HubSpot Campaign **Assets** tab (flyers and other files are linked there by [lumenis-hubspot-campaign](../lumenis-hubspot-campaign/SKILL.md)). "The campaign record" below means that campaign's properties and its other assets. List the assets in scope and confirm them with the requester first. Don't use local or shared folders, other campaigns, or another year's or city's work as a source, even when the names match; if a fact can't be confirmed from the campaign, mark the row blocked and ask.
+
 ## Changes to the webinar flyer rows
 
 | Webinar row | For an Accelerate |
 |---|---|
 | F1 Registration link | Links and QR codes go to this show's **promo landing page** (flyer) or **agenda page** (posters, table tents), each with its channel's tag from [lumenis-utm-links](../lumenis-utm-links/SKILL.md). Never to a registration form: prospects register through their rep |
-| F2 Title and subtitle | Show name, city and quarter match the campaign record |
+| F2 Title and subtitle | Show name, city and quarter match the campaign record (this HubSpot Campaign) |
 | F3 Date and time | Show dates and weekdays match; no times unless the record has them |
 | F4 KOL | Every KOL named matches the library and is confirmed for this show |
 | F5 Host | Not used |
