@@ -10,10 +10,19 @@ Status: draft procedure, written 2026-10-29 from the Vision Accelerate planning 
 
 The page counterpart of [lumenis-email-check](../lumenis-email-check/SKILL.md). Pages break in the same places emails do (mobile, dark mode, a stale link) and in one more: a form that looks fine but routes the lead nowhere. This skill checks both.
 
+## Scope
+
+The campaign is the HubSpot Campaign the page is linked to (page Settings > General > Associate Marketing Campaigns). Everything in this check comes from that campaign: the pages under review are the ones on its **Assets** tab, and "the campaign record" below means that campaign's properties and the other assets on the same tab.
+
+- Before checking anything, open the campaign's Assets tab, list the pages and assets in it, and confirm that list with the person who asked for the check. Review only the pages they confirm.
+- Don't use files from local or shared folders, other HubSpot campaigns, or another year's or city's work as a source, even when the names match (a past show, a restyle in progress, a draft in another folder). They aren't in this campaign.
+- If a fact can't be confirmed from this campaign's assets, mark the row blocked and ask the requester. Don't look for it elsewhere.
+- Reading the Assets tab needs a person signed in to HubSpot (Marketing > Campaigns > the campaign > Assets). The HubSpot API can't prove every association; see [campaigns and segments](../lumenis-accelerate-campaign/references/campaigns-and-segments.md).
+
 ## Inputs
 
 - The page's preview or staging URL and the form on it.
-- The campaign record: event name, city, dates, links, the Salesforce campaign and the expected member status, the autoresponder email.
+- The HubSpot Campaign's name and its Assets list (see [Scope](#scope)). From it: event name, city, dates, links, the Salesforce campaign and the expected member status, the autoresponder email.
 - A team test email address, and the **test ZIP code `00000`**, which routes test leads to marketing operations instead of a sales rep.
 
 ## Page checks
@@ -23,11 +32,11 @@ The page counterpart of [lumenis-email-check](../lumenis-email-check/SKILL.md). 
 | P1 | Desktop | 1440 and 1280 px: nothing overlaps, cut off or misaligned |
 | P2 | Mobile | 320, 375 and 414 px: text readable, images scale, no horizontal scroll, form usable, buttons tappable |
 | P3 | Dark mode | Phone in dark mode: text stays readable, logos and graphics don't vanish or invert badly |
-| P4 | Content | City, dates, venue and KOLs match the campaign record; no text from another show; no placeholder or lorem ipsum |
+| P4 | Content | City, dates, venue and KOLs match the other assets in the same HubSpot Campaign; no text from another show; no placeholder or lorem ipsum. A fact none of the campaign's assets confirm is blocked, not checked against outside files |
 | P5 | Links | Every link and button opens the right page for this show; none to a past event |
 | P6 | Images | Load, have alt text, and are cleared for use |
 | P7 | Copy | [Ted's clarity gate](../copy-clarity-gate/SKILL.md) and [claims check](../lumenis-claims-check/SKILL.md) pass |
-| P8 | Settings | URL slug is final; page is linked to the HubSpot campaign only |
+| P8 | Settings | URL slug is final; page is linked to the HubSpot Campaign under review and no other. Check this first: if the page isn't in that campaign's Assets, stop and ask |
 | P9 | Metadata | M1-M7 in [Metadata checks](#metadata-checks) pass (M8 runs in the live test) |
 
 ## Metadata checks
@@ -36,8 +45,8 @@ Pages cloned from a past event or campaign keep its metadata. The page can look 
 
 | # | Check | Pass when |
 |---|---|---|
-| M1 | Page title | `<title>` names this page's event or campaign as in the campaign record (for an event: name, city and year, for example `Accelerate Tampa 2027 \| Lumenis Vision`); nothing from a past show or campaign; under about 60 characters |
-| M2 | Meta description | Describes this page's event or campaign from the campaign record (for an event: name, city and dates); reads as one plain sentence; about 120-155 characters |
+| M1 | Page title | `<title>` names this page's event or campaign as in this HubSpot Campaign (for an event: name, city and year, for example `Accelerate Tampa 2027 \| Lumenis Vision`); nothing from a past show or campaign; under about 60 characters |
+| M2 | Meta description | Describes this page's event or campaign from this HubSpot Campaign (for an event: name, city and dates); reads as one plain sentence; about 120-155 characters |
 | M3 | Social title and description | `og:title`, `og:description`, `twitter:title` and `twitter:description` match M1 and M2 (HubSpot copies them from the page settings, so a stale title shows up in all of them) |
 | M4 | Featured image | `og:image` is set and loads. Use the page's own cleared hero or event image, 1200 x 630 px. If the page has none, use the fallback below. Never leave it empty: link previews then show a blank card or a random image from the page |
 | M5 | Card type | `twitter:card` is `summary_large_image` when a featured image is set |
@@ -63,4 +72,4 @@ The test has two parts, run at different times:
 
 ## Report
 
-Pass, fail with the fix, or blocked with what's missing, per row, labelled pre-launch or live. Save it in the project folder and link it from the Smartsheet row. Pre-launch rows must all pass before the page is published; live rows must all pass before anything is distributed. If a live row fails, a person turns the workflow OFF or unpublishes the page until it's fixed.
+Start with the campaign name and the list of assets in scope. Then pass, fail with the fix, or blocked with what's missing, per row, labelled pre-launch or live. Save it in the project folder and link it from the Smartsheet row. Pre-launch rows must all pass before the page is published; live rows must all pass before anything is distributed. If a live row fails, a person turns the workflow OFF or unpublishes the page until it's fixed.
