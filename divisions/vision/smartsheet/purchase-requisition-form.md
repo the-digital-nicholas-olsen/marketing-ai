@@ -78,13 +78,13 @@ This applies to trade show PRs. The requester does this, or an AI once the reque
 - **Master Budget:** add `PR In` to the `PR/PO` column (sometimes titled `PR / PO #`, not Notes) of the matching line item on the show's Master Budget. Change only that cell.
   - Fill an existing row only, and never add one. If no row clearly matches, or the show has no Master Budget, ask.
   - If the cell already says `PR In`, leave it. If it already has a PO, do not overwrite it. Tell the requester instead.
-- **Vision budget tracker:** add a `PR` row under the show's budget line, even if the show has no Master Budget. If the line is unclear, ask. Leave the formula columns alone.
+- **Vision budget tracker:** add a `PR` row under the show's budget line on the tracker for the show's fiscal year, even if the show has no Master Budget. FY26 shows go on the FY26 tracker in the Budget Dashboard folder; FY27 shows go on the FY27 tracker in the Budget Dashboard 2027 folder. If the PR belongs to a category but no specific line, put it under that category's `Unassigned` line. If the line or category is unclear, ask. Leave the formula columns alone.
 
 | Column | Value |
 |---|---|
 | Budget Item | The form's Short/Header Text, as written |
 | Row Type | `PR` |
-| Budget Line | The show's budget line (shows in the next fiscal year: `FY27 - Not in FY26 Budget`) |
+| Budget Line | The show's budget line on that year's tracker. Both years use the same Budget Line codes. |
 | Event Quarter | From the quarter code, such as `Q426` |
 | PR Status | `PR Entered, Pending Approval` |
 | _PR Amount | The form's Amount |
