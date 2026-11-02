@@ -47,7 +47,7 @@ All in the **Vision Content Repository Hub** workspace.
 | **Post-Sale Hub Dashboard** | View | Opening a product's post-sale list |
 | **Post-Sale Hubs by Product** (folder of reports) | Product | One report per product, grouped by section, each row with an `Open in OneDrive` link |
 | **Mimeo Library** | Item in Mimeo | Print items and sales quotes, with kind, product, quote date and deal reference |
-| **Content Intake** | New file someone added | Logging new content (the only sheet you edit) |
+| **Content Intake** | New file someone added | Processing record for new content; the content-hub agent verifies platforms and updates the maintained library before closing it |
 | Content Asset Catalog, Source Inventory and Reconciliation, and the "Content Hub" and "Customer Success" reports | Older views | History. Their OneDrive links were updated 2026-10-10, but use the sheets above |
 
 ### Key catalog columns

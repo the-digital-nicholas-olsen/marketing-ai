@@ -1,13 +1,13 @@
 ---
 name: lumenis-content-hub
-description: Find a Lumenis marketing asset (brochure, poster, deck, video, manual, study, print piece or sales quote) in the Vision Content Repository Hub in Smartsheet and open it in OneDrive or Mimeo, or add a new asset to OneDrive or Mimeo and log it. Use when someone asks where a piece of content is, for the latest version of a document, for everything available for a product, for post-sale collateral for a customer, for recent Mimeo quotes, or how to add or retire content.
+description: Find Lumenis content in the Vision Content Repository Hub, or process new content and intake rows through OneDrive filing, selected platform checks and verified catalog updates. Use for asset lookup, latest revisions, post-sale collateral, Mimeo quotes, or adding and retiring content.
 ---
-# Content hub: find and add content
+# Content hub: find and process content
 
 Owner: Nicholas Olsen (marketing operations).
-Status: draft procedure, written 2026-10-19 after the library reorganisation; subject-owner review required.
+Status: draft procedure; end-to-end intake revision proposed 2026-11-02 for subject-owner review.
 
-The **Vision Content Repository Hub** is a Smartsheet workspace that catalogs every marketing file Lumenis Vision holds, for Eye Care and Aesthetics, and says where each one lives: OneDrive (SharePoint), Mimeo (print), PartnerZone and Modus. Use it to find a file, check that it is the newest version, and open it. Add new files through OneDrive or Mimeo and log them in the intake sheet.
+The **Vision Content Repository Hub** catalogs Lumenis content for Eye Care and Aesthetics and records its copies in OneDrive (SharePoint), Mimeo, PartnerZone and Modus. Use this single entry point to find content or process a new piece from intake through verified library updates. OneDrive and the content library are required; other platforms depend on the requested distribution.
 
 Read [how the hub is organised](references/hub-structure.md) before the first search in a session. For adding content, read [adding and retiring content](references/adding-content.md).
 
@@ -44,15 +44,17 @@ Read [how the hub is organised](references/hub-structure.md) before the first se
 | "Where are all the copies of this file?" | Content Library Placements, filter Catalog Asset |
 | "What can we claim, and what must the copy say?" | Not the hub: [claims](../../../assets/claims-reference/index.md) and [regulatory](../../../assets/regulatory/README.md) |
 
-## Add an asset
+## Process new content or an intake row
 
 Short version (full rules in [adding and retiring content](references/adding-content.md)):
 
-1. Search the catalog first. A match does not always mean a new revision: the file may be the same piece in another language, market or format, or an identical copy. See [revision or variant](references/adding-content.md#revision-or-variant).
-2. Name the file by the [naming pattern](references/adding-content.md#file-names).
-3. Upload to the right OneDrive folder (`<Division>/<Product>/<Folder>`) or the right Mimeo folder.
-4. Add a row to the **Content Intake** sheet with the link, product, folder, control ID, revision and what it replaces. Nicholas folds intake rows into the catalog.
-5. If it replaces an older revision, say so in `Replaces`. Do not delete the old file; it is archived or retired in the next catalog refresh.
+1. Read the supplied file or existing intake row and search the catalog for its control ID and title. Confirm revision, language, market, audience and replacement relationship.
+2. Reuse platform choices already supplied. Ask once for unresolved destinations: Modus, PartnerZone and/or Mimeo. Always include OneDrive and the content library. Distinguish checking an existing platform copy from publishing a new one.
+3. Verify the file in its correct OneDrive folder, uploading only if needed and authorized. Do not duplicate a correctly filed copy.
+4. Check each selected platform for the exact asset and revision. Inspect the actual file, not only the listing title. Record verified links; keep older revisions separate. Complete authorized uploads where supported, or record the specific remaining platform action.
+5. Update the authoritative inventory and its Catalog, Placements and applicable Post-Sale/Mimeo views, then read them back. Complete the existing intake row instead of creating another. Mark it `Catalogued` only when the required platform and library work is verified.
+
+Example request: “Process this new content using the content-hub procedure. It is already in OneDrive; check PartnerZone and update the library.” Continue through the authorized steps without repeated approval questions. Ask only for missing choices, unresolved identity/approval, or access that blocks the affected step. An intake row is a processing record, not the finished result. Invoking this skill does not schedule an unattended background job.
 
 There is no step for the Vision Home SSD. That drive is Nicholas's local master copy and he syncs it himself.
 
@@ -60,7 +62,7 @@ There is no step for the Vision Home SSD. That drive is Nicholas's local master 
 
 When a finished campaign asset is approved (for example a webinar flyer at T-30, or webinar clips after the show), it goes to the hub and to everyone who passes it on, in one pass. Drafts only; the asset's owner sends.
 
-1. **Add it to the hub** with the steps in [Add an asset](#add-an-asset) and the Content Intake sheet.
+1. **Process it into the hub** with [Process new content](#process-new-content-or-an-intake-row), including the Content Intake record.
 2. **One email to the partner channels:** the Modus owner (so reps find it in Modus) and the social team. Give the social team the **clean** link with no UTMs and ask them to add their own, so they can measure their channels ([lumenis-utm-links](../lumenis-utm-links/SKILL.md) explains why).
 3. **Sales email:** to the RSMs through the usual sales channel, with the sales tracking link and one line on who the asset is for.
 4. **Website:** for events, a request to add it to the Lumenis upcoming events page, with the date, title and registration link.
@@ -71,7 +73,7 @@ Check before sending: the asset passed its check (for a webinar flyer, [lumenis-
 
 ## Do not
 
-- Edit the `Content Library Catalog`, `Content Library Placements`, `Post-Sale Hub` or `Mimeo Library` sheets. They are regenerated from the master inventory and manual edits are overwritten. Use the Content Intake sheet.
+- Make isolated edits to generated Catalog, Placements, Post-Sale or Mimeo views. Process intake through the authoritative inventory and synchronized views as described in [adding content](references/adding-content.md#update-the-library-and-close-intake); do not leave changes that the next refresh would overwrite.
 - Delete, move or rename files in OneDrive or Mimeo that other people use. Ask Nicholas.
 - Put files, file links, sheet links or sheet IDs in this repository. This repository is public; the hub and the files stay in Smartsheet, SharePoint and Mimeo.
 - Treat a file's presence in the hub as approval to use it. Check the claims and regulatory references, brand review and the piece's own revision.
