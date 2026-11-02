@@ -17,7 +17,7 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Create a Salesforce campaign | [Salesforce campaign](.agents/skills/lumenis-salesforce-campaign/SKILL.md) |
 | Select library images | [Selection](.agents/skills/lumenis-photo-selection/SKILL.md) · [Image library](assets/image-library/README.md) |
 | Find hosted image candidates | [Image search](.agents/skills/lumenis-image-search/SKILL.md) |
-| Find or add content in OneDrive and Mimeo | [Content hub](.agents/skills/lumenis-content-hub/SKILL.md) |
+| Find content or process intake | [Content hub](.agents/skills/lumenis-content-hub/SKILL.md) |
 | Understand the rollout and token discipline | [Six foundations](guides/ai-foundations.md) |
 | Check coverage and unresolved decisions | [Coverage](guides/knowledge-coverage.md) · [Readiness](STATUS.md) |
 

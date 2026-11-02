@@ -2,7 +2,7 @@
 
 - Division: US Vision Marketing only. Do not apply this procedure to Aesthetics or Hospital.
 - Scope: closing out a trade show once its final actuals are in: sync the Vision budget tracker from the show's Master Budget, mark the show done, and run one last audit.
-- Systems: Smartsheet, in the Vision Marketing Events workspace and the Budget Dashboard folder. Sheet links and IDs remain in the internal work system.
+- Systems: Smartsheet, in the Vision Marketing Events workspace and the Budget Dashboard folders (FY26 in Budget Dashboard, FY27 in Budget Dashboard 2027). Use the tracker for the show's fiscal year. Sheet links and IDs remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: draft for review.
 - Source and review: Kaelyn Gray's working procedure, submitted 2026-10-30. Revalidate sheet and column names before operational use.
