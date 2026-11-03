@@ -1,12 +1,12 @@
 ---
 name: lumenis-kol-comms
-description: Draft the emails and notes a KOL receives across a Lumenis campaign (recruitment, scheduling, approvals, presenter logistics, thank-you, invoice request, handwritten note) from agreed templates and the campaign's Smartsheet record. Use when a KOL message is due for a webinar or an Accelerate; drafts only, a person sends.
+description: Draft the emails and notes a KOL receives across a Lumenis campaign (recruitment, scheduling, approvals, presenter logistics, thank-you, invoice request, handwritten note) from agreed templates and the campaign's Smartsheet record. Use when a KOL message is due for a webinar, an Accelerate or a tradeshow; drafts only, a person sends.
 ---
 
 # KOL comms
 
 Owner: Nicholas, with Ted for content-stage messages and Kaelyn for post-event messages.
-Status: draft procedure, written 2026-10-27. The webinar templates were reviewed with Nicholas, Ted, EJ and Kaelyn on 2026-10-27; they stay drafts until the first live webinar. At that webinar's retro (P15), Nicholas and each sender compare the drafts with what was sent and update the templates; then they're approved guidance.
+Status: draft procedure, written 2026-10-27. The webinar templates were reviewed with Nicholas, Ted, EJ and Kaelyn on 2026-10-27; they stay drafts until the first live webinar. At that webinar's retro (P15), Nicholas and each sender compare the drafts with what was sent and update the templates; then they're approved guidance. The tradeshow templates were added on 2026-11-03 from the tradeshow planning session and stay drafts until the first show's retro.
 
 KOLs hear from several people on our team over two months. This skill keeps those messages consistent, fills them from the campaign record instead of memory, and leaves sending to the person who owns the relationship.
 
@@ -14,7 +14,7 @@ KOLs hear from several people on our team over two months. This skill keeps thos
 
 - **Campaign type and step.** The Smartsheet row says which message is due (its Step ID matches a template below) and who sends it.
 - **The campaign's rows in the live sprint plan:** KOL name, host (if any), date, title, links and PO number come from Key Info cells. Never fill a bracket from a past campaign.
-- **Template set:** [webinar emails](references/webinar-emails.md) or [Accelerate emails](references/accelerate-emails.md). Other campaign types add their own reference file here. Accelerate presenter briefings (sessions, decks, schedule) stay with [lumenis-accelerate-kbyg-emails](../lumenis-accelerate-kbyg-emails/SKILL.md).
+- **Template set:** [webinar emails](references/webinar-emails.md), [Accelerate emails](references/accelerate-emails.md) or [tradeshow emails](references/tradeshow-emails.md). Other campaign types add their own reference file here. Accelerate presenter briefings (sessions, decks, schedule) stay with [lumenis-accelerate-kbyg-emails](../lumenis-accelerate-kbyg-emails/SKILL.md).
 
 ## Procedure
 
