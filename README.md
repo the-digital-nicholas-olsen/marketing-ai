@@ -13,7 +13,6 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 | Prepare sales emails and rep invitation Word files | [Seven communication examples](templates/accelerate-internal-comms/README.md) |
 | Check copy before delivery | [Ted's copy clarity gate](.agents/skills/copy-clarity-gate/SKILL.md) · [Claims](.agents/skills/lumenis-claims-check/SKILL.md) |
 | Run a webinar | [Webinar playbook](.agents/skills/lumenis-webinar-playbook/SKILL.md) · [ON24](.agents/skills/lumenis-on24/SKILL.md) · [KOL emails](.agents/skills/lumenis-kol-comms/SKILL.md) · [Thank-you](.agents/skills/lumenis-kol-thank-you/SKILL.md) |
-| Run a tradeshow | [Tradeshow playbook](.agents/skills/lumenis-tradeshow-playbook/SKILL.md) · [Lane planner](.agents/skills/lumenis-treatment-lane-planner/SKILL.md) · [Booth plan](.agents/skills/lumenis-booth-plan/SKILL.md) · [Dinner](.agents/skills/lumenis-tradeshow-dinner/SKILL.md) |
 | Add a campaign to the sprint plan; get your daily brief | [Sprint plan setup](.agents/skills/lumenis-sprint-plan-setup/SKILL.md) · [Daily brief](.agents/skills/lumenis-daily-brief/SKILL.md) |
 | Create a Salesforce campaign | [Salesforce campaign](.agents/skills/lumenis-salesforce-campaign/SKILL.md) |
 | Select library images | [Selection](.agents/skills/lumenis-photo-selection/SKILL.md) · [Image library](assets/image-library/README.md) |
