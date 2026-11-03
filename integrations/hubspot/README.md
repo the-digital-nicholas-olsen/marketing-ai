@@ -13,12 +13,14 @@ How Lumenis marketing builds in HubSpot (portal 278427), for Vision and Aestheti
 | Campaign setup | [HubSpot campaign](../../.agents/skills/lumenis-hubspot-campaign/SKILL.md) | Campaign, ON24 registration and attendance segments, email shells and associations |
 | Workflow | [HubSpot workflow](../../.agents/skills/lumenis-hubspot-workflow/SKILL.md) | Safety rules, Latest Lead Info first, recorded and proposed patterns, acceptance tests |
 | Images | [Image library](../../assets/image-library/README.md) | Resize, upload to the file manager and verify links |
+| Stuck lead | [Salesforce inclusion-list check](../../.agents/skills/lumenis-sfdc-inclusion-check/SKILL.md) | Why a contact isn't reaching Salesforce or got "not a member of inclusion list" |
 
 Webinar registration pages are built in ON24, not HubSpot.
 
 ## Shared references
 
 - [Access and verification](access-and-verification.md): per-user CLI setup, account capabilities, read-back checklist and browser recovery.
+- [Salesforce inclusion list](salesforce-inclusion-list.md): the segment that gates HubSpot to Salesforce sync, how `Goes to SF?` is set and why contacts fall off.
 - Division field mappings: [Vision](../../divisions/vision/hubspot/field-mappings.yaml) and [Aesthetics](../../divisions/aesthetics/hubspot/field-mappings.yaml).
 - Campaigns and form-fill segments are still documented in the [Accelerate campaigns and segments reference](../../.agents/skills/lumenis-accelerate-campaign/references/campaigns-and-segments.md).
 
