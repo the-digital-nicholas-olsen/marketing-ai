@@ -6,7 +6,7 @@ description: Build a five-beat promo trailer (about 30 to 45 seconds) for a reco
 # Webinar trailer
 
 Owner: Ted (content).
-Status: draft procedure, written 2026-10-30 from the first webinar trailer (9:16 and 16:9 versions rendered and reviewed). Two earlier talking-head-only cuts didn't work; this five-beat structure replaced them. Review required.
+Status: draft procedure, written 2026-10-30 from the first webinar trailer (9:16 and 16:9 versions rendered and reviewed), updated 2026-11-03. Two earlier talking-head-only cuts didn't work; this five-beat structure replaced them. Review required.
 
 ## The five beats
 
@@ -41,11 +41,11 @@ Confirm the selected brand fits the product and audience; do not apply OptiLIGHT
 
 ### Pass 2: render the approved trailer
 
-6. **Tighten the moments** from each segment's own transcript, never the full-webinar one: start on the first word, end after a complete thought and before anyone else speaks, and trim filler at the edges.
-7. **Proofread the captions** as in [webinar clips](../lumenis-webinar-clips/SKILL.md): readable timing, no um or uh, correct names and punctuation.
+6. **Tighten the moments** from each segment's own transcript, never the full-webinar one: start on the first word, end after a complete thought and before anyone else speaks, and trim filler at the edges. End each moment before an audible in-breath, and check each ending as in [webinar clips](../lumenis-webinar-clips/SKILL.md) step 12.
+7. **Proofread the captions** as in [webinar clips](../lumenis-webinar-clips/SKILL.md): readable timing, no um or uh, correct names and punctuation, and capitals and punctuation re-checked on both sides of every caption edit.
 8. **Add music** cleared for commercial use, leveled under the speech, with its start offset chosen so a downbeat or drop lands on the cut to the title card. Record why. Verify the music license permits the intended platform and retain any required Content ID clearance before posting to YouTube.
 9. **Render stills and check them:** face centred, no other participants' tiles, title and subtitle fit, learn list readable, headshots meet cleanly. Then render, pull frames at each beat from the MP4 and look at them.
-10. **16:9 version:** same beats and copy in the wide layout; music may differ.
+10. **16:9 version:** same beats and copy in the wide layout; music may differ. Keep the two formats in sync: when a beat, card or caption changes in one, update the other in the same pass, or ask whether to. Copy only what they share (the moments, caption fixes, emphasis and compliance notes) and leave each format's music and layout alone.
 11. **Hand over** the newest MP4s only, with what you checked and what you didn't verify. Approved trailers go to the [content hub](../lumenis-content-hub/SKILL.md); posting is the owner's call.
 
 ## Missing inputs
