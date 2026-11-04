@@ -31,7 +31,8 @@ Common fields: firstname, lastname, company (Practice Name), email, phone and zi
 7. Clear inherited campaign associations. Sources observed separate Options and Review/publish campaign pickers that did not mirror each other; inspect both and read back the actual association.
 8. Confirm consent wording/subscription handling with marketing operations. No subscription field on a donor does not mean opt-in. Routing to Salesforce does not establish email eligibility.
 9. Inspect draft changes in the canvas. The recorded legacy API returned published state, so an unchanged API result is not proof an unpublished edit failed. Do not publish solely to make a check pass without authorization.
-10. After authorized publication, verify exact internal names, flags, hidden stored values, UTM capture and contact settings. Use an authorized, identifiable QA submission and trace the resulting contact/routing. Avoid enrolling real contacts or sending unintended messages during tests.
+10. **Redirect to a scheduler** (e.g. a tradeshow booth demo form that sends people to Calendly to pick a time): set the redirect URL in the form's options and add a line on the form telling people they'll choose a time on the next page, so the jump to another site doesn't surprise them. Test that the redirect lands on the right Calendly event.
+11. After authorized publication, verify exact internal names, flags, hidden stored values, UTM capture and contact settings. Use an authorized, identifiable QA submission and trace the resulting contact/routing. Avoid enrolling real contacts or sending unintended messages during tests.
 
 
 ## Embed and style

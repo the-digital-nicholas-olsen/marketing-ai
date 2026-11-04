@@ -1,28 +1,33 @@
 ---
 name: lumenis-tradeshow-leads
-description: Collect a tradeshow's leads from every source (lead retrieval scans, dinner check-ins, treatment sign-ups and consents, sessions, the show's attendee list), combine them into one upload file and hand it to Marketing Ops for HubSpot and Salesforce. Use from P1 (T+1) to P3 (T+3). Drafts the file; EJ imports.
+description: Collect a tradeshow's leads from every source (lead retrieval badge scans, dinner check-ins, Jotform treatment consents, session lists, tabletop attendee lists), add show notes to Latest Lead Info, and import them into HubSpot so the workflow sets the Salesforce member status. Use from the Monday after the show (P1-P5) to the late session list (P16).
 ---
 
 # Tradeshow leads
 
-Owner: Kaelyn (collection), EJ (import).
-Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning session; not yet run. Review required.
+Owner: EJ (download and import), Kaelyn (dinner list and session-list follow-up).
+Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning session; timing and ownership updated 2026-11-04 from the content and digital operations session. Not yet run. Review required.
 
-## P1 Collect (T+1)
+**Monday after the show** means the first Monday after the last show day.
 
-| Source | Where |
-|---|---|
-| Booth scans | Lead retrieval export (logins in the event's Smartsheet, B10) |
-| Dinner | OneTap check-ins (L7) |
-| Treatments | Calendly bookings (D9) and the Jotform consents from Clinical |
-| Sessions | Sponsor's session list, if provided |
-| Tabletop shows | The show's pre- and post-show attendee lists (F8) |
+## Collect (Monday after the show)
 
-## P2-P3 Combine and hand off (T+2 to T+3)
+| Step | Source | Who | Where |
+|---|---|---|---|
+| P1 | Booth badge scans | EJ | Lead retrieval export; logins are in the show notes in Smartsheet (B10) |
+| P2 | Dinner check-ins | Kaelyn to EJ | OneTap (L7) |
+| P5 | Booth treatments | EJ | Clinical's Jotform consent submissions; the form's marketing opt-in line (D10) covers marketing email |
+| P1 | Tabletop shows | EJ | The show's pre- and post-show attendee lists (F8) |
 
-One file, one row per person: first name, last name, email, practice, city, state, source, notes. Remove duplicates by email, keeping every source in one cell. Share it with EJ, who imports it into HubSpot and links it to the HubSpot and Salesforce campaigns with the right member statuses (P4).
+## P3-P4 Upload (Monday after the show + 2)
+
+One file, one row per person: first name, last name, email, practice, city, state, source, show notes. Remove duplicates by email, keeping every source in one cell. As each lead is processed, write its show notes (who they spoke to, what they asked about, follow-up wanted) into **Latest Lead Info** so the rep sees them. Import into HubSpot; the show workflow ([lumenis-hubspot-workflow](../lumenis-hubspot-workflow/SKILL.md)) sets the Salesforce member status: Badge Scanned, Registered for Dinner or Received Treatment. Received Treatment replaces Signed Up for Treatment for anyone who booked ahead.
+
+## P16 Session leads (about T+10)
+
+Sponsored sessions (e.g. a V Series breakfast or Vision Source lunch) send their attendee list late, usually about a week after the show. EJ asks Kaelyn, who requests it from show management and follows up until it arrives. Upload it the same way with the **Session Attended** status.
 
 ## Boundaries
 
 - Lead files hold personal data: they stay in the project folder and the work systems, never in this repository.
-- Imports and campaign linking are done by EJ.
+- No inferred consent: a treatment without the opt-in is not a marketing contact.

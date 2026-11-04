@@ -1,6 +1,6 @@
 ---
 name: lumenis-treatment-lane-planner
-description: Plan a tradeshow booth's treatment capacity - how many lanes are open, how many hours clinical can cover with breaks, and how many KOL hours must be backfilled - then build the show and treatment schedule. Use at K1 (T-100) and E7 (T-35) of a tradeshow. Drafts the plan; Kaelyn and Nicholas approve.
+description: Plan a tradeshow booth's treatment capacity - how many lanes are open, how many hours clinical can cover with breaks, and how many KOL hours must be backfilled - then build the show and treatment schedule. Use at K1 (T-100), D9 (T-40, Calendly) and E7 (T-35) of a tradeshow. Drafts the plan; Kaelyn and Nicholas approve.
 ---
 
 # Treatment lane planner
@@ -30,6 +30,15 @@ Output: one table per day (time slots x lanes, clinical or "KOL needed"), saved 
 ## E7 Show and treatment schedule (T-35)
 
 Fill the K1 grid with confirmed KOLs (K4) and add every other item: Meet the Experts, dinner (N6), education sessions, wet labs. Avoid KOL overlap. Send to everyone attending; EJ and Hannah confirm it works for clinical. The Calendly slots (D9) are built from this schedule.
+
+## D9 Calendly schedule (T-40)
+
+Owner: EJ. Built from the K1 lane plan in the show notes, not from E7, because the landing page form redirects to it from T-35.
+
+1. One bookable calendar per lane (or one event with as many slots per time as there are lanes), covering show hours only, with breaks blocked.
+2. Required fields: name, email, practice, city and state, so on-site and pre-show bookings both come through complete.
+3. Test: book and cancel one slot; record the link in Key Info.
+4. On site, attendees book themselves from Calendly QR codes in stanchions at the booth (L3); no calendar exports are needed. Keep Calendly signed in and live through the show.
 
 ## Example (fictional)
 
