@@ -1,6 +1,6 @@
 ---
 name: lumenis-tradeshow-asset-check
-description: Check a tradeshow's flyers (C1, C4) and session or dinner decks (C20) before they go to sales, the BU or a KOL - show facts, links and UTMs, brand system, clarity and claims. Use whenever a tradeshow flyer or deck is drafted or revised. Reports pass/fail; doesn't publish.
+description: Check a tradeshow's flyer (C1) and session or dinner decks (C20) before they go to sales, the BU or a KOL - show facts, links and UTMs, brand system, clarity and claims. Use whenever a tradeshow flyer or deck is drafted or revised. Reports pass/fail; doesn't publish.
 ---
 
 # Tradeshow asset check
@@ -8,7 +8,10 @@ description: Check a tradeshow's flyers (C1, C4) and session or dinner decks (C2
 Owner: Ted.
 Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning session; not yet run. Review required.
 
-## Flyer (C1, C4)
+## Flyer (C1)
+
+- [ ] One flyer for the show (double-sided if it promotes two things), not a second flyer.
+- [ ] Tier 1: the dinner invitation leads; 'get a demo at the booth' / Meet the Experts is the secondary call to action.
 
 - [ ] Show name, dates, city and booth number match R1 and R7 Key Info.
 - [ ] Treatment sign-up link and any dinner or sponsored session match the show's rows.
