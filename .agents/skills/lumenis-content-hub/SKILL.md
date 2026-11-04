@@ -56,8 +56,6 @@ Short version (full rules in [adding and retiring content](references/adding-con
 
 Example request: “Process this new content using the content-hub procedure. It is already in OneDrive; check PartnerZone and update the library.” Continue through the authorized steps without repeated approval questions. Ask only for missing choices, unresolved identity/approval, or access that blocks the affected step. An intake row is a processing record, not the finished result. Invoking this skill does not schedule an unattended background job.
 
-There is no step for the Vision Home SSD. That drive is Nicholas's local master copy and he syncs it himself.
-
 ## Send out a new campaign asset
 
 When a finished campaign asset is approved (for example a webinar flyer at T-30, or webinar clips after the show), it goes to the hub and to everyone who passes it on, in one pass. Drafts only; the asset's owner sends.
