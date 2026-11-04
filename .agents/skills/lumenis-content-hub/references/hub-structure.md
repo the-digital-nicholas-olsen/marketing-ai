@@ -40,13 +40,13 @@ All in the **Vision Content Repository Hub** workspace.
 
 | Sheet or view | One row per | Use it for |
 |---|---|---|
-| **Content Library Catalog** | Asset (a piece of content, all copies together) | Finding things and checking currency |
+| **Content Library Catalog** | One asset per market/language and revision, with its digital/print formats and platform copies together | The final searchable repository; the accepting agent writes it during the same task |
 | **Content Library Placements** | Copy of an asset on one platform | Every place a file lives, with a direct file link |
 | **Post-Sale Hub** | Item suitable to give a customer after a sale (sections: for your patients, to promote your practice, to run the device) | Customer success |
 | **Post-Sale Hub Dashboard** | View | Opening a product's post-sale list |
 | **Post-Sale Hubs by Product** (folder of reports) | Product | One report per product, grouped by section, each row with an `Open in OneDrive` link |
 | **Mimeo Library** | Item in Mimeo | Print items and sales quotes, with kind, product, quote date and deal reference |
-| **Content Intake** | New file someone added | Processing record for new content; the content-hub agent verifies platforms and updates the maintained library before closing it |
+| **Content Intake** | Submission or processing record | Optional audit/work log; the same agent catalogs the asset immediately, then records completion and any remaining checks |
 | Content Asset Catalog, Source Inventory and Reconciliation, and the "Content Hub" and "Customer Success" reports | Older views | History. Their OneDrive links were updated 2026-10-10, but use the sheets above |
 
 ### Key catalog columns
@@ -61,7 +61,8 @@ All in the **Vision Content Repository Hub** workspace.
 | `Newest Revision On File` | The latest revision held for that control ID |
 | `Standard Name` | The name the file would have under the naming pattern |
 | `Needs Review`, `Placement Confidence`, `Placement Reason` | Whether the filing was confirmed; low-confidence rows are still being checked |
-| `File Name`, `OneDrive Folder`, `In OneDrive` | The file and a link to its OneDrive folder |
+| `Digital PDF`, `Print-ready PDF` | Direct links to the two formats of the same asset; not separate asset names |
+| `File Name`, `OneDrive Folder`, `In OneDrive` | File identity and shared folder; Placements retains each original filename |
 | `Platforms`, `PartnerZone`, `Modus`, `Mimeo` | Every platform that holds it, with links |
 | `Mimeo Kind`, `Mimeo Quote Date`, `Mimeo Reference` | For Mimeo items: print artwork, kit, inventory item or quote |
 
