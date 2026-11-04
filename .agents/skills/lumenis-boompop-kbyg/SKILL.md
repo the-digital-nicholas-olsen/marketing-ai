@@ -16,7 +16,7 @@ The Know Before You Go is the guest-facing page attendees land on from the invit
 ## Rules
 
 1. **Start from Smartsheet.** A show name and city are enough. Look up the dates and venue instead of asking.
-2. **Check that the event doesn't already exist.** A duplicate means a second invite link and guests split across two pages.
+2. **Check that the event doesn't already exist,** in both **My Events** and **Lumenis Hub**. A duplicate means a second invite link and guests split across two pages.
 3. **Hidden beats empty.** Anything left unfilled must be hidden before invites go out. Placeholder text reaching a guest is this page's main failure.
 4. **Enter only what you were told.** Times, room names and policies go on exactly as given. Don't infer a detail from a neighboring show.
 5. **The page is the guests' single source of truth.** When a detail changes, update the page.
@@ -68,7 +68,13 @@ Say which reference page you used in your report.
 
 ### 3. Find or create the event
 
-Check **My Events** (**Live & Upcoming**, then **Past**) and the show's `BoomPop URL` row in Fast Facts. A link there means the event exists.
+Check all three before creating anything:
+
+1. **My Events:** **Live & Upcoming**, then **Past**.
+2. **Lumenis Hub** (top nav) → **All Events.** An event a teammate created may not show in My Events.
+3. The show's `BoomPop URL` row in Fast Facts.
+
+A match in either list, or a link in Fast Facts, means the event exists. Open that event instead of creating a new one.
 
 If it's genuinely missing, click **+ New Event** and enter the city, the dates with the year, and the event name. Skip the other setup prompts, then **Create Event**.
 
