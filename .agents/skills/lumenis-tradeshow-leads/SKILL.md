@@ -16,12 +16,12 @@ Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning s
 |---|---|---|---|
 | P1 | Booth badge scans | EJ | Lead retrieval export; logins are in the show notes in Smartsheet (B10) |
 | P2 | Dinner check-ins | Kaelyn to EJ | OneTap (L7) |
-| P5 | Booth treatments | EJ | Clinical's Jotform consent submissions; only people who accepted the marketing opt-in line (D10) get marketing email |
+| P5 | Booth treatments | EJ | Clinical's Jotform consent submissions; the form's marketing opt-in line (D10) covers marketing email |
 | P1 | Tabletop shows | EJ | The show's pre- and post-show attendee lists (F8) |
 
 ## P3-P4 Upload (Monday after the show + 2)
 
-One file, one row per person: first name, last name, email, practice, city, state, source, show notes. Remove duplicates by email, keeping every source in one cell. As each lead is processed, write its show notes (who they spoke to, what they asked about, follow-up wanted) into **Latest Lead Info** so the rep sees them. Import into HubSpot; the show workflow ([lumenis-hubspot-workflow](../lumenis-hubspot-workflow/SKILL.md)) sets the Salesforce member status: Badge Scanned, Registered for Dinner or Booth Treatment.
+One file, one row per person: first name, last name, email, practice, city, state, source, show notes. Remove duplicates by email, keeping every source in one cell. As each lead is processed, write its show notes (who they spoke to, what they asked about, follow-up wanted) into **Latest Lead Info** so the rep sees them. Import into HubSpot; the show workflow ([lumenis-hubspot-workflow](../lumenis-hubspot-workflow/SKILL.md)) sets the Salesforce member status: Badge Scanned, Registered for Dinner or Received Treatment. Received Treatment replaces Signed Up for Treatment for anyone who booked ahead.
 
 ## P16 Session leads (about T+10)
 

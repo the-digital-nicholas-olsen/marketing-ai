@@ -58,6 +58,14 @@ Set in R1 Key Info. Rows starting **(Tier 1)** or **(Small)** apply to that tier
 - **Distribution.** Each piece goes to the BU, to the Modus owner and to the Sales & Marketing Hub on SharePoint as soon as it's ready ([lumenis-content-hub](../lumenis-content-hub/SKILL.md)).
 - **Rep requests** for one-off event assets go through the SharePoint request form for prioritization, not straight to the content lead.
 
+## Clinical consent opt-in (D10)
+
+Approved by the marketing director 2026-11-04. Clinical owns the Jotform consent form; ask them to put this in small print above the submit button and link the Privacy Policy:
+
+> By submitting this form, I agree that Lumenis and its affiliates may send me marketing and promotional communications, including email, about their products, services and events. My consent is not a condition of receiving a demonstration treatment. I may withdraw my consent at any time by using the unsubscribe link in any email or by contacting Lumenis. My information will be handled in accordance with the Lumenis Privacy Policy.
+
+At shows with Canadian attendees, make it an unticked checkbox instead: Canadian anti-spam law needs an active opt-in.
+
 ## Agents for the content and digital steps
 
 | Steps | Agent |
