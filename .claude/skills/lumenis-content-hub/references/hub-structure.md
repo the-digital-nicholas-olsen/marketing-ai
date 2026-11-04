@@ -10,7 +10,6 @@ Applies to the **Vision Content Repository Hub** Smartsheet workspace and the **
 | Mimeo (print portal) | Print-ready documents, print files, warehouse stock and equipment sales quotes | Print ordering, sales quotes |
 | PartnerZone | Lumenis global portal for distributors and partners | Downloading global material |
 | Modus | Rep-facing app content | Sales reps |
-| Vision Home SSD | Nicholas's local master copy of everything in OneDrive | Nicholas only; not part of any procedure here |
 
 ### OneDrive folder scheme
 
