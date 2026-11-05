@@ -33,7 +33,7 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
    - Won deals in the AOP window are within about 5% of the last run.
    - The pull log gives every campaign with members this year a home: webinar map, event configuration, paid media, or not marketing-attributed with a reason. Events and webinars are found by campaign ID, never by Campaign Type.
    - Every webinar in the map has a Salesforce campaign ID and a live date. `convert_exports.py` adds mapped webinars that aren't in the AOP's list to the run copy, and it names in its log any webinar it had to leave out. A webinar left out stops the publish.
-   - New in-person events need an entry in the event configuration. Until EJ's script adds new events automatically, add the entry to the run copy's `events/scripts/events_config.py` with the requester's confirmed date, division, cost, campaign IDs and HubSpot lists, and add it to `AOP-2027-Basis` at publish.
+   - New in-person events need configuration: Accelerates and tradeshows in the event configuration, and local events in `local_events.csv`. Until EJ's script adds new events automatically, add the entry to the run copy's `events/scripts/events_config.py` with the requester's confirmed date, division, cost, campaign IDs and HubSpot lists, and add it to `AOP-2027-Basis` at publish.
    - Every ON24 webinar is in the business-unit map. **Never guess a division**: ask the requester and add the answer to the map.
    - Missing or partial sources stop the run. Report which.
 3. **Run the refresh on a copy.** From the work folder's `weekly-agent/` (use `python3` in place of `python` on a Mac). Use `-B` so Python writes no cache files into the shared folder:
@@ -47,7 +47,11 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
       python -B -X utf8 -I rerun_accelerates.py <run folder> <date> <run folder>/accelerates
       ```
    3. Copy the re-run's `<run folder>/accelerates/events/raw/event_attribution.json` over `<run folder>/events/raw/event_attribution.json`. The comparison and the publish read that path, and the re-run's file already carries the tradeshow rows unchanged. Without this copy, Accelerate deals the re-run gains never reach the dashboard.
-   4. Confirm the published AOP basis is unchanged by comparing file hashes before and after.
+   4. Credit Local Events (Unveiled stops, demo days and other small in-person events listed in `local_events.csv`). Run this after the copy, because it adds its rows to the run's `events/raw/event_attribution.json`:
+      ```
+      python -B -X utf8 -I rerun_local_events.py <run folder> <date>
+      ```
+   5. Confirm the published AOP basis is unchanged by comparing file hashes before and after.
 4. **Compare with the published numbers.**
    ```
    python -B -X utf8 -I compare_to_aop.py <run folder> <date> <run folder>/comparison.md
@@ -62,13 +66,15 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
 6. **Publish,** in the work folder, only after approval:
    1. **Archive:** copy the dashboard HTML, `attribution_data.json`, `build_data.py`, `deck/build/canonical.py`, `canonical.json`, `recheck/` and every channel output that will be replaced to `archive/<old build date>_before_<date>_refresh/`.
    2. **Copy outputs:** copy the run's channel outputs into `AOP-2027-Basis/`: the attribution JSON files, `all_us_opps.json` and `webinars/raw/webinars.json` (which now lists any new webinars). Don't copy people-level inputs. Add any new event to `events/scripts/events_config.py` as well.
-   3. **Move the window end:** set it to the pull date in `deck/build/canonical.py` (`WINDOW_END`) and `corrected-dashboard/build_data.py` (`WINDOW`). Run `canonical.py`, then `build_data.py` (it refuses to build if totals differ from `canonical.json`), then `build_dashboard.py`.
-   4. **Verify:** check the page's `built` date and window, and that OneDrive shows the file synced (on Windows, `System.StorageProviderState` = 3). Open it from SharePoint, not the local copy.
-   5. **Leave a note:** a dated note in the work folder's root (`EJ_AI_NOTES_<date>.md`) covering what changed, the before and after totals, the archive path and open items.
+   3. **Local Events on the dashboard.** The first publish after the channel was added (2026-11-05) must add `Local Events` (event channel `Local Event`) wherever the channels are listed: the channel loop and `COST` in `deck/build/canonical.py`, the channel list and `COST` in `corrected-dashboard/build_data.py`, and `CHANNELS` in `corrected-dashboard/dashboard_template.html`. Costs come from `local_events.csv`. Get the requester's approval for this change with the rest of the publish.
+   4. **Move the window end:** set it to the pull date in `deck/build/canonical.py` (`WINDOW_END`) and `corrected-dashboard/build_data.py` (`WINDOW`). Run `canonical.py`, then `build_data.py` (it refuses to build if totals differ from `canonical.json`), then `build_dashboard.py`.
+   5. **Verify:** check the page's `built` date and window, and that OneDrive shows the file synced (on Windows, `System.StorageProviderState` = 3). Open it from SharePoint, not the local copy.
+   6. **Leave a note:** a dated note in the work folder's root (`EJ_AI_NOTES_<date>.md`) covering what changed, the before and after totals, the archive path and open items.
 
 ## Attribution rules (AOP basis; don't change here)
 
-- **In-person events** (Accelerates, tradeshows): attendees only. **Webinars**: registrants count.
+- **In-person events** (Accelerates, tradeshows, local events): attendees only. **Webinars**: registrants count.
+- **Local Events** is its own channel (Nicholas, 2026-11-05). It covers small in-person events outside Accelerates and tradeshows: Unveiled by Lumenis stops, demo days, lunch-and-learns and partner events. Each is listed in the work folder's `weekly-agent/local_events.csv` with its date, division, cost, Salesforce campaign IDs and HubSpot attendee lists. It uses the same rules as the other in-person channels, and its deals are counted once in the all-channel total like every other channel.
 - **Tradeshow attendance** (agreed by Nicholas, 2026-11-05):
   - Booth statuses count as attended: Attended, Badge Scanned, Visited Booth, Received or Booth Treatment, Responded.
   - Requested Info and Downloaded Field Guide also count when the member was added on or after the show's first day, because that's a booth contact.
@@ -95,7 +101,8 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
 
 - **Accelerates and webinars are re-run from people data.** Accelerates use the rep-sheet attendees and Salesforce "Attended" members; webinars use ON24 and campaign members. **Tradeshows, paid and organic channels are not yet re-run.** Their deals are re-checked only on the account links the October AOP already found. A new attendee or lead at an account the AOP never linked isn't credited until those channels are re-run from Salesforce campaign members, OneTap check-ins and the HubSpot contacts export. Say so in every log.
 - **The scripts don't yet enforce the 2026-11-05 rules above.** They link a business domain shared by up to three accounts, and they don't run the paid cross-check. Until they do, list in each log every domain-only match whose domain points to more than one account, and every paid deal without an ad-platform record.
-- **New events and webinars need configuration.** New webinars are added automatically once the map has their campaign ID. New in-person events are not: they need an entry in the event configuration (see step 2). Whether the Aesthetics "Unveiled" regional shows count as a channel is for the rules owner to decide.
+- **New events and webinars need configuration.** New webinars are added automatically once the map has their campaign ID. New Accelerates and tradeshows need an entry in the event configuration (see step 2), and new local events need a row in `local_events.csv`.
+- **Local event dates and attendees.** The 2026 Unveiled dates are estimated as three days before each Salesforce upload until confirmed. Salesforce holds only 12 Unveiled attendees, 8 of them with no account; the full attendee lists (HubSpot or the event platform) are needed. The Q2 Unveiled spend has no Salesforce campaign at all.
 - HubSpot ads covers only the ad accounts connected to HubSpot (not Folix, Noetic or the Vision Meta account). Spend and lead lists for the others have to come from the ad platform or the agency.
 - Webinars without an ON24 report use Salesforce campaign members only.
 
