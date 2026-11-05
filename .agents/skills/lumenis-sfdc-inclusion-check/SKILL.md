@@ -23,7 +23,7 @@ The contact (record ID or email) and, if there was one, the workflow and failed 
 Run the checks in order and stop at the first failure; that is the blocker. For a batch, tally contacts by first failing check.
 
 1. **Confirm the live list.** Read Salesforce → Data sync → Contacts → *Limiting what syncs*. Note the segment name and ID. If it isn't 16272, re-read that segment's filters and use them instead of the table in the reference.
-2. **Membership.** Open the contact → segment memberships, or read `/crm/v3/lists/records/0-1/<id>/memberships`. If the contact is now on the list, the failure was **timing** (check 8).
+2. **Membership.** Open the contact → segment memberships, or read `/crm/v3/lists/records/0-1/<id>/memberships`. If the contact is now on the list, read the `Goes to SF?` history (check 4) before deciding why it failed. If the value was blank or `Not Sync` and later changed to `Sync` (for example by a bulk edit), the contact has since been fixed: report the original blocker from that history, and check whether the same source (form, import or workflow) still leaves new contacts off the list. Only if the value was already `Sync` when the action failed is it **timing** (check 8).
 3. **Email.** No email, or `hs_email_domain` empty → the connector can't sync it. Blocker: missing email.
 4. **`Goes to SF?` value** (`goes_to_sf_`), with property history:
    - Blank → note `hs_object_source_label`. `SALESFORCE` = a Salesforce-created record that never got the flag. `FORM`/`IMPORT` = the form or file lacked the hidden field/column; name the form (`hs_object_source_detail_1`) or import.
