@@ -1,6 +1,6 @@
 ---
 name: lumenis-accelerate-vp-update
-description: Build the two-page Accelerate VP update for one show - one page per division (Aesthetics, Vision) with who has signed up versus who the reps registered, open pipeline, expected value, won deals, customers versus prospects and the products in open deals, plus a show total. Asks which event first. Use when marketing leadership wants a registration and pipeline update for the sales VPs. Reads Smartsheet; writes a PDF to the project folder, not records.
+description: Build the two-page Accelerate VP update for one show - one page per division (Aesthetics, Vision) with who has signed up versus who the reps registered, open pipeline, expected value, won deals, customers versus prospects and the products in open deals, plus a show total. Asks which event first. Use when marketing leadership wants a registration and pipeline update for the sales VPs. Reads Smartsheet; produces a designed PDF, or a designed HTML page in any Claude without Python, not records.
 ---
 
 # Accelerate VP update
@@ -19,7 +19,9 @@ If the request doesn't name the show, ask one question and wait: **"Which Accele
 - The Smartsheet connector. The show's folder in the Accelerate events workspace (for example *Q4 Miami Accelerate*) holds four sheets: **AES Rep Approval**, **VIS Rep Approval**, **<City> Flight Registration (AES+VIS)** and **<City> Non-Flight Registration (AES+VIS)**. If one is missing, stop and name it.
 - Opportunity Amount and Stage on the rep approval sheets, filled by [pipeline sync](../lumenis-accelerate-pipeline-sync/SKILL.md). If the sync hasn't run today, offer to run it first. Without Salesforce access, use the values already on the sheets and print the date they were last synced.
 - The first name of each division's sales VP for the page header. Ask if you don't have it. Never store VP names in this repository.
-- Python 3.9 or later with `reportlab` (`python3 -m pip install "reportlab==4.0.9"`, which supports Python 3.9). Without Python, build the same layout as an HTML page and say the PDF script wasn't run.
+- To render the pages, one of:
+  - **PDF:** a local clone of this repository with Python 3.9 or later and `reportlab` (`python3 -m pip install "reportlab==4.0.9"`).
+  - **HTML (any Claude, including Claude on the web or desktop with GitHub connected):** [references/vp-update-template.html](references/vp-update-template.html). It has the same design and the same math as the PDF script. Never print the data as plain text instead.
 
 ## Procedure
 
@@ -36,10 +38,11 @@ If the request doesn't name the show, ask one question and wait: **"Which Accele
    - A sign-up whose company matches no account becomes a new account with status **none**.
    - List every alias and company match you made for the user. Don't silently drop anyone.
 6. **Tag the products** for each open deal from Product of Interest. Aesthetics: Stellar M22 (Stellar, XPL, ResurFX, Q-switched), triLift, FoLix, UltraPulse, AcuPulse, Splendor X, LightSheer, NuEra Tight. Vision: OptiLIGHT, OptiLIFT, triLift. "Bundle", "Light + Lift" or "OptiLight w/ Aesthetics; OptiLift" = OptiLIGHT and OptiLIFT. A row naming two products gets both.
-7. **Write the show file** (format below) in the show's project folder, in a `vp-update` subfolder. Then run:
-   `python3 scripts/build-accelerate-vp-update.py <show>.json <show>-vp-update.pdf`
-8. **Check the result.** Open or render both pages. Make sure nothing overlaps, that each page's button opens its own division's sheet, and that the people, account and pipeline figures the script prints match your counts from step 3. If the rep sheets' total open pipeline doesn't match what pipeline sync reported, say why.
-9. **Report back** with the PDF link, two lines per division (sign-ups, pipeline without a sign-up, largest gap), and the matching judgment calls. Don't send the PDF to the VPs; marketing leadership does that.
+7. **Write the show file** (format below). Then render it the first way that works:
+   - **PDF**, when you can run Python in a clone of this repository: save the show file in the show's project folder, in a `vp-update` subfolder, and run `python3 scripts/build-accelerate-vp-update.py <show>.json <show>-vp-update.pdf`.
+   - **HTML**, everywhere else: copy [references/vp-update-template.html](references/vp-update-template.html) exactly and replace only the JSON inside `<script id="show-data">` with the show file. Don't rewrite the layout, styles or script. In Claude on the web or desktop, show it as an HTML artifact. Otherwise save it as `<show>-vp-update.html` next to the show file. To make a PDF from it, open it in a browser and print to PDF (one page per division).
+8. **Check the result.** Open or render both pages (for HTML, look at the artifact or open the file). Make sure nothing overlaps, that each page's button opens its own division's sheet, and that the people, account and pipeline figures the script prints match your counts from step 3. If the rep sheets' total open pipeline doesn't match what pipeline sync reported, say why.
+9. **Report back** with the PDF, artifact or HTML file, two lines per division (sign-ups, pipeline without a sign-up, largest gap), and the matching judgment calls. Don't send the PDF to the VPs; marketing leadership does that.
 
 ## Show file
 
@@ -59,7 +62,7 @@ If the request doesn't name the show, ask one question and wait: **"Which Accele
 - `sheet_url`: the division's rep approval sheet permalink. It becomes the **Open rep approval sheet** button at the top right of the page. Viewers still need Smartsheet access to that sheet. Leave it out and the button doesn't appear.
 - `notes`: optional extra bottom-line sentences, at most one per division. Use it for something the figures can't show, such as a show date change.
 
-The script works out every total, the bottom line, the customers versus prospects split, the product counts and the three largest open deals with nobody signed up.
+The script and the HTML template work out every total, the bottom line, the customers versus prospects split, the product counts and the three largest open deals with nobody signed up.
 
 ## What each page shows
 
@@ -77,4 +80,5 @@ The script works out every total, the bottom line, the customers versus prospect
 ## Boundaries
 
 - Read-only in Smartsheet and Salesforce, except when the user approves a pipeline sync run.
-- The show file and the PDF contain practice names and pipeline values. They stay in the project folder, never in this repository or a public pull request.
+- The show file, the PDF and a filled-in HTML page contain practice names and pipeline values. They stay in the project folder or the user's Claude conversation, never in this repository or a public pull request. The template in this repository holds invented example data only.
+- Keep `references/vp-update-template.html` and `scripts/build-accelerate-vp-update.py` in step: a change to the layout, wording or math goes into both in the same pull request.

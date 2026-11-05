@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accelerate VP Update</title>
+<!--
+  Accelerate VP update - HTML version of scripts/build-accelerate-vp-update.py.
+  Use it when the PDF script can't run (Claude on the web or desktop, no Python).
+  Replace ONLY the JSON inside <script id="show-data"> with the show file
+  (format: ../SKILL.md, "Show file"). Every figure is worked out on the page.
+  The example data below is invented. Never commit a real show file here.
+-->
+<style>
+  :root {
+    --black: #000; --grey: #575757; --mid: #a6a6a6; --light: #e6e6e6; --faint: #f2f2f2;
+    --paper: #fff; --page-bg: #e9e9e9;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page-bg); color: var(--black);
+         font-family: Arial, Helvetica, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { --accent: #a6a6a6; position: relative; width: 8.5in; min-height: 11in; margin: 24px auto;
+          background: var(--paper); padding: 0 0.55in 0.45in; box-shadow: 0 1px 6px rgba(0,0,0,.15); display: flex; flex-direction: column; }
+  .strip { margin: 0 -0.55in; height: 20px; background: var(--accent); font-weight: 700; font-size: 10px;
+           letter-spacing: .04em; padding: 5px 0.55in; text-transform: uppercase; }
+  .head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-top: 30px; }
+  h1 { margin: 0; font-weight: 400; font-size: 32px; line-height: 1.05; text-transform: uppercase; }
+  .sheet-btn { flex: none; display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: #fff;
+               border-left: 5px solid var(--accent); border-radius: 4px; padding: 8px 14px; font-size: 11px;
+               font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: .02em; white-space: nowrap; }
+  .sheet-btn:hover { opacity: .85; }
+  .sub { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; color: var(--grey); }
+  .sub .who { font-size: 15px; } .sub .asof { font-size: 10px; }
+  h2 { margin: 22px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--black); font-size: 11.5px;
+       text-transform: uppercase; letter-spacing: .02em; }
+  ul.bl { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.4; }
+  ul.bl li { margin-bottom: 3px; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; }
+  .tile { background: var(--faint); border-left: 6px solid var(--accent); padding: 12px 12px 10px; }
+  .tile .lab { font-size: 10px; color: var(--grey); text-transform: uppercase; }
+  .tile .val { font-size: 29px; margin: 6px 0 4px; white-space: nowrap; }
+  .tile .note { font-size: 10.5px; color: var(--grey); }
+  .split { height: 18px; background: var(--light); position: relative; }
+  .split span { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+  .split-lab { display: flex; justify-content: space-between; font-size: 11px; margin-top: 6px; }
+  .split-lab span:last-child { color: var(--grey); }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { font-weight: 400; color: var(--grey); font-size: 10px; text-transform: uppercase; text-align: right; padding: 4px 0 6px; border-bottom: 1px solid var(--grey); }
+  th:first-child, td:first-child { text-align: left; }
+  td { text-align: right; padding: 4px 0; }
+  tr.total td { font-weight: 700; border-top: 1px solid var(--black); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .hb { display: grid; grid-template-columns: 170px 1fr; align-items: center; gap: 8px; font-size: 12px; margin: 6px 0; }
+  .two .prod .hb { grid-template-columns: 104px 1fr; }
+  .hb .track { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--grey); white-space: nowrap; min-width: 0; }
+  .hb .bar { height: 14px; background: var(--accent); min-width: 2px; }
+  .hb .bar.zero { background: var(--light); }
+  .small { font-size: 9.5px; color: var(--grey); margin-top: 2px; }
+  .gaps div { display: grid; grid-template-columns: 2.1fr 1.5fr 1fr 1fr; font-size: 12px; padding: 2px 0; }
+  .gaps span:nth-child(2), .gaps span:nth-child(3) { color: var(--grey); }
+  .gaps span:last-child { text-align: right; }
+  .spacer { flex: 1; min-height: 18px; }
+  .band { background: var(--black); color: #fff; padding: 12px 14px 14px; }
+  .band .t { font-weight: 700; font-size: 11px; text-transform: uppercase; margin-bottom: 10px; }
+  .band .cols { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .band .lab { font-size: 8.5px; text-transform: uppercase; }
+  .band .val { font-size: 22px; margin-top: 4px; }
+  .foot { font-size: 9px; color: var(--grey); margin-top: 6px; }
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; break-after: page; height: 11in; }
+  }
+  @media (max-width: 860px) {
+    .page { width: auto; min-height: 0; margin: 0 0 16px; padding: 0 16px 16px; }
+    .strip { margin: 0 -16px; padding: 5px 16px; }
+    .head { flex-direction: column; }
+    .tiles { grid-template-columns: repeat(2, 1fr); }
+    .two { grid-template-columns: 1fr; }
+    .band .cols { grid-template-columns: repeat(3, 1fr); }
+    .table-wrap { overflow-x: auto; }
+    .table-wrap table { min-width: 560px; }
+  }
+</style>
+</head>
+<body>
+<div id="report"></div>
+
+<script id="show-data" type="application/json">
+{"event": "Accelerate Q1 Example City", "as_of": "Jan 5, 2027", "divisions": [
+ {"division": "Aesthetics", "vp": "", "sheet_url": "https://app.smartsheet.com/", "notes": [], "accounts": [
+  {"name": "Example Med Spa", "rep": "Rep A", "signed_up_people": 2, "not_signed_up_people": 0, "amount": 120000, "stage": "3", "status": "open", "products": ["Stellar M22"]},
+  {"name": "Sample Dermatology", "rep": "Rep B", "signed_up_people": 0, "not_signed_up_people": 2, "amount": 210000, "stage": "2", "status": "open", "products": ["triLift"]},
+  {"name": "Demo Aesthetics", "rep": "Rep A", "signed_up_people": 1, "not_signed_up_people": 1, "amount": 95000, "stage": "", "status": "won", "products": []}]},
+ {"division": "Vision", "vp": "", "sheet_url": "https://app.smartsheet.com/", "accounts": [
+  {"name": "Example Eye Care", "rep": "Rep C", "signed_up_people": 1, "not_signed_up_people": 0, "amount": 124000, "stage": "4", "status": "open", "products": ["OptiLIGHT", "OptiLIFT"]},
+  {"name": "Sample Optometry", "rep": "Rep D", "signed_up_people": 0, "not_signed_up_people": 1, "amount": 0, "stage": "", "status": "none", "products": []}]}]}
+</script>
+
+<script>
+(function () {
+  // Same rules as scripts/build-accelerate-vp-update.py. Keep the two in step.
+  var RATES = {'1': .068, '2': .091, '3': .15, '4': .2208, '5': .619, '6': .934};
+  var ACCENTS = {'Aesthetics': '#fabcad', 'Vision': '#578fff'}; // triLift rose gold, OptiLIGHT blue
+  var show = JSON.parse(document.getElementById('show-data').textContent);
+
+  function money(v) {
+    if (v >= 1e6) return '$' + (v / 1e6).toFixed(2) + 'M';
+    if (v >= 1e3) return '$' + Math.round(v / 1e3) + 'K';
+    return '$' + Math.round(v).toLocaleString('en-US');
+  }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]; }); }
+  function isOpen(a) { return a.status === 'open' && RATES[String(a.stage || '').charAt(0)] !== undefined; }
+  function sum(rows, f) { return rows.reduce(function (n, a) { return n + f(a); }, 0); }
+  function plural(n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); }
+
+  function block(rows, key) {
+    var op = rows.filter(isOpen), won = rows.filter(function (a) { return a.status === 'won'; });
+    return {
+      people: sum(rows, function (a) { return a[key] || 0; }), accounts: rows.length, open: op.length,
+      pipeline: sum(op, function (a) { return a.amount; }),
+      ev: sum(op, function (a) { return a.amount * RATES[String(a.stage).charAt(0)]; }),
+      won: won.length, won_amount: sum(won, function (a) { return a.amount || 0; })
+    };
+  }
+  function summarize(div) {
+    var accts = div.accounts;
+    var signed = accts.filter(function (a) { return (a.signed_up_people || 0) > 0; });
+    var repOnly = accts.filter(function (a) { return !((a.signed_up_people || 0) > 0); });
+    var s = block(signed, 'signed_up_people'), r = block(repOnly, 'not_signed_up_people');
+    r.people = sum(accts, function (a) { return a.not_signed_up_people || 0; });
+    var t = {}; Object.keys(s).forEach(function (k) { t[k] = s[k] + r[k]; });
+    var mix = [
+      ['Customers (deal won)', accts.filter(function (a) { return a.status === 'won'; }).length],
+      ['Prospects with an open deal', accts.filter(isOpen).length],
+      ['Prospects, no open deal', accts.filter(function (a) { return a.status !== 'won' && !isOpen(a); }).length]
+    ];
+    var prod = {};
+    accts.filter(isOpen).forEach(function (a) { (a.products || []).forEach(function (p) {
+      prod[p] = prod[p] || [0, 0]; prod[p][0] += 1; prod[p][1] += a.amount; }); });
+    var products = Object.keys(prod).map(function (p) { return [p, prod[p]]; })
+      .sort(function (x, y) { return y[1][0] - x[1][0] || y[1][1] - x[1][1]; });
+    var gaps = repOnly.filter(isOpen).sort(function (x, y) { return y.amount - x.amount; }).slice(0, 3);
+    return {signed: s, rep: r, total: t, mix: mix, products: products, gaps: gaps};
+  }
+  function bottomLine(div, x) {
+    var t = x.total, s = x.signed, r = x.rep;
+    var lines = [s.people + ' of ' + (s.people + r.people) + ' invited prospects have signed themselves up, from ' +
+      s.accounts + ' accounts. The other ' + r.people + ' were registered by their rep only.'];
+    if (t.pipeline) lines.push(money(r.pipeline) + ' of ' + money(t.pipeline) + ' open pipeline (' +
+      Math.round(100 * r.pipeline / t.pipeline) + '%) sits with accounts where no prospect has signed themselves up; only the rep has registered them.');
+    if (x.gaps.length) { var g = x.gaps[0];
+      lines.push('Biggest gap: ' + g.name + ' (' + money(g.amount) + ', ' + (g.rep || 'rep unknown') + '), rep registered only.'); }
+    return lines.concat(div.notes || []);
+  }
+  function hbars(items, fmt) {
+    var max = Math.max.apply(null, items.map(function (i) { return i[1]; }).concat([1]));
+    return items.map(function (i) {
+      return '<div class="hb"><span>' + esc(i[0]) + '</span><span class="track"><span class="bar' + (i[1] ? '' : ' zero') +
+        '" style="width:' + (i[1] ? Math.max(4, 45 * i[1] / max) : 2) + '%"></span>' + esc(fmt(i[1])) + (i[2] ? '&nbsp;&nbsp;' + esc(i[2]) : '') + '</span></div>';
+    }).join('');
+  }
+
+  var xs = show.divisions.map(summarize), totals = {};
+  ['signed', 'rep', 'total'].forEach(function (k) { totals[k] = {};
+    Object.keys(xs[0][k]).forEach(function (m) { totals[k][m] = sum(xs, function (x) { return x[k][m]; }); }); });
+  document.title = show.event + ' VP Update';
+
+  document.getElementById('report').innerHTML = show.divisions.map(function (div, i) {
+    var x = xs[i], s = x.signed, r = x.rep, t = x.total;
+    var accent = div.accent || ACCENTS[div.division] || '#a6a6a6';
+    var share = t.pipeline ? 100 * s.pipeline / t.pipeline : 0;
+    var row = function (label, b, cls) { return '<tr' + (cls ? ' class="' + cls + '"' : '') + '><td>' + label + '</td><td>' + b.people + '</td><td>' +
+      b.accounts + '</td><td>' + b.open + '</td><td>' + money(b.pipeline) + '</td><td>' + money(b.ev) + '</td><td>' + b.won + '</td></tr>'; };
+    return '<section class="page" style="--accent:' + esc(accent) + '">' +
+      '<div class="strip">' + esc(div.division) + '</div>' +
+      '<div class="head"><h1>' + esc(show.event) + '</h1>' +
+        (div.sheet_url ? '<a class="sheet-btn" href="' + esc(div.sheet_url) + '" target="_blank" rel="noopener">Open rep approval sheet &#8599;</a>' : '') + '</div>' +
+      '<div class="sub"><span class="who">' + esc(div.division) + (div.vp ? ' · VP: ' + esc(div.vp) : '') + ' · Registration and pipeline update</span>' +
+        '<span class="asof">Data as of ' + esc(show.as_of) + ' · Page ' + (i + 1) + ' of ' + xs.length + '</span></div>' +
+      '<h2>Bottom line</h2><ul class="bl">' + bottomLine(div, x).map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('') + '</ul>' +
+      '<div class="tiles">' +
+        '<div class="tile"><div class="lab">Prospects signed up</div><div class="val">' + s.people + ' of ' + (s.people + r.people) + '</div><div class="note">' + r.people + ' registered by rep only</div></div>' +
+        '<div class="tile"><div class="lab">Accounts signed up</div><div class="val">' + s.accounts + ' of ' + t.accounts + '</div><div class="note">' + r.accounts + ' registered by rep only</div></div>' +
+        '<div class="tile"><div class="lab">Open pipeline</div><div class="val">' + money(t.pipeline) + '</div><div class="note">Expected value ' + money(t.ev) + '</div></div>' +
+        '<div class="tile"><div class="lab">Already won</div><div class="val">' + plural(t.won, 'deal') + '</div><div class="note">' + money(t.won_amount) + '</div></div>' +
+      '</div>' +
+      '<h2>Open pipeline: prospect signed up vs rep registered only</h2>' +
+      '<div class="split"><span style="width:' + share + '%"></span></div>' +
+      '<div class="split-lab"><span>Prospect signed up: ' + money(s.pipeline) + '</span><span>Rep registered only: ' + money(r.pipeline) + '</span></div>' +
+      '<h2>Who registered them</h2><div class="table-wrap"><table><tr><th></th><th>People</th><th>Accounts</th><th>Open deals</th><th>Pipeline</th><th>Exp. value</th><th>Won</th></tr>' +
+        row('Prospect signed themselves up', s) + row('Rep registered only', r) + row('Total', t, 'total') + '</table></div>' +
+      '<div class="two"><div><h2>Who\'s coming (accounts)</h2>' + hbars(x.mix, String) + '</div>' +
+        '<div class="prod"><h2>Products in open deals</h2>' +
+          (x.products.length ? hbars(x.products.slice(0, 7).map(function (p) { return [p[0], p[1][0], money(p[1][1])]; }), function (v) { return plural(v, 'deal'); }) +
+            '<div class="small">A deal naming two products counts under each.</div>' : '<div class="small">No open deals</div>') + '</div></div>' +
+      (x.gaps.length ? '<h2>Largest open deals, rep registered only (no prospect sign-up)</h2><div class="gaps">' + x.gaps.map(function (g) {
+        return '<div><span>' + esc(g.name) + '</span><span>' + esc(g.rep || '') + '</span><span>Stage ' + esc(String(g.stage).charAt(0)) + '</span><span>' + money(g.amount) + '</span></div>';
+      }).join('') + '</div>' : '') +
+      '<div class="spacer"></div>' +
+      '<div class="band"><div class="t">' + esc(show.event) + ' total · both divisions</div><div class="cols">' +
+        [['Accounts signed up', totals.signed.accounts], ['Accounts rep only', totals.rep.accounts], ['Prospects signed up', totals.signed.people],
+         ['Prospects rep only', totals.rep.people], ['Open pipeline', money(totals.total.pipeline)], ['Expected value', money(totals.total.ev)]]
+          .map(function (c) { return '<div><div class="lab">' + c[0] + '</div><div class="val">' + c[1] + '</div></div>'; }).join('') +
+      '</div></div>' +
+      '<div class="foot">Prospect signed up = filled in the flight or non-flight form. Rep registered only = on the approval sheet, no form yet. Pipeline: open deals, stages 1-6.</div>' +
+      '</section>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
