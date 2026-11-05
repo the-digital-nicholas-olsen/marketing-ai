@@ -19,6 +19,9 @@ W, H = letter
 M = 40  # page margin
 RATES = {'1': .068, '2': .091, '3': .15, '4': .2208, '5': .619, '6': .934}
 SANS, BOLD = 'Helvetica', 'Helvetica-Bold'
+# One secondary color per page, from the Lumenis Corporate palette: triLift rose gold for
+# Aesthetics, OptiLIGHT blue for Vision. The show total stays Lumenis black.
+ACCENTS = {'Aesthetics': '#fabcad', 'Vision': '#578fff'}
 
 
 def money(v):
@@ -76,15 +79,15 @@ def summarize(div):
 
 def bottom_line(div, x):
     t, s, r = x['total'], x['signed'], x['rep']
-    lines = [f"{s['people']} people from {s['accounts']} accounts have signed up. "
-             f"{r['people']} more were approved by their rep but haven't signed up yet."]
+    lines = [f"{s['people']} of {s['people'] + r['people']} invited prospects have signed themselves up, from "
+             f"{s['accounts']} accounts. The other {r['people']} were registered by their rep only."]
     if t['pipeline']:
         share = r['pipeline'] / t['pipeline']
         lines.append(f"{money(r['pipeline'])} of {money(t['pipeline'])} open pipeline ({share:.0%}) sits with accounts "
-                     f"where nobody has signed up.")
+                     f"where no prospect has signed themselves up; only the rep has registered them.")
     if x['gaps']:
         g = x['gaps'][0]
-        lines.append(f"Biggest gap: {g['name']} ({money(g['amount'])}, {g.get('rep', 'rep unknown')}).")
+        lines.append(f"Biggest gap: {g['name']} ({money(g['amount'])}, {g.get('rep', 'rep unknown')}), rep registered only.")
     return lines + div.get('notes', [])
 
 
@@ -100,9 +103,11 @@ def wrap(c, text, font, size, width):
     return out + ([line] if line else [])
 
 
-def tile(c, x, y, w, h, label, value, sub):
+def tile(c, x, y, w, h, label, value, sub, accent):
     c.setFillColor(FAINT)
     c.rect(x, y, w, h, stroke=0, fill=1)
+    c.setFillColor(accent)
+    c.rect(x, y, 4, h, stroke=0, fill=1)
     c.setFillColor(GREY)
     c.setFont(SANS, 7.5)
     c.drawString(x + 10, y + h - 16, label.upper())
@@ -123,12 +128,12 @@ def heading(c, x, y, text):
     c.line(x, y - 4, W - M, y - 4) if x == M else None
 
 
-def bar_split(c, x, y, w, h, a, b, la, lb):
+def bar_split(c, x, y, w, h, a, b, la, lb, accent):
     total = a + b or 1
     wa = w * a / total
-    c.setFillColor(BLACK)
+    c.setFillColor(accent)
     c.rect(x, y, wa, h, stroke=0, fill=1)
-    c.setFillColor(MID)
+    c.setFillColor(LIGHT)
     c.rect(x + wa, y, w - wa, h, stroke=0, fill=1)
     c.setFont(SANS, 8)
     c.setFillColor(BLACK)
@@ -163,14 +168,14 @@ def table(c, x, y, cols, rows, widths, bold_last=True):
     return y
 
 
-def hbars(c, x, y, w, items, value_fmt, row=15, label_w=118):
+def hbars(c, x, y, w, items, value_fmt, accent, row=15, label_w=118):
     top = max((v for _, v, _ in items), default=1) or 1
     for label, v, note in items:
         c.setFont(SANS, 8.5)
         c.setFillColor(BLACK)
         c.drawString(x, y, label)
         bw = (w - label_w - 70) * v / top
-        c.setFillColor(BLACK if v else LIGHT)
+        c.setFillColor(accent if v else LIGHT)
         c.rect(x + label_w, y - 2, max(bw, 1.5), 9, stroke=0, fill=1)
         c.setFillColor(GREY)
         c.setFont(SANS, 8)
@@ -181,7 +186,12 @@ def hbars(c, x, y, w, items, value_fmt, row=15, label_w=118):
 
 def page(c, show, div, x, totals, pageno, pages):
     # Header
+    accent = HexColor(div.get('accent') or ACCENTS.get(div['division'], '#a6a6a6'))
+    c.setFillColor(accent)
+    c.rect(0, H - 14, W, 14, stroke=0, fill=1)
     c.setFillColor(BLACK)
+    c.setFont(BOLD, 7.5)
+    c.drawString(M, H - 10, div['division'].upper())
     c.setFont(SANS, 24)
     c.drawString(M, H - M - 22, show['event'].upper())
     c.setFont(SANS, 11)
@@ -209,16 +219,19 @@ def page(c, show, div, x, totals, pageno, pages):
     t, s, r = x['total'], x['signed'], x['rep']
     y -= 72
     tw = (W - 2 * M - 3 * 10) / 4
-    tile(c, M, y, tw, 66, 'People signed up', f"{s['people']} of {s['people'] + r['people']}", f"{r['people']} approved, not signed up")
-    tile(c, M + (tw + 10), y, tw, 66, 'Accounts signed up', f"{s['accounts']} of {t['accounts']}", f"{r['accounts']} with nobody signed up")
-    tile(c, M + 2 * (tw + 10), y, tw, 66, 'Open pipeline', money(t['pipeline']), f"Expected value {money(t['ev'])}")
-    tile(c, M + 3 * (tw + 10), y, tw, 66, 'Already won', f"{t['won']} deal" + ('s' if t['won'] != 1 else ''), money(t['won_amount']))
+    tile(c, M, y, tw, 66, 'Prospects signed up', f"{s['people']} of {s['people'] + r['people']}",
+         f"{r['people']} registered by rep only", accent)
+    tile(c, M + (tw + 10), y, tw, 66, 'Accounts signed up', f"{s['accounts']} of {t['accounts']}",
+         f"{r['accounts']} registered by rep only", accent)
+    tile(c, M + 2 * (tw + 10), y, tw, 66, 'Open pipeline', money(t['pipeline']), f"Expected value {money(t['ev'])}", accent)
+    tile(c, M + 3 * (tw + 10), y, tw, 66, 'Already won', f"{t['won']} deal" + ('s' if t['won'] != 1 else ''),
+         money(t['won_amount']), accent)
 
     # Pipeline split bar
     y -= 26
-    heading(c, M, y, 'Open pipeline by sign-up status')
+    heading(c, M, y, 'Open pipeline: prospect signed up vs rep registered only')
     y -= 22
-    bar_split(c, M, y, W - 2 * M, 14, s['pipeline'], r['pipeline'], 'Signed up', 'Not signed up')
+    bar_split(c, M, y, W - 2 * M, 14, s['pipeline'], r['pipeline'], 'Prospect signed up', 'Rep registered only', accent)
 
     # Registration table
     y -= 36
@@ -226,7 +239,7 @@ def page(c, show, div, x, totals, pageno, pages):
     y -= 16
     widths = [148, 52, 58, 62, 74, 78, 60]
     rows = [
-        ['Prospect registered (signed up)', s['people'], s['accounts'], s['open'], money(s['pipeline']), money(s['ev']), s['won']],
+        ['Prospect signed themselves up', s['people'], s['accounts'], s['open'], money(s['pipeline']), money(s['ev']), s['won']],
         ['Rep registered only', r['people'], r['accounts'], r['open'], money(r['pipeline']), money(r['ev']), r['won']],
         ['Total', t['people'], t['accounts'], t['open'], money(t['pipeline']), money(t['ev']), t['won']],
     ]
@@ -240,10 +253,10 @@ def page(c, show, div, x, totals, pageno, pages):
     c.setStrokeColor(BLACK)
     c.line(M + half + 20, y - 4, W - M, y - 4)
     y -= 20
-    y1 = hbars(c, M, y, half, [(k, v, '') for k, v in x['mix'].items()], lambda v: str(v), label_w=128)
+    y1 = hbars(c, M, y, half, [(k, v, '') for k, v in x['mix'].items()], lambda v: str(v), accent, label_w=128)
     prods = x['products'][:7]
     y2 = hbars(c, M + half + 20, y, half, [(p, d[0], money(d[1])) for p, d in prods],
-               lambda v: f'{v} deal' + ('s' if v != 1 else ''), label_w=78)
+               lambda v: f'{v} deal' + ('s' if v != 1 else ''), accent, label_w=78)
     if not prods:
         c.setFont(SANS, 8.5)
         c.setFillColor(GREY)
@@ -256,7 +269,7 @@ def page(c, show, div, x, totals, pageno, pages):
     # Biggest gaps
     if x['gaps']:
         y -= 16
-        heading(c, M, y, 'Largest open deals with nobody signed up')
+        heading(c, M, y, 'Largest open deals, rep registered only (no prospect sign-up)')
         y -= 16
         for g in x['gaps']:
             c.setFont(SANS, 9)
@@ -279,8 +292,8 @@ def page(c, show, div, x, totals, pageno, pages):
     cols = [
         ('Accounts signed up', str(totals['signed']['accounts'])),
         ('Accounts rep only', str(totals['rep']['accounts'])),
-        ('People signed up', str(totals['signed']['people'])),
-        ('People rep only', str(totals['rep']['people'])),
+        ('Prospects signed up', str(totals['signed']['people'])),
+        ('Prospects rep only', str(totals['rep']['people'])),
         ('Open pipeline', money(totals['total']['pipeline'])),
         ('Expected value', money(totals['total']['ev'])),
     ]
@@ -293,8 +306,8 @@ def page(c, show, div, x, totals, pageno, pages):
         c.drawString(cx, M + 12, val)
     c.setFillColor(GREY)
     c.setFont(SANS, 6.5)
-    c.drawString(M, M - 12, 'Signed up = filled in the flight or non-flight form. Rep only = on the rep approval sheet, no form yet. '
-                 'Pipeline and expected value: open deals at stages 1-6 only.')
+    c.drawString(M, M - 12, 'Prospect signed up = filled in the flight or non-flight form. Rep registered only = on the approval sheet, no form yet. '
+                 'Pipeline: open deals, stages 1-6.')
 
 
 def main(src, out):
