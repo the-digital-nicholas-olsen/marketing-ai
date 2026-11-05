@@ -1,7 +1,7 @@
 # Accelerate agenda table tent
 
 Owner: Kaelyn (event logistics).
-Status: draft procedure, written 2026-10-30 from the approved 5 x 7 table tent. Review required.
+Status: draft procedure, written 2026-10-30 from the approved 5 x 7 table tent. QR positions updated 2026-11-05 for the revised master. Review required.
 
 Use this to make the 5 x 7 in "Accelerate Agenda" table tent for an upcoming Accelerate. The design is fixed. The only per-event change is the two QR codes: one for the Aesthetics agenda and one for the Eye Care agenda.
 
@@ -23,13 +23,15 @@ The specification below describes one observed master. Confirm current artwork c
 
 Check any finished table tent against these. All measurements are from the top-left corner of the PDF page.
 
+The master moves each photo and QR group with its own offset, so the QR coordinates written in the artwork don't show where the code lands on the page. Measure positions on the rendered page.
+
 | Item | Value |
 |---|---|
 | Page | One page, 393.84 x 521.28 pt (5.47 x 7.24 in, 139 x 184 mm), including bleed |
 | Trim | 5 x 7.01 in (127 x 178 mm), set as the PDF trim box |
 | Safe area | 4.53 x 6.77 in, centered |
-| Aesthetics QR code | Left 233.01 pt, top 213.62 pt, 49.51 pt square (0.69 in), upper right of the table tent |
-| Eye Care QR code | Left 104.86 pt, top 392.60 pt, 48.47 pt square (0.67 in), lower left of the table tent |
+| Aesthetics QR code | Left 233.01 pt, top 195.95 pt, 49.51 pt square (0.69 in), upper right of the table tent |
+| Eye Care QR code | Left 104.86 pt, top 360.80 pt, 48.47 pt square (0.67 in), lower left of the table tent |
 | QR encoding | Error correction M, black on white, no logo or styling |
 | Edges | White. The table tent has no color strip, unlike the 24 x 36 in poster |
 
@@ -128,4 +130,4 @@ Mistake: entering the links in the wrong order, which puts each division's QR co
 
 ## Source and review
 
-Source: the approved master PDF, reviewed 2026-10-30. Proposed subject reviewer: Kaelyn. The 1 pt module limit is proposed guidance, not a brand or vendor rule. GitHub approval doesn't authorize a print order.
+Source: the approved master PDF, reviewed 2026-10-30. QR positions re-measured 2026-11-05 from the revised master saved that day. Proposed subject reviewer: Kaelyn. The 1 pt module limit is proposed guidance, not a brand or vendor rule. GitHub approval doesn't authorize a print order.
