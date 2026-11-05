@@ -1,6 +1,6 @@
 # Lumenis Web Image Catalog
 
-Generated from `catalog.json`. 75 assets.
+Generated from `catalog.json`. 76 assets.
 
 | Asset | Collection | Allowed brands | Subject | HubSpot | Tags | Image |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -79,3 +79,4 @@ Generated from `catalog.json`. 75 assets.
 | optilift-provider-device-demo-001 | optilift | unclassified | Two people beside a Lumenis console during a demonstration | [1920w](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-provider-device-demo-001-1920w.webp) | device demonstration, provider, clinical technology, in-use, not-optilift, needs-product-verification | ![image](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-provider-device-demo-001-1920w.webp) |
 | optilift-treatment-demo-001 | optilift | unclassified | Clinician performing a facial treatment demonstration | [1920w](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-001-1920w.webp) | treatment demo, provider, facial treatment, clinical setting, not-optilift, needs-product-verification | ![image](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-001-1920w.webp) |
 | optilift-treatment-demo-002 | optilift | unclassified | Clinician using a treatment handpiece on a patient's jawline | [1920w](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-002-1920w.webp) | treatment demo, provider, handpiece, facial treatment, not-optilift, needs-product-verification | ![image](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/optilift-treatment-demo-002-1920w.webp) |
+| trilift-device-full-render-001 | product-demos | unclassified | triLIFT 2.0 device, front view | [1920w](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/trilift-device-full-render-001/trilift-device-full-render-001-439w.webp) | triLIFT, triLIFT 2.0, DMSt, device, render, cutout, Lumenis, Lift Off San Jose | ![image](https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/trilift-device-full-render-001/trilift-device-full-render-001-439w.webp) |

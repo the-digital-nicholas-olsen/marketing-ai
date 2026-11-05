@@ -51,8 +51,8 @@
       ],
       "note": "These lists can grow over time. Treat a value you don't recognize as valid-but-unclassified, not an error."
     },
-    "lastSyncedAt": "2026-11-05T00:42:08.831Z",
-    "updatedAt": "2026-11-05T00:42:08.833Z"
+    "lastSyncedAt": "2026-11-05T00:50:57.421Z",
+    "updatedAt": "2026-11-05T00:50:57.423Z"
   },
   "schemaVersion": 1,
   "assets": [
@@ -5319,6 +5319,66 @@
         }
       ],
       "importedAt": "2026-07-28T21:18:23.773Z",
+      "hubspot": {
+        "folderId": "218370797141",
+        "folderName": "US - VIS - Image Catalogue - 2026"
+      }
+    },
+    {
+      "id": "trilift-device-full-render-001",
+      "allowedBrands": [
+        "unclassified"
+      ],
+      "businessUnit": "Vision",
+      "subject": "triLIFT 2.0 device, front view",
+      "description": "Front view of the full triLIFT 2.0 system: black column with a rose-gold Lumenis L, a rose-gold-framed touchscreen, two round applicators on arms and four cabled handpieces on a wheeled rose-gold base.",
+      "productShown": "triLIFT 2.0 dynamic muscle stimulation (DMSt) system",
+      "audience": [
+        "marketing team",
+        "eye care practitioners",
+        "aesthetic providers"
+      ],
+      "placements": [
+        "product-detail",
+        "technology",
+        "card",
+        "section"
+      ],
+      "orientation": "portrait",
+      "background": "Transparent cutout, no background or floor shadow",
+      "tags": [
+        "triLIFT",
+        "triLIFT 2.0",
+        "DMSt",
+        "device",
+        "render",
+        "cutout",
+        "Lumenis",
+        "Lift Off San Jose"
+      ],
+      "altText": "The triLIFT 2.0 device: a black column with a rose-gold touchscreen, two applicators and cabled handpieces on a wheeled base.",
+      "usageRestrictions": "Official product image from the lumenis.com triLIFT product page, downloaded 2026-11-04 for Lift Off San Jose. Small 439 px source; suits device stands, cards and product tiles, not large placements. The on-screen image shows a model's face; confirm usage rights before reuse outside Lumenis product marketing. Not OptiLIFT, so don't use it to represent OptiLIFT. Do not pair with clinical or outcome claims without regulatory review.",
+      "sourceUrl": "https://lumenis.com/aesthetics/products/trilift/",
+      "source": {
+        "filename": "trilift-device-full-render-001.png",
+        "format": "png",
+        "width": 439,
+        "height": 900,
+        "bytes": 83245,
+        "intake": "local-staging"
+      },
+      "collection": "product-demos",
+      "derivatives": [
+        {
+          "width": 439,
+          "height": 900,
+          "bytes": 45288,
+          "format": "webp",
+          "path": "3-processed/product-demos/trilift-device-full-render-001/trilift-device-full-render-001-439w.webp",
+          "hubspotUrl": "https://information.lumenis.com/hubfs/US%20-%20VIS%20-%20Image%20Catalogue%20-%202026/trilift-device-full-render-001/trilift-device-full-render-001-439w.webp"
+        }
+      ],
+      "importedAt": "2026-11-05T00:50:32.907Z",
       "hubspot": {
         "folderId": "218370797141",
         "folderName": "US - VIS - Image Catalogue - 2026"
