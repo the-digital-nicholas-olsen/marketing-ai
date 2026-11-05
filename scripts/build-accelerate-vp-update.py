@@ -184,6 +184,29 @@ def hbars(c, x, y, w, items, value_fmt, accent, row=15, label_w=118):
     return y
 
 
+def sheet_button(c, url, accent):
+    """Clickable button, top right, that opens the division's rep approval sheet."""
+    label = 'OPEN REP APPROVAL SHEET'
+    c.setFont(BOLD, 8)
+    bw, bh = c.stringWidth(label, BOLD, 8) + 34, 22
+    bx, by = W - M - bw, H - M - 27
+    c.setFillColor(BLACK)
+    c.roundRect(bx, by, bw, bh, 3, stroke=0, fill=1)
+    c.setFillColor(accent)
+    c.rect(bx, by, 4, bh, stroke=0, fill=1)
+    c.setFillColor(white)
+    c.drawString(bx + 12, by + 8, label)
+    # Small arrow drawn as lines, since Helvetica has no arrow glyph
+    ax, ay = bx + bw - 15, by + 11
+    c.setStrokeColor(white)
+    c.setLineWidth(1.2)
+    c.line(ax - 3, ay - 3, ax + 3, ay + 3)
+    c.line(ax - 1, ay + 3, ax + 3, ay + 3)
+    c.line(ax + 3, ay + 3, ax + 3, ay - 1)
+    c.linkURL(url, (bx, by, bx + bw, by + bh), relative=0)
+    return bw
+
+
 def page(c, show, div, x, totals, pageno, pages):
     # Header
     accent = HexColor(div.get('accent') or ACCENTS.get(div['division'], '#a6a6a6'))
@@ -192,8 +215,14 @@ def page(c, show, div, x, totals, pageno, pages):
     c.setFillColor(BLACK)
     c.setFont(BOLD, 7.5)
     c.drawString(M, H - 10, div['division'].upper())
-    c.setFont(SANS, 24)
-    c.drawString(M, H - M - 22, show['event'].upper())
+    title = show['event'].upper()
+    room = W - 2 * M - (sheet_button(c, div['sheet_url'], accent) + 16 if div.get('sheet_url') else 0)
+    size = 24
+    while size > 14 and c.stringWidth(title, SANS, size) > room:
+        size -= 1  # shrink a long show name so it never runs into the button
+    c.setFillColor(BLACK)
+    c.setFont(SANS, size)
+    c.drawString(M, H - M - 22, title)
     c.setFont(SANS, 11)
     c.setFillColor(GREY)
     vp = f" · VP: {div['vp']}" if div.get('vp') else ''
