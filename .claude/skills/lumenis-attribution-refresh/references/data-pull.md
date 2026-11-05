@@ -21,8 +21,9 @@ Use a Salesforce connector with read-only queries, or have the requester run rep
 | `accounts` | `SELECT Id, Name, ParentId, BillingState, BillingCity, BillingCountry, Website, RecordType.Name FROM Account WHERE BillingCountry IN ('United States','US','USA','U.S.','Canada','CA') OR BillingCountry = null` |
 | `contacts` | `SELECT Id, FirstName, LastName, Email, AccountId, Account.Name, Account.BillingState, MailingState, MailingCountry FROM Contact WHERE Email != null AND AccountId != null` |
 | `opportunity_contact_roles` | `SELECT OpportunityId, ContactId, Contact.Email, Contact.AccountId, Role, IsPrimary FROM OpportunityContactRole WHERE Opportunity.RecordType.Name IN (...) AND (Opportunity.CreatedDate >= 2025-01-01T00:00:00Z OR Opportunity.CloseDate >= 2025-01-01)` |
-| `leads` | `SELECT Id, FirstName, LastName, Email, Company, State, Country, LeadSource, Status, CreatedDate, IsConverted, ConvertedContactId, ConvertedAccountId, ConvertedOpportunityId, Owner.Name FROM Lead WHERE CreatedDate >= 2025-01-01T00:00:00Z` |
+| `leads` | `SELECT Id, FirstName, LastName, Email, Company, State, Country, LeadSource, Status, CreatedDate, IsConverted, ConvertedContactId, ConvertedAccountId, ConvertedOpportunityId, Owner.Name, <UTM fields> FROM Lead WHERE Email != null`. Every lead with an email, of any age, so that older leads who attend now still match an account. Describe Lead first and add every field whose name or label contains "UTM"; list them in `PULL_LOG.md`. |
 | `campaign_members` | `SELECT Id, CampaignId, Campaign.Name, Campaign.Type, Campaign.StartDate, Status, HasResponded, ContactId, LeadId, Email, CompanyOrAccount, CreatedDate FROM CampaignMember WHERE Campaign.StartDate >= 2025-01-01` |
+| `campaigns` | `SELECT Id, Name, Type, Status, StartDate, EndDate, ParentId, Parent.Name, NumberOfContacts, NumberOfLeads, CreatedDate FROM Campaign WHERE StartDate >= <Jan 1 this year> OR CreatedDate >= <Jan 1 this year>`. Never filter by `Type`: some campaigns have none. |
 | `campaign_influence` (optional) | `SELECT CampaignId, OpportunityId, ContactId, Influence, RevenueShare FROM CampaignInfluence WHERE <same opportunity filter>` |
 
 **`PULL_LOG.md` must include:**
@@ -30,6 +31,7 @@ Use a Salesforce connector with read-only queries, or have the requester run rep
 - for each dataset: the exact query, row count against `COUNT()`, and any dropped fields
 - won deals by record type for the AOP window
 - opportunity counts by currency
+- this year's campaigns with a blank `Type`
 
 A currency other than USD or CAD has no rate in the table. The refresh leaves it unconverted and flags it.
 
@@ -49,6 +51,10 @@ A currency other than USD or CAD has no rate in the table. The refresh leaves it
   - `ads_deals.csv`: ad-attributed deals by campaign.
   - `ads_totals.json`: the totals.
 - **Check coverage:** compare spend per ad account with the AOP's paid-media spend. Ad accounts not connected to HubSpot are missing here, and their spend has to come from the ad platform or the agency.
+
+## HubSpot contacts → `hubspot/contacts.csv`
+
+Required every week. Export all US contacts, or at least everyone on this year's event and webinar lists, with email, name, company, state and the Salesforce IDs (`salesforceaccountid`, `salesforcecontactid`, `salesforceleadid`). Those IDs are often the only link from an attendee to the Salesforce account that holds the deal; without them such deals drop out.
 
 ## Smartsheet → `smartsheet/`
 

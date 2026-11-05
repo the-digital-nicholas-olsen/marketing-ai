@@ -32,6 +32,7 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
    - Every source is present and from the same date.
    - Salesforce row counts match each query's `COUNT()`.
    - Won deals in the AOP window are within about 5% of the last run.
+   - Every campaign with members this year is on the work folder's campaign ID lists (events config or webinar map). Events and webinars are found by campaign ID, never by Campaign Type; list any that aren't.
    - Every ON24 webinar is in the business-unit map. **Never guess a division**: ask the requester and add the answer to the map.
    - Missing or partial sources stop the run. Report which.
 4. **Run the refresh on a copy.** From the work folder's `weekly-agent/`:
@@ -43,6 +44,7 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
    ```
    python -X utf8 -I compare_to_aop.py <run folder> <date> <run folder>/comparison.md
    ```
+   - By default it compares with the **October AOP as presented** (the archived copy), not with the live `AOP-2027-Basis`, which changes on every publish. Pass a fourth argument to compare with another folder, for example the live one for a week-over-week view.
    - Copy it to `weekly-agent/logs/<date>_comparison.md`, and write `weekly-agent/logs/<date>.md` with the headline, every differing deal, and why it differs.
    - Typical reasons: newly Won, close date moved, amount changed, link gained or lost through new data.
    - Same-window totals should land within about 1% of the published numbers. Explain anything larger deal by deal.
@@ -68,6 +70,7 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
 ## Known limits
 
 - Non-webinar channels can only be re-checked on account links the AOP already found until their people inputs are in the work folder. Those inputs are OneTap, HubSpot event lists, rep-sheet attendees and paid-digital leads. New people at new accounts won't be found until then; say so in every log.
+- Tradeshow attendance comes from Salesforce campaign member statuses. The list of statuses that count as attended still has to be agreed with the rules owner; until then it is everything not marked as pre-event (Sent, Registered, RSVP and so on).
 - HubSpot ads covers only the ad accounts connected to HubSpot. Spend for other ad accounts has to come from the ad platform or the agency.
 - Webinars without an ON24 report use Salesforce campaign members only.
 
