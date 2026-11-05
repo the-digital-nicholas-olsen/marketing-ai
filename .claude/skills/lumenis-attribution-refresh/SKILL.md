@@ -1,6 +1,6 @@
 ---
 name: lumenis-attribution-refresh
-description: Pull this week's Salesforce, ON24, HubSpot ads and Smartsheet data and refresh the marketing attribution (AOP 2027 basis) dashboard - dated inbox, read-only pulls, a re-run on a copy of the AOP basis, a deal-by-deal comparison with the published numbers, approval, then publish with the old version archived. Use for Vision or Aesthetics when the attribution dashboard needs current data or someone asks to "refresh attribution" or "update the dashboard numbers".
+description: Refresh the marketing attribution (AOP 2027 basis) dashboard from a completed weekly inbox (pulled with lumenis-attribution-data-pull) - a re-run on a copy of the AOP basis, a deal-by-deal comparison with the published numbers, approval, then publish with the old version archived. Use for Vision or Aesthetics when the attribution dashboard needs current data or someone asks to "refresh attribution" or "update the dashboard numbers".
 ---
 
 # Marketing attribution refresh
@@ -26,21 +26,23 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
 
 ## Procedure
 
-1. **Open a dated inbox.** Copy `inbox/_TEMPLATE` to `inbox/<YYYY-MM-DD>/`. Folders: `salesforce/`, `on24/`, `hubspot/`, `smartsheet/`, `onetap/`.
-2. **Pull each source** as set out in the [data pull reference](references/data-pull.md): Salesforce (seven queries, every row, JSON and CSV, plus `PULL_LOG.md`), ON24 (one year-to-date audience report per webinar), HubSpot ads, Smartsheet attended counts, and OneTap check-ins after in-person events. Add an empty `READY.txt` only when every source is in.
-3. **Check the pull.**
+1. **Start from a complete inbox.** Run the [attribution data pull skill](../lumenis-attribution-data-pull/SKILL.md) first, or confirm `inbox/<YYYY-MM-DD>/` has `READY.txt`.
+2. **Check the pull.**
    - Every source is present and from the same date.
    - Salesforce row counts match each query's `COUNT()`.
    - Won deals in the AOP window are within about 5% of the last run.
    - Every campaign with members this year is on the work folder's campaign ID lists (events config or webinar map). Events and webinars are found by campaign ID, never by Campaign Type; list any that aren't.
    - Every ON24 webinar is in the business-unit map. **Never guess a division**: ask the requester and add the answer to the map.
    - Missing or partial sources stop the run. Report which.
-4. **Run the refresh on a copy.** From the work folder's `weekly-agent/`:
+3. **Run the refresh on a copy.** From the work folder's `weekly-agent/`:
    ```
    python -X utf8 -I convert_exports.py <date> <run folder outside the work folder>
    ```
-   Use `python3` on a Mac. This rebuilds the opportunities with the CAD rate table, re-runs the webinar attribution in full from ON24 and Salesforce campaign members, and re-checks the other channels on the AOP's existing account links. Confirm afterwards that the published AOP basis is unchanged, by comparing file hashes before and after.
-5. **Compare with the published numbers.**
+   Use `python3` on a Mac. Then re-run Accelerates from the rep-approval sheets and Salesforce "Attended" members. This writes its own log and leaves tradeshow rows unchanged:
+   ```
+   python -X utf8 -I rerun_accelerates.py <run folder> <date> <run folder>/accelerates
+   ``` This rebuilds the opportunities with the CAD rate table, re-runs the webinar attribution in full from ON24 and Salesforce campaign members, and re-checks the other channels on the AOP's existing account links. Confirm afterwards that the published AOP basis is unchanged, by comparing file hashes before and after.
+4. **Compare with the published numbers.**
    ```
    python -X utf8 -I compare_to_aop.py <run folder> <date> <run folder>/comparison.md
    ```
@@ -48,10 +50,10 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
    - Copy it to `weekly-agent/logs/<date>_comparison.md`, and write `weekly-agent/logs/<date>.md` with the headline, every differing deal, and why it differs.
    - Typical reasons: newly Won, close date moved, amount changed, link gained or lost through new data.
    - Same-window totals should land within about 1% of the published numbers. Explain anything larger deal by deal.
-6. **Get approval.** Show the requester the log summary and wait for a yes.
+5. **Get approval.** Show the requester the log summary and wait for a yes.
    - Changes caused by new evidence rather than new deals need the rules owner's review: a deal gained or lost through matching, or a tier change.
    - Never publish on a "looks fine" that nobody actually said.
-7. **Publish,** in the work folder, only after approval:
+6. **Publish,** in the work folder, only after approval:
    1. **Archive:** copy the dashboard HTML, `attribution_data.json`, `build_data.py`, `deck/build/canonical.py`, `canonical.json`, `recheck/` and every channel output that will be replaced to `archive/<old build date>_before_<date>_refresh/`.
    2. **Copy outputs:** copy the run's channel outputs (attribution JSON files and `all_us_opps.json`, not people-level inputs) into `AOP-2027-Basis/`.
    3. **Move the window end:** set it to the pull date in `deck/build/canonical.py` (`WINDOW_END`) and `corrected-dashboard/build_data.py` (`WINDOW`). Run `canonical.py`, then `build_data.py` (it refuses to build if totals differ from `canonical.json`), then `build_dashboard.py`.
