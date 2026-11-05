@@ -101,7 +101,7 @@ HubSpot sets Original Source once, but the plain UTM fields and Latest Source ch
 
 ## HubSpot event lists → `hubspot/lists/`
 
-The October analysis also counted attendance from HubSpot event lists: attendees, registered/KBYG, booth scans, treatments, dinners and OneTap check-ins. Each event's lists are named in `AOP-2027-Basis/events/scripts/events_config.py` (`hs_att`, `hs_reg`), and the manual webinar lists are named in the webinar configuration.
+The October analysis also counted attendance from HubSpot event lists, and local events use them the same way (their list IDs are in `local_events.csv`, column `hs_att_lists`): attendees, registered/KBYG, booth scans, treatments, dinners and OneTap check-ins. Each event's lists are named in `AOP-2027-Basis/events/scripts/events_config.py` (`hs_att`, `hs_reg`), and the manual webinar lists are named in the webinar configuration.
 
 - Export each list's members to `hubspot/lists/<list ID>_<short name>.csv`, with email, name, company, state, the Salesforce IDs and the date added.
 - The HubSpot CLI has no list access, so export in the requester's browser session (Contacts › Segments › the list › Export).
@@ -112,10 +112,11 @@ The October analysis also counted attendance from HubSpot event lists: attendees
 List every campaign with members this year from `campaigns` and `campaign_members`, and give each one a home in `PULL_LOG.md`:
 - a webinar in `webinar_bu_map.csv`;
 - an Accelerate or tradeshow in `events_config.py`;
+- a local event (Unveiled stop, demo day, lunch-and-learn, partner event) in `weekly-agent/local_events.csv`;
 - a paid-media campaign (for example `AES - COR - triLift 2.0 - meta paid ads`, which has no Type);
 - or **not marketing-attributed**, with the reason: SDR or renewal outreach, info-request lists, non-US campaigns.
 
-Anything without a home stops the run until the requester places it. A new in-person event (for example Accelerate Scottsdale Q4, or the Aesthetics "Unveiled" regional shows) needs its date, division, cost, Salesforce campaign IDs and HubSpot lists added to the event configuration before the refresh can credit anyone from it.
+Anything without a home stops the run until the requester places it. A new in-person event needs its date, division, cost, Salesforce campaign IDs and HubSpot attendee lists added before the refresh can credit anyone from it. Accelerates and tradeshows go in the event configuration (for example Accelerate Scottsdale Q4); local events go in `local_events.csv` (for example the Unveiled by Lumenis stops). Take the real event date from the event owner, and the cost from the division's PR tracking sheet in Smartsheet.
 
 ## Smartsheet → `smartsheet/`
 
