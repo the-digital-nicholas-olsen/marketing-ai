@@ -20,7 +20,13 @@ This skill fills `inbox/<YYYY-MM-DD>/` in the private **Campaign-Attribution-Eng
 
 1. **Open the inbox.** Copy `inbox/_TEMPLATE` to `inbox/<YYYY-MM-DD>/` (normally Monday). Folders: `salesforce/`, `on24/`, `hubspot/`, `smartsheet/`, `onetap/`.
 2. **Pull each source** as set out below. If someone runs the Salesforce queries for you (for example Copilot), give them `inbox/_TEMPLATE/SALESFORCE_PULL_PROMPT.md` with the date filled in.
-3. **Check the pull.** Every source is present and from the same date. Salesforce row counts match each query's `COUNT()`. Won deals in the reporting window are within about 5% of last week's. Report anything missing or partial; never fill a gap by guessing.
+3. **Check the pull.**
+   - Every source is present and from the same date.
+   - Salesforce row counts match each query's `COUNT()`.
+   - Won deals in the reporting window are within about 5% of last week's.
+   - Every ON24 file's registrant and attendee counts match ON24's own totals.
+   - **Every campaign with members this year has a home** (see "Campaign coverage" below).
+   - Report anything missing or partial; never fill a gap by guessing.
 4. **Mark it ready.** Add an empty `READY.txt` only when every source is in. The refresh does not start without it.
 
 ## Salesforce → `salesforce/`
@@ -40,9 +46,9 @@ Use a Salesforce connector with read-only queries, or have the requester run rep
 |---|---|
 | `opportunities` (also saved as `all_us_opps_sf_<date>.json`) | `SELECT Id, Name, AccountId, Account.Name, Account.BillingState, Account.BillingCity, Account.Website, Amount, CurrencyIsoCode, StageName, IsClosed, IsWon, CreatedDate, CloseDate, Type, LeadSource, CampaignId, Campaign.Name, Owner.Name, RecordType.Name, Product__c FROM Opportunity WHERE RecordType.Name IN ('USA Ophthalmic Opportunity','USA Aesthetics Opportunity') AND (CreatedDate >= 2025-01-01T00:00:00Z OR CloseDate >= 2025-01-01)` |
 | `accounts` | `SELECT Id, Name, ParentId, BillingState, BillingCity, BillingCountry, Website, RecordType.Name FROM Account WHERE BillingCountry IN ('United States','US','USA','U.S.','Canada','CA') OR BillingCountry = null` |
-| `contacts` | `SELECT Id, FirstName, LastName, Email, AccountId, Account.Name, Account.BillingState, MailingState, MailingCountry FROM Contact WHERE Email != null AND AccountId != null` |
+| `contacts` | `SELECT Id, FirstName, LastName, Email, AccountId, Account.Name, Account.BillingState, MailingState, MailingCountry, LeadSource, CreatedDate, <UTM fields> FROM Contact WHERE Email != null AND AccountId != null`. `LeadSource` and `CreatedDate` matter: the paid, organic and vendor channels start from leads **and contacts** with a given Lead Source created this year. Add Contact UTM fields the same way as for leads. |
 | `opportunity_contact_roles` | `SELECT OpportunityId, ContactId, Contact.Email, Contact.AccountId, Role, IsPrimary FROM OpportunityContactRole WHERE Opportunity.RecordType.Name IN (...) AND (Opportunity.CreatedDate >= 2025-01-01T00:00:00Z OR Opportunity.CloseDate >= 2025-01-01)` |
-| `leads` | `SELECT Id, FirstName, LastName, Email, Company, State, Country, LeadSource, Status, CreatedDate, IsConverted, ConvertedContactId, ConvertedAccountId, ConvertedOpportunityId, Owner.Name, <UTM fields> FROM Lead WHERE Email != null`. Every lead with an email, of any age, so that older leads who attend now still match an account. Describe Lead first and add every field whose name or label contains "UTM"; list them in `PULL_LOG.md`. Later forms and imports can overwrite these, so the refresh checks paid leads against HubSpot and the ad platforms as well. |
+| `leads` | `SELECT Id, FirstName, LastName, Email, Company, State, Country, LeadSource, Status, CreatedDate, IsConverted, ConvertedDate, ConvertedContactId, ConvertedAccountId, ConvertedOpportunityId, RecordType.Name, Owner.Name, <UTM fields> FROM Lead WHERE Email != null`. `RecordType.Name` gives the lead's division and identifies service leads, which are excluded. Every lead with an email, of any age, so that older leads who attend now still match an account. Describe Lead first and add every field whose name or label contains "UTM"; list them in `PULL_LOG.md`. Later forms and imports can overwrite these, so the refresh checks paid leads against HubSpot and the ad platforms as well. |
 | `campaign_members` | `SELECT Id, CampaignId, Campaign.Name, Campaign.Type, Campaign.StartDate, Status, HasResponded, ContactId, LeadId, Email, CompanyOrAccount, CreatedDate FROM CampaignMember WHERE Campaign.StartDate >= 2025-01-01` |
 | `campaigns` | `SELECT Id, Name, Type, Status, StartDate, EndDate, ParentId, Parent.Name, NumberOfContacts, NumberOfLeads, CreatedDate FROM Campaign WHERE StartDate >= <Jan 1 this year> OR CreatedDate >= <Jan 1 this year>`. Never filter by `Type`: some campaigns have none. |
 | `campaign_influence` (optional) | `SELECT CampaignId, OpportunityId, ContactId, Influence, RevenueShare FROM CampaignInfluence WHERE <same opportunity filter>` |
@@ -58,11 +64,19 @@ A currency other than USD or CAD has no rate in the table. The refresh leaves it
 
 ## ON24 → `on24/`
 
-- **What:** one audience report per 2026 webinar, both divisions, covering every registrant. It needs minutes viewed, attendance (Live, On Demand, Live & OD, or `-` for registered only), registration time, practice and state.
-- **File name:** `<ON24 event ID>_<short title>.csv`.
-- **Skip** test and deleted copies of events.
-- **Business unit:** every event ID must be in `weekly-agent/webinar_bu_map.csv` with its Salesforce campaign ID. A webinar missing from the map, or missing its campaign ID, is left out and reported. It is never assigned a division by guess.
-- **How:** the [ON24 skill](../lumenis-on24/SKILL.md) covers the platform. In the analytics app, the webinar list gives each event ID and report key, and the event's audience report lists the registrants.
+Export every registrant and attendee of **every** ON24 event this year, not only the ones already in the map. New webinars are exactly the ones that go missing otherwise.
+
+1. **Sign in.** Work in the requester's signed-in browser session (see the [ON24 skill](../lumenis-on24/SKILL.md)). If ON24 asks for a password, stop and ask the requester to sign in; never enter one.
+2. **List the events.** The analytics app's webinar list (`analytics.on24.com/eliteservice/webcast/api/v1/webcastinfo`, date range from January 1) gives each event ID, title, live date and report key. Skip test copies and events titled "DELETE".
+3. **Export each event's audience.** Open `wcc.on24.com/webcast/report?e=<event ID>&k=<report key>` and the audience report (`rdReport=audience.webcast`). Use its export, or read every page (20 rows each) until the last.
+   - Columns needed: email, name, practice, title, city, state, country, registration time, attendance (Live, On Demand, Live & OD, or `-` for registered only), minutes viewed, registration source and UTMs.
+   - Save as `<ON24 event ID>_<short title>.csv`.
+4. **Check the counts.** Each file's registrant and attendee counts must match the event's own totals in ON24. List both per event in `PULL_LOG.md`. A mismatch means the export stopped early: export again.
+5. **Map every event.** Each event ID needs a row in `weekly-agent/webinar_bu_map.csv`: event ID, title, division, live date, Salesforce campaign ID and, when known, cost.
+   - **For a new webinar,** find its campaign in this pull's `campaigns` by name and date. For example, "Seeing Eye to Eye" (Amberg & Greenbaum, live 10/22) is `VIS-US-Seeing Eye to Eye ft. Amberg and Greenbaum-Q4 2026`.
+   - Ask the requester to confirm the division and campaign when they aren't certain, and the cost when it's unknown. **Never guess a division, and never leave the campaign ID blank:** the refresh leaves out a webinar without one.
+
+**Webinars not in ON24** (sponsored sessions such as Lappin "Eyes on Dry Eye", and the Woo U series) are counted from their Salesforce campaign members and the HubSpot lists named for them. Ask the requester for the host's attendee list when there is one.
 
 ## HubSpot ads → `hubspot/`
 
@@ -85,6 +99,24 @@ Include these fields:
 
 HubSpot sets Original Source once, but the plain UTM fields and Latest Source change with later visits. Keep both sets: the refresh compares them to spot overwritten values.
 
+## HubSpot event lists → `hubspot/lists/`
+
+The October analysis also counted attendance from HubSpot event lists: attendees, registered/KBYG, booth scans, treatments, dinners and OneTap check-ins. Each event's lists are named in `AOP-2027-Basis/events/scripts/events_config.py` (`hs_att`, `hs_reg`), and the manual webinar lists are named in the webinar configuration.
+
+- Export each list's members to `hubspot/lists/<list ID>_<short name>.csv`, with email, name, company, state, the Salesforce IDs and the date added.
+- The HubSpot CLI has no list access, so export in the requester's browser session (Contacts › Segments › the list › Export).
+- A new event's lists must be added to the event configuration first (see "Campaign coverage").
+
+## Campaign coverage
+
+List every campaign with members this year from `campaigns` and `campaign_members`, and give each one a home in `PULL_LOG.md`:
+- a webinar in `webinar_bu_map.csv`;
+- an Accelerate or tradeshow in `events_config.py`;
+- a paid-media campaign (for example `AES - COR - triLift 2.0 - meta paid ads`, which has no Type);
+- or **not marketing-attributed**, with the reason: SDR or renewal outreach, info-request lists, non-US campaigns.
+
+Anything without a home stops the run until the requester places it. A new in-person event (for example Accelerate Scottsdale Q4, or the Aesthetics "Unveiled" regional shows) needs its date, division, cost, Salesforce campaign IDs and HubSpot lists added to the event configuration before the refresh can credit anyone from it.
+
 ## Smartsheet → `smartsheet/`
 
 - **Source:** the connector. The rep approval sheets for each completed Accelerate in the current year's Accelerate workspace. Ignore same-named copies in older workspaces.
@@ -97,7 +129,7 @@ HubSpot sets Original Source once, but the plain UTM fields and Latest Source ch
 
 ## OneTap → `onetap/`
 
-After an in-person event, save its check-in list. In-person events count attendees only, so without check-ins nobody from that event can be credited. The longer-term plan is to store check-ins as a sheet in each event's Smartsheet folder, so the connector can read them.
+After an in-person event, save its check-in list (or confirm that the check-ins are in the event's HubSpot attendee list, which is exported above). In-person events count attendees only, so without check-ins nobody from that event can be credited. The longer-term plan is to store check-ins as a sheet in each event's Smartsheet folder, so the connector can read them.
 
 ## Report
 
