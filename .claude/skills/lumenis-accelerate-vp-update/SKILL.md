@@ -64,8 +64,9 @@ The script works out every total, the bottom line, the customers versus prospect
 
 | Block | Definition |
 |---|---|
-| Signed up (prospect registered) | Filled in the flight or non-flight form. An account counts as signed up if anyone from it did. |
-| Rep registered only | On the rep approval sheet, no form yet. People: every listed person without a form. Accounts: nobody from them has a form. |
+| Prospect signed up | The prospect filled in the flight or non-flight form themselves. An account counts as signed up if anyone from it did. |
+| Rep registered only | On the rep approval sheet, no form yet: only the rep has registered them. People: every listed person without a form. Accounts: nobody from them has a form. |
+| Colors | One secondary color per page from the Lumenis Corporate palette: triLift rose gold for Aesthetics, OptiLIGHT blue for Vision. The show total band is Lumenis black. |
 | Open pipeline, expected value | Open deals at stages 1-6. Expected value uses the pipeline sync stage rates. |
 | Customers versus prospects | Customer = the account's deal is Won. Prospect = an open deal, or no open deal. |
 | Products in open deals | Number of open deals naming each product, with their pipeline. Product totals overlap. |
