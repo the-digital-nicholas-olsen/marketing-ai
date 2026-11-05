@@ -34,6 +34,7 @@ The master moves each photo and QR group with its own offset, so the QR coordina
 | Eye Care QR code | Left 104.86 pt, top 360.80 pt, 48.47 pt square (0.67 in), lower left of the table tent |
 | QR encoding | Error correction M, black on white, no logo or styling |
 | Edges | White. The table tent has no color strip, unlike the 24 x 36 in poster |
+| Overprint | Off for every white element: both QR backings and the AESTHETICS and EYE CARE label text. White set to overprint disappears in print |
 
 The table tent's copy must stay exactly as follows:
 
@@ -59,7 +60,7 @@ This procedure can't change the copy, photos or sizes. If any of them needs to c
    ```
 
 3. **Check the module size.** The script prints it for each QR code. The QR codes stay the same overall size, so a longer link means smaller modules. Below 1 pt per module, ask for a shorter link.
-4. **Compare with the master.** Render both PDFs at 300 dpi and compare them. Only the two QR codes may differ.
+4. **Compare with the master.** Render both PDFs at 300 dpi and compare them. Only the two QR codes may differ. Then check the new PDF with overprint shown: in Acrobat, set Preferences > Page Display > Use Overprint Preview to Always, or use the printer's online preview. Both white QR backings and the white AESTHETICS and EYE CARE text must show. A normal screen view and the 300 dpi comparison don't show overprint problems.
 5. **Scan it.** On the printer's proof, scan each QR code with a phone. Each must open this event's agenda page for the division printed beside it. A person does this; a successful build doesn't prove the links are right.
 
 Stop if the script reports `QR blocks not found`. The input isn't the master PDF.
@@ -130,4 +131,4 @@ Mistake: entering the links in the wrong order, which puts each division's QR co
 
 ## Source and review
 
-Source: the approved master PDF, reviewed 2026-10-30. QR positions re-measured 2026-11-05 from the revised master saved that day. Proposed subject reviewer: Kaelyn. The 1 pt module limit is proposed guidance, not a brand or vendor rule. GitHub approval doesn't authorize a print order.
+Source: the approved master PDF, reviewed 2026-10-30. QR positions re-measured 2026-11-05 from the revised master saved that day. The same day, overprint was turned off for the Aesthetics group in the master after its white areas dropped out of a print preview. Proposed subject reviewer: Kaelyn. The 1 pt module limit is proposed guidance, not a brand or vendor rule. GitHub approval doesn't authorize a print order.
