@@ -1,7 +1,7 @@
 """Match Mimeo "Final" kit lists against a Mimeo recipient export.
 
 Usage:
-  python -I match_orders.py --mimeo recipients.tsv --out report.xlsx <folder-or-xlsx> [...]
+  python3 match_orders.py --mimeo recipients.tsv --out report.xlsx <folder-or-xlsx> [...]
          [--tracking tracking.tsv]
 
 Inputs

@@ -23,13 +23,13 @@ Each week marketing turns new-system orders into a kit list in the Mimeo upload 
 
 - The user signed in to my.mimeo.com in the browser you are driving. The user signs in; an AI never handles the password.
 - The Final lists to check. They are kept outside this repository, usually in dated `Mimeo Kits <M.D.YYYY>` folders. Ask the user where theirs are.
-- Python 3 with `openpyxl` for the matching script.
+- Python 3 with `openpyxl` for the matching script. Run it with `python3`; the `-I` flag hides user-installed packages, so `openpyxl` may not load with it.
 - For a single lookup: the customer's name. The practice name or sales order # also helps.
 
 ## Rules
 
 1. **Read only in Mimeo.** Never click **Cancel Order**, **Re-Order** or **Reorder**. They sit next to the links you need, and each one changes a real order.
-2. **"Not found" means not found in the account checked.** Aesthetics kits (Stellar, Splendor, FoLix, UltraPulse, AcuPulse) did not appear in the shared Lumenis Mimeo account when this was written and may be placed under another account. Report "not found in the Mimeo account checked" and recommend confirming with the Mimeo rep before telling a sales rep it was never sent.
+2. **"Not found" means not found in the account checked.** Aesthetics kits (Stellar, Splendor, FoLix, triLift, UltraPulse, AcuPulse) did not appear in the shared Lumenis Mimeo account when this was written and may be placed under another account. Report "not found in the Mimeo account checked" and recommend confirming with the Mimeo rep before telling a sales rep it was never sent.
 3. **Don't judge lateness by a fixed rule.** Turnaround depends on Mimeo's kit stock; a short component can delay an order for weeks. Report days since the list date.
 4. **Draft, don't send.** You may draft a note to the Mimeo rep. The user sends it.
 5. **Keep results out of this repository.** Reports and screenshots contain customer names and addresses, so save them next to the lists, never in Git.
@@ -55,7 +55,7 @@ The page keeps its page number across searches and period changes, so a new sear
 ## 3. Match the lists (audit)
 
 ```bash
-python -I scripts/match_orders.py --mimeo recipients.tsv --out <work-folder>/mimeo-order-check-<YYYY-MM-DD>.xlsx "<Mimeo Kits folder>" ...
+python3 scripts/match_orders.py --mimeo recipients.tsv --out <work-folder>/mimeo-order-check-<YYYY-MM-DD>.xlsx "<Mimeo Kits folder>" ...
 ```
 
 [match_orders.py](scripts/match_orders.py) matches each customer by name: title-tolerant, and both name words must agree when both names have two or more. It counts only Mimeo orders submitted on or after the list date minus 3 days, so an older order to the same person doesn't count. It writes a **Not Found** tab, with columns for the Mimeo rep to answer, and a **Found** tab, then prints counts per list. Spot-check each Not Found customer with a single-lookup search.
@@ -64,7 +64,7 @@ python -I scripts/match_orders.py --mimeo recipients.tsv --out <work-folder>/mim
 
 1. In the recipient view, click the customer's Mimeo order #, open the **Order Tracking** tab and wait about 3 seconds.
 2. Run [extract_tracking.js](scripts/extract_tracking.js). One order often covers 10–30 recipients, so pick the customer's row by name.
-3. Open `https://www.fedex.com/fedextrack/?trknbr=<tracking #>`. If a cookie banner appears, choose **Reject optional cookies**. Read the status, delivery date and signer from the page text.
+3. Open `https://www.fedex.com/fedextrack/?trknbr=<tracking #>`. If a cookie banner appears, choose **Reject optional cookies**. Read the status, delivery date and signer from the page text. Mimeo's own status can still say **Shipped** after FedEx shows the kit delivered, so use FedEx for the delivered answer.
 4. Screenshot the FedEx page and save it to a `Proof` folder next to the list as `<LastName>_<SalesOrder>_<tracking #>.jpg`. The **Obtain proof of delivery** button downloads a signed PDF. Use it only when the user approves the download.
 5. Record the results in the Found tab. For many customers, write a tab-separated file with `salesOrder  lastName  tracking  fedexStatus  delivered  proofFile` and rerun the script with `--tracking <file>`.
 
