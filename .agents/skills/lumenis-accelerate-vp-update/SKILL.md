@@ -23,7 +23,7 @@ If the request doesn't name the show, ask one question and wait: **"Which Accele
 
 ## Procedure
 
-1. **Find the sheets** by searching for the show's folder name, then confirm all four sheet names with the user in one line.
+1. **Find the sheets** by searching for the show's folder name, then confirm all four sheet names with the user in one line. Get each rep approval sheet's permalink (`get_sheet_path`) for the page's link button.
 2. **Read every row** (paginate), with columns limited to the ones you need. Skip placeholder rows (`test`, `fn`/`ln`, `rep name`/`practice`).
 3. **Build the account list for each division** from its rep approval sheet. One account per practice:
    - Merge rows that pipeline sync marked `Duplicate` into the account they repeat. Count their people, but count the deal once.
@@ -38,17 +38,17 @@ If the request doesn't name the show, ask one question and wait: **"Which Accele
 6. **Tag the products** for each open deal from Product of Interest. Aesthetics: Stellar M22 (Stellar, XPL, ResurFX, Q-switched), triLift, FoLix, UltraPulse, AcuPulse, Splendor X, LightSheer, NuEra Tight. Vision: OptiLIGHT, OptiLIFT, triLift. "Bundle", "Light + Lift" or "OptiLight w/ Aesthetics; OptiLift" = OptiLIGHT and OptiLIFT. A row naming two products gets both.
 7. **Write the show file** (format below) in the show's project folder, in a `vp-update` subfolder. Then run:
    `python3 scripts/build-accelerate-vp-update.py <show>.json <show>-vp-update.pdf`
-8. **Check the result.** Open or render both pages. Make sure nothing overlaps, and that the people, account and pipeline figures the script prints match your counts from step 3. If the rep sheets' total open pipeline doesn't match what pipeline sync reported, say why.
+8. **Check the result.** Open or render both pages. Make sure nothing overlaps, that each page's button opens its own division's sheet, and that the people, account and pipeline figures the script prints match your counts from step 3. If the rep sheets' total open pipeline doesn't match what pipeline sync reported, say why.
 9. **Report back** with the PDF link, two lines per division (sign-ups, pipeline without a sign-up, largest gap), and the matching judgment calls. Don't send the PDF to the VPs; marketing leadership does that.
 
 ## Show file
 
 ```json
 {"event": "Accelerate Q4 Miami", "as_of": "Nov 4, 2026", "divisions": [
-  {"division": "Aesthetics", "vp": "<first name>", "notes": [], "accounts": [
+  {"division": "Aesthetics", "vp": "<first name>", "sheet_url": "<AES rep approval permalink>", "notes": [], "accounts": [
     {"name": "<practice>", "rep": "<rep>", "signed_up_people": 2, "not_signed_up_people": 0,
      "amount": 120000, "stage": "3", "status": "open", "products": ["Stellar M22"]}]},
-  {"division": "Vision", "vp": "<first name>", "accounts": []}]}
+  {"division": "Vision", "vp": "<first name>", "sheet_url": "<VIS rep approval permalink>", "accounts": []}]}
 ```
 
 - `signed_up_people`: people who filled in a form for this account.
@@ -56,6 +56,7 @@ If the request doesn't name the show, ask one question and wait: **"Which Accele
 - `status`: `open`, `won`, `closed`, `none` or `check`.
 - `stage`: the first digit, for open deals only.
 - `amount`: a number, never a currency string.
+- `sheet_url`: the division's rep approval sheet permalink. It becomes the **Open rep approval sheet** button at the top right of the page. Viewers still need Smartsheet access to that sheet. Leave it out and the button doesn't appear.
 - `notes`: optional extra bottom-line sentences, at most one per division. Use it for something the figures can't show, such as a show date change.
 
 The script works out every total, the bottom line, the customers versus prospects split, the product counts and the three largest open deals with nobody signed up.
@@ -66,6 +67,7 @@ The script works out every total, the bottom line, the customers versus prospect
 |---|---|
 | Prospect signed up | The prospect filled in the flight or non-flight form themselves. An account counts as signed up if anyone from it did. |
 | Rep registered only | On the rep approval sheet, no form yet: only the rep has registered them. People: every listed person without a form. Accounts: nobody from them has a form. |
+| Sheet link | A button at the top right of each page opens that division's rep approval sheet in Smartsheet, so a VP can check any row. |
 | Colors | One secondary color per page from the Lumenis Corporate palette: triLift rose gold for Aesthetics, OptiLIGHT blue for Vision. The show total band is Lumenis black. |
 | Open pipeline, expected value | Open deals at stages 1-6. Expected value uses the pipeline sync stage rates. |
 | Customers versus prospects | Customer = the account's deal is Won. Prospect = an open deal, or no open deal. |
