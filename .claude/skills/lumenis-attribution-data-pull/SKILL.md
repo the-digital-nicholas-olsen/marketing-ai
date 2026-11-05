@@ -1,6 +1,6 @@
 ---
 name: lumenis-attribution-data-pull
-description: Pull the week's Salesforce, ON24, HubSpot (ads and contacts), Smartsheet rep-approval and OneTap data into a dated inbox for the marketing attribution refresh - read-only queries, every row, JSON and CSV, a pull log with row-count checks. Use before lumenis-attribution-refresh, or when asked to "pull the attribution data", "export this week's Salesforce data" or prepare the weekly inbox.
+description: Pull the week's Salesforce, ON24, HubSpot (ads, ad contacts and contacts), Smartsheet rep-approval and OneTap data into a dated inbox for the marketing attribution refresh - read-only queries, every row, JSON and CSV, a pull log with row-count checks. Use before lumenis-attribution-refresh, or when asked to "pull the attribution data", "export this week's Salesforce data" or prepare the weekly inbox.
 ---
 
 # Marketing attribution data pull
@@ -42,7 +42,7 @@ Use a Salesforce connector with read-only queries, or have the requester run rep
 | `accounts` | `SELECT Id, Name, ParentId, BillingState, BillingCity, BillingCountry, Website, RecordType.Name FROM Account WHERE BillingCountry IN ('United States','US','USA','U.S.','Canada','CA') OR BillingCountry = null` |
 | `contacts` | `SELECT Id, FirstName, LastName, Email, AccountId, Account.Name, Account.BillingState, MailingState, MailingCountry FROM Contact WHERE Email != null AND AccountId != null` |
 | `opportunity_contact_roles` | `SELECT OpportunityId, ContactId, Contact.Email, Contact.AccountId, Role, IsPrimary FROM OpportunityContactRole WHERE Opportunity.RecordType.Name IN (...) AND (Opportunity.CreatedDate >= 2025-01-01T00:00:00Z OR Opportunity.CloseDate >= 2025-01-01)` |
-| `leads` | `SELECT Id, FirstName, LastName, Email, Company, State, Country, LeadSource, Status, CreatedDate, IsConverted, ConvertedContactId, ConvertedAccountId, ConvertedOpportunityId, Owner.Name, <UTM fields> FROM Lead WHERE Email != null`. Every lead with an email, of any age, so that older leads who attend now still match an account. Describe Lead first and add every field whose name or label contains "UTM"; list them in `PULL_LOG.md`. |
+| `leads` | `SELECT Id, FirstName, LastName, Email, Company, State, Country, LeadSource, Status, CreatedDate, IsConverted, ConvertedContactId, ConvertedAccountId, ConvertedOpportunityId, Owner.Name, <UTM fields> FROM Lead WHERE Email != null`. Every lead with an email, of any age, so that older leads who attend now still match an account. Describe Lead first and add every field whose name or label contains "UTM"; list them in `PULL_LOG.md`. Later forms and imports can overwrite these, so the refresh checks paid leads against HubSpot and the ad platforms as well. |
 | `campaign_members` | `SELECT Id, CampaignId, Campaign.Name, Campaign.Type, Campaign.StartDate, Status, HasResponded, ContactId, LeadId, Email, CompanyOrAccount, CreatedDate FROM CampaignMember WHERE Campaign.StartDate >= 2025-01-01` |
 | `campaigns` | `SELECT Id, Name, Type, Status, StartDate, EndDate, ParentId, Parent.Name, NumberOfContacts, NumberOfLeads, CreatedDate FROM Campaign WHERE StartDate >= <Jan 1 this year> OR CreatedDate >= <Jan 1 this year>`. Never filter by `Type`: some campaigns have none. |
 | `campaign_influence` (optional) | `SELECT CampaignId, OpportunityId, ContactId, Influence, RevenueShare FROM CampaignInfluence WHERE <same opportunity filter>` |
@@ -70,12 +70,20 @@ A currency other than USD or CAD has no rate in the table. The refresh leaves it
 - **Files:**
   - `ads_campaigns.csv`: Meta and Google campaigns with spend, impressions, clicks, contacts, deals and revenue.
   - `ads_deals.csv`: ad-attributed deals by campaign.
+  - `ads_contacts.csv`: the contacts HubSpot attributes to each ad campaign, with campaign, ad account, network and the contact's email and Salesforce IDs. This is the ad-platform record the refresh uses to verify paid leads.
   - `ads_totals.json`: the totals.
-- **Check coverage:** compare spend per ad account with the AOP's paid-media spend. Ad accounts not connected to HubSpot are missing here, and their spend has to come from the ad platform or the agency.
+- **Check coverage:** compare spend per ad account with the AOP's paid-media spend. Ad accounts not connected to HubSpot are missing here (currently Folix, Noetic and the Vision Meta account). Ask the requester for their spend and lead-form exports from the ad platform or the agency, save them as `hubspot/external_<network>_<account>.csv`, and list any you couldn't get in the pull log.
 
 ## HubSpot contacts → `hubspot/contacts.csv`
 
-Required every week. Export all US contacts, or at least everyone on this year's event and webinar lists, with email, name, company, state and the Salesforce IDs (`salesforceaccountid`, `salesforcecontactid`, `salesforceleadid`). Those IDs are often the only link from an attendee to the Salesforce account that holds the deal; without them such deals drop out.
+Required every week. Export all US contacts, or at least everyone on this year's event and webinar lists and everyone created by an ad.
+
+Include these fields:
+- email, name, company and state;
+- the Salesforce IDs (`salesforceaccountid`, `salesforcecontactid`, `salesforceleadid`). They are often the only link from an attendee to the Salesforce account that holds the deal; without them such deals drop out.
+- the source fields used to verify paid leads: `hs_analytics_source` and `hs_analytics_source_data_1`/`_2` (Original Source), `original_utm_source`, `original_utm_medium` and `original_utm_campaign`, `hs_analytics_first_touch_converting_campaign`, `hs_google_click_id`, `hs_facebook_click_id`, `hs_latest_source`, `utm_source`, `utm_medium` and `utm_campaign`.
+
+HubSpot sets Original Source once, but the plain UTM fields and Latest Source change with later visits. Keep both sets: the refresh compares them to spot overwritten values.
 
 ## Smartsheet → `smartsheet/`
 

@@ -34,14 +34,17 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
    - Every campaign with members this year is on the work folder's campaign ID lists (events config or webinar map). Events and webinars are found by campaign ID, never by Campaign Type; list any that aren't.
    - Every ON24 webinar is in the business-unit map. **Never guess a division**: ask the requester and add the answer to the map.
    - Missing or partial sources stop the run. Report which.
-3. **Run the refresh on a copy.** From the work folder's `weekly-agent/`:
-   ```
-   python -X utf8 -I convert_exports.py <date> <run folder outside the work folder>
-   ```
-   Use `python3` on a Mac. Then re-run Accelerates from the rep-approval sheets and Salesforce "Attended" members. This writes its own log and leaves tradeshow rows unchanged:
-   ```
-   python -X utf8 -I rerun_accelerates.py <run folder> <date> <run folder>/accelerates
-   ``` This rebuilds the opportunities with the CAD rate table, re-runs the webinar attribution in full from ON24 and Salesforce campaign members, and re-checks the other channels on the AOP's existing account links. Confirm afterwards that the published AOP basis is unchanged, by comparing file hashes before and after.
+3. **Run the refresh on a copy.** From the work folder's `weekly-agent/` (use `python3` in place of `python` on a Mac):
+   1. Rebuild the opportunities and webinars:
+      ```
+      python -X utf8 -I convert_exports.py <date> <run folder outside the work folder>
+      ```
+      This rebuilds the opportunities with the CAD rate table, re-runs the webinar attribution in full from ON24 and Salesforce campaign members, and re-checks the other channels on the AOP's existing account links.
+   2. Re-run Accelerates from the rep-approval sheets and Salesforce "Attended" members. This writes its own log and leaves tradeshow rows unchanged:
+      ```
+      python -X utf8 -I rerun_accelerates.py <run folder> <date> <run folder>/accelerates
+      ```
+   3. Confirm the published AOP basis is unchanged by comparing file hashes before and after.
 4. **Compare with the published numbers.**
    ```
    python -X utf8 -I compare_to_aop.py <run folder> <date> <run folder>/comparison.md
@@ -63,17 +66,29 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
 ## Attribution rules (AOP basis; don't change here)
 
 - **In-person events** (Accelerates, tradeshows): attendees only. **Webinars**: registrants count.
+- **Tradeshow attendance:** every Salesforce campaign member status counts as attended except pre-event ones (Sent, Registered, RSVP and similar). Requested Info, Badge Scanned, Treatment Received and Attended all count. Agreed by Nicholas, 2026-11-05.
 - **Credit goes to the account:** any contact on it who touched the channel credits its deals.
 - **Sourced** = created on or after the touch, within 180 days. **Accelerated** = open up to 365 days before the touch and won on or after it.
 - **Tiers:** A or B counted; C listed only.
+- **Email-domain matches** (Nicholas, 2026-11-05):
+  - Free and internet-provider addresses (Gmail, Yahoo, Outlook, iCloud, Comcast and the rest of `free_domains.txt`) never link a person to an account. Add any new one you find to that file.
+  - A business domain that points to **exactly one** Salesforce account is a medium link, so an attendee or registrant matched this way is Tier B.
+  - A business domain shared by two or more accounts (group practices, hospital and university systems, buying groups, distributors) is Tier C: listed for review, not counted.
 - **Counting:** one credit per deal per channel, and once in the all-channel total.
-- **Paid search** counts only ad-verified leads. **CAD** is converted to USD at the Bank of Canada monthly rate.
+- **Paid media is verified against the ad platforms,** not only Salesforce. Salesforce Lead Source and UTM fields can be overwritten by later forms, imports and syncs, so on their own they only support a paid credit. A paid social or paid search lead is ad-verified when at least one of these confirms it:
+  - it's on a HubSpot ad campaign's contact list;
+  - HubSpot's Original Source is Paid Social or Paid Search;
+  - it has an original UTM, Google click ID or Facebook click ID in HubSpot;
+  - it's in the ad platform's own lead export (for example Meta lead forms for accounts not connected to HubSpot).
+
+  Paid search counts only ad-verified leads. For paid social, list in the log every credited deal that rests on Salesforce fields alone, or where Salesforce and HubSpot disagree on the source, for the rules owner to review. When the two disagree, HubSpot's original (first-touch) value is the better evidence.
+- **CAD** is converted to USD at the Bank of Canada monthly rate.
 
 ## Known limits
 
-- Non-webinar channels can only be re-checked on account links the AOP already found until their people inputs are in the work folder. Those inputs are OneTap, HubSpot event lists, rep-sheet attendees and paid-digital leads. New people at new accounts won't be found until then; say so in every log.
-- Tradeshow attendance comes from Salesforce campaign member statuses. The list of statuses that count as attended still has to be agreed with the rules owner; until then it is everything not marked as pre-event (Sent, Registered, RSVP and so on).
-- HubSpot ads covers only the ad accounts connected to HubSpot. Spend for other ad accounts has to come from the ad platform or the agency.
+- **Accelerates and webinars are re-run from people data.** Accelerates use the rep-sheet attendees and Salesforce "Attended" members; webinars use ON24 and campaign members. **Tradeshows, paid and organic channels are not yet re-run.** Their deals are re-checked only on the account links the October AOP already found. A new attendee or lead at an account the AOP never linked isn't credited until those channels are re-run from Salesforce campaign members, OneTap check-ins and the HubSpot contacts export. Say so in every log.
+- **The scripts don't yet enforce the 2026-11-05 rules above.** They link a business domain shared by up to three accounts, and they don't run the paid cross-check. Until they do, list in each log every domain-only match whose domain points to more than one account, and every paid deal without an ad-platform record.
+- HubSpot ads covers only the ad accounts connected to HubSpot (not Folix, Noetic or the Vision Meta account). Spend and lead lists for the others have to come from the ad platform or the agency.
 - Webinars without an ON24 report use Salesforce campaign members only.
 
 ## Report
