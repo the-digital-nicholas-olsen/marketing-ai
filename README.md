@@ -8,7 +8,7 @@ Read [setup](guides/setup.md) and [contributing](CONTRIBUTING.md). AI clients fo
 
 | Task | Entry point |
 |---|---|
-| Run or build an Accelerate | [Playbook](.agents/skills/lumenis-accelerate-playbook/SKILL.md) · [Campaign](.agents/skills/lumenis-accelerate-campaign/SKILL.md) |
+| Run or build an Accelerate | [Playbook](.agents/skills/lumenis-accelerate-playbook/SKILL.md) · [Campaign](.agents/skills/lumenis-accelerate-campaign/SKILL.md) · [VP update](.agents/skills/lumenis-accelerate-vp-update/SKILL.md) |
 | Build HubSpot pages, emails, forms and workflows | [HubSpot](integrations/hubspot/README.md) |
 | Prepare sales emails and rep invitation Word files | [Seven communication examples](templates/accelerate-internal-comms/README.md) |
 | Check copy before delivery | [Ted's copy clarity gate](.agents/skills/copy-clarity-gate/SKILL.md) · [Claims](.agents/skills/lumenis-claims-check/SKILL.md) |
