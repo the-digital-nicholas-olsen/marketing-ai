@@ -54,6 +54,8 @@ A HubSpot form fill writes a generic value into Latest Lead Info straight away (
 
 Status values are campaign-specific. Requested Info, Requested Info from Sales and Responded appeared in different sources/records. They are not interchangeable defaults. Confirm the current intended status and its Responded flag; create a missing approved status in Salesforce, verify it persisted, then choose it in HubSpot. New records may take time to appear; search/reload before deciding they are absent.
 
+Salesforce actions only work for contacts on the [Salesforce inclusion list](../../../integrations/hubspot/salesforce-inclusion-list.md). Set `Goes to SF?` to Yes (`Sync`) and wait about 5 minutes before the first Salesforce action, as the recorded webinar workflows do; with no delay the action can fail with "not a member of inclusion list". Diagnose failures with the [inclusion-list check](../lumenis-sfdc-inclusion-check/SKILL.md).
+
 Click the action card header rather than the email title or Details link to edit a Send email action. A preview thumbnail may update before the saved canvas; reopen and read the selected email name. Reopen Salesforce actions to read Campaign and Status: a temporary record ID on the card alone is not sufficient.
 
 ## Acceptance
