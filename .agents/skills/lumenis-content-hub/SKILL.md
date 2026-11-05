@@ -82,3 +82,5 @@ For a proposed Vision Mimeo reorganization, use [library and portal cleanup](../
 For Vision Mimeo print-order staging, use [print-order staging](../../../guides/mimeo-print-ordering.md); inspect current approved items and stop at the documented order handoff.
 
 For Vision Mimeo Tradeshow in a Box ordering, use [Tradeshow in a Box ordering](../../../guides/mimeo-order-tsiab.md); inspect current approved items and stop at the documented order handoff.
+
+To check whether customers on the weekly Mimeo kit lists were ordered, shipped and delivered, use [Mimeo kit order check](../lumenis-mimeo-order-check/SKILL.md).
