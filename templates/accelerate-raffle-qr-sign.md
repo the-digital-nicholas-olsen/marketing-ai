@@ -3,14 +3,14 @@
 Owner: Kaelyn (event logistics).
 Status: draft procedure, written 2026-10-30 from the approved sign. Review required.
 
-Use this to make the raffle waiver sign for an upcoming event. The QR code is the only thing that ever changes. The team supplies the link for each event.
+Use this to make the raffle waiver sign for an upcoming event. The QR code is the only thing that ever changes. The link comes from that event's new raffle waiver form: [Accelerate raffle waiver clone](accelerate-raffle-waiver-clone.md) runs this procedure as soon as the form passes its read-back.
 
 Don't redesign the sign, rebuild it in another tool, or change the copy. Every version is made by editing the master PDF directly, so the fonts, spacing and sizes can't drift.
 
 ## Inputs
 
 - **The master PDF:** `Accelerate - Raffle Waiver QR Sign.pdf`, in the `Lumenis Vision US MKT - Graphic Templates` OneDrive folder with the other master graphics. It stays outside Git because finished artwork doesn't belong in this repository and its QR opens a live form. Always start from the master, never from a previous event's sign.
-- **The new raffle waiver link:** supplied by the team for that event. If there's no link, stop. Don't reuse the last event's link or guess one. To make the form, follow [Accelerate raffle waiver clone](accelerate-raffle-waiver-clone.md).
+- **The new raffle waiver link:** the public link of the event's new waiver form (`https://form.jotform.com/<form ID>`), taken from the form as soon as it passes the clone procedure's read-back, or supplied by the team. If there's no link, stop. Don't reuse the last event's link or guess one. To make the form, follow [Accelerate raffle waiver clone](accelerate-raffle-waiver-clone.md).
 - **Node.js,** to run the script below.
 
 Encode the link exactly as supplied. Don't add UTM tags or shorten it unless the person who supplied it asks. Keep the link and finished PDFs in the event's work folder, not in Git.
