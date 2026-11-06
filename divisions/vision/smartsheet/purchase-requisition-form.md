@@ -4,7 +4,7 @@
 - System and environment: Smartsheet form titled "New Purchase Requisition Request Form". The live link, cost center codes and tracking-sheet IDs are kept in the internal work system, not here.
 - Workflow: raising a purchase requisition (PR) for event costs, physician payments and marketing vendors.
 - Subject owner: Kaelyn Gray (Vision event marketing); maintainer review by @the-digital-nicholas-olsen.
-- Status: reviewed Vision workflow guidance
+- Status: reviewed Vision workflow guidance. The Accelerate write-back in [Right after you submit](#right-after-you-submit) was added 2026-11-06 from a completed Accelerate per-KOL PR run and is draft until the subject owner reviews it.
 - Source and observed date: Kaelyn's working rules, plus the live form's field labels and dropdown values. Both were read on 2026-10-01, but nothing was submitted. The general-purpose form and its required `Date` field were rechecked on 2026-10-05. The live form labels the field `Date`, not event start date, and does not define which date to use. The field defaults below are Vision workflow rules, distinct from form-enforced requirements. The rules were reviewed on 2026-10-06; restricted confirmation evidence remains in the internal work system.
 
 ## Use this when
@@ -64,6 +64,8 @@ Two kinds:
 - **Quarterly lump sum:** at the start of each quarter that has a Vision Accelerate, one PR for Vision's share of that quarter's event costs, as split by marketing leadership, Material `WORKSHOPS`. The amount comes from the approved budget, never from a past PR.
 - **Per KOL:** raised only after the KOL accepts, Material `LUMINARIES`, amount = honorarium + travel and expense allowance from the show record, header text as in the honorarium example above.
 
+Both kinds get the Master Budget and budget tracker write-back in [Right after you submit](#right-after-you-submit).
+
 ## Where to look things up first
 
 - **Event start dates:** the current year's Event Schedule sheet in the Vision Marketing Events Smartsheet workspace. If the event isn't there, check next year's sheet. For dates that matter, confirm against the society's public calendar.
@@ -72,23 +74,29 @@ Two kinds:
 
 ## Right after you submit
 
-This applies to trade show PRs. The requester does this, or an AI once the requester confirms the form went in.
+This applies to trade show PRs and Accelerate PRs (per KOL and quarterly lump sum). The requester does this, or an AI once the requester confirms the form went in.
 
 - **Confirmation:** the form clears and shows a success banner. A copy goes to the submitter's email if that box was checked. A blank form after the banner means the PR went in, so do not refill and resubmit. That would create a duplicate.
-- **Master Budget:** add `PR In` to the `PR/PO` column (sometimes titled `PR / PO #`, not Notes) of the matching line item on the show's Master Budget. Change only that cell.
+- **Master Budget:** add `PR In` to the PR/PO column (titled `PR/PO`, `PR / PO #` or `PR/PO Number`, not Notes) of the matching line item on the show's Master Budget. Change only that cell.
+  - **Where it is:** a trade show's Master Budget is in that show's folder. An Accelerate's is in the **Accelerate Marketing Events** workspace, in that year's Accelerates folder, in the show's own folder.
+  - **Per-KOL Accelerate PRs:** the Master Budget usually lists each KOL twice, once for the honorarium and once for T&E, and one PR covers both. Add `PR In` to both rows. Their budgets should add up to the PR amount; if they don't, ask before marking either.
+  - **Quarterly lump sum:** mark the line item or items the lump sum pays for. If that isn't clear from the Master Budget, ask.
   - Fill an existing row only, and never add one. If no row clearly matches, or the show has no Master Budget, ask.
   - If the cell already says `PR In`, leave it. If it already has a PO, do not overwrite it. Tell the requester instead.
-- **Vision budget tracker:** add a `PR` row under the show's budget line on the tracker for the show's fiscal year, even if the show has no Master Budget. FY26 shows go on the FY26 tracker in the Budget Dashboard folder; FY27 shows go on the FY27 tracker in the Budget Dashboard 2027 folder. If the PR belongs to a category but no specific line, put it under that category's `Unassigned` line. If the line or category is unclear, ask. Leave the formula columns alone.
+- **Vision budget tracker:** add a `PR` row under the show's budget line on the tracker for the show's fiscal year, even if the show has no Master Budget. FY26 shows go on the FY26 tracker in the Budget Dashboard folder; FY27 shows go on the FY27 tracker in the Budget Dashboard 2027 folder. Accelerates go under that show's `VIS-WS` Accelerate line; a trade show under its `VIS-TS` line. Add one row per PR, so a per-KOL PR is one row even though it marks two Master Budget lines. If the PR belongs to a category but no specific line, put it under that category's `Unassigned` line. If the line or category is unclear, ask. Leave the formula columns alone.
 
 | Column | Value |
 |---|---|
 | Budget Item | The form's Short/Header Text, as written |
 | Row Type | `PR` |
 | Budget Line | The show's budget line on that year's tracker. Both years use the same Budget Line codes. |
+| SAP Category | The form's Material, such as `LUMINARIES` or `WORKSHOPS` |
 | Event Quarter | From the quarter code, such as `Q426` |
 | PR Status | `PR Entered, Pending Approval` |
 | _PR Amount | The form's Amount |
 | PR# / PO# | Leave blank. The next PR check fills them in. |
+
+Read both back after writing: the Master Budget cells show `PR In`, and the new tracker row shows the PR amount in `Committed` on its budget line.
 
 Do not change the PR tracking sheets. They are read-only.
 
@@ -99,6 +107,7 @@ Do not change the PR tracking sheets. They are read-only.
 - Using `WORKSHOPS` for anything that isn't an Accelerate.
 - Writing a physician's last name only. Older PR records do this, but new PRs use the full name.
 - Submitting the form without the requester's review. This form has been seen to clear itself after sitting open for a while, so check every field again right before submitting.
+- Skipping the Master Budget and budget tracker write-back for an Accelerate PR, or marking only the honorarium row when one PR covers honorarium and T&E.
 
 ## Maintenance and review
 
