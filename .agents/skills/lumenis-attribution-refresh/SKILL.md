@@ -33,7 +33,10 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
    - Won deals in the AOP window are within about 5% of the last run.
    - The pull log gives every campaign with members this year a home: webinar map, event configuration, paid media, or not marketing-attributed with a reason. Events and webinars are found by campaign ID, never by Campaign Type.
    - Every webinar in the map has a Salesforce campaign ID and a live date. `convert_exports.py` adds mapped webinars that aren't in the AOP's list to the run copy, and it names in its log any webinar it had to leave out. A webinar left out stops the publish.
-   - New in-person events need configuration: Accelerates and tradeshows in the event configuration, and local events in `local_events.csv`. Until EJ's script adds new events automatically, add the entry to the run copy's `events/scripts/events_config.py` with the requester's confirmed date, division, cost, campaign IDs and HubSpot lists, and add it to `AOP-2027-Basis` at publish.
+   - New in-person events need configuration:
+     - **Accelerates:** a row in `weekly-agent/accelerate_events.csv` with the confirmed date, campaign IDs per division and cost. `rerun_accelerates.py` picks it up. An Accelerate without a date is listed as "not run". Any 2026 Accelerate campaign with members that isn't on either list is named in the re-run's log.
+     - **Tradeshows:** add an entry to the run copy's `events/scripts/events_config.py` with the requester's confirmed date, division, cost, campaign IDs and HubSpot lists. Add it to `AOP-2027-Basis` at publish.
+     - **Local events:** a row in `local_events.csv`.
    - Every ON24 webinar is in the business-unit map. **Never guess a division**: ask the requester and add the answer to the map.
    - Missing or partial sources stop the run. Report which.
 3. **Run the refresh on a copy.** From the work folder's `weekly-agent/` (use `python3` in place of `python` on a Mac). Use `-B` so Python writes no cache files into the shared folder:
@@ -42,16 +45,19 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
       python -B -X utf8 -I convert_exports.py <date> <run folder outside the work folder>
       ```
       This rebuilds the opportunities with the CAD rate table, re-runs the webinar attribution in full from ON24 and Salesforce campaign members, and re-checks the other channels on the AOP's existing account links.
-   2. Re-run Accelerates from the rep-approval sheets and Salesforce "Attended" members. This writes its own log and leaves tradeshow rows unchanged:
+   2. Re-run Accelerates and tradeshows from people data. Accelerates use the rep-approval sheets and Salesforce "Attended" members. Tradeshows use Salesforce campaign members under the agreed status rule.
       ```
       python -B -X utf8 -I rerun_accelerates.py <run folder> <date> <run folder>/accelerates
       ```
-   3. Copy the re-run's `<run folder>/accelerates/events/raw/event_attribution.json` over `<run folder>/events/raw/event_attribution.json`. The comparison and the publish read that path, and the re-run's file already carries the tradeshow rows unchanged. Without this copy, Accelerate deals the re-run gains never reach the dashboard.
-   4. Credit Local Events (Unveiled stops, demo days and other small in-person events listed in `local_events.csv`). Run this after the copy, because it adds its rows to the run's `events/raw/event_attribution.json`:
+      - The log goes to `<run folder>/accelerates/accelerate_rerun.md`.
+      - It writes its result into the run copy's `events/raw/event_attribution.json` itself, so no copy step is needed. The input is kept as `event_attribution.before_rerun.json`.
+      - `compare_to_aop.py` stops if the re-run and the run's events file disagree.
+      - A re-run adds links to the AOP's and never drops one by itself. To remove a link the rules owner rejects (for example, a rep says the attendee belongs to another practice), add a row to `weekly-agent/link_overrides.csv` with the reason, who approved it and the date.
+   3. Credit Local Events (Unveiled stops, demo days and other small in-person events listed in `local_events.csv`). Run this after the re-run, because it adds its rows to the run's `events/raw/event_attribution.json`:
       ```
       python -B -X utf8 -I rerun_local_events.py <run folder> <date>
       ```
-   5. Confirm the published AOP basis is unchanged by comparing file hashes before and after.
+   4. Confirm the published AOP basis is unchanged by comparing file hashes before and after.
 4. **Compare with the published numbers.**
    ```
    python -B -X utf8 -I compare_to_aop.py <run folder> <date> <run folder>/comparison.md
@@ -79,7 +85,7 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
   - Booth statuses count as attended: Attended, Badge Scanned, Visited Booth, Received or Booth Treatment, Responded.
   - Requested Info and Downloaded Field Guide also count when the member was added on or after the show's first day, because that's a booth contact.
   - Sent, Registered, Dinner RSVP, and requests or bookings made before the show (Requested Info, Requested or Booked Treatment, Requested Rep Contact) count as registered only.
-  - `events_config.py` (`SF_PRE`) still treats Requested Info and Downloaded Field Guide as pre-event whatever the date. Until that changes, list the booth-day ones in the log.
+  - This is `sf_attended()` in `events_config.py` (2026-11-06). The re-run and the Local Events script both use it.
 - **Credit goes to the account:** any contact on it who touched the channel credits its deals.
 - **Sourced** = created on or after the touch, within 180 days. **Accelerated** = open up to 365 days before the touch and won on or after it.
 - **Tiers:** A or B counted; C listed only.
@@ -99,9 +105,21 @@ The attribution dashboard credits closed-won Salesforce deals to marketing chann
 
 ## Known limits
 
-- **Accelerates and webinars are re-run from people data.** Accelerates use the rep-sheet attendees and Salesforce "Attended" members; webinars use ON24 and campaign members. **Tradeshows, paid and organic channels are not yet re-run.** Their deals are re-checked only on the account links the October AOP already found. A new attendee or lead at an account the AOP never linked isn't credited until those channels are re-run from Salesforce campaign members, OneTap check-ins and the HubSpot contacts export. Say so in every log.
-- **The scripts don't yet enforce the 2026-11-05 rules above.** They link a business domain shared by up to three accounts, and they don't run the paid cross-check. Until they do, list in each log every domain-only match whose domain points to more than one account, and every paid deal without an ad-platform record.
-- **New events and webinars need configuration.** New webinars are added automatically once the map has their campaign ID. New Accelerates and tradeshows need an entry in the event configuration (see step 2), and new local events need a row in `local_events.csv`.
+- **What is re-run from people data:**
+  - **Accelerates:** rep-sheet attendees and Salesforce "Attended" members.
+  - **Tradeshows:** Salesforce campaign members (since 2026-11-06). HubSpot event lists and OneTap check-ins aren't read yet.
+  - **Webinars:** ON24 and campaign members.
+  - **Local events:** campaign members and HubSpot lists.
+- **Paid and organic channels are not yet re-run.** Their deals are re-checked only on the account links the October AOP already found. A new lead at an account the AOP never linked isn't credited until they are re-run from the HubSpot contacts export and the ad-platform records. Say so in every log.
+- **The domain and tradeshow-status rules are in the scripts** (2026-11-06):
+  - `attribute_v2.py`, `attribute_events.py`, `rerun_accelerates.py` and `rerun_local_events.py` link a business domain only when it points to exactly one account.
+  - The re-run log lists the people whose domain points to two or more accounts.
+- **The paid cross-check isn't scripted yet.** List every paid deal without an ad-platform record in each log.
+- **New events and webinars need configuration:**
+  - **Webinars:** added automatically once the map has their campaign ID.
+  - **Accelerates:** a row in `accelerate_events.csv`. Accelerate Scottsdale (Q4) is there without a date.
+  - **Tradeshows:** an entry in the event configuration (see step 2).
+  - **Local events:** a row in `local_events.csv`.
 - **Local event dates and attendees.** The 2026 Unveiled dates are estimated as three days before each Salesforce upload until confirmed. Salesforce holds only 12 Unveiled attendees, 8 of them with no account; the full attendee lists (HubSpot or the event platform) are needed. The Q2 Unveiled spend has no Salesforce campaign at all.
 - HubSpot ads covers only the ad accounts connected to HubSpot (not Folix, Noetic or the Vision Meta account). Spend and lead lists for the others have to come from the ad platform or the agency.
 - Webinars without an ON24 report use Salesforce campaign members only.
