@@ -116,7 +116,7 @@ Section 6 swaps `PR In` for the PO once the PR has one.
 
 ## 8. Update the Vision budget tracker (every run)
 
-Each fiscal year has its own tracker and dashboard: FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder. Each tracker feeds its dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace. Skip Accelerates. Use the tracker for the event's fiscal year, from the quarter code (`Q426V` = FY26, `Q127V` = FY27). Both trackers use the same Budget Line codes.
+Each fiscal year has its own tracker and dashboard: FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder. Each tracker feeds its dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace. Skip Accelerates. Skip PRs whose quarter code has an `A` instead of a `V` (such as `Q426A`). They aren't Vision budget items, so they aren't tracked. Use the tracker for the event's fiscal year, from the quarter code (`Q426V` = FY26, `Q127V` = FY27). Both trackers use the same Budget Line codes.
 
 Two category columns:
 
