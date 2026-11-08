@@ -106,8 +106,8 @@ for (const f of svgs('Icons')) {
 const src = readFileSync(join(ROOT, 'src', 'components.js'), 'utf8');
 const exportNames = [...src.matchAll(/^\s+([A-Z][A-Za-z]+): [A-Z][A-Za-z]+,?/gm)].map(m => m[1]);
 const listed = [...new Set(src.slice(src.indexOf('var EXPORTS')).match(/\b([A-Z][a-zA-Z]+): \1\b/g).map(s => s.split(':')[0]))];
-// Slide components stay in the bundle but get no cards of their own: they show together on the Slides page.
-const header = { format: 4, namespace: NAMESPACE, components: listed.filter(name => !name.startsWith('Slide') && name !== name.toUpperCase()).map(name => ({ name })) };
+// Slide and Web components stay in the bundle but get no cards of their own: they show together on the Slides and Web pages.
+const header = { format: 4, namespace: NAMESPACE, components: listed.filter(name => !name.startsWith('Slide') && !name.startsWith('Web') && name !== name.toUpperCase()).map(name => ({ name })) };
 const productData = Object.fromEntries(Object.entries(PRODUCTS).map(([id, p]) => [id, { name: p.name, logo: p.logo, module: p.module }]));
 const bundle = [
   `/* @ds-bundle: ${JSON.stringify(header)} */`,
@@ -194,6 +194,7 @@ h2{font-size:14px;letter-spacing:3.5px;text-transform:uppercase;color:var(--text
     <div class="docs">
       <a href="README.md">README <span>· the rules, for every format</span></a>
       <a href="slides.md">Slides <span>· the 16:9 deck format</span></a>
+      <a href="web.md">Web <span>· landing and event pages</span></a>
       <a href="products/README.md">Products <span>· how products sit in the system</span></a>
       <a href="tokens.json">tokens.json <span>· every value</span></a>
     </div>

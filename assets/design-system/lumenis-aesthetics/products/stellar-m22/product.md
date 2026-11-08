@@ -44,6 +44,8 @@ A star-like X shape crossing the whole format, as an outline in one or both Stel
 
 Confident, face-focused portraits with direct eye contact; men and women mainly 30–55 with diverse skin tones; several models preferred; always bright with light backgrounds (p. 39). Treatment shots show the correct handpiece grip; product shots on `#F2F2F2` (pp. 40–41).
 
+Stellar M22 sales and pitch decks lean on product photography: the platform, the XPL™ handpiece and its filters, and XPL treatments in progress. Use them throughout, alongside portraits, rather than one device shot per deck.
+
 ## Caveats in the guide
 
 - "Soft Rose Beige" names `#FABCAD` on p. 36 but `#DEAA9B` on pp. 58–60.

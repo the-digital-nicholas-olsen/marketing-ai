@@ -33,3 +33,39 @@ export interface SlideHeroNumberProps extends SlidePhoto, SlideFrame { title: st
 export interface SlideProfileProps extends SlidePhoto, SlideFrame { label: string; name: string; quote: string; stats?: StatItem[]; photoSide?: 'left' | 'right' }
 export interface SlideProductProps extends SlidePhoto, SlideFrame { product: ProductId; logoVariant?: string; promise: string; lead: string; pills?: string[] }
 export interface SlideClosingProps extends SlidePhoto { pairing?: Pairing; line: string; lead: string }
+
+// Lists, cards and dividers
+export type BulletItem = string | { head?: string; text?: string };
+export interface BulletListProps { items: BulletItem[]; marker?: '✦' | 'dot' | string; size?: 'body' | 'lead'; className?: string }
+export interface CardProps { kind?: 'outline' | 'fill' | 'secondary' | 'soft'; label?: string; title?: ReactNode; text?: ReactNode; className?: string; style?: CSSProperties; children?: ReactNode }
+export interface DividerProps { vertical?: boolean; className?: string; style?: CSSProperties }
+
+// More slide types. Each takes the frame (tracker, closing line, footer) and `product` or the chapter pairing.
+interface SlideList { points?: PointListProps['items']; bullets?: BulletItem[]; marker?: BulletListProps['marker']; children?: ReactNode }
+export interface SlideTextProps extends SlideFrame, SlideList { scale?: number; product?: ProductId; title?: string; lead?: string; columns?: 1 | 2 }
+export interface SlideMediaProps extends SlidePhoto, SlideFrame, SlideList { product?: ProductId; title: string; lead?: string; photoSide?: 'left' | 'right'; photoFit?: 'cover' | 'contain'; caption?: ReactNode }
+export interface GalleryImage { src?: string; alt?: string; label?: string; caption?: ReactNode; position?: string; fit?: 'cover' | 'contain' }
+export interface SlideGalleryProps extends SlideFrame { scale?: number; product?: ProductId; title?: string; lead?: string; images: GalleryImage[] }
+export interface SlideCardsProps extends SlideFrame { scale?: number; product?: ProductId; title?: string; lead?: string; columns?: 2 | 3 | 4; cards: { kind?: CardProps['kind']; label?: string; title: string; text?: string }[] }
+export interface SlideBlankProps extends SlideFrame { scale?: number; product?: ProductId; title?: string; children?: ReactNode }
+
+// Web pages (web.md). Each Web* component renders the plain aes-w-* markup from bundle.css.
+export type Ground = 'page' | 'soft' | 'muted';
+export interface WebLink { label: string; href: string }
+export interface WebAction { label: string; href: string; kind?: ButtonProps['kind'] }
+interface WebPhoto { photo?: string; photoAlt?: string; photoPosition?: string }
+interface WebColor { pairing?: Pairing; product?: ProductId }
+export interface ButtonProps { kind?: 'field' | 'ink' | 'outline' | 'text'; size?: 'small' | 'medium'; href?: string; type?: 'button' | 'submit'; onClick?: () => void; className?: string; children?: ReactNode }
+export interface WebPageProps extends WebColor { className?: string; style?: CSSProperties; children?: ReactNode }
+export interface WebHeaderProps { links?: WebLink[]; cta?: WebAction; home?: string; extra?: ReactNode }
+export interface WebHeroProps extends WebPhoto, WebColor { logoVariant?: string; logoHeight?: number; eyebrow?: string; title: ReactNode; intro?: ReactNode; meta?: string[]; actions?: WebAction[]; icon?: IconProps['name']; band?: boolean }
+export interface WebSectionHeadProps { eyebrow?: string; title?: ReactNode; intro?: ReactNode }
+export interface WebSectionProps extends WebSectionHeadProps, WebColor { id?: string; ground?: Ground; layout?: 'stacked' | 'split'; closing?: ReactNode; loop?: boolean; className?: string; children?: ReactNode }
+export interface WebListProps { logos?: boolean; items: { title: ReactNode; text?: ReactNode; marker?: ReactNode; product?: ProductId; variant?: string; alt?: string }[] }
+export interface WebAgendaProps { id?: string; label?: string; days: { label: string; date: string; sessions: { time: string; tag?: string; title: ReactNode; subtitle?: string; text?: ReactNode }[] }[] }
+export interface WebPeopleProps { people: { name: string; credentials?: string; text?: ReactNode; photo?: string }[] }
+export interface WebRowsProps { items: { when: string; title: ReactNode; text?: ReactNode }[] }
+export interface WebMediaProps extends WebPhoto, WebColor, WebSectionHeadProps { id?: string; photoSide?: 'left' | 'right'; ground?: Ground; children?: ReactNode }
+export interface WebFactsProps { items: { label: string; value: ReactNode }[] }
+export interface WebClosingProps extends WebPhoto, WebColor { eyebrow?: string; title: ReactNode; intro?: ReactNode; actions?: WebAction[]; icon?: IconProps['name'] }
+export interface WebFooterProps { links?: WebLink[]; legal?: ReactNode; note?: ReactNode }

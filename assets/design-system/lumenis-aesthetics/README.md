@@ -2,7 +2,7 @@ The editorial system for Lumenis Aesthetics work that speaks for the division or
 
 **Spirit:** Apple's discipline, Vogue's people, Rhode and SKIMS product pages, the joy of the Lumenis office wall. One idea per page, generous white space, real editorial photography, and color that carries meaning. Design every new element from the whole system instead of adding one on.
 
-These rules hold for every format. Sizes and positions belong to the format: the slide values are the `slide-*` tokens and the [slides section](slides.md). A new format (a one-pager, a page, a social post) sets its own sizes from these rules and keeps them fixed across the piece.
+These rules hold for every format. Sizes and positions belong to the format: the slide values are the `slide-*` tokens and the [slides section](slides.md); the web values are the `web-*` tokens and the [web section](web.md). A new format (a one-pager, a page, a social post) sets its own sizes from these rules and keeps them fixed across the piece.
 
 ## When to use it
 
@@ -18,8 +18,9 @@ Do not infer indications, claims or routing from the design examples. Take them 
 
 - **Golden ratio.** Every two-part layout splits `golden-major` / `golden-minor` (61.8 / 38.2). Where text sits beside a photo or a color block, the text takes 61.8% of the content width and the image takes 38.2% of the format; on an opening or closing, the photo takes 61.8% and the color block 38.2%.
 - **Spacing** uses Fibonacci steps only: `space-8`, `space-13`, `space-21`, `space-34`, `space-55`, `space-89`, `space-144`. Pick the margins and gaps for a format from these steps.
-- **Photos bleed.** A photo or color block runs to the edges of the format on its side, never framed, floating or behind text (`radius-none`). Text stays on its own column and never crosses into the photo.
-- **Fixed frame.** Each format fixes where its recurring parts sit (tracker, title, content area, closing line, footer) and keeps them in the same place on every page of the piece.
+- **Photos bleed or sit inset.** A photo or color block either runs to the edges of the format on its side, or sits inset on the grid inside the margins (an inset photo, a gallery of up to four, a product shot). Never behind text, never with shadows (`radius-none`). On the web, people sections use round headshots ([web](web.md)). Text stays on its own column and never crosses into the photo.
+- **Fixed frame, free layout.** Each format fixes where its recurring parts sit (tracker, title, content area, closing line, footer) and keeps them in the same place on every page of the piece. Inside the content area, lay the page out for its content: the components are starting points, not a closed list (a horizontal timeline, a table, a row of cards, a calculation down a color block). Build new layouts from the grid, tokens, type scale and parts, without waiting for a new component.
+- **Separation.** 1px rules in the `rule` color (`Divider`) and cards (`Card`: outlined, or filled with the primary or secondary field) may group and divide content to keep a run of pages from going flat. Square, flat and on the grid; no heavy borders, shadows or decorative frames.
 
 ### Proximity
 
@@ -37,7 +38,7 @@ These are the slide values. A smaller format may step each one down the sequence
 
 ## 2. Type (ABC Arizona)
 
-One scale per format, with every role at a fixed size. Sizes never drift: if text doesn't fit, cut words or split the page; never shrink the type. Set text with `Text` and a `role`, or the matching `aes-*` class.
+One scale per format, with every role at a fixed size. Sizes never drift: if text doesn't fit, cut words or split the page. Approved or regulatory copy is never cut or reworded to fit: split the page or widen the column, and step reading text down only as far as the slide rules allow ([slides](slides.md)). Set text with `Text` and a `role`, or the matching `aes-*` class.
 
 | Role | Style | Face | Treatment |
 |---|---|---|---|
@@ -51,14 +52,15 @@ One scale per format, with every role at a fixed size. Sizes never drift: if tex
 | Title | `aes-title` 54 | Arizona Sans | Uppercase |
 | Tracker, footer, pill | `aes-tracker` 15, `aes-foot` 14, `aes-pill` 11 | Arizona Sans | Dark grey; tracker and pill uppercase |
 
-Each step up the scale is roughly the golden ratio or a Fibonacci step larger. The sizes above are the slide values.
+Each step up the scale is roughly the golden ratio or a Fibonacci step larger. The sizes above are the slide values; the web sizes, with Arizona Mix headlines in sentence case, are in the [web section](web.md).
 
 **Two text colors:** `ink` `#231F20` (`text-primary`) for what matters, `grey-text` `#575757` (`text-secondary`) for what supports it. Never pure black. Color comes only from the chapter's pairing, or the product's own colors on its own page.
 
 ## 3. Color
 
-- **Ground** `surface-page`, white. Never a dark page or slide background.
+- **Ground** `surface-page`, white. Never a dark page or slide background. On the web, sections alternate white with the warm off-white `surface-soft` and warm grey `surface-muted` ([web](web.md)).
 - **Color pairings.** Each chapter or section takes one pairing: set `data-pairing` on it, and `field`, `field-ink` and `on-field` follow. The field color carries large shapes (a chapter number, a tracker dash, a color field); the ink color carries small colored type and the closing-line arrow. Never split a pairing, and never set field-color type on white at body or label sizes. The pairings are a list of what is allowed, not a fixed color per chapter: choose them for the story at hand.
+- **Primary and secondary.** Each pairing and product also sets `field-secondary` (with `on-field-secondary` for its type): Silken Rose for Rose Gold and for Stellar M22, Rose Gold for Silken Rose, Sky or Lavender for the cool pairings, the product's second color for the others. Balance the two: don't let the primary field fill every page. Leave most pages white, give some blocks and cards the secondary, and let photography carry color too. As a guide, about a third of slides carry a large primary-color block.
 
 | Pairing (`data-pairing`) | Field | Ink | Type on the field |
 |---|---|---|---|
@@ -85,13 +87,18 @@ On a page that compares or lists products, the products README currently says to
 Each component below has a preview and a short guide; build with them before writing your own. Slides are built from their own slide components, shown together on the **Slides** page and described in the [Slides section](slides.md).
 
 - **Tracker** (`Tracker`): in multi-page pieces, the chapter name in dark grey, then one dash per chapter in its field color; the current dash is long. It sits at the top of the text column.
-- **Title** (`Text role="title"`): uppercase Sans. The tracker names the chapter and the title names the page; no eyebrows, section labels or captions that repeat either.
-- **Closing line** (`ClosingLine`): every content page ends on one line: an arrow (→, or ↻ for a loop) in `field-ink`, then one sentence in Arizona Mix at the lead size. It is anchored by its bottom edge to the end of the content area, so a second line grows upward. No box, fill or pill. Two lines at most.
+- **Title** (`Text role="title"`): uppercase Sans. The tracker names the chapter and the title names the page; no eyebrows, section labels or captions that repeat either. On the web, where there is no tracker, a small eyebrow names each section instead ([web](web.md)).
+- **Closing line** (`ClosingLine`): optional. When a page needs a conclusion its title and content don't already make, it ends on one line: an arrow (→, or ↻ for a loop) in `field-ink`, then one sentence in Arizona Mix at the lead size. It is anchored by its bottom edge to the end of the content area, so a second line grows upward. Two lines at most. Use it sparingly: a few per chapter, not every page.
 - **Footer** (`Footer`): the small black Lumenis wordmark, the source note and the page number on one line in dark grey, at the same place on every content page. It sits on the text column, left-justified, so it never touches a photo.
 - **Stat** (`Stat`): a number with its label one proximity step (13) beneath. At most three beside a hero.
-- **Points** (`PointList`): up to three numbered points, the number in `field-ink`.
+- **Points** (`PointList`): numbered points, the number in `field-ink`. Use them when order or count matters.
+- **Bullets** (`BulletList`): an unnumbered list, the ✦ star (or a dot) in `field-ink`, an optional head in ink and the text in grey. Use it whenever order doesn't matter, so not every list reads as numbered.
+- **Card** (`Card`): groups one idea. `outline` (1px `rule`), `fill` (the primary field), `secondary` (the secondary field) or `soft` (warm off-white). Square and flat; fill one card in a row to lead the eye, not all of them.
+- **Divider** (`Divider`): a 1px rule in the `rule` color, horizontal or vertical, between rows, columns, a timeline or a header and its content.
 - **Product logo** (`ProductLogo`): a product's official logo, picked by product and ground. It leads the text column and never sits on a photo. The product's colors come with `data-product`; see the **Products** card.
-- **Slides** (the **Slides** page): seven slide types, opening, chapter break, content, hero number, profile, product and closing, built on one grid and frame. Their layouts and props are in the [Slides section](slides.md).
+- **Slides** (the **Slides** page): twelve slide types (opening, chapter break, content, text, inset photo, gallery, cards, hero number, profile, product, blank and closing) built on one grid and frame, and room to design others from the same parts. Their layouts and props are in the [Slides section](slides.md).
+- **Web** (the **Web** page): the header, opening hero, sections, hairline lists, agenda, people, media split, facts, closing and footer for scrolling pages, as React components and as plain `aes-w-*` classes for HubSpot. Their layouts, sizes and props are in the [web section](web.md).
+- **Button** (`Button`): web only. A pill with an uppercase label: `field`, `ink`, `outline` or `text`.
 - **Pill** (`Pill`): one style for any tag: rounded (`radius-pill`), small uppercase, letter-spaced, filled in the field color. In-chapter navigation uses pills on the tracker line, right-aligned to the column: the current one filled in the chapter's field, the others a soft tint of it.
 
 ## 5. Icons and logos
@@ -110,7 +117,7 @@ Each component below has a preview and a short guide; build with them before wri
 ## 7. Photography
 
 - **Aspirational:** warm studio portraits and sunlit people, at ease. Blush, peach or beige backdrops; bare shoulders; happy faces. Within one page or spread, keep to one tone group: warm, cool or neutral.
-- **People, not devices.** No device as the hero of a division page. Product shots go on `product-backdrop` `#F2F2F2`.
+- **People and products, slide by slide.** Choose for each page what it needs to show. A division or brand page usually leads with people; a product or sales deck needs product photography (the device, its handpieces, treatments in progress) and may lead with it. Product shots go on `product-backdrop` `#F2F2F2` or a light field, uncropped (`contain`) when the whole device matters.
 - **Event photos** are for action shots only. Never present a real attendee as a persona.
 - **Hosted brand stock:** the Lumenis brand stock models on HubSpot, for example `https://information.lumenis.com/hs-fs/hubfs/Aesthetic%20-%20EMEA%20(DAM)/Marketing%20Assets/Visuals/Brand%20Visuals/Stock%20Images/Models/Lumenis_Brand%20Stock%20Photography_Models_JPEG%20(61).jpg?width=1920`. Change the number in brackets for another image and `width` for the size. Let the requester pick each photo before placing it.
 - **Licensed editorial originals** (the office-wall photos and matching studio portraits) are held by the Aesthetics marketing team, not here. Upload a cleared copy to HubSpot before using it on a page, and check each asset's `allowedBrands` in the image library.
@@ -118,7 +125,7 @@ Each component below has a preview and a short guide; build with them before wri
 
 ## 8. Words
 
-One idea and one hero per page: a number, a photo or one line of display type. About 40 words at most. In decks, detail goes in the speaker notes as three bullets (takeaway, key note, why it matters). Every figure carries a source note; label public data and Lumenis data on file separately.
+One idea and one hero per page: a number, a photo, one line of display type or one clear group. About 40 words is the aim; approved copy is kept whole even when it runs longer. In decks, detail can go in the speaker notes. Every figure carries a source note; label public data and Lumenis data on file separately.
 
 ## Before delivery
 
@@ -127,8 +134,10 @@ Check the piece against this system only:
 - light ground, and one pairing per chapter (or the product's own colors on its own page)
 - pinks limited to Rose Gold and Silken Rose
 - one fixed type scale and frame for the format, and Fibonacci spacing
-- photos bleeding, with text and footer kept on the text column
-- no lines or boxes
+- photos bleeding or inset on the grid, with text and footer kept on the text column
+- rules 1px in the `rule` color; cards square and flat
+- the primary color balanced with white, the secondary field and photography
+- closing lines only where a page needs one; bullets where order doesn't matter
 - official logos and unaltered icons
 - image rights, and claim context (the `lumenis-claims-check` skill)
 
@@ -136,4 +145,4 @@ Check the piece against this system only:
 
 - **Namespace:** `window.LumenisAesthetics` (React 18). Load `tokens.css`, then `components/bundle.css`, then React and `components/bundle.js`.
 - **Where it's edited:** this artifact is a copy of `assets/design-system/lumenis-aesthetics` in the marketing-ai repository. `tokens.json` holds every value and `tokens.css` and `components/bundle.js` are generated from the repository's sources. Change the repository and sync; the artifact's page is read-only.
-- **Not included:** only four ABC Arizona cuts exist here: Sans Regular, Sans Light, Mix Regular and Mix Italic (no Bold or Medium). They are uploaded to this artifact for designs made with it; they are licensed and are not stored in the repository. Hosted photos don't load in previews. No web or email components (buttons, forms) yet: the source defines none.
+- **Not included:** only four ABC Arizona cuts exist here: Sans Regular, Sans Light, Mix Regular and Mix Italic (no Bold or Medium). They are uploaded to this artifact for designs made with it; they are licensed and are not stored in the repository. Hosted photos don't load in previews. Web pages have their own components ([web](web.md)); email and form components aren’t defined yet.

@@ -14,6 +14,9 @@
   --ink: #231f20;
   --grey-text: #575757;
   --product-backdrop: #f2f2f2;
+  --surface-soft: #faf9f8;
+  --surface-muted: #f2f0ef;
+  --rule: #e4dedb;
   --surface-page: var(--color-white);
   --text-primary: var(--ink);
   --text-secondary: var(--grey-text);
@@ -21,6 +24,8 @@
   --field: var(--color-rose-gold);
   --field-ink: var(--color-rose-gold-ink);
   --on-field: var(--ink);
+  --field-secondary: var(--color-silken-rose);
+  --on-field-secondary: var(--color-white);
   --trilift-rose-gold: #fabcad;
   --trilift-rose-gold-light: #ffd1ca;
   --trilift-shine-grey: #404040;
@@ -88,6 +93,15 @@
   --slide-footer-bottom: 55px;
   --slide-footer-logo: 89px;
   --slide-block-logo: 210px;
+  --web-content-max: 1180px;
+  --web-margin: 55px;
+  --web-margin-small: 21px;
+  --web-section-pad: 89px;
+  --web-section-pad-small: 55px;
+  --web-header-height: 72px;
+  --web-hero-min: 640px;
+  --web-portrait: 144px;
+  --web-breakpoint: 900px;
   --font-sans: "ABC Arizona Sans", Helvetica, Arial, sans-serif;
   --font-mix: "ABC Arizona Mix", Georgia, serif;
 }
@@ -102,6 +116,14 @@
 .aes-tracker { font-family: var(--font-sans); font-size: 15px; line-height: 1; letter-spacing: 3px; font-weight: 400; }
 .aes-foot { font-family: var(--font-sans); font-size: 14px; line-height: 1; font-weight: 400; }
 .aes-pill { font-family: var(--font-sans); font-size: 11px; line-height: 1; letter-spacing: 1.32px; font-weight: 400; }
+.aes-web-eyebrow { font-family: var(--font-sans); font-size: 13px; line-height: 1.2; letter-spacing: 2px; font-weight: 400; }
+.aes-web-body { font-family: var(--font-sans); font-size: 17px; line-height: 1.55; font-weight: 400; }
+.aes-web-small { font-family: var(--font-sans); font-size: 15px; line-height: 1.45; font-weight: 400; }
+.aes-web-h1 { font-family: var(--font-mix); font-size: 72px; line-height: 1.04; letter-spacing: -0.01em; font-weight: 400; }
+.aes-web-h2 { font-family: var(--font-mix); font-size: 46px; line-height: 1.12; letter-spacing: -0.01em; font-weight: 400; }
+.aes-web-h3 { font-family: var(--font-mix); font-size: 24px; line-height: 1.2; font-weight: 400; }
+.aes-web-number { font-family: var(--font-sans); font-size: 40px; line-height: 1; letter-spacing: -0.5px; font-weight: 300; }
+.aes-web-button { font-family: var(--font-sans); font-size: 13px; line-height: 1; letter-spacing: 1.6px; font-weight: 400; }
 @font-face { font-family: "ABC Arizona Sans"; src: url("fonts/ABCArizonaSans-Regular.otf"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "ABC Arizona Sans"; src: url("fonts/ABCArizonaSans-Light.otf"); font-weight: 300; font-style: normal; font-display: swap; }
 @font-face { font-family: "ABC Arizona Mix"; src: url("fonts/ABCArizonaMix-Regular.otf"); font-weight: 400; font-style: normal; font-display: swap; }

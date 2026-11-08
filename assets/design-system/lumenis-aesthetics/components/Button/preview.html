@@ -1,0 +1,19 @@
+<!-- @dsCard group="Content" height=220 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;background:var(--surface-page)">
+<div id="root"></div>
+<script>
+(function(){
+var DS = window.LumenisAesthetics, h = React.createElement;
+function Demo(){
+  return h('div',{className:'aes-web',style:{padding:24,display:'flex',flexDirection:'column',gap:21}},
+    h('div',{className:'aes-w-actions'},h(DS.Button,{href:'#'},'Request a seat'),h(DS.Button,{kind:'ink',href:'#'},'See the agenda'),h(DS.Button,{kind:'outline',href:'#'},'Add to calendar'),h(DS.Button,{kind:'text',href:'#'},'Review the agenda')),
+    h('div',{'data-product':'stellar-m22',style:{background:'var(--field)',padding:21}},h('div',{className:'aes-w-actions'},h(DS.Button,{kind:'ink',href:'#'},'See the agenda'),h(DS.Button,{kind:'outline',href:'#'},'Add to calendar'),h(DS.Button,{kind:'ink',size:'small',href:'#'},'Small'))));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+})();
+</script>
+</body>
+</html>
