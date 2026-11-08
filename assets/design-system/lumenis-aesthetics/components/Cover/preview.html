@@ -8,13 +8,9 @@
   html, body { margin:0; height:100%; }
   body { background:var(--surface-page); color:var(--text-primary); font-family:var(--font-sans); overflow:hidden; }
   .cover { position:relative; width:960px; height:288px; overflow:hidden; }
-  .art { position:absolute; top:0; left:480px; width:480px; height:288px; }
-  .art svg { display:block; width:480px; height:288px; }
-  .rose { fill:var(--rose-gold); }
-  .silken { fill:var(--silken-rose); }
-  .lavender { fill:var(--lavender); }
-  .mint { fill:var(--mint); }
-  .sky { fill:var(--sky); }
+  .field { position:absolute; top:0; left:480px; width:183px; height:288px; background:var(--rose-gold); }
+  .photo { position:absolute; top:0; left:663px; width:297px; height:288px; overflow:hidden; background:var(--rose-gold); }
+  .photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:55% 38%; }
   .words { position:absolute; left:var(--space-34); bottom:var(--space-34); max-width:440px; }
   .name { margin:0; font-family:var(--font-sans); font-weight:400; font-size:72px; line-height:.95; color:var(--text-primary); }
   .tag { margin:var(--space-13) 0 0; font-size:14px; line-height:20px; color:var(--text-secondary); }
@@ -22,21 +18,13 @@
 </head>
 <body>
 <div class="cover">
-<div class="art" aria-hidden="true">
-<svg viewBox="0 0 480 288" width="480" height="288">
 <!--
-  blocks      rose-gold 297x288 (the division pink, the default field) · silken-rose 183x178 · lavender 183x110 · together half of 960x288
-  arrangement the golden split, as the system composes: 61.8 / 38.2 of the width, then 61.8 / 38.2 of the narrow column, flush, square (radius-none), bleeding off top, right and bottom
-  pattern     "Every two-part layout splits 61.8 / 38.2": the golden spiral as two quarter-discs, mint (radius 178) cut into the rose block and sky (radius 110) into the lavender block
-  scales      297 = golden-major of 480; 178 and 110 = golden-minor steps of 288; corners radius-none
+  layout   the opening slide in miniature: a rose-gold field (183 = golden-minor of 480) beside a photo that bleeds off the top, right and bottom (297 = golden-major)
+  photo    Lumenis brand stock, models no. 61 (a woman laughing, hands at her cheeks), the slides kit's opening photo. Uploaded to this artifact's asset store only, never to the repository
+  fallback where the upload doesn't load (the repository's local gallery), the photo slot shows rose-gold
 -->
-<rect class="rose" x="0" y="0" width="297" height="288"/>
-<rect class="silken" x="297" y="0" width="183" height="178"/>
-<rect class="lavender" x="297" y="178" width="183" height="110"/>
-<path class="mint" d="M297 288 L119 288 A178 178 0 0 1 297 110 Z"/>
-<path class="sky" d="M297 178 L407 178 A110 110 0 0 1 297 288 Z"/>
-</svg>
-</div>
+<div class="field" aria-hidden="true"></div>
+<div class="photo"><img src="/_blob/5c1cace88189160d83c0d41db5c55420" alt="A woman laughing, hands at her cheeks" onerror="this.remove()"></div>
 <div class="words">
 <h1 class="name">Lumenis<br>Aesthetics</h1>
 <p class="tag">One idea per page, real people, and color that carries meaning.</p>

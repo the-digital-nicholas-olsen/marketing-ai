@@ -9,7 +9,7 @@ These rules hold for every format. Sizes and positions belong to the format: the
 | Piece | System |
 |---|---|
 | Speaks for the Aesthetics division, or covers several Aesthetics products | **Lumenis Aesthetics** |
-| One Aesthetics product with a module (triLift 2.0, Stellar M22, SPLENDOR X, FoLix, UltraPulse Alpha) | **Lumenis Aesthetics**, with that product's colors and [module](products/README.md) |
+| One Aesthetics product with a module (triLift 2.0, Stellar M22, SPLENDOR X, FoLix, UltraPulse Alpha; AcuPulse is next, once its official logo files arrive and its purple is confirmed) | **Lumenis Aesthetics**, with that product's colors and [module](products/README.md) |
 | Speaks as Lumenis the company, covers both divisions, or is an Accelerate by Lumenis event | Lumenis Corporate |
 
 Do not infer indications, claims or routing from the design examples. Take them from the brief, the regulatory do's and don'ts and the claims library, and run the claims check before delivery.

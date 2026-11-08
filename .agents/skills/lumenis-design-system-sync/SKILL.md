@@ -29,4 +29,4 @@ The repository is the source of truth; the artifact is a copy. The artifact's in
 - Add a component in `src/components.js`, plus `components/<Name>/preview.html` (first line `<!-- @dsCard group="…" height=N -->`) and `components/<Name>/README.md`. Build only what the Aesthetics guidance defines; anything else needs the owner's approval first.
 - Previews can't load hosted photos or other sites; use the `Photo` placeholder.
 - A publish refused because the artifact changed meanwhile: read the changed files again, redo the edit once; refused again, stop and tell the owner.
-- Licensed font files and photography never go into the repository or the artifact.
+- Licensed font files and photography never go into the repository. The one exception in the artifact is the cover photo (Lumenis brand stock, models no. 61), uploaded to its asset store only as `/_blob/5c1cace88189160d83c0d41db5c55420` and referenced by `components/Cover/preview.html`; keep it, and don't add other photos without the owner choosing them.
