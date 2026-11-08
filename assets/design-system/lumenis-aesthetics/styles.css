@@ -1,6 +1,7 @@
 /* Lumenis Aesthetics brand system — standalone stylesheet. Link only this file for Aesthetics work. */
 @import 'tokens/fonts.css';
 @import 'tokens/colors.css';
+@import 'tokens/products.css';
 @import 'tokens/typography.css';
 @import 'tokens/spacing.css';
 @import 'tokens/base.css';

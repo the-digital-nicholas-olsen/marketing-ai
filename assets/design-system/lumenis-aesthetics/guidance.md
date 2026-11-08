@@ -61,7 +61,7 @@ Each step up the scale is roughly the golden ratio or a Fibonacci step larger. T
 - **Bookend:** Purple `#7079BA` with white type is the color block on the opening and closing, not a chapter pairing.
 - **Pinks:** Rose Gold `#FABCAD` or Silken Rose `#BA6D81` only. Never Stellar Peach Beige `#DEAA9B`.
 - **The Accelerate color band** (19 colors) appears at most once per piece, as the opening's signature: a strip along the bottom edge. Don't pick colors from it for other uses.
-- **Product pages keep their own brand colors** (UltraPulse Alpha purples, FoLix turquoise and so on). See the quick reference in [reference.md](reference.md).
+- **Product pages keep their own brand colors** in place of the chapter pairing, on that product's page or section only. Each product's colors, logos and rules are in its module under [products/](products/README.md).
 
 ## 4. Components
 
@@ -72,7 +72,7 @@ Each step up the scale is roughly the golden ratio or a Fibonacci step larger. T
 - **Stat:** a number with its label one proximity step (13) beneath. At most three beside a hero.
 - **Chapter break:** the chapter number at the hero size in the field color, then the chapter title and its question as a lead line, centered vertically in the content area, beside a bleeding photo.
 - **Profile (people):** a portrait bleeding at 38.2%; on the text column, a label above the name at display size, then the quote as a lead line and the stats below it. A persona is labeled as one.
-- **Product:** a skin or portrait photo bleeding beside the column, the official product logo on the text side, the promise at display size, and the product's own colors.
+- **Product:** a skin or portrait photo bleeding beside the column, the official product logo leading the text column, the promise at display size, and the product's own colors. See [products/](products/README.md).
 - **Pill:** one style for any tag or verdict: rounded, small uppercase, letter-spaced. Verdicts in color: deep blue `#316FAF` winning, light blue `#7BC9ED` watch, Silken Rose `#BA6D81` warning. In-chapter navigation uses pills on the tracker line, right-aligned to the column: the current one filled in the chapter's field, the others a soft tint of it.
 - **No lines.** No hairlines, rules, dividers, borders or boxes. Group with space and type size. The tracker dashes are the only marks.
 

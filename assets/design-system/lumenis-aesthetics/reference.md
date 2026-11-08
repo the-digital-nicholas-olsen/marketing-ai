@@ -10,20 +10,11 @@ Do not infer indications, claims or routing from the design examples. Take them 
 |---|---|
 | Speaks for the Aesthetics division, or covers several Aesthetics products | **Lumenis Aesthetics** (this folder) |
 | Speaks as Lumenis the company, or covers both divisions | [Lumenis Corporate](../lumenis-corporate/SKILL.md) |
-| One Aesthetics product with its own brand guide | That product's guide leads; this system can frame it, but the product page keeps the product's colors and logo |
+| One Aesthetics product with a module in `products/` | **Lumenis Aesthetics**, with that product's module for its name, colors and logo |
 
-## Product brand quick reference
+## Products
 
-For product pages inside an Aesthetics piece. Product logo files and brand guides are kept outside Git; ask the Aesthetics marketing team for them.
-
-| Brand | Key colors | Logo on color |
-|---|---|---|
-| Lumenis | Black, white; Aesthetics secondary palette (brand book p. 43) | Symbol white, wordmark black |
-| triLift 2.0 | Rose Gold `#FABCAD`, Rose Gold Light `#FFD1CA` | Black & white file |
-| Stellar M22 / SmoothGLO | Rose Gold `#FABCAD`, Silken Rose `#BA6D81` (Peach Beige `#DEAA9B` exists but isn't used) | Black & white file |
-| FoLix | Turquoise `#00C0AF` | Black & white file |
-| Splendor X | Browns (brand book p. 43) | Black & white file |
-| UltraPulse Alpha | Alpha Purple `#BC9AFF`, Orchid `#D690FF` | All white (its guide, p. 5) |
+Each Aesthetics product with official logo files has a module in [products/](products/README.md): name and trademark rules, colors, logo files by ground, clear space and minimum size, motif and imagery notes, all from that product's brand guide. Modules: [triLift 2.0](products/trilift-2.0/product.md), [Stellar M22](products/stellar-m22/product.md) (with the XPL, RFX, NdY and QSW handpieces), [Splendor X](products/splendor-x/product.md), [FoLix](products/folix/product.md) and [UltraPulse Alpha](products/ultrapulse-alpha/product.md). Other products have no module yet.
 
 ## Photography
 
@@ -41,6 +32,7 @@ Link `styles.css`. It imports:
 - `tokens/typography.css`: the type scale at slide sizes (`--text-label` 18 to `--text-chapter` 220), the fixed-frame sizes and leading.
 - `tokens/spacing.css`: Fibonacci steps (`--space-8` to `--space-144`), proximity gaps (`--gap-tight` to `--gap-section`) and the golden split (`--golden-major`, `--golden-minor`). Slide positions (canvas, column, bleed, frame) live in the slides kit.
 - `tokens/base.css`: helpers `.la-label`, `.la-body`, `.la-lead`, `.la-number`, `.la-display`, `.la-hero`, `.la-chapter`, `.la-title`, `.la-tracker`, `.la-foot`, `.la-pill`, `.la-band`.
+- `tokens/products.css`: each product's colors, and `data-product="trilift|stellar-m22|splendor-x|folix|ultrapulse-alpha"` to switch `--field`, `--field-ink`, `--on-field` and `--product-accent` on that product's page.
 - `tokens/fonts.css`: ABC Arizona by local lookup. The font is licensed and not in Git; install it from the [HubSpot asset index](../hubspot-assets.md).
 
 ## In this folder
@@ -49,11 +41,14 @@ Link `styles.css`. It imports:
 - `styles.css`, `tokens/`: the tokens above.
 - `assets/logo/`: Lumenis wordmark and symbol (Hero L), black and white SVG.
 - `assets/icons/`: the 10 approved Lumenis line icons (SVG, `currentColor` stroke).
-- `guidelines/`: specimen cards for color, type, components, icons and logos, and photography. Each loads `../styles.css`.
-- `ui_kits/slides/`: the 16:9 slide format: grid and fixed frame, slide type sizes, color pairings and six slide types (opening, chapter break, content, hero number, profile, closing).
+- `products/`: one module per product (`product.md` and official SVG logos in `logo/`), and a README on how products sit in the system.
+- `guidelines/`: specimen cards for color, type, components, icons and logos, photography and products. Each loads `../styles.css`.
+- `ui_kits/slides/`: the 16:9 slide format: grid and fixed frame, slide type sizes, color pairings and seven slide types (opening, chapter break, content, hero number, profile, product, closing).
 
 ## Sources
 
 Taken from the Aesthetics editorial design system approved by Aesthetics marketing in November 2026 for the 2027 North America Aesthetics plan, with the grid, type scale, proximity, footer and full-bleed photography refined while building the slides UI kit, and from the Lumenis Brand Guidelines 2026. The Lumenis logos and icons are the same files as in Lumenis Corporate, copied so this folder stands alone. The color band values come from the Accelerate color band artwork.
 
-Kept outside Git: brand guide PDFs, product logo files, licensed photography, the office-wall panels, templates and research reports.
+The product modules come from each product's brand guide (triLift 2.0, Stellar M22, Splendor X, FoLix, UltraPulse Alpha), checked against the Aesthetics secondary palette in the Lumenis Brand Guidelines 2026 (p. 43); their logos are official files from the product logo packages.
+
+Kept outside Git: brand guide PDFs, the full product logo packages, licensed photography, the office-wall panels, templates and research reports.

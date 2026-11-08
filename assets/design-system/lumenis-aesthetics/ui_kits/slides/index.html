@@ -1,4 +1,4 @@
-<!-- @dsCard group="Lumenis Aesthetics" viewport="1440x900" name="Slides UI Kit" subtitle="Slide grid, fixed frame, type scale, color pairings, rules and six full-bleed slide types, based on the 2027 Aesthetics AOP" -->
+<!-- @dsCard group="Lumenis Aesthetics" viewport="1440x900" name="Slides UI Kit" subtitle="Slide grid, fixed frame, type scale, color pairings, rules and seven full-bleed slide types, based on the 2027 Aesthetics AOP" -->
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>Lumenis Aesthetics — slides</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,6 +76,8 @@ const PAIRS = {
   lavender:  {name:'Lavender',   field:'#b5a7d1', ink:'#7079ba'},
   silkenRose:{name:'Silken Rose',field:'#ba6d81', ink:'#8f4d61'},
 };
+/* Product slide: the product's colors replace the chapter pairing on its own page (see products/). */
+const PRODUCT = {name:'triLift 2.0', field:'#fabcad', ink:'#231f20'};
 const BOOKEND = {name:'Purple', field:'#7079ba', ink:WHITE};   // opening and closing color block, white type
 /* Example deck only: the chapter sequence these sample slides use. Each deck sets its own. */
 const DECK = [
@@ -303,7 +305,28 @@ function App(){
             <Footer at={RIGHT} source="Persona built from owner interviews." page="09"/>
           </Slide><div className="slide-cap">Profile · portrait full bleed at 38.2% on the left; everything else on the right-hand column: who she is, her name at 88, her words in serif, her numbers at 56. A persona is labeled as one. Photo: brand stock 79.</div></div>
 
-          {/* 6 · Closing */}
+          {/* 6 · Product */}
+          <div><Slide>
+            <div style={abs({left:SL.bleedA,top:0,width:SL.bleedB,height:SL.H,overflow:'hidden'})}>{photo(41,'60% 50%','A close-up of a woman’s face, eyes lowered')}</div>
+            <Tracker at={LEFT} chapter={2}/>
+            <Column at={LEFT} title={null} gap={G.apart}>
+              <img src="../../products/trilift-2.0/logo/trilift-2.0-color.svg" alt="triLift 2.0" style={{height:55,width:'auto',alignSelf:'flex-start'}}/>
+              <Group gap={G.follow}>
+                <h1 style={display(INK)}>Made for her best year</h1>
+                <p style={lead(SECONDARY)}>A name her patients ask for, with the training and marketing behind it.</p>
+              </Group>
+              <div style={{display:'flex',gap:SP[1]}}>
+                {['Training','Marketing','Service'].map(t=><span key={t} style={{background:PRODUCT.field,color:INK,borderRadius:999,padding:'10px 26px',fontFamily:SANS,fontSize:T.label,letterSpacing:3.5,textTransform:'uppercase',lineHeight:1}}>{t}</span>)}
+              </div>
+            </Column>
+            <div style={abs({left:LEFT.x,bottom:SL.H-SL.bottom,width:LEFT.w,display:'flex',gap:SP[2],alignItems:'baseline'})}>
+              <span style={{...lead(PRODUCT.ink),lineHeight:1}}>→</span>
+              <p style={{...lead(INK),flex:1}}>Show the product where the owner already looks: her calendar.</p>
+            </div>
+            <Footer at={LEFT} source="Product colors and logo: triLift 2.0 module." page="22"/>
+          </Slide><div className="slide-cap">Product · the product's own colors replace the chapter pairing on its page (here triLift 2.0: Rose Gold field, ink for small type). The official logo leads the text column, never on the photo; the promise at 88, the lead in dark grey, pills in the product field. Photo full bleed at 38.2%. Photo: brand stock 41. Files and rules: products/&lt;product&gt;/product.md.</div></div>
+
+          {/* 7 · Closing */}
           <div><Slide>
             <div style={abs({left:0,top:0,width:SL.bleedB,height:SL.H,background:BOOKEND.field})}>
               <div style={abs({left:SP[5],top:SP[5]})}><Logo tone="white" width="210px"/></div>
