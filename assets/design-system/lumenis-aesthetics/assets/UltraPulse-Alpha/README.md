@@ -1,1 +1,0 @@
-Official UltraPulse Alpha logo files, unchanged from the UltraPulse Alpha logo package. Which file goes on which ground, clear space, minimum size and how to use them in components: the [UltraPulse Alpha module](../../products/ultrapulse-alpha/product.md).

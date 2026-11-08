@@ -1,6 +1,6 @@
 # Slides
 
-The 16:9 deck format, based on the 2027 Aesthetics AOP. Every number is a slide value on the 1920 × 1080 canvas and a `slide-*` token; slides never invent their own sizes. Build decks from the slide components (`SlideOpening`, `SlideChapter`, `SlideContent`, `SlideHeroNumber`, `SlideProfile`, `SlideProduct`, `SlideClosing`); the **SlidesKit** page shows them together.
+The 16:9 deck format, based on the 2027 Aesthetics AOP. Every number is a slide value on the 1920 × 1080 canvas and a `slide-*` token; slides never invent their own sizes. Build decks from the slide components (`SlideOpening`, `SlideChapter`, `SlideContent`, `SlideHeroNumber`, `SlideProfile`, `SlideProduct`, `SlideClosing`); the **Slides** page shows them together.
 
 ## Grid and fixed frame
 
@@ -27,6 +27,28 @@ The 16:9 deck format, based on the 2027 Aesthetics AOP. Every number is a slide 
 | Profile | `SlideProfile` | Portrait at 38.2% on the left; who she is, her name at 88, her words in serif, her numbers at 56. A persona is labeled as one |
 | Product | `SlideProduct` | The product's own colors (`data-product`) replace the chapter pairing; the official logo leads the column, the promise at 88, the lead in dark grey, pills in the product field; photo at 38.2% |
 | Closing | `SlideClosing` | Mirrors the opening: color block at 38.2% with the wordmark and the line the room should remember; photo at 61.8% |
+
+## Slide components
+
+The slide components live in the bundle (`window.LumenisAesthetics`) and are shown together on the **Slides** page rather than as separate cards. Every slide takes `scale` (default 0.4) for display size.
+
+| Component | You provide |
+|---|---|
+| `SlideOpening` | `pairing` (optional, Rose Gold by default), `label`, `promise` (about four words), `date`, `photo`/`photoAlt`, optional `band` (the Accelerate strip along the bottom edge) |
+| `SlideChapter` | `chapters`, `current`, `number`, `title`, `question`, `photo`/`photoAlt`, `page` |
+| `SlideContent` | `chapters`, `current`, `title`, `lead`, `points` (or your own children), `photo`/`photoAlt`, `photoSide` (`right` default, or `left`), `closing`, `source`, `page` |
+| `SlideHeroNumber` | `chapters`, `current`, `title`, `figure`, `figureTone` (optional, `field`), `lead`, `stats` (up to three), `photo`/`photoAlt`, `source`, `page` |
+| `SlideProfile` | `chapters`, `current`, `label`, `name`, `quote`, `stats`, `closing`, `photo`/`photoAlt`, `source`, `page` |
+| `SlideProduct` | `product`, `logoVariant` (optional), `promise`, `lead`, `pills`, `closing`, `photo`/`photoAlt`, `chapters`, `current`, `source`, `page` |
+| `SlideClosing` | `pairing` (optional), `line`, `lead`, `photo`/`photoAlt` |
+
+For a slide the seven types don't cover, build it from the parts, never from new sizes:
+
+- `Slide`: the 1920 × 1080 canvas. Children, `pairing` or `product`.
+- `SlideColumn`: the 973-wide text column, title and content 34 apart. `side` (`left`: x 128, `right`: x 819), `title`, `centered` (for chapter breaks), `gap`.
+- `SlideBleed`: a full-height photo or color block to the slide edge. `side`, `width` (`minor` 733 beside the column, `major` 1187 on the opening and closing), `block` for a color block, `pairing`; usually a `Photo` inside.
+
+Persona slides label the person as a persona; never present a real attendee as one. A product shot is never the hero of a division slide.
 
 ## Rules
 

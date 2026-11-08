@@ -106,7 +106,8 @@ for (const f of svgs('Icons')) {
 const src = readFileSync(join(ROOT, 'src', 'components.js'), 'utf8');
 const exportNames = [...src.matchAll(/^\s+([A-Z][A-Za-z]+): [A-Z][A-Za-z]+,?/gm)].map(m => m[1]);
 const listed = [...new Set(src.slice(src.indexOf('var EXPORTS')).match(/\b([A-Z][a-zA-Z]+): \1\b/g).map(s => s.split(':')[0]))];
-const header = { format: 4, namespace: NAMESPACE, components: listed.map(name => ({ name })) };
+// Slide components stay in the bundle but get no cards of their own: they show together on the Slides page.
+const header = { format: 4, namespace: NAMESPACE, components: listed.filter(name => !name.startsWith('Slide') && name !== name.toUpperCase()).map(name => ({ name })) };
 const productData = Object.fromEntries(Object.entries(PRODUCTS).map(([id, p]) => [id, { name: p.name, logo: p.logo, module: p.module }]));
 const bundle = [
   `/* @ds-bundle: ${JSON.stringify(header)} */`,
@@ -133,7 +134,6 @@ if (existsSync(indexPath)) {
     const files = readdirSync(svgDir(g)).filter(f => !f.endsWith('.md'));
     const recs = (index.assetGroups?.[g]?.files) || {};
     for (const f of files) if (!recs[f]) problems.push(`assets/${g}/${f}: not in design-system.json (upload it, then add its record)`);
-    if (!existsSync(join(svgDir(g), 'README.md'))) problems.push(`assets/${g}: no README.md`);
   }
 }
 
@@ -153,7 +153,7 @@ const cards = readdirSync(join(ROOT, 'components'), { withFileTypes: true }).fil
   const doc = html.replace(/<head>/i, '<head>' + HEAD);
   return { name: d.name, group, height, width, readme, doc };
 });
-const order = ['Cover', 'Showcase', 'Slides', 'Frame', 'Type', 'Layout', 'Content', 'Brand'];
+const order = ['Cover', 'Showcase', 'Products', 'Slides', 'Frame', 'Type', 'Layout', 'Content', 'Brand'];
 const groups = [...new Set(cards.map(c => c.group))].sort((a, b) => (order.indexOf(a) + 99) % 99 - (order.indexOf(b) + 99) % 99);
 const tile = c => `<figure class="tile"><div class="thumb" data-w="${c.width}" data-h="${c.height}" style="aspect-ratio:${c.width}/${Math.min(c.height, 1200)}"><iframe srcdoc="${esc(c.doc)}" width="${c.width}" height="${c.height}" loading="lazy" title="${c.name}" tabindex="-1"></iframe></div><figcaption><b>${c.name}</b><span>${esc(c.readme.replace(/[`*]/g, ''))}</span></figcaption></figure>`;
 const gallery = `<!DOCTYPE html>
@@ -215,5 +215,5 @@ if (!CHECK) {
   writeFileSync(join(ROOT, 'index.html'), gallery);
 }
 const kb = n => (n / 1024).toFixed(0) + ' KB';
-console.log(`${CHECK ? 'Checked' : 'Built'}: tokens.css (${kb(tokensCss.length)}), components/bundle.js (${kb(bundle.length)}, ${listed.length} components, ${Object.keys(LOGOS).length} logos, ${Object.keys(ICONS).length} icons)`);
+console.log(`${CHECK ? 'Checked' : 'Built'}: tokens.css (${kb(tokensCss.length)}), components/bundle.js (${kb(bundle.length)}, ${listed.length} components, ${header.components.length} with cards, ${Object.keys(LOGOS).length} logos, ${Object.keys(ICONS).length} icons)`);
 if (problems.length) { console.log(`\n${problems.length} problem(s):\n- ` + problems.join('\n- ')); process.exitCode = 1; }

@@ -1,6 +1,16 @@
 /* Lumenis Aesthetics — generated from tokens.json */
 :root, [data-theme="aesthetics"] {
   --color-white: #ffffff;
+  --color-mint: #6cc39b;
+  --color-mint-ink: #2f8a68;
+  --color-sky: #7bc9ed;
+  --color-sky-ink: #316faf;
+  --color-lavender: #b5a7d1;
+  --color-lavender-ink: #7079ba;
+  --color-rose-gold: #fabcad;
+  --color-rose-gold-ink: #ba6d81;
+  --color-silken-rose: #ba6d81;
+  --color-silken-rose-ink: #8f4d61;
   --ink: #231f20;
   --grey-text: #575757;
   --product-backdrop: #f2f2f2;
@@ -8,18 +18,8 @@
   --text-primary: var(--ink);
   --text-secondary: var(--grey-text);
   --text-inverse: var(--color-white);
-  --mint: #6cc39b;
-  --mint-ink: #2f8a68;
-  --sky: #7bc9ed;
-  --sky-ink: #316faf;
-  --lavender: #b5a7d1;
-  --lavender-ink: #7079ba;
-  --rose-gold: #fabcad;
-  --rose-gold-ink: #ba6d81;
-  --silken-rose: #ba6d81;
-  --silken-rose-ink: #8f4d61;
-  --field: var(--rose-gold);
-  --field-ink: var(--rose-gold-ink);
+  --field: var(--color-rose-gold);
+  --field-ink: var(--color-rose-gold-ink);
   --on-field: var(--ink);
   --trilift-rose-gold: #fabcad;
   --trilift-rose-gold-light: #ffd1ca;
@@ -91,14 +91,18 @@
   --font-sans: "ABC Arizona Sans", Helvetica, Arial, sans-serif;
   --font-mix: "ABC Arizona Mix", Georgia, serif;
 }
-.la-label { font-family: var(--font-sans); font-size: 18px; line-height: 1.2; letter-spacing: 3.5px; font-weight: 400; }
-.la-body { font-family: var(--font-sans); font-size: 28px; line-height: 1.32; font-weight: 400; }
-.la-lead { font-family: var(--font-mix); font-size: 36px; line-height: 1.18; font-weight: 400; }
-.la-number { font-family: var(--font-sans); font-size: 56px; line-height: 0.85; letter-spacing: -1px; font-weight: 300; }
-.la-display { font-family: var(--font-sans); font-size: 88px; line-height: 0.95; font-weight: 400; }
-.la-hero { font-family: var(--font-sans); font-size: 136px; line-height: 0.85; letter-spacing: -6px; font-weight: 300; }
-.la-chapter { font-family: var(--font-sans); font-size: 220px; line-height: 0.85; letter-spacing: -6px; font-weight: 300; }
-.la-title { font-family: var(--font-sans); font-size: 54px; line-height: 1.05; font-weight: 400; }
-.la-tracker { font-family: var(--font-sans); font-size: 15px; line-height: 1; letter-spacing: 3px; font-weight: 400; }
-.la-foot { font-family: var(--font-sans); font-size: 14px; line-height: 1; font-weight: 400; }
-.la-pill { font-family: var(--font-sans); font-size: 11px; line-height: 1; letter-spacing: 1.32px; font-weight: 400; }
+.aes-label { font-family: var(--font-sans); font-size: 18px; line-height: 1.2; letter-spacing: 3.5px; font-weight: 400; }
+.aes-body { font-family: var(--font-sans); font-size: 28px; line-height: 1.32; font-weight: 400; }
+.aes-lead { font-family: var(--font-mix); font-size: 36px; line-height: 1.18; font-weight: 400; }
+.aes-number { font-family: var(--font-sans); font-size: 56px; line-height: 0.85; letter-spacing: -1px; font-weight: 300; }
+.aes-display { font-family: var(--font-sans); font-size: 88px; line-height: 0.95; font-weight: 400; }
+.aes-hero { font-family: var(--font-sans); font-size: 136px; line-height: 0.85; letter-spacing: -6px; font-weight: 300; }
+.aes-chapter { font-family: var(--font-sans); font-size: 220px; line-height: 0.85; letter-spacing: -6px; font-weight: 300; }
+.aes-title { font-family: var(--font-sans); font-size: 54px; line-height: 1.05; font-weight: 400; }
+.aes-tracker { font-family: var(--font-sans); font-size: 15px; line-height: 1; letter-spacing: 3px; font-weight: 400; }
+.aes-foot { font-family: var(--font-sans); font-size: 14px; line-height: 1; font-weight: 400; }
+.aes-pill { font-family: var(--font-sans); font-size: 11px; line-height: 1; letter-spacing: 1.32px; font-weight: 400; }
+@font-face { font-family: "ABC Arizona Sans"; src: url("fonts/ABCArizonaSans-Regular.otf"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Arizona Sans"; src: url("fonts/ABCArizonaSans-Light.otf"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Arizona Mix"; src: url("fonts/ABCArizonaMix-Regular.otf"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ABC Arizona Mix"; src: url("fonts/ABCArizonaMix-Italic.otf"); font-weight: 400; font-style: italic; font-display: swap; }

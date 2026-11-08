@@ -1,1 +1,0 @@
-Official SPLENDOR X logo files, unchanged from the SPLENDOR X logo package. Which file goes on which ground, clear space, minimum size and how to use them in components: the [SPLENDOR X module](../../products/splendor-x/product.md).

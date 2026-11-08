@@ -9,21 +9,21 @@
 var DS = window.LumenisAesthetics, h = React.createElement;
 var DECK = [{name:'Chapter 1',pairing:'mint'},{name:'Chapter 2',pairing:'sky'},{name:'Chapter 3',pairing:'rose-gold'},{name:'Chapter 4',pairing:'lavender'},{name:'Finale',pairing:'silken-rose'}];
 var S = 0.3;
-function Item(props){ return h('div', null, props.children, h('p', {className:'la-showcase-cap'}, props.cap)); }
+function Item(props){ return h('div', null, props.children, h('p', {className:'aes-showcase-cap'}, props.cap)); }
 function Spec(rows){
   return h('table', {style:{borderCollapse:'collapse',fontSize:13,lineHeight:1.4,width:'100%'}}, h('tbody', null, rows.map(function(r,i){
     return h('tr', {key:i}, h('th', {style:{textAlign:'left',fontWeight:400,color:'var(--text-secondary)',padding:'6px 16px 6px 0',verticalAlign:'top',width:'30%'}}, r[0]), h('td', {style:{padding:'6px 0',verticalAlign:'top'}}, r[1]));
   })));
 }
 function App(){
-  return h('div', {className:'la-showcase'},
-    h('p', {className:'la-showcase-h'}, 'Presentation · 16:9 · 1920 × 1080'),
+  return h('div', {className:'aes-showcase'},
+    h('p', {className:'aes-showcase-h'}, 'Presentation · 16:9 · 1920 × 1080'),
     h('p', {style:{fontSize:15,lineHeight:1.5,color:'var(--text-secondary)',maxWidth:820,margin:0}}, 'One idea per slide on a white ground, photography that bleeds to the edge, and nothing else: no lines, no boxes, no repeated labels. Every slide uses the same grid, frame and type sizes. Proportions follow the golden ratio (61.8 / 38.2); spacing uses Fibonacci steps only. Photos show as placeholders here: the artifact cannot load hosted images.'),
     h('div', {style:{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(360px,1fr))',gap:'8px 40px'}},
       Spec([['Canvas','1920 × 1080, white ground'],['Text column','973 wide: x 128–1101 beside a right-hand photo, x 819–1792 beside a left-hand photo'],['Photo or color block','Full bleed: 733 (38.2%) beside the column, 1187 (61.8%) on the opening and closing'],['Spacing','8 · 13 · 21 · 34 · 55 · 89 · 144 only'],['Opening and closing block','The pairing’s field, Rose Gold by default; wordmark and headline inset 89']]),
       Spec([['Tracker','Top 52 on the text column: chapter name 15 caps, one dash per chapter (current 28, others 12)'],['Title','54 caps at 149; 34 to the content, always'],['Closing line','Ends at 952; a second line grows upward. Arrow in the chapter ink, one sentence in Arizona Mix at 36'],['Footer','55 from the bottom: wordmark 89 wide, source note, page number, 14 in dark grey'],['Type','Label 18 · body 28 · lead 36 · number 56 · display 88 · hero 136 · chapter 220']])),
-    h('p', {className:'la-showcase-h'}, 'Slide types'),
-    h('div', {className:'la-showcase-grid'},
+    h('p', {className:'aes-showcase-h'}, 'Slide types'),
+    h('div', {className:'aes-showcase-grid'},
       h(Item, {cap:'Opening · photo at 61.8%, color block at 38.2% in the pairing’s field with the wordmark, a label, the promise at 88 and the date; the color band along the bottom edge.'},
         h(DS.SlideOpening, {scale:S, label:'2027 · North America Aesthetics', promise:'Their best year yet', date:'Month day, year', photoAlt:'A woman laughing, hands at her cheeks', band:true})),
       h(Item, {cap:'Chapter break · the chapter number at 220 in the field color, the title at 88 and its question 21 beneath, centered beside a bleeding photo.'},

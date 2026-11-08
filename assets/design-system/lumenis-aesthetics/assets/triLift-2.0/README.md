@@ -1,1 +1,0 @@
-Official triLift 2.0 logo files, unchanged from the triLift 2.0 logo package. Which file goes on which ground, clear space, minimum size and how to use them in components: the [triLift 2.0 module](../../products/trilift-2.0/product.md).

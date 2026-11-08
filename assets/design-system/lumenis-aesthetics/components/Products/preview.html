@@ -1,4 +1,4 @@
-<!-- @dsCard group="Showcase" height=1100 width=1440 subtitle="Each product's brand-guide colors and logo, and what data-product switches on its own page" page -->
+<!-- @dsCard group="Products" height=1100 width=1440 subtitle="Each product's brand-guide colors and logos, and what data-product switches on its own page" -->
 <!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"></head>
@@ -22,18 +22,18 @@ function Chip(name){
 function Row(r){
   var p = DS.PRODUCTS[r.id];
   return h('div', {key:r.id, 'data-product':r.id, style:{display:'grid',gridTemplateColumns:'280px 260px 1fr',gap:34,alignItems:'center'}},
-    h('div', {className:'la-block', style:{height:144,display:'flex',alignItems:'center',padding:'0 34px'}}, h(DS.ProductLogo, {product:r.id, variant:r.on, height:34})),
-    h('div', {className:'la-stack la-gap-near'},
+    h('div', {className:'aes-block', style:{height:144,display:'flex',alignItems:'center',padding:'0 34px'}}, h(DS.ProductLogo, {product:r.id, variant:r.on, height:34})),
+    h('div', {className:'aes-stack aes-gap-near'},
       h(DS.ProductLogo, {product:r.id, height:34}),
       h('div', {style:{fontSize:14,lineHeight:1.4,color:'var(--text-secondary)'}}, 'data-product="' + r.id + '" · ' + p.module),
-      h('div', {className:'la-row la-gap-near'}, h(DS.Pill, null, p.name), h('span', {className:'la-lead', style:{fontSize:20,color:'var(--field-ink)'}}, '→ field ink'))),
-    h('div', {className:'la-row la-gap-follow'}, r.colors.map(Chip)));
+      h('div', {className:'aes-row aes-gap-near'}, h(DS.Pill, null, p.name), h('span', {className:'aes-lead', style:{fontSize:20,color:'var(--field-ink)'}}, '→ field ink'))),
+    h('div', {className:'aes-row aes-gap-follow'}, r.colors.map(Chip)));
 }
 function App(){
-  return h('div', {className:'la-showcase'},
-    h('p', {className:'la-showcase-h'}, 'Products inside Lumenis Aesthetics'),
+  return h('div', {className:'aes-showcase'},
+    h('p', {className:'aes-showcase-h'}, 'Products'),
     h('p', {style:{fontSize:15,lineHeight:1.5,color:'var(--text-secondary)',maxWidth:900,margin:0}}, 'Every color on the right is a named token taken from that product’s brand guide. On the product’s own page or section, set data-product to its id: field, field-ink, on-field and product-accent switch to the product, and the grid, type, frame and spacing stay Aesthetics.'),
-    h('div', {className:'la-stack la-gap-apart'}, ROWS.map(Row)));
+    h('div', {className:'aes-stack aes-gap-apart'}, ROWS.map(Row)));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(App));
 })();

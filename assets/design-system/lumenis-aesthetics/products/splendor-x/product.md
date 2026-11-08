@@ -1,4 +1,4 @@
-# Splendor X
+# SPLENDOR X
 
 Module for the Lumenis Aesthetics system. How products fit: [products README](../README.md). Source: *Splendor X Brand Guidelines* (page numbers below) and the Lumenis Brand Guidelines 2026, p. 43.
 
@@ -10,7 +10,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 
 | Color | HEX | Use |
 |---|---|---|
-| Light skin | `#E5C9A8` | The field on Splendor X pages |
+| Light skin | `#E5C9A8` | The field on SPLENDOR X pages |
 | Medium skin | `#C69275` | Second color (`--product-accent`) |
 | Dark skin | `#834436` | Small colored type and the closing-line arrow (`--field-ink`) |
 | Vascular blue | `#3A999B` | Titles or subtitles only, to set vascular content apart from hair removal |

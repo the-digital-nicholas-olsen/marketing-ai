@@ -1,4 +1,4 @@
-The editorial system for Lumenis Aesthetics work that speaks for the division or its products: decks, one-pagers, landing pages and social. It is one of the separate brand systems in [the design-system folder](../README.md). Use it whole, and don't mix it with Lumenis Corporate, OptiLIGHT or OptiLIFT. If something you need isn't here, build it only from these tokens and components and say so; never take it from another system.
+The editorial system for Lumenis Aesthetics work that speaks for the division or its products: decks, one-pagers, landing pages and social. It is one of the separate Lumenis brand systems. Use it whole, and don't mix it with Lumenis Corporate, OptiLIGHT or OptiLIFT. If something you need isn't here, build it only from these tokens and components and say so; never take it from another system.
 
 **Spirit:** Apple's discipline, Vogue's people, Rhode and SKIMS product pages, the joy of the Lumenis office wall. One idea per page, generous white space, real editorial photography, and color that carries meaning. Design every new element from the whole system instead of adding one on.
 
@@ -37,23 +37,23 @@ These are the slide values. A smaller format may step each one down the sequence
 
 ## 2. Type (ABC Arizona)
 
-One scale per format, with every role at a fixed size. Sizes never drift: if text doesn't fit, cut words or split the page; never shrink the type. Set text with `Text` and a `role`, or the matching `la-*` class.
+One scale per format, with every role at a fixed size. Sizes never drift: if text doesn't fit, cut words or split the page; never shrink the type. Set text with `Text` and a `role`, or the matching `aes-*` class.
 
 | Role | Style | Face | Treatment |
 |---|---|---|---|
-| Label | `la-label` 18 | Arizona Sans | Uppercase, letter-spaced, dark grey |
-| Body | `la-body` 28 | Arizona Sans | Dark grey |
-| Lead line, quote, closing line | `la-lead` 36 | Arizona Mix | Ink |
-| Number | `la-number` 56 | Arizona Sans Light | Ink, or the chapter color |
-| Display (name, promise, opening and closing line) | `la-display` 88 | Arizona Sans | Uppercase |
-| Hero number | `la-hero` 136 | Arizona Sans Light | Ink |
-| Chapter number, single hero figure | `la-chapter` 220 | Arizona Sans Light | The field color |
-| Title | `la-title` 54 | Arizona Sans | Uppercase |
-| Tracker, footer, pill | `la-tracker` 15, `la-foot` 14, `la-pill` 11 | Arizona Sans | Dark grey; tracker and pill uppercase |
+| Label | `aes-label` 18 | Arizona Sans | Uppercase, letter-spaced, dark grey |
+| Body | `aes-body` 28 | Arizona Sans | Dark grey |
+| Lead line, quote, closing line | `aes-lead` 36 | Arizona Mix | Ink |
+| Number | `aes-number` 56 | Arizona Sans Light | Ink, or the chapter color |
+| Display (name, promise, opening and closing line) | `aes-display` 88 | Arizona Sans | Uppercase |
+| Hero number | `aes-hero` 136 | Arizona Sans Light | Ink |
+| Chapter number, single hero figure | `aes-chapter` 220 | Arizona Sans Light | The field color |
+| Title | `aes-title` 54 | Arizona Sans | Uppercase |
+| Tracker, footer, pill | `aes-tracker` 15, `aes-foot` 14, `aes-pill` 11 | Arizona Sans | Dark grey; tracker and pill uppercase |
 
 Each step up the scale is roughly the golden ratio or a Fibonacci step larger. The sizes above are the slide values.
 
-**Two text colors:** `ink` `#231F20` (`text-primary`) for what matters, `grey-text` `#575757` (`text-secondary`) for what supports it. Never pure black. Color only from the chapter's pairing.
+**Two text colors:** `ink` `#231F20` (`text-primary`) for what matters, `grey-text` `#575757` (`text-secondary`) for what supports it. Never pure black. Color comes only from the chapter's pairing, or the product's own colors on its own page.
 
 ## 3. Color
 
@@ -62,13 +62,13 @@ Each step up the scale is roughly the golden ratio or a Fibonacci step larger. T
 
 | Pairing (`data-pairing`) | Field | Ink | Type on the field |
 |---|---|---|---|
-| `mint` | `mint` `#6CC39B` | `mint-ink` `#2F8A68` | Ink |
-| `sky` | `sky` `#7BC9ED` | `sky-ink` `#316FAF` | Ink |
-| `lavender` | `lavender` `#B5A7D1` | `lavender-ink` `#7079BA` | Ink |
-| `rose-gold` | `rose-gold` `#FABCAD` | `rose-gold-ink` (Silken Rose) `#BA6D81` | Ink |
-| `silken-rose` | `silken-rose` `#BA6D81` | `silken-rose-ink` `#8F4D61` | White |
+| `mint` | `color-mint` `#6CC39B` | `color-mint-ink` `#2F8A68` | Ink |
+| `sky` | `color-sky` `#7BC9ED` | `color-sky-ink` `#316FAF` | Ink |
+| `lavender` | `color-lavender` `#B5A7D1` | `color-lavender-ink` `#7079BA` | Ink |
+| `rose-gold` | `color-rose-gold` `#FABCAD` | `color-rose-gold-ink` (Silken Rose) `#BA6D81` | Ink |
+| `silken-rose` | `color-silken-rose` `#BA6D81` | `color-silken-rose-ink` `#8F4D61` | White |
 
-- **Contrast.** `mint-ink`, `lavender-ink` and `rose-gold-ink` fall below 4.5:1 on white, so colored type in them stays at 24px and up (the arrow, numbers). White on `silken-rose` (3.8:1) is for display, lead and the wordmark only.
+- **Contrast.** `color-mint-ink`, `color-lavender-ink` and `color-rose-gold-ink` fall below 4.5:1 on white, so colored type in them stays at 24px and up (the arrow, numbers). White on `color-silken-rose` (3.8:1) is for display, lead and the wordmark only.
 - **Pinks:** Rose Gold `#FABCAD` or Silken Rose `#BA6D81` only. Never Stellar Peach Beige `#DEAA9B`.
 - **The Accelerate color band** (`band-1` to `band-19`, the `Band` component) appears at most once per piece, as the opening's signature: a strip along the bottom edge. Don't pick colors from it for other uses.
 
@@ -82,7 +82,7 @@ On a page that compares or lists products, the products README currently says to
 
 ## 4. Components
 
-Built components live in `components/`; each has a preview and a short guide. Build with them before writing your own.
+Each component below has a preview and a short guide; build with them before writing your own. Slides are built from their own slide components, shown together on the **Slides** page and described in the [Slides section](slides.md).
 
 - **Tracker** (`Tracker`): in multi-page pieces, the chapter name in dark grey, then one dash per chapter in its field color; the current dash is long. It sits at the top of the text column.
 - **Title** (`Text role="title"`): uppercase Sans. The tracker names the chapter and the title names the page; no eyebrows, section labels or captions that repeat either.
@@ -90,11 +90,9 @@ Built components live in `components/`; each has a preview and a short guide. Bu
 - **Footer** (`Footer`): the small black Lumenis wordmark, the source note and the page number on one line in dark grey, at the same place on every content page. It sits on the text column, left-justified, so it never touches a photo.
 - **Stat** (`Stat`): a number with its label one proximity step (13) beneath. At most three beside a hero.
 - **Points** (`PointList`): up to three numbered points, the number in `field-ink`.
-- **Chapter break** (`SlideChapter`): the chapter number at the chapter size in the field color, then the chapter title and its question as a lead line, centered vertically in the content area, beside a bleeding photo.
-- **Profile** (`SlideProfile`): a portrait bleeding at 38.2%; on the text column, a label above the name at display size, then the quote as a lead line and the stats below it. A persona is labeled as one.
-- **Product** (`SlideProduct`, `ProductLogo`): a skin or portrait photo bleeding beside the column, the official product logo leading the text column, the promise at display size, and the product's own colors.
+- **Product logo** (`ProductLogo`): a product's official logo, picked by product and ground. It leads the text column and never sits on a photo. The product's colors come with `data-product`; see the **Products** card.
+- **Slides** (the **Slides** page): seven slide types, opening, chapter break, content, hero number, profile, product and closing, built on one grid and frame. Their layouts and props are in the [Slides section](slides.md).
 - **Pill** (`Pill`): one style for any tag: rounded (`radius-pill`), small uppercase, letter-spaced, filled in the field color. In-chapter navigation uses pills on the tracker line, right-aligned to the column: the current one filled in the chapter's field, the others a soft tint of it.
-- **No lines.** No hairlines, rules, dividers, borders or boxes. Group with space and type size. The tracker dashes are the only marks.
 
 ## 5. Icons and logos
 
@@ -103,8 +101,8 @@ Built components live in `components/`; each has a preview and a short guide. Bu
 
 ## 6. Opening and closing
 
-- **Opening** (`SlideOpening`): a photo bleeding at 61.8% and a color block at 38.2% in the chosen pairing's field (Rose Gold by default), with the wordmark at the top of the block and, at its foot, a label above the promise at display size, then the date.
-- **Closing** (`SlideClosing`): mirrors the opening: the color block holds the line the audience should remember at display size, with a closing lead line beneath it.
+- **Opening** (`SlideOpening`, on the Slides page): a photo bleeding at 61.8% and a color block at 38.2% in the chosen pairing's field (Rose Gold by default), with the wordmark at the top of the block and, at its foot, a label above the promise at display size, then the date.
+- **Closing** (`SlideClosing`, on the Slides page): mirrors the opening: the color block holds the line the audience should remember at display size, with a closing lead line beneath it.
 - **Signature devices** borrowed from the Lumenis office wall (big white line icons crossing a color field, white caps on Silken Rose, the Accelerate color band as a strip along the bottom edge) belong on the cover, opening, ask and closing only, never on content pages.
 
 **Range** (brand book pp. 62–63): layouts run from functional to inspirational, and photography from real and concrete to dreamy and abstract. Signature pages sit at the inspirational, dreamy end; content pages (practices, proof) at the functional, real end.
@@ -137,5 +135,5 @@ Check the piece against this system only:
 ## Using this system
 
 - **Namespace:** `window.LumenisAesthetics` (React 18). Load `tokens.css`, then `components/bundle.css`, then React and `components/bundle.js`.
-- **Sources:** `tokens.json` holds every value; `src/components.js` the component code. `tokens.css` and `components/bundle.js` are generated by `node build.mjs`. Edit the sources in the repository, never the generated files or this artifact's page: the repository is the source of truth and the artifact is synced from it.
-- **Not included:** the ABC Arizona font files are licensed and not stored here, so text falls back to Helvetica/Arial and Georgia unless the cuts are installed. Hosted photos don't load in previews. No web or email components (buttons, forms) yet: the source defines none.
+- **Where it's edited:** this artifact is a copy of `assets/design-system/lumenis-aesthetics` in the marketing-ai repository. `tokens.json` holds every value and `tokens.css` and `components/bundle.js` are generated from the repository's sources. Change the repository and sync; the artifact's page is read-only.
+- **Not included:** only four ABC Arizona cuts exist here: Sans Regular, Sans Light, Mix Regular and Mix Italic (no Bold or Medium). They are uploaded to this artifact for designs made with it; they are licensed and are not stored in the repository. Hosted photos don't load in previews. No web or email components (buttons, forms) yet: the source defines none.

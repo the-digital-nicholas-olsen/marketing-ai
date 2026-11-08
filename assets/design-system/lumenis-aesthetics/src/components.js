@@ -12,14 +12,14 @@ function Text(props) {
   var role = props.role || 'body';
   var tag = props.as || ROLE_TAG[role] || 'p';
   return h(tag, {
-    className: cx('la-text', 'la-' + role, props.tone && 'la-tone-' + props.tone, props.className),
+    className: cx('aes-text', 'aes-' + role, props.tone && 'aes-tone-' + props.tone, props.className),
     style: props.style
   }, props.children);
 }
 
 /* ── Layout ───────────────────────────────────────────────────────── */
 function Stack(props) {
-  return h('div', { className: cx(props.direction === 'row' ? 'la-row' : 'la-stack', 'la-gap-' + (props.gap || 'tight'), props.className), style: props.style }, props.children);
+  return h('div', { className: cx(props.direction === 'row' ? 'aes-row' : 'aes-stack', 'aes-gap-' + (props.gap || 'tight'), props.className), style: props.style }, props.children);
 }
 
 function Stat(props) {
@@ -30,23 +30,23 @@ function Stat(props) {
 
 function Pill(props) {
   var kind = props.kind || 'field';
-  return h('span', { className: cx('la-pill', kind !== 'field' && 'la-pill-' + kind, props.size === 'large' && 'la-pill-large') }, props.children);
+  return h('span', { className: cx('aes-pill', kind !== 'field' && 'aes-pill-' + kind, props.size === 'large' && 'aes-pill-large') }, props.children);
 }
 
 function ClosingLine(props) {
-  return h('div', { className: cx('la-closing', props.className), style: props.style },
-    h('span', { className: 'la-lead la-closing-arrow', 'aria-hidden': 'true' }, props.loop ? '↻' : '→'),
-    h('p', { className: 'la-text la-lead la-closing-text' }, props.children));
+  return h('div', { className: cx('aes-closing', props.className), style: props.style },
+    h('span', { className: 'aes-lead aes-closing-arrow', 'aria-hidden': 'true' }, props.loop ? '↻' : '→'),
+    h('p', { className: 'aes-text aes-lead aes-closing-text' }, props.children));
 }
 
 function Tracker(props) {
   var chapters = props.chapters || [];
-  return h('div', { className: cx('la-tracker-row', props.className), style: props.style },
-    h('span', { className: 'la-tracker' }, (chapters[props.current] || {}).name),
-    h('span', { className: 'la-dashes', 'aria-hidden': 'true' }, chapters.map(function (c, i) {
-      return h('span', { key: i, 'data-pairing': c.pairing, className: cx('la-dash', i === props.current && 'la-dash-current') });
+  return h('div', { className: cx('aes-tracker-row', props.className), style: props.style },
+    h('span', { className: 'aes-tracker' }, (chapters[props.current] || {}).name),
+    h('span', { className: 'aes-dashes', 'aria-hidden': 'true' }, chapters.map(function (c, i) {
+      return h('span', { key: i, 'data-pairing': c.pairing, className: cx('aes-dash', i === props.current && 'aes-dash-current') });
     })),
-    props.pills ? h('span', { className: 'la-tracker-pills' }, props.pills.map(function (p, i) {
+    props.pills ? h('span', { className: 'aes-tracker-pills' }, props.pills.map(function (p, i) {
       return h(Pill, { key: i, kind: i === props.pillCurrent ? 'field' : 'tint' }, p);
     })) : null);
 }
@@ -54,20 +54,20 @@ function Tracker(props) {
 /* ── Brand ────────────────────────────────────────────────────────── */
 function Logo(props) {
   var key = 'lumenis-' + (props.mark || 'wordmark') + '-' + (props.tone || 'black');
-  return h('img', { className: 'la-logo', src: LOGOS[key], alt: 'Lumenis', style: { width: props.width || 89 } });
+  return h('img', { className: 'aes-logo', src: LOGOS[key], alt: 'Lumenis', style: { width: props.width || 89 } });
 }
 
 function ProductLogo(props) {
   var key = props.product + '/' + (props.variant || (PRODUCTS[props.product] || {}).logo || 'color');
   var src = LOGOS[key];
-  if (!src) return h('span', { className: 'la-label' }, 'No logo file: ' + key);
-  return h('img', { className: 'la-logo', src: src, alt: props.alt || PRODUCTS[props.product].name, style: { height: props.height || 55, width: 'auto' } });
+  if (!src) return h('span', { className: 'aes-label' }, 'No logo file: ' + key);
+  return h('img', { className: 'aes-logo', src: src, alt: props.alt || PRODUCTS[props.product].name, style: { height: props.height || 55, width: 'auto' } });
 }
 
 function Icon(props) {
   var size = props.size || 89;
   return h('span', {
-    className: 'la-icon', role: 'img', 'aria-label': props.label || props.name,
+    className: 'aes-icon', role: 'img', 'aria-label': props.label || props.name,
     style: { width: size, height: size, color: props.color },
     dangerouslySetInnerHTML: { __html: ICONS[props.name] || '' }
   });
@@ -76,30 +76,30 @@ function Icon(props) {
 function Band(props) {
   var stripes = [];
   for (var i = 1; i <= 19; i++) stripes.push(h('span', { key: i, style: { background: 'var(--band-' + i + ')' } }));
-  return h('div', { className: 'la-band', style: { height: props.height || 13 }, 'aria-hidden': 'true' }, stripes);
+  return h('div', { className: 'aes-band', style: { height: props.height || 13 }, 'aria-hidden': 'true' }, stripes);
 }
 
 function Photo(props) {
   if (!props.src) {
-    return h('div', { className: 'la-photo la-photo-empty', role: 'img', 'aria-label': props.alt || 'Photo' },
-      h('span', { className: 'la-label' }, 'Photo · ' + (props.alt || 'bleeds to the edge')));
+    return h('div', { className: 'aes-photo aes-photo-empty', role: 'img', 'aria-label': props.alt || 'Photo' },
+      h('span', { className: 'aes-label' }, 'Photo · ' + (props.alt || 'bleeds to the edge')));
   }
-  return h('div', { className: 'la-photo' }, h('img', { src: props.src, alt: props.alt || '', style: { objectPosition: props.position || '50% 50%' } }));
+  return h('div', { className: 'aes-photo' }, h('img', { src: props.src, alt: props.alt || '', style: { objectPosition: props.position || '50% 50%' } }));
 }
 
 function Footer(props) {
-  return h('div', { className: cx('la-footer', props.className), style: props.style },
-    h('span', { className: 'la-footer-logo' }, h(Logo, { width: props.logoWidth || 89 })),
-    h('span', { className: 'la-foot la-footer-source' }, props.source),
-    h('span', { className: 'la-foot la-footer-page' }, props.page));
+  return h('div', { className: cx('aes-footer', props.className), style: props.style },
+    h('span', { className: 'aes-footer-logo' }, h(Logo, { width: props.logoWidth || 89 })),
+    h('span', { className: 'aes-foot aes-footer-source' }, props.source),
+    h('span', { className: 'aes-foot aes-footer-page' }, props.page));
 }
 
 function PointList(props) {
-  return h('div', { className: 'la-points' }, (props.items || []).map(function (p, i) {
-    return h('div', { key: i, className: 'la-point' },
-      h('p', { className: 'la-point-n' }, p.n || String(i + 1).padStart(2, '0')),
-      h('p', { className: 'la-point-head' }, p.head),
-      h('p', { className: 'la-text la-body la-point-text' }, p.text));
+  return h('div', { className: 'aes-points' }, (props.items || []).map(function (p, i) {
+    return h('div', { key: i, className: 'aes-point' },
+      h('p', { className: 'aes-point-n' }, p.n || String(i + 1).padStart(2, '0')),
+      h('p', { className: 'aes-point-head' }, p.head),
+      h('p', { className: 'aes-text aes-body aes-point-text' }, p.text));
   }));
 }
 
@@ -108,28 +108,28 @@ var SIDE_OF = function (photoSide) { return photoSide === 'left' ? 'right' : 'le
 
 function Slide(props) {
   var scale = props.scale || 0.4;
-  return h('div', { className: 'la-slide-frame', style: { width: 1920 * scale, height: 1080 * scale } },
+  return h('div', { className: 'aes-slide-frame', style: { width: 1920 * scale, height: 1080 * scale } },
     h('div', {
-      className: 'la-slide', 'data-pairing': props.pairing, 'data-product': props.product,
+      className: 'aes-slide', 'data-pairing': props.pairing, 'data-product': props.product,
       style: { transform: 'scale(' + scale + ')' }
     }, props.children));
 }
 
 function SlideColumn(props) {
-  return h('div', { className: cx('la-slide-column', 'la-at-' + (props.side || 'left'), props.centered && 'la-slide-centered'), style: props.gap ? { gap: 'var(--gap-' + props.gap + ')' } : null },
+  return h('div', { className: cx('aes-slide-column', 'aes-at-' + (props.side || 'left'), props.centered && 'aes-slide-centered'), style: props.gap ? { gap: 'var(--gap-' + props.gap + ')' } : null },
     props.title ? h(Text, { role: 'title' }, props.title) : null,
     props.children);
 }
 
 function SlideBleed(props) {
-  return h('div', { className: cx('la-bleed', props.width === 'major' ? 'la-bleed-major' : 'la-bleed-minor', props.side === 'left' ? 'la-bleed-left' : 'la-bleed-right', props.block && 'la-block'), 'data-pairing': props.block ? props.pairing : undefined }, props.children);
+  return h('div', { className: cx('aes-bleed', props.width === 'major' ? 'aes-bleed-major' : 'aes-bleed-minor', props.side === 'left' ? 'aes-bleed-left' : 'aes-bleed-right', props.block && 'aes-block'), 'data-pairing': props.block ? props.pairing : undefined }, props.children);
 }
 
 function frame(props, side) {
   return [
-    props.chapters ? h('div', { key: 't', className: cx('la-slide-tracker', 'la-at-' + side) }, h(Tracker, { chapters: props.chapters, current: props.current, pills: props.navPills, pillCurrent: props.navCurrent })) : null,
-    props.closing ? h('div', { key: 'c', className: cx('la-slide-closing', 'la-at-' + side) }, h(ClosingLine, { loop: props.loop }, props.closing)) : null,
-    h('div', { key: 'f', className: cx('la-slide-footer', 'la-at-' + side) }, h(Footer, { source: props.source, page: props.page }))
+    props.chapters ? h('div', { key: 't', className: cx('aes-slide-tracker', 'aes-at-' + side) }, h(Tracker, { chapters: props.chapters, current: props.current, pills: props.navPills, pillCurrent: props.navCurrent })) : null,
+    props.closing ? h('div', { key: 'c', className: cx('aes-slide-closing', 'aes-at-' + side) }, h(ClosingLine, { loop: props.loop }, props.closing)) : null,
+    h('div', { key: 'f', className: cx('aes-slide-footer', 'aes-at-' + side) }, h(Footer, { source: props.source, page: props.page }))
   ];
 }
 
@@ -144,13 +144,13 @@ function SlideOpening(props) {
   return h(Slide, { scale: props.scale },
     h(SlideBleed, { side: 'left', width: 'major' }, h(Photo, { src: props.photo, alt: props.photoAlt, position: props.photoPosition })),
     h(SlideBleed, { side: 'right', width: 'minor', block: true, pairing: props.pairing },
-      h('div', { className: 'la-block-logo' }, h(Logo, { tone: onWhite(props.pairing), width: 210 })),
-      h(Stack, { gap: 'apart', className: 'la-block-words' },
+      h('div', { className: 'aes-block-logo' }, h(Logo, { tone: onWhite(props.pairing), width: 210 })),
+      h(Stack, { gap: 'apart', className: 'aes-block-words' },
         h(Stack, { gap: 'near' },
           h(Text, { role: 'label', tone: 'on-field' }, props.label),
           h(Text, { role: 'display', as: 'h1', tone: 'on-field' }, props.promise)),
         h(Text, { role: 'label', tone: 'on-field' }, props.date))),
-    props.band ? h('div', { className: 'la-slide-band' }, h(Band, null)) : null);
+    props.band ? h('div', { className: 'aes-slide-band' }, h(Band, null)) : null);
 }
 
 function SlideChapter(props) {
@@ -218,8 +218,8 @@ function SlideProduct(props) {
 function SlideClosing(props) {
   return h(Slide, { scale: props.scale },
     h(SlideBleed, { side: 'left', width: 'minor', block: true, pairing: props.pairing },
-      h('div', { className: 'la-block-logo' }, h(Logo, { tone: onWhite(props.pairing), width: 210 })),
-      h(Stack, { gap: 'follow', className: 'la-block-words' },
+      h('div', { className: 'aes-block-logo' }, h(Logo, { tone: onWhite(props.pairing), width: 210 })),
+      h(Stack, { gap: 'follow', className: 'aes-block-words' },
         h(Text, { role: 'display', as: 'h1', tone: 'on-field' }, props.line),
         h(Text, { role: 'lead', tone: 'on-field' }, props.lead))),
     h(SlideBleed, { side: 'right', width: 'major' }, h(Photo, { src: props.photo, alt: props.photoAlt, position: props.photoPosition })));

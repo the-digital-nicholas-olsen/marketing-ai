@@ -1,1 +1,0 @@
-Official Stellar M22 logo files, unchanged from the Stellar M22 logo package. Which file goes on which ground, clear space, minimum size and how to use them in components: the [Stellar M22 module](../../products/stellar-m22/product.md).

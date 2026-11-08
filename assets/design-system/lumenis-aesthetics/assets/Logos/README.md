@@ -1,1 +1,0 @@
-The official Lumenis wordmark and Hero L, black and white SVG; the same files as Lumenis Corporate, copied so this system stands alone. Ink: black files are black, white files are white. When and how to use them: the README's Icons and logos section.

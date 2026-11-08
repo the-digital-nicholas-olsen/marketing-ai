@@ -9,7 +9,7 @@
 var DS = window.LumenisAesthetics, h = React.createElement;
 var DECK=[{name:'Chapter 1',pairing:'mint'},{name:'Chapter 2',pairing:'sky'},{name:'Chapter 3',pairing:'rose-gold'},{name:'Chapter 4',pairing:'lavender'},{name:'Finale',pairing:'silken-rose'}];
 function Demo(){
-  return h(DS.Stack,{direction:'row',gap:'apart'},h(DS.Logo,{width:210}),h('div',{'data-pairing':'silken-rose',className:'la-block',style:{padding:34}},h(DS.Logo,{tone:'white',width:210})),h(DS.Logo,{mark:'hero-l',width:55}));
+  return h(DS.Stack,{direction:'row',gap:'apart'},h(DS.Logo,{width:210}),h('div',{'data-pairing':'silken-rose',className:'aes-block',style:{padding:34}},h(DS.Logo,{tone:'white',width:210})),h(DS.Logo,{mark:'hero-l',width:55}));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
 })();
