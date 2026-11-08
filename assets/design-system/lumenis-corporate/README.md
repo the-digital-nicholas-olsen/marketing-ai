@@ -16,8 +16,8 @@ guidelines into rules an AI (or a person) can design with: tokens, fonts, logos,
 the brand line icons, cleared photography, React components, guideline specimen cards and
 two UI kits.
 
-It is one of three separate Lumenis brand systems — **Lumenis Corporate**, **OptiLIGHT** and
-**OptiLIFT** — each a complete brand book for a different purpose. Use this one when Lumenis
+It is one of four separate Lumenis brand systems — **Lumenis Corporate**, **Lumenis Aesthetics**,
+**OptiLIGHT** and **OptiLIFT** — each a complete brand book for a different purpose. Use this one when Lumenis
 Corporate is requested or the work speaks as *Lumenis* the company: corporate decks, the corporate
 website and landing pages, events (Accelerate by Lumenis), recruitment, social, print and
 stationery. It does not inherit from, override or constrain the product systems, and they do not

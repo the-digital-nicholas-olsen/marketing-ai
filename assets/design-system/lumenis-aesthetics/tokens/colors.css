@@ -1,0 +1,50 @@
+:root{
+/* Ground and text. Light grounds only: never a dark slide or page background. */
+--color-white:#ffffff;
+--ink:#231f20;
+--grey-text:#575757;
+
+/* Color pairings: a field color and its ink. One pairing per chapter. The field carries large shapes (chapter number, tracker dash, color field); the ink carries small colored type and the so-what arrow. Never split a pairing; never set field-color type on white below 56px. */
+--mint:#6cc39b;        --mint-ink:#2f8a68;
+--sky:#7bc9ed;         --sky-ink:#316faf;
+--lavender:#b5a7d1;    --lavender-ink:#7079ba;
+--rose-gold:#fabcad;   --rose-gold-ink:#ba6d81;
+--silken-rose:#ba6d81; --silken-rose-ink:#8f4d61;
+
+/* Bookend: the opening and closing color block, white type. Not a chapter pairing. */
+--bookend:#7079ba;     --bookend-ink:#ffffff;
+
+/* Accelerate color band, left to right. A signature strip only, never a palette to pick from. */
+--band-1:#6cc39b; --band-2:#34aa98; --band-3:#38bdc9; --band-4:#7bc9ed; --band-5:#5e99d2;
+--band-6:#316faf; --band-7:#b5a7d1; --band-8:#cca3cc; --band-9:#7079ba; --band-10:#eae2da;
+--band-11:#dcc9b7; --band-12:#bfa090; --band-13:#a38882; --band-14:#876255; --band-15:#eed5d1;
+--band-16:#ecc5bb; --band-17:#c16277; --band-18:#d55868; --band-19:#e37f60;
+--band:linear-gradient(90deg,
+  var(--band-1) 0 5.263%, var(--band-2) 0 10.526%, var(--band-3) 0 15.789%, var(--band-4) 0 21.053%,
+  var(--band-5) 0 26.316%, var(--band-6) 0 31.579%, var(--band-7) 0 36.842%, var(--band-8) 0 42.105%,
+  var(--band-9) 0 47.368%, var(--band-10) 0 52.632%, var(--band-11) 0 57.895%, var(--band-12) 0 63.158%,
+  var(--band-13) 0 68.421%, var(--band-14) 0 73.684%, var(--band-15) 0 78.947%, var(--band-16) 0 84.211%,
+  var(--band-17) 0 89.474%, var(--band-18) 0 94.737%, var(--band-19) 0 100%); /* @kind other */
+
+/* Verdict pills */
+--verdict-winning:#316faf;
+--verdict-watch:#7bc9ed;
+--verdict-warning:#ba6d81;
+
+/* Semantic */
+--surface-page:var(--color-white);
+--text-primary:var(--ink);
+--text-secondary:var(--grey-text);
+--text-inverse:var(--color-white);
+
+/* The active pairing. Set data-pairing on any element to switch it. Defaults to rose gold. */
+--field:var(--rose-gold);
+--field-ink:var(--rose-gold-ink);
+--on-field:var(--ink);
+}
+[data-pairing="mint"]{--field:var(--mint);--field-ink:var(--mint-ink);--on-field:var(--ink)}
+[data-pairing="sky"]{--field:var(--sky);--field-ink:var(--sky-ink);--on-field:var(--ink)}
+[data-pairing="lavender"]{--field:var(--lavender);--field-ink:var(--lavender-ink);--on-field:var(--ink)}
+[data-pairing="rose-gold"]{--field:var(--rose-gold);--field-ink:var(--rose-gold-ink);--on-field:var(--ink)}
+[data-pairing="silken-rose"]{--field:var(--silken-rose);--field-ink:var(--silken-rose-ink);--on-field:var(--color-white)}
+[data-pairing="bookend"]{--field:var(--bookend);--field-ink:var(--bookend-ink);--on-field:var(--color-white)}

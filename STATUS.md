@@ -4,7 +4,7 @@ Updated 2026-09-14. The repository now goes beyond the initial public preview: s
 
 ## Available
 
-- Three separate brand systems — Lumenis Corporate, OptiLIGHT and OptiLIFT — each with its own guidance, tokens and specimen cards (Lumenis Corporate adds logos, brand icons, components and UI kits), plus a verified HubSpot-hosted OptiLIGHT lockup, four ABC Arizona font download links and explicit source caveats.
+- Four separate brand systems — Lumenis Corporate, Lumenis Aesthetics, OptiLIGHT and OptiLIFT — each with its own guidance, tokens and specimen cards (Lumenis Corporate adds logos, brand icons, components and UI kits), plus a verified HubSpot-hosted OptiLIGHT lockup, four ABC Arizona font download links and explicit source caveats.
 
 - Integrated image-library instructions, catalog and scripts in assets/image-library, with a canonical intake/upload skill and generated Claude copy. Local intake/resizing tested; production HubSpot upload/sync not exercised during adoption.
 

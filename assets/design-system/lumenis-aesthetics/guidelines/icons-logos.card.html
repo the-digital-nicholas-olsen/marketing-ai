@@ -1,0 +1,41 @@
+<!-- @dsCard group="Lumenis Aesthetics" viewport="900x520" name="Icons &amp; Logos" subtitle="10 approved line icons, black on white and white on color; logos on color" -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="card.css">
+<style>
+.g{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;text-align:center}
+.g .icon{width:55px;height:55px}
+.g span{display:block;font-size:10px;text-transform:uppercase;color:var(--text-secondary);margin-top:8px}
+.demo{display:flex;gap:21px;margin-top:21px}
+.f{position:relative;overflow:hidden;width:262px;height:180px}
+.lg{position:absolute;left:21px;bottom:21px;display:flex;align-items:flex-end;gap:13px}
+</style>
+<div class="card">
+  <div class="h">The 10 approved icons, unaltered</div>
+  <div class="g">
+    <div><i class="icon" style="--src:url(../assets/icons/crossover.svg)"></i><span>crossover</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/burst.svg)"></i><span>burst</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/zigzag.svg)"></i><span>zigzag</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/wave.svg)"></i><span>wave</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/sparkle.svg)"></i><span>sparkle</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/rings.svg)"></i><span>rings</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/star.svg)"></i><span>star</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/cross.svg)"></i><span>cross</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/lines.svg)"></i><span>lines</span></div>
+    <div><i class="icon" style="--src:url(../assets/icons/orbit.svg)"></i><span>orbit</span></div>
+  </div>
+  <div class="demo">
+    <div class="f" data-pairing="rose-gold" style="background:var(--field)">
+      <i class="icon" style="--src:url(../assets/icons/sparkle.svg);color:#fff;width:260px;height:260px;position:absolute;right:-89px;top:-55px"></i>
+      <div class="lg"><img src="../assets/logo/lumenis-wordmark-black.svg" style="height:21px" alt="Lumenis wordmark, black on color"></div>
+    </div>
+    <div class="f" data-pairing="silken-rose" style="background:var(--field)">
+      <i class="icon" style="--src:url(../assets/icons/orbit.svg);color:#fff;width:280px;height:280px;position:absolute;left:110px;top:-34px"></i>
+      <div class="lg"><img src="../assets/logo/lumenis-hero-l-white.svg" style="height:34px" alt="Lumenis symbol, white on color"></div>
+    </div>
+    <div class="f" style="background:#fff;outline:1px solid var(--card-line)">
+      <i class="icon" style="--src:url(../assets/icons/wave.svg);width:200px;height:200px;position:absolute;right:-55px;bottom:-89px"></i>
+      <div class="lg"><img src="../assets/logo/lumenis-wordmark-black.svg" style="height:21px" alt="Lumenis wordmark, black on white"></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:13px">Black on white, white on color. Large and cropped by the frame, never touching type, never on a colored tile on white. On color: symbol white, wordmark black; on the bookend block the wordmark is white. Never a logo on a photo.</p>
+</div>

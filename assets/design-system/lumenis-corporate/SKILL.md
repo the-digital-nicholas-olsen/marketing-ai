@@ -1,6 +1,6 @@
 ---
 name: lumenis-corporate-design
-description: Use this skill to generate well-branded interfaces and assets for the Lumenis corporate (master) brand — corporate decks, website and landing pages, social posts, print, events, recruitment and any communication that speaks as Lumenis the company. One of three separate Lumenis brand systems (Lumenis Corporate, OptiLIGHT, OptiLIFT); use it when Lumenis Corporate is requested. Contains the 2026 brand guidelines distilled into rules, tokens, fonts, logos, the Hero L, brand line icons, cleared imagery, components and UI kits.
+description: Use this skill to generate well-branded interfaces and assets for the Lumenis corporate (master) brand — corporate decks, website and landing pages, social posts, print, events, recruitment and any communication that speaks as Lumenis the company. One of four separate Lumenis brand systems (Lumenis Corporate, Lumenis Aesthetics, OptiLIGHT, OptiLIFT); use it when Lumenis Corporate is requested. Contains the 2026 brand guidelines distilled into rules, tokens, fonts, logos, the Hero L, brand line icons, cleared imagery, components and UI kits.
 user-invocable: true
 ---
 
