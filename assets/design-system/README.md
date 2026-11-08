@@ -1,6 +1,6 @@
 # Lumenis brand systems
 
-Four separate brand systems live here. Each is a complete brand book on its own — rules, tokens, assets and specimen cards — for a different purpose. They are not layers: no system inherits from, overrides or corrects another, so a rule that differs between two systems is not a conflict.
+The Lumenis brand systems live here. Each is a complete brand book on its own — rules, tokens, assets and specimen cards — for a different purpose. They are not layers: no system inherits from, overrides or corrects another, so a rule that differs between two systems is not a conflict.
 
 | Call it | Use it for | Start with | Detail |
 |---|---|---|---|
@@ -23,7 +23,7 @@ These are not brand rules. They apply whichever system is selected.
 
 - [Image library](../image-library/README.md) for photography and hosted delivery links. Check each asset's `allowedBrands` (`Lumenis corporate`, `OptiLIGHT`, `OptiLIFT`) against the selected system.
 - [KOL profiles](../kol-library/index.md) for biographies and headshot candidates, and [claims references](../claims-reference/index.md) for citations and qualifications. Neither a candidate image nor a confirmed citation establishes marketing approval, and design-source example copy is not evidence of a cleared indication or approved claim.
-- [HubSpot asset index](hubspot-assets.md) for the ABC Arizona font downloads (all four systems use ABC Arizona, each in its own way) and the verified OptiLIGHT lockup. Font binaries are licensed and never committed to Git; each system's `tokens/fonts.css` looks up installed fonts.
+- [HubSpot asset index](hubspot-assets.md) for the ABC Arizona font downloads (every system uses ABC Arizona, each in its own way) and the verified OptiLIGHT lockup. Font binaries are licensed and never committed to Git; each system's `tokens/fonts.css` looks up installed fonts.
 - HubSpot delivery: [landing pages](../../.agents/skills/lumenis-hubspot-landing-page/SKILL.md), [forms](../../.agents/skills/lumenis-hubspot-form/SKILL.md) and [emails](../../.agents/skills/lumenis-hubspot-email/SKILL.md). Use one scoped Custom HTML module where that pattern applies, real hosted assets, the correct native form and approved footer/privacy controls. Email needs inline CSS and fallback fonts.
 
 Before delivery, check the piece against the selected system only: product casing, ground colour, typography, contrast, logo fidelity, image rights, claim context and real link destinations. Inspect desktop and mobile output.

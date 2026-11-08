@@ -2,7 +2,7 @@
 
 **OptiLIFT by Lumenis** is a non-invasive, in-office optical energy device for facial and neck skin tightening/contouring, sold to aesthetic and dermatology practices as a premium capital device, with matching patient-facing marketing materials. Materials always tie back to Lumenis through the "by Lumenis" endorsement lockup.
 
-This reference belongs to the standalone OptiLIFT brand system; the rules are in [guidance.md](guidance.md). It is one of four separate Lumenis brand systems and is used only for OptiLIFT work.
+This reference belongs to the standalone OptiLIFT brand system; the rules are in [guidance.md](guidance.md). It is one of the separate Lumenis brand systems and is used only for OptiLIFT work.
 
 The source describes OptiLIFT in facial-contouring language. Do not infer indication, market grouping (Aesthetics or Vision), CRM routing or claims from design copy — take them from the brief, the [regulatory do's and don'ts](../../regulatory/optilift.md) and the [claims library](../../claims-reference/index.md), where "confirmed" means evidence checked, not regulatory clearance.
 

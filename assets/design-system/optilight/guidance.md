@@ -5,7 +5,7 @@ description: The standalone OptiLIGHT brand system — the black, white and Opti
 
 # OptiLIGHT — brand system
 
-One of four separate Lumenis brand systems (Lumenis Corporate, Lumenis Aesthetics, OptiLIGHT, OptiLIFT), each a complete brand book for a different purpose. Everything OptiLIGHT work needs is in this folder: these rules, the [reference](reference.md), `styles.css` and `tokens/`, and specimen cards in `guidelines/`. It does not inherit from or defer to the other systems, and their different choices are not conflicts.
+One of the separate Lumenis brand systems listed in the [design-system README](../README.md), each a complete brand book for a different purpose. Everything OptiLIGHT work needs is in this folder: these rules, the [reference](reference.md), `styles.css` and `tokens/`, and specimen cards in `guidelines/`. It does not inherit from or defer to the other systems, and their different choices are not conflicts.
 
 ## Non-negotiables
 
