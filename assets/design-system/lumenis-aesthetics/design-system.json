@@ -450,8 +450,8 @@
   },
   "lastChange": {
     "by": "Laarni Cayetano",
-    "at": "2026-11-08T04:32:23Z",
-    "via": "GitHub · the-digital-nicholas-olsen/marketing-ai@add/aesthetics-design-system",
-    "note": "Added the four ABC Arizona cuts (Sans Regular and Light, Mix Regular and Italic) as the system fonts."
+    "at": "2026-11-08T05:59:03Z",
+    "via": "GitHub · the-digital-nicholas-olsen/marketing-ai@0999419",
+    "note": "Re-synced to 0999419: text, inset photo, gallery, cards and blank slide types; BulletList, Card, Divider; field-secondary color; looser slide rules; web format (web.md, Web*, Button)."
   }
 }
