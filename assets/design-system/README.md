@@ -31,6 +31,18 @@ Before delivery, check the piece against the selected system only: product casin
 
 Each system folder is self-contained: its own `styles.css` and `tokens/`, its own guidance and reference files, and specimen cards under `guidelines/` that load only that folder's stylesheet. Lumenis Corporate also carries logos, brand line icons, components and UI kits.
 
+## Viewing specimen cards and UI kits
+
+Open any `.html` file directly in Chrome, Edge or Safari, for example `lumenis-corporate/ui_kits/slides/index.html`. Stylesheets and scripts load by relative path; React and Babel load from unpkg and photos from HubSpot, so you need to be online. Fonts show in the fallback face unless ABC Arizona is installed locally ([download links](hubspot-assets.md)).
+
+Some viewers block relative scripts on local files: embedded previews, including the Claude desktop app's browser pane, and some locked-down browsers. If a page loads blank, serve the folder from the repository root and open the page through it:
+
+```bash
+npx --yes http-server@14.1.1 assets/design-system -p 8642 -c-1
+```
+
+Then go to `http://localhost:8642/lumenis-corporate/ui_kits/slides/index.html` (or any other page under `assets/design-system`). For the Claude desktop app, put the same command in a local `.claude/launch.json` (`"runtimeExecutable": "npx"`, the rest as `runtimeArgs`, `"port": 8642`). That file is a personal setting and is not committed.
+
 ## Provenance
 
 - **OptiLIFT and OptiLIGHT** were imported on September 9, 2026 from [lumenis-design-system commit c2c8024](https://github.com/laarnicayetano/lumenis-design-system/tree/c2c80240eb29ac5cf0573a5d3271792b5e16e8a4) as product layers over a shared corporate baseline. On September 14, 2026 they were made standalone: each now has its own tokens, taken from the matching Claude Design system, and the baseline references were removed. One cross-system dependency was replaced with an in-system equivalent: OptiLIGHT coloured body text and links now use OptiLIGHT's own deep blue `#2F63D6` instead of OptiLIFT violet.

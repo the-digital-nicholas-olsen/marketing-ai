@@ -262,7 +262,7 @@ collateral and concept mockups, not a coded component library.
 - **`ui_kits/slides/`** — the 16:9 slide format:
   based on the 2027 Aesthetics AOP. 1920×1080 grid (128 margins, 973 text column, photos and
   color blocks full bleed at 38.2% or 61.8%), fixed frame (tracker, eyebrow, title, so-what line,
-  source note, page number), slide type scale, Fibonacci spacing, chapter colors, rules (no
+  source note and page number on one baseline), slide type scale, Fibonacci spacing, color pairings, rules (no
   lines or boxes), and six slide types (opening, chapter break, content, hero number, profile,
   closing) using Lumenis brand stock photography hosted in HubSpot.
 
