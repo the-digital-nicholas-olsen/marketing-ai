@@ -50,22 +50,22 @@ export interface SlideCardsProps extends SlideFrame { scale?: number; product?: 
 export interface SlideBlankProps extends SlideFrame { scale?: number; product?: ProductId; title?: string; children?: ReactNode }
 
 // Web pages (web.md). Each Web* component renders the plain aes-w-* markup from bundle.css.
-export type Ground = 'page' | 'soft' | 'muted';
+export type Ground = page | soft | muted | accent;
 export interface WebLink { label: string; href: string }
-export interface WebAction { label: string; href: string; kind?: ButtonProps['kind'] }
+export interface WebAction { label: string; href: string; kind?: ButtonProps[kind] }
 interface WebPhoto { photo?: string; photoAlt?: string; photoPosition?: string }
 interface WebColor { pairing?: Pairing; product?: ProductId }
-export interface ButtonProps { kind?: 'field' | 'ink' | 'outline' | 'text'; size?: 'small' | 'medium'; href?: string; type?: 'button' | 'submit'; onClick?: () => void; className?: string; children?: ReactNode }
+export interface ButtonProps { kind?: field | ink | outline | text; size?: small | medium; href?: string; type?: button | submit; onClick?: () => void; className?: string; children?: ReactNode }
 export interface WebPageProps extends WebColor { className?: string; style?: CSSProperties; children?: ReactNode }
 export interface WebHeaderProps { links?: WebLink[]; cta?: WebAction; home?: string; extra?: ReactNode }
-export interface WebHeroProps extends WebPhoto, WebColor { logoVariant?: string; logoHeight?: number; eyebrow?: string; title: ReactNode; intro?: ReactNode; meta?: string[]; actions?: WebAction[]; icon?: IconProps['name']; band?: boolean }
-export interface WebSectionHeadProps { eyebrow?: string; title?: ReactNode; intro?: ReactNode }
-export interface WebSectionProps extends WebSectionHeadProps, WebColor { id?: string; ground?: Ground; layout?: 'stacked' | 'split'; closing?: ReactNode; loop?: boolean; className?: string; children?: ReactNode }
-export interface WebListProps { logos?: boolean; items: { title: ReactNode; text?: ReactNode; marker?: ReactNode; product?: ProductId; variant?: string; alt?: string }[] }
+export interface WebHeroProps extends WebPhoto, WebColor { logoVariant?: string; logoHeight?: number; label?: string; title: ReactNode; intro?: ReactNode; meta?: string[]; actions?: WebAction[]; icon?: IconProps[name] }
+export interface WebSectionHeadProps { title?: ReactNode; titleId?: string; lead?: ReactNode; intro?: ReactNode }
+export interface WebSectionProps extends WebSectionHeadProps, WebColor { id?: string; ground?: Ground; className?: string; children?: ReactNode }
+export interface WebSplitProps extends WebSectionProps, WebPhoto { productImage?: string; productAlt?: string }
+export interface WebCardsProps { items: { title: ReactNode; text?: ReactNode; image?: string; alt?: string }[] }
 export interface WebAgendaProps { id?: string; label?: string; days: { label: string; date: string; sessions: { time: string; tag?: string; title: ReactNode; subtitle?: string; text?: ReactNode }[] }[] }
 export interface WebPeopleProps { people: { name: string; credentials?: string; text?: ReactNode; photo?: string }[] }
 export interface WebRowsProps { items: { when: string; title: ReactNode; text?: ReactNode }[] }
-export interface WebMediaProps extends WebPhoto, WebColor, WebSectionHeadProps { id?: string; photoSide?: 'left' | 'right'; ground?: Ground; children?: ReactNode }
 export interface WebFactsProps { items: { label: string; value: ReactNode }[] }
-export interface WebClosingProps extends WebPhoto, WebColor { eyebrow?: string; title: ReactNode; intro?: ReactNode; actions?: WebAction[]; icon?: IconProps['name'] }
-export interface WebFooterProps { links?: WebLink[]; legal?: ReactNode; note?: ReactNode }
+export interface WebClosingProps extends WebPhoto, WebColor { id?: string; title: ReactNode; facts?: WebFactsProps[items]; intro?: ReactNode; actions?: WebAction[]; icon?: IconProps[name] }
+export interface WebFooterProps { links?: WebLink[]; legal?: ReactNode; note?: ReactNode; band?: boolean }

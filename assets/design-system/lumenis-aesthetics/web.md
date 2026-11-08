@@ -1,52 +1,50 @@
 # Web
 
-The format for scrolling pages: HubSpot landing, event, agenda and program pages, microsites and page artifacts. It keeps everything the README says about proportion, color, photography, icons, logos and words, and sets its own sizes as the `web-*` tokens and the Web type styles. The **Web** page shows a full page built with it.
+The Aesthetics format for scrolling pages: HubSpot landing, event, agenda and program pages, microsites and page artifacts. It is the reference for any Aesthetics web design. It builds on the README's rules for color, photography, icons, logos and words, and sets its own grid, sizes, type and components as the `web-*` tokens and the Web type styles. The **Web** page shows a full page built with it.
 
-A slide is one idea on a fixed canvas; a page is a sequence a reader scrolls. So the web format adds what slides never needed: a header, section rhythm, headlines that carry a message, buttons, tabs and lists. It was modeled on the Scottsdale Accelerate 2026 aesthetics agenda page, the Lumenis web page the Aesthetics team holds up as the standard.
+A page is a sequence a reader scrolls: a sticky header, sections on one grid in a steady rhythm, buttons, tabs and cards. The quality bar is the Scottsdale Accelerate 2026 aesthetics agenda page, held to the standard of professional company sites: one grid with equal edges, one idea and one picture per section, the real product shown big, no labels above headings, and motion only where the reader acts.
 
-## What changes from slides
+## The rules
 
-| | Slides | Web |
-|---|---|---|
-| Headlines | Uppercase Arizona Sans titles | Arizona Mix in sentence case, written as a message ("Two days built around one platform."), under a small uppercase eyebrow that names the section |
-| Navigation | Tracker | Sticky header with sentence-case links; the eyebrow names each section |
-| Ground | White only | White, `surface-soft` and `surface-muted` in turn down the page, so each section has a clear start. Never dark |
-| Lines | None | 1px `rule` hairlines between the items of a list and on the agenda timeline. Still no boxes, frames, outlines or shadows |
-| Photos | Bleed on every slide | Bleed at the opening, the closing and at most one media split; people sections use round headshots |
-| Closing line | Every content slide | At most one per section, where a section needs its "so what" |
-| Color band | The opening's bottom strip | The same: once, along the bottom of the opening hero |
-
-Everything else stays: the golden split, Fibonacci spacing, two text colors, one pairing per section (or the product's own colors via `data-product`), official logos, unaltered icons, Rose Gold and Silken Rose as the only pinks, and about 40 words of copy before the reader meets a heading or a break.
+1. **One grid, equal edges.** Every section uses the same 1280 column on 12 columns with 24 gutters, 80 in from each edge at 1440. Text and pictures start and end on column lines. Only the hero and the closing run edge to edge, on both sides at once.
+2. **One idea, one picture, about one screen.** Each section makes one point under one heading and carries one picture (a photograph, a product render, cards with renders, or headshots). At 1440 × 900 each section is about one screen tall; a section that is mostly empty gets its picture or merges into its neighbour.
+3. **The headline speaks.** Section headlines are Arizona Mix in sentence case and say something ("A station for every handpiece."). No eyebrow or label above a heading: the nav names the sections. Small caps labels are for times, tags and the label over a figure only.
+4. **Show the real thing.** On a product page the product appears whole and big (an official render standing on the page, never a small render in a grey box) and its parts appear as renders in cards. People sections use real headshots; treatment and event photographs show real use. Different picture in every section.
+5. **Light grounds, one accent.** Sections alternate white, `surface-soft` and `surface-muted`. One section may take the product's second color (`.aes-w-ground-accent`: Silken Rose for Stellar M22) to balance the Rose Gold of the hero and the closing. White type on that ground is large type only (the h2 and the 26px lead). Never a dark section.
+6. **Lines and boxes only where they help.** 1px `rule` hairlines close list rows and draw the agenda timeline. Cards are square, white, with no border or shadow. A product render may cast a soft shadow on the page.
+7. **Quiet motion.** The hero enters once on load (the photo settles, the words rise in order); buttons rise 1px on hover and press on click; photos zoom 2.5% inside their frame; links draw their underline; cards lift 2px. Nothing animates on scroll, nothing loops, and everything rests under reduced motion.
+8. **The color band closes the page.** The Accelerate band appears once, at the very foot, under the footer.
 
 ## Frame
 
 | Part | Value |
 |---|---|
-| Content column | 1180 wide (`web-content-max`), centered; side margins 55 (`web-margin`), 21 below 900 (`web-margin-small`) |
-| Section | Padded 89 top and bottom (`web-section-pad`), 55 below 900 |
-| Header | Sticky, 72 high (`web-header-height`), lightly frosted white: the wordmark 110 wide, links in `aes-web-small`, one small button |
-| Opening hero | At least 640 high (`web-hero-min`), never 100vh. Photo 61.8% left, color block 38.2% right in the field; the product logo (or the Lumenis wordmark) at the top of the block; eyebrow, headline, one line of intro, date and place pills and up to two buttons at its foot. A white line icon 144 wide crosses the seam without touching type or a face. The color band runs along the bottom |
-| Section header | Eyebrow, then 13 to the h2, then 21 to the intro; 55 to the content. Left-aligned. In a split section the header takes 38.2% and stays in view while the content (61.8%) scrolls |
-| Closing | Mirrors the hero: color block 38.2% with the wordmark, an h2-size line, a short intro and one button; photo 61.8% |
-| Footer | `surface-muted`: the wordmark 89 wide, links, the copyright line and any required notes or safety text |
-| Breakpoint | 900 (`web-breakpoint`): every split stacks to one column, photos come first at a fixed ratio, the small sizes apply |
-
-**Rhythm.** Alternate grounds so no two neighbouring sections share one: white, soft, muted, white, soft… The hero and closing blocks carry the field; the footer is muted. A product page sets `data-product` on the wrapper so every field, field ink, button and tab takes the product's colors.
+| Content column | `width: min(100% - 2 × margin, 1280)` (`web-content-max`); margins 80 (`web-margin`), 48 from 640 to 1023 (`web-margin-medium`), 24 below 640 (`web-margin-small`) |
+| Grid | 12 columns, 24 gutters (`.aes-w-grid`). Words beside a photo: seven columns and five (`.aes-w-text`, `.aes-w-visual`). Words beside a product: five and seven (`.is-product`) |
+| Section | 144 above the heading (`web-section-pad`), 89 below the content (`web-section-pad-end`); 89 and 55 below 900 |
+| Header | Sticky, 72 high (`web-header-height`), frosted white: the wordmark 110 wide, sentence-case links with drawn underlines, one small Rose Gold button |
+| Opening hero | Fills the first screen under the header (`web-hero-min` 600 at least). Photo 61.8% left, color block 38.2% right in the field: the product logo at the top; the headline, one sentence, date and place pills and two buttons at its foot. A white line icon 144 wide crosses the seam without touching type or a face |
+| Section head | h2, then 21 to the lead or intro, then 55 to the content (34 inside a split). Left-aligned on the first column line |
+| Pictures | Photographs 4:5 in the five-column visual, at most 708 tall. A product render standing whole in the seven-column visual, up to 640 tall. Cards: a 1:1 render frame on `product-backdrop`, then the name and one or two lines |
+| Closing | Mirrors the hero: color block 38.2% holding the line to remember, the key facts, one sentence on how to register and the button; photo 61.8% |
+| Footer | `surface-muted`: the wordmark 89 wide, links, the copyright line and any notes or safety text; the color band under it |
+| Breakpoints | 1199: cards two across. 1023: every split stacks, words first. 900: hero and closing stack, photo first; the small type sizes apply. 640: one column, buttons full width |
 
 ## Type
 
 | Style | Desktop | Below 900 | Use |
 |---|---|---|---|
-| `aes-web-eyebrow` | 13 caps, tracking 2 | 13 | The section's name above its headline; times on the agenda |
-| `aes-web-body` | 17 / 1.55 | 17 | Running text in dark grey, at most about 62 characters a line |
+| `aes-web-h1` | Mix 72 | 48 | The page headline, once, in the hero block |
+| `aes-web-h2` | Mix 48 | 34 | Section headlines, written as a message |
+| `aes-web-lead` | Mix 24 | 21 (26 on the accent ground) | The one serif line under a section headline |
+| `aes-web-h3` | Mix 24 | 21 | Card names, sessions, people, rows |
+| `aes-web-body` | 17 / 1.6 | 17 | Running text in dark grey, about 62 characters a line at most |
 | `aes-web-small` | 15 / 1.45 | 15 | Card text, notes, nav links, footer |
-| `aes-web-h3` | Mix 24 | 21 | List items, sessions, names |
-| `aes-web-h2` | Mix 46 | 34 | Section headlines |
-| `aes-web-h1` | Mix 72 | 52 | The page headline, once, in the hero block |
-| `aes-web-number` | Sans Light 40 | 32 | Dates, facts, stats |
+| `aes-web-number` | Sans Light 40 | 30 | Dates and facts |
+| `aes-web-eyebrow` | 13 caps, tracking 2 | 13 | Times, day names and the label over a figure. Never above a heading |
 | `aes-web-button` | 13 caps, tracking 1.6 | 13 | Buttons |
 
-Colored type follows the README: the field ink only at 24 and up (list numbers, the arrow, timeline dots), never for small labels or credentials.
+Colored type follows the README: the field ink only at 24 and up (the timeline dots, the text-link arrow), never for small labels.
 
 ## Components
 
@@ -56,39 +54,39 @@ Every component renders plain `aes-w-*` markup from `components/bundle.css`, so 
 |---|---|---|
 | `WebPage` | `.aes-web` | `pairing` or `product`; wraps the page and sets body type |
 | `WebHeader` | `.aes-w-header`, `.aes-w-nav` | `links`, `cta` |
-| `WebHero` | `.aes-w-hero`, `.aes-w-block`, `.aes-w-meta` | `product` (and `logoVariant`) or `pairing`, `eyebrow`, `title`, `intro`, `meta` (date, place), `actions`, `photo`/`photoAlt`/`photoPosition`, `icon`, `band` |
-| `WebSection` | `.aes-w-section`, `.aes-w-ground-soft`, `.aes-w-ground-muted`, `.aes-w-head`, `.aes-w-split` | `id`, `ground`, `eyebrow`, `title`, `intro`, `layout` (`stacked` or `split`), `closing`, children |
-| `WebList` | `.aes-w-list`, `.aes-w-list-logo` | `items` (`title`, `text`, and either a number by default or `product`/`variant` for a logo marker); `logos` |
+| `WebHero` | `.aes-w-hero`, `.aes-w-block`, `.aes-w-meta` | `product` (and `logoVariant`) or `pairing`, `title`, `intro`, `meta` (date, place), `actions`, `photo`/`photoAlt`/`photoPosition`, `icon` |
+| `WebSection` | `.aes-w-section`, `.aes-w-ground-soft`, `-muted`, `-accent`, `.aes-w-head` | `id`, `ground`, `title`, `lead`, `intro`, children |
+| `WebSplit` | `.aes-w-grid`, `.aes-w-text`, `.aes-w-visual`, `.aes-w-frame`, `.aes-w-r-45`, `.is-product`, `.aes-w-product` | section props, then either `photo…` (a 4:5 photo in five columns) or `productImage`/`productAlt` (the product standing whole in seven), children under the words |
+| `WebCards` | `.aes-w-cards`, `.aes-w-card` | `items` (`image`, `alt`, `title`, `text`): renders on the product backdrop, four across |
 | `WebAgenda` | `.aes-w-tabs`, `.aes-w-tab`, `.aes-w-timeline`, `.aes-w-session`, `.aes-w-tag` | `days` (`label`, `date`, `sessions`: `time`, `tag`, `title`, `subtitle`, `text`) |
-| `WebPeople` | `.aes-w-people`, `.aes-w-portrait` | `people` (`name`, `credentials`, `text`, `photo`) |
-| `WebMedia` | `.aes-w-media`, `.aes-w-media-right` | `photo…`, `photoSide`, section header props, children (often `WebRows`) |
+| `WebPeople` | `.aes-w-people`, `.aes-w-portrait` | `people` (`name`, `credentials`, `text`, `photo`), three across |
 | `WebRows` | `.aes-w-rows` | `items` (`when`, `title`, `text`) |
 | `WebFacts` | `.aes-w-facts` | `items` (`label`, `value`) |
-| `WebClosing` | `.aes-w-closing` | `pairing` or `product`, `title`, `intro`, `actions`, `photo…`, `icon` |
-| `WebFooter` | `.aes-w-footer` | `links`, `legal`, `note` |
+| `WebClosing` | `.aes-w-closing` | `pairing` or `product`, `title`, `facts`, `intro`, `actions`, `photo…`, `icon` |
+| `WebFooter` | `.aes-w-footer` | `links`, `legal`, `note`; `band: false` drops the color band |
 | `Button` | `.aes-w-btn` + `-field`, `-ink`, `-outline`, `-text`, `-small` | label, `href`, `kind`, `size` |
 
 ## A typical event or product page
 
 1. Header.
 2. Opening hero: photo, field block, headline, date and place, two buttons.
-3. What to expect (white, split): the promise as an h2, then three or four list items. On a product page, the product's handpiece or sub-brand logos are the markers.
-4. Agenda (soft): day tabs and the timeline.
-5. Faculty or proof (muted): headshots and public bios, or customer proof.
-6. Between sessions or why it matters (media split, white): one photo, a short list.
-7. Details (soft): facts, how registration works, buttons.
-8. Closing: the line to remember and one button.
-9. Footer.
+3. The product (white, `WebSplit` with `productImage`): the promise, one lead line, two facts, the product standing whole.
+4. Its parts (accent ground, `WebCards`): one card per handpiece or sub-brand, each with its official render.
+5. Agenda (white, `WebSplit` with a treatment or event photograph): day tabs and the timeline.
+6. Faculty or proof (muted, `WebPeople`): headshots and public bios.
+7. Between sessions or why it matters (white, `WebSplit` with a photograph): a short list in `WebRows`.
+8. Closing (`WebClosing`): the line to remember, the dates, how to register, one button.
+9. Footer, with the color band.
 
-Drop what the brief doesn't need; keep the order and the ground rhythm.
+Drop what the brief doesn't need; keep the order, one picture per section and the ground rhythm. The Stellar M22 Masterclass sample follows this plan.
 
 ## Building for HubSpot
 
 Follow the [HubSpot landing page skill](../../../.agents/skills/lumenis-hubspot-landing-page/SKILL.md): one Custom HTML module holding the markup, a scoped copy of the styles and the page script.
 
-- **Styles:** copy the `:root` variables this page uses from `tokens.css`, the `aes-web-*` type styles, and the web section of `components/bundle.css` (from "Web format" to the end) into the module's `<style>`. Add a `data-product` or `data-pairing` rule from the top of `bundle.css` if the page uses one.
+- **Styles:** copy the `:root` variables this page uses from `tokens.css`, the `aes-web-*` type styles, and the web section of `components/bundle.css` (from "Web format" to the end) into the module's `<style>`. Add the `data-product` or `data-pairing` rule from the top of `bundle.css` the page uses.
 - **Fonts:** load ABC Arizona from the HubSpot-hosted files listed in [hubspot-assets.md](../hubspot-assets.md). Never embed fonts or images as base64.
-- **Images and logos:** hosted HubSpot URLs only; product logos as hosted SVGs or inline SVG markup.
+- **Images and logos:** hosted HubSpot URLs only, sized for the slot (about 1200 wide for a 4:5 photo, 1400 for a product render, 900 for a card render; WebP where HubSpot serves it). Product renders keep their transparent ground. Logos as hosted SVGs or inline SVG markup.
 - **Agenda tabs without React:** toggle `aria-selected` and `tabindex` on the `.aes-w-tab` buttons and the `hidden` attribute on the `.aes-w-day` panels on click and on the left and right arrow keys.
 - **Forms:** there is no Aesthetics form component yet. Embed the native HubSpot form and style it from the tokens: labels in `aes-web-small`, 16px fields with a 1px `rule` border and square corners, the submit as `.aes-w-btn .aes-w-btn-ink`.
 
@@ -104,11 +102,14 @@ Take from them structure only: which sections a page needs and in what order, wh
 
 ## Before delivery
 
-- Desktop at 1440 and a phone at 390: no sideways scroll, every split stacked, photos cropped on the face.
-- One h1; every section has an eyebrow and an h2 that says something.
-- Grounds alternate; nothing dark; hairlines only in lists and the timeline.
-- Buttons are pills; one strong button per group.
-- The color band once; signature icons only on the hero and the closing.
-- Product colors only via `data-product` on that product's page; official logos, never on a photo.
+- Shoot 1440 × 900 and 390 × 844, one screen at a time: each screen shows one section, nothing scrolls sideways, every split stacks words first, photos crop on faces.
+- Every block starts and ends on the column lines; only the hero and the closing run edge to edge.
+- One h1; every section an h2 that says something and no label above it; one picture per section, none twice.
+- Grounds alternate and stay light; one accent section at most, white type on it large only; hairlines only on rows and the timeline.
+- Buttons are pills; one strong button per group; at most two in the hero.
+- The hero enters once; nothing moves on scroll; reduced motion rests everything.
+- The color band once, at the foot; signature icons only on the hero and the closing.
+- Product colors only via `data-product` on that product's page; official logos and renders, never a logo on a photo.
+- Photographs picked by the requester per slot; renders and treatment photos from the product's brand folder.
 - Real or clearly marked sample content; no bracketed placeholders on anything shared.
 - Claims checked with the `lumenis-claims-check` skill; no pricing on public pages.

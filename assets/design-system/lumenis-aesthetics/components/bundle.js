@@ -373,13 +373,17 @@ function webIcon(name) {
   return name ? h('span', { className: 'aes-w-icon', 'aria-hidden': 'true', dangerouslySetInnerHTML: { __html: ICONS[name] || '' } }) : null;
 }
 
+function webGround(ground) {
+  return ground && ground !== 'page' ? 'aes-w-ground-' + ground : null;
+}
+
 function WebPage(props) {
   return h('div', { className: cx('aes-web', props.className), 'data-product': props.product, 'data-pairing': props.product ? undefined : props.pairing, style: props.style }, props.children);
 }
 
 function WebHeader(props) {
   return h('header', { className: 'aes-w-header' }, h('div', { className: 'aes-w-wrap' },
-    h('a', { href: props.home || '#top', 'aria-label': 'Lumenis' }, h(Logo, { width: 110 })),
+    h('a', { href: props.home || '#top', 'aria-label': 'Lumenis home' }, h(Logo, { width: 110 })),
     props.links ? h('nav', { 'aria-label': 'Page' }, h('ul', { className: 'aes-w-nav aes-web-small' }, props.links.map(function (l, i) {
       return h('li', { key: i }, h('a', { href: l.href }, l.label));
     }))) : null,
@@ -388,49 +392,60 @@ function WebHeader(props) {
 }
 
 function WebHero(props) {
-  return h('section', { className: 'aes-w-hero', 'data-product': props.product, 'data-pairing': props.product ? undefined : props.pairing, 'aria-label': props.title },
+  return h('section', { className: 'aes-w-hero', 'data-product': props.product, 'data-pairing': props.product ? undefined : props.pairing, 'aria-label': props.label || (typeof props.title === 'string' ? props.title : undefined) },
     h('div', { className: 'aes-w-hero-photo' }, webPhoto(props)),
     h('div', { className: 'aes-w-block' },
       h('div', null, props.product
         ? h(ProductLogo, { product: props.product, variant: props.logoVariant, height: props.logoHeight || 40 })
         : h(Logo, { tone: onWhite(props.pairing), width: 160 })),
       h('div', { className: 'aes-w-block-words' },
-        props.eyebrow ? h('p', { className: 'aes-web-eyebrow' }, props.eyebrow) : null,
         h('h1', { className: 'aes-web-h1' }, props.title),
         props.intro ? h('p', { className: 'aes-web-body' }, props.intro) : null,
         props.meta ? h('div', { className: 'aes-w-meta' }, props.meta.map(function (m, i) { return h('span', { key: i }, m); })) : null,
         webActions(props.actions))),
-    webIcon(props.icon),
-    props.band ? h(Band, null) : null);
+    webIcon(props.icon));
 }
 
 function WebSectionHead(props) {
   return h('div', { className: 'aes-w-head' },
-    props.eyebrow ? h('p', { className: 'aes-web-eyebrow' }, props.eyebrow) : null,
-    props.title ? h('h2', { className: 'aes-web-h2' }, props.title) : null,
+    props.title ? h('h2', { className: 'aes-web-h2', id: props.titleId }, props.title) : null,
+    props.lead ? h('p', { className: 'aes-web-lead' }, props.lead) : null,
     props.intro ? h('p', { className: 'aes-web-body' }, props.intro) : null);
 }
 
 function WebSection(props) {
-  var head = props.eyebrow || props.title ? h(WebSectionHead, { key: 'h', eyebrow: props.eyebrow, title: props.title, intro: props.intro }) : null;
   return h('section', {
-    id: props.id, className: cx('aes-w-section', props.ground && props.ground !== 'page' && 'aes-w-ground-' + props.ground, props.className),
+    id: props.id, className: cx('aes-w-section', webGround(props.ground), props.className),
     'data-product': props.product, 'data-pairing': props.product ? undefined : props.pairing
   }, h('div', { className: 'aes-w-wrap' },
-    props.layout === 'split' ? h('div', { className: 'aes-w-split' }, head, h('div', null, props.children)) : [head, h(React.Fragment, { key: 'c' }, props.children)],
-    props.closing ? h('div', { className: 'aes-w-after' }, h(ClosingLine, { loop: props.loop }, props.closing)) : null));
+    props.title || props.lead || props.intro ? h(WebSectionHead, { title: props.title, lead: props.lead, intro: props.intro }) : null,
+    props.children));
 }
 
-function WebList(props) {
-  return h('ol', { className: cx('aes-w-list', props.logos && 'aes-w-list-logo') }, (props.items || []).map(function (it, i) {
-    var marker = it.product
-      ? h(ProductLogo, { product: it.product, variant: it.variant, height: 97, alt: it.alt })
-      : (it.marker != null ? it.marker : String(i + 1).padStart(2, '0'));
-    return h('li', { key: i },
-      h('div', { className: 'aes-w-list-n', 'aria-hidden': it.product ? undefined : 'true' }, marker),
-      h('div', { className: 'aes-w-item' },
-        h('h3', { className: 'aes-web-h3' }, it.title),
-        it.text ? h('p', { className: 'aes-web-body' }, it.text) : null));
+/* A section split on the grid: the words (seven columns) beside a 4:5 photo (five), or, with
+   productImage, the words (five) beside the product render standing whole (seven). */
+function WebSplit(props) {
+  var isProduct = props.productImage !== undefined;
+  var visual = isProduct
+    ? h('div', { className: 'aes-w-visual aes-w-product' }, props.productImage ? h('img', { src: props.productImage, alt: props.productAlt || '' }) : h(Photo, { alt: props.productAlt }))
+    : h('figure', { className: 'aes-w-visual aes-w-frame aes-w-r-45' }, webPhoto(props));
+  return h('section', {
+    id: props.id, className: cx('aes-w-section', webGround(props.ground), props.className),
+    'data-product': props.product, 'data-pairing': props.product ? undefined : props.pairing
+  }, h('div', { className: cx('aes-w-wrap', 'aes-w-grid', isProduct && 'is-product') },
+    h('div', { className: 'aes-w-text' },
+      h(WebSectionHead, { title: props.title, lead: props.lead, intro: props.intro }),
+      props.children),
+    visual));
+}
+
+function WebCards(props) {
+  return h('div', { className: 'aes-w-cards' }, (props.items || []).map(function (c, i) {
+    return h('article', { key: i, className: 'aes-w-card' },
+      h('div', { className: 'aes-w-frame' }, c.image ? h('img', { src: c.image, alt: c.alt || '' }) : h(Photo, { alt: c.alt || 'Product render' })),
+      h('div', { className: 'aes-w-card-text' },
+        h('h3', { className: 'aes-web-h3' }, c.title),
+        c.text ? h('p', { className: 'aes-web-small' }, c.text) : null));
   }));
 }
 
@@ -469,7 +484,7 @@ function WebPeople(props) {
     return h('div', { key: i, className: 'aes-w-person' },
       h('div', { className: 'aes-w-portrait' }, p.photo ? h('img', { src: p.photo, alt: p.name }) : null),
       h('h3', { className: 'aes-web-h3' }, p.name),
-      p.credentials ? h('p', { className: 'aes-web-eyebrow' }, p.credentials) : null,
+      p.credentials ? h('p', { className: 'aes-w-cred' }, p.credentials) : null,
       p.text ? h('p', { className: 'aes-web-small' }, p.text) : null);
   }));
 }
@@ -482,17 +497,6 @@ function WebRows(props) {
   }));
 }
 
-function WebMedia(props) {
-  return h('section', {
-    id: props.id, className: cx('aes-w-media', props.photoSide === 'right' && 'aes-w-media-right', props.ground && props.ground !== 'page' && 'aes-w-ground-' + props.ground),
-    'data-product': props.product, 'data-pairing': props.product ? undefined : props.pairing
-  },
-    h('div', { className: 'aes-w-media-photo' }, webPhoto(props)),
-    h('div', { className: 'aes-w-media-text' },
-      h(WebSectionHead, { eyebrow: props.eyebrow, title: props.title, intro: props.intro }),
-      props.children));
-}
-
 function WebFacts(props) {
   return h('div', { className: 'aes-w-facts' }, (props.items || []).map(function (f, i) {
     return h('div', { key: i, className: 'aes-w-fact' }, h('p', { className: 'aes-web-eyebrow' }, f.label), h('p', { className: 'aes-web-number' }, f.value));
@@ -500,12 +504,11 @@ function WebFacts(props) {
 }
 
 function WebClosing(props) {
-  return h('section', { className: 'aes-w-closing', 'data-product': props.product, 'data-pairing': props.product ? undefined : props.pairing, 'aria-label': props.title },
+  return h('section', { id: props.id, className: 'aes-w-closing', 'data-product': props.product, 'data-pairing': props.product ? undefined : props.pairing, 'aria-label': typeof props.title === 'string' ? props.title : 'Closing' },
     h('div', { className: 'aes-w-block' },
-      h('div', null, h(Logo, { tone: onWhite(props.pairing), width: 160 })),
       h('div', { className: 'aes-w-block-words' },
-        props.eyebrow ? h('p', { className: 'aes-web-eyebrow' }, props.eyebrow) : null,
         h('h2', { className: 'aes-web-h2' }, props.title),
+        props.facts ? h(WebFacts, { items: props.facts }) : null,
         props.intro ? h('p', { className: 'aes-web-body' }, props.intro) : null,
         webActions(props.actions))),
     h('div', { className: 'aes-w-closing-photo' }, webPhoto(props)),
@@ -513,13 +516,15 @@ function WebClosing(props) {
 }
 
 function WebFooter(props) {
-  return h('footer', { className: 'aes-w-footer' }, h('div', { className: 'aes-w-wrap' },
-    h(Logo, { width: 89 }),
-    props.links ? h('ul', { className: 'aes-w-footer-links aes-web-small' }, props.links.map(function (l, i) {
-      return h('li', { key: i }, h('a', { href: l.href }, l.label));
-    })) : null,
-    h('p', { className: 'aes-web-small' }, props.legal || 'Copyright © 2010–' + new Date().getFullYear() + ' Lumenis Be Ltd. All rights reserved.'),
-    props.note ? h('p', { className: 'aes-web-small aes-w-footer-note' }, props.note) : null));
+  return h('footer', { className: 'aes-w-footer' },
+    h('div', { className: 'aes-w-wrap' },
+      h(Logo, { width: 89 }),
+      props.links ? h('ul', { className: 'aes-w-footer-links aes-web-small' }, props.links.map(function (l, i) {
+        return h('li', { key: i }, h('a', { className: 'aes-w-link', href: l.href }, l.label));
+      })) : null,
+      h('p', { className: 'aes-web-small' }, props.legal || 'Copyright © 2010–' + new Date().getFullYear() + ' Lumenis Be Ltd. All rights reserved.'),
+      props.note ? h('p', { className: 'aes-web-small aes-w-footer-note' }, props.note) : null),
+    props.band === false ? null : h(Band, null));
 }
 
 var EXPORTS = {
@@ -527,7 +532,7 @@ var EXPORTS = {
   PointList: PointList, BulletList: BulletList, Card: Card, Divider: Divider,
   Logo: Logo, ProductLogo: ProductLogo, Icon: Icon, Band: Band, Photo: Photo, Button: Button,
   WebPage: WebPage, WebHeader: WebHeader, WebHero: WebHero, WebSection: WebSection, WebSectionHead: WebSectionHead,
-  WebList: WebList, WebAgenda: WebAgenda, WebPeople: WebPeople, WebRows: WebRows, WebMedia: WebMedia, WebFacts: WebFacts,
+  WebSplit: WebSplit, WebCards: WebCards, WebAgenda: WebAgenda, WebPeople: WebPeople, WebRows: WebRows, WebFacts: WebFacts,
   WebClosing: WebClosing, WebFooter: WebFooter,
   Slide: Slide, SlideColumn: SlideColumn, SlideBleed: SlideBleed,
   SlideOpening: SlideOpening, SlideChapter: SlideChapter, SlideContent: SlideContent, SlideHeroNumber: SlideHeroNumber,

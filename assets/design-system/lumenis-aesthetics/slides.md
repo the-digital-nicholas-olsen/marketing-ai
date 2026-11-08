@@ -17,6 +17,24 @@ The 16:9 deck format, based on the 2027 Aesthetics AOP. Every number is a slide 
 | Footer | One line, 55 from the bottom (`slide-footer-bottom`): the black wordmark 89 wide (`slide-footer-logo`), or the product logo on a product deck, the source note, the page number at the right edge; 14 in dark grey |
 | Opening and closing block | The chosen pairing's field (Rose Gold by default); wordmark 210 wide (`slide-block-logo`), black, or white on Silken Rose; wordmark and headline inset 89 from the block edges |
 
+## Type
+
+Set text with `Text` and a `role`, or the matching `aes-*` class.
+
+| Role | Style | Face | Treatment |
+|---|---|---|---|
+| Label | `aes-label` 18 | Arizona Sans | Uppercase, letter-spaced, dark grey |
+| Body | `aes-body` 28 | Arizona Sans | Dark grey |
+| Lead line, quote, closing line | `aes-lead` 36 | Arizona Mix | Ink |
+| Number | `aes-number` 56 | Arizona Sans Light | Ink, or the chapter color |
+| Display (name, promise, opening and closing line) | `aes-display` 88 | Arizona Sans | Uppercase |
+| Hero number | `aes-hero` 136 | Arizona Sans Light | Ink |
+| Chapter number, single hero figure | `aes-chapter` 220 | Arizona Sans Light | The field color |
+| Title | `aes-title` 54 | Arizona Sans | Uppercase |
+| Tracker, footer, pill | `aes-tracker` 15, `aes-foot` 14, `aes-pill` 11 | Arizona Sans | Dark grey; tracker and pill uppercase |
+
+Leading is 1.32 for body and 1.18 for serif lines. Spacing uses the README's gaps at their base sizes (8, 13, 21, 34, 55).
+
 ## Slide types
 
 | Type | Component | Layout |
