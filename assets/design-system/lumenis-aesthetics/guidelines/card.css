@@ -6,6 +6,3 @@ body{background:var(--color-white)}
 .row{display:flex;gap:21px;flex-wrap:wrap}
 .mono{font-family:ui-monospace,Consolas,monospace;font-size:12px}
 .icon{display:inline-block;background:currentColor;-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat}
-/* A 1920×1080 page drawn at a fixed scale */
-.page{position:relative;width:1920px;height:1080px;background:#fff;transform-origin:0 0;overflow:hidden;outline:1px solid var(--card-line)}
-.frame{position:relative;overflow:hidden}

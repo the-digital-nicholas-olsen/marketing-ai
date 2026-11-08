@@ -38,8 +38,8 @@ The editorial look: studio beauty portraits, bare shoulders, soft light, seamles
 Link `styles.css`. It imports:
 
 - `tokens/colors.css`: `--ink`, `--grey-text`; the five pairings (`--mint` / `--mint-ink` and so on) and the bookend (`--bookend`); `--band-1…19` and `--band` (the color band as a gradient); verdict colors. Set `data-pairing="mint|sky|lavender|rose-gold|silken-rose|bookend"` on an element to switch `--field`, `--field-ink` and `--on-field`.
-- `tokens/typography.css`: the type scale (`--text-label` 18 to `--text-chapter` 220), the fixed frame sizes, and leading.
-- `tokens/spacing.css`: Fibonacci steps (`--space-8` to `--space-144`), proximity gaps (`--gap-tight` to `--gap-section`), the grid (`--margin`, `--col`, `--col-gap`, `--bleed-major`, `--bleed-minor`, `--col-left-x`, `--col-right-x`) and the fixed frame positions.
+- `tokens/typography.css`: the type scale at slide sizes (`--text-label` 18 to `--text-chapter` 220), the fixed-frame sizes and leading.
+- `tokens/spacing.css`: Fibonacci steps (`--space-8` to `--space-144`), proximity gaps (`--gap-tight` to `--gap-section`) and the golden split (`--golden-major`, `--golden-minor`). Slide positions (canvas, column, bleed, frame) live in the slides kit.
 - `tokens/base.css`: helpers `.la-label`, `.la-body`, `.la-lead`, `.la-number`, `.la-display`, `.la-hero`, `.la-chapter`, `.la-title`, `.la-tracker`, `.la-foot`, `.la-pill`, `.la-band`.
 - `tokens/fonts.css`: ABC Arizona by local lookup. The font is licensed and not in Git; install it from the [HubSpot asset index](../hubspot-assets.md).
 
@@ -49,10 +49,11 @@ Link `styles.css`. It imports:
 - `styles.css`, `tokens/`: the tokens above.
 - `assets/logo/`: Lumenis wordmark and symbol (Hero L), black and white SVG.
 - `assets/icons/`: the 10 approved Lumenis line icons (SVG, `currentColor` stroke).
-- `guidelines/`: specimen cards for color, type, grid, components, icons and logos, and photography. Each loads `../styles.css`.
+- `guidelines/`: specimen cards for color, type, components, icons and logos, and photography. Each loads `../styles.css`.
+- `ui_kits/slides/`: the 16:9 slide format: grid and fixed frame, slide type sizes, color pairings and six slide types (opening, chapter break, content, hero number, profile, closing).
 
 ## Sources
 
-Taken from the Aesthetics editorial design system approved by Aesthetics marketing in November 2026 for the 2027 North America Aesthetics plan, with the grid, type scale, proximity, footer and full-bleed photography refined in the Lumenis Corporate [slides UI kit](../lumenis-corporate/ui_kits/slides/index.html), and from the Lumenis Brand Guidelines 2026. The Lumenis logos and icons are the same files as in Lumenis Corporate, copied so this folder stands alone. The color band values come from the Accelerate color band artwork.
+Taken from the Aesthetics editorial design system approved by Aesthetics marketing in November 2026 for the 2027 North America Aesthetics plan, with the grid, type scale, proximity, footer and full-bleed photography refined while building the slides UI kit, and from the Lumenis Brand Guidelines 2026. The Lumenis logos and icons are the same files as in Lumenis Corporate, copied so this folder stands alone. The color band values come from the Accelerate color band artwork.
 
 Kept outside Git: brand guide PDFs, product logo files, licensed photography, the office-wall panels, templates and research reports.

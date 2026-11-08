@@ -2,7 +2,7 @@
 --font-sans:'ABC Arizona Sans',Helvetica,Arial,sans-serif;
 --font-mix:'ABC Arizona Mix',Georgia,serif;
 
-/* One scale for the 1920×1080 canvas. Sizes never drift: cut words or split the page instead. */
+/* Slide sizes (1920×1080), the reference scale. Other formats set their own sizes for the same roles and keep them fixed. */
 --text-label:18px;    /* Sans, uppercase, 3.5px tracking */
 --text-body:28px;     /* Sans, dark grey */
 --text-lead:36px;     /* Mix: serif lead line, quote, so-what line */
@@ -11,7 +11,7 @@
 --text-hero:136px;    /* Sans Light: hero number */
 --text-chapter:220px; /* Sans Light: chapter number, hero figure */
 
-/* Fixed frame, same on every page */
+/* Fixed-frame sizes on slides */
 --text-tracker:15px;  /* Sans caps, 3px tracking */
 --text-title:54px;    /* Sans caps */
 --text-foot:14px;     /* source note and page number */

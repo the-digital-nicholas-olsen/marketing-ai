@@ -30,7 +30,7 @@ Before delivery, check the piece against the selected system only: product casin
 
 ## Folder layout
 
-Each system folder is self-contained: its own `styles.css` and `tokens/`, its own guidance and reference files, and specimen cards under `guidelines/` that load only that folder's stylesheet. Lumenis Corporate also carries logos, brand line icons, components and UI kits; Lumenis Aesthetics carries the Lumenis logos and line icons.
+Each system folder is self-contained: its own `styles.css` and `tokens/`, its own guidance and reference files, and specimen cards under `guidelines/` that load only that folder's stylesheet. Lumenis Corporate also carries logos, brand line icons, components and UI kits; Lumenis Aesthetics carries the Lumenis logos, line icons and a slides UI kit.
 
 ## Viewing specimen cards and UI kits
 

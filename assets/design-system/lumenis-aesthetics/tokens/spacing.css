@@ -3,30 +3,16 @@
 --space-8:8px; --space-13:13px; --space-21:21px; --space-34:34px;
 --space-55:55px; --space-89:89px; --space-144:144px;
 
-/* Proximity: space shows what belongs together */
+/* Proximity: space shows what belongs together (slide values; smaller formats may step down, keeping the order) */
 --gap-tight:8px;    /* a point and its supporting line */
 --gap-near:13px;    /* a label and the text it labels; a number and its label */
 --gap-follow:21px;  /* a display line and the serif line that completes it */
 --gap-apart:34px;   /* between groups; title to content */
 --gap-section:55px; /* a serif lead line and the body it introduces */
 
-/* Canvas and grid (1920×1080) */
---canvas-w:1920px; --canvas-h:1080px;
---margin:128px;
---col:973px;          /* the text column: 61.8% of the 1664 content width */
---col-gap:86px;       /* text column to a bleeding photo */
---bleed-major:1187px; /* 61.8% of the width: bookend photo */
---bleed-minor:733px;  /* 38.2% of the width: content-page photo, bookend color block */
---col-left-x:128px;   /* text column beside a right-hand photo (x 128–1101) */
---col-right-x:819px;  /* text column beside a left-hand photo (x 819–1792) */
-
-/* Fixed frame */
---y-tracker:52px;      /* from the top */
---y-title:149px;       /* from the top */
---title-gap:34px;      /* title to content, always */
---y-content-end:952px; /* content bottom; the so-what line ends here */
---foot-bottom:55px;    /* footer, from the bottom */
---foot-logo:89px;      /* footer wordmark width */
+/* Golden split */
+--golden-major:61.8%;
+--golden-minor:38.2%;
 
 --radius-pill:999px;
 }
