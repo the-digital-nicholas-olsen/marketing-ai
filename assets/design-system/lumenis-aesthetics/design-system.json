@@ -450,8 +450,8 @@
   },
   "lastChange": {
     "by": "Laarni Cayetano",
-    "at": "2026-11-08T05:59:03Z",
-    "via": "GitHub · the-digital-nicholas-olsen/marketing-ai@0999419",
-    "note": "Re-synced to 0999419: text, inset photo, gallery, cards and blank slide types; BulletList, Card, Divider; field-secondary color; looser slide rules; web format (web.md, Web*, Button)."
+    "at": "2026-11-08T06:46:10Z",
+    "via": "GitHub · the-digital-nicholas-olsen/marketing-ai@528257e",
+    "note": "Re-synced to 528257e: format docs stand alone, unsupported-format warning in the README, slide type scale moved to slides.md, web format reworked (12-column grid, new web tokens)."
   }
 }
