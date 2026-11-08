@@ -10,7 +10,7 @@ var DS = window.LumenisAesthetics, h = React.createElement;
 var DECK=[{name:'Chapter 1',pairing:'mint'},{name:'Chapter 2',pairing:'sky'},{name:'Chapter 3',pairing:'rose-gold'},{name:'Chapter 4',pairing:'lavender'},{name:'Finale',pairing:'silken-rose'}];
 function Demo(){
   return h(DS.Stack,{gap:'apart'},
-    h(DS.Stack,{direction:'row',gap:'near'},h(DS.Pill,{kind:'winning'},'Winning'),h(DS.Pill,{kind:'watch'},'Watch'),h(DS.Pill,{kind:'warning'},'Warning')),
+    h(DS.Stack,{direction:'row',gap:'near'},h(DS.Pill,null,'Rose Gold'),h(DS.Pill,{kind:'tint'},'Tint')),
     h('div',{'data-pairing':'mint'},h(DS.Stack,{direction:'row',gap:'near'},h(DS.Pill,null,'Current'),h(DS.Pill,{kind:'tint'},'Other'),h(DS.Pill,{size:'large'},'Training'))));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));

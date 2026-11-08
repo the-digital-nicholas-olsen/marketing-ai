@@ -18,8 +18,6 @@
   --rose-gold-ink: #ba6d81;
   --silken-rose: #ba6d81;
   --silken-rose-ink: #8f4d61;
-  --bookend: #7079ba;
-  --bookend-ink: #ffffff;
   --field: var(--rose-gold);
   --field-ink: var(--rose-gold-ink);
   --on-field: var(--ink);
@@ -39,9 +37,6 @@
   --folix-deep-blue: #073044;
   --ultrapulse-purple: #bc9aff;
   --ultrapulse-orchid: #d690ff;
-  --verdict-winning: var(--sky-ink);
-  --verdict-watch: var(--sky);
-  --verdict-warning: var(--silken-rose);
   --band-1: #6cc39b;
   --band-2: #34aa98;
   --band-3: #38bdc9;
@@ -92,7 +87,7 @@
   --slide-content-bottom: 952px;
   --slide-footer-bottom: 55px;
   --slide-footer-logo: 89px;
-  --slide-bookend-logo: 210px;
+  --slide-block-logo: 210px;
   --font-sans: "ABC Arizona Sans", Helvetica, Arial, sans-serif;
   --font-mix: "ABC Arizona Mix", Georgia, serif;
 }

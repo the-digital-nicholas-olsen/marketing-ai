@@ -32,6 +32,8 @@ Stellar colors serve as highlight, stroke, graphic fill and background (p. 36). 
 - **Clear space:** the height of the symbol on all sides (p. 5).
 - **Minimum size:** hero-L height 12 px on screen, 0.2 cm in print; 0.1 cm for the Lumenis lockup (pp. 6–7).
 - **Don't** alter the symbol, outline the wordmark, fill it in one color, stretch it, add effects or change the font or spacing (p. 9).
+- **In components:** `ProductLogo` with `product: "stellar-m22"` and `variant` set to the file name after `stellar-m22-` (for example `white` or `by-lumenis-black`). Without a variant it uses `black`, the file for white grounds. The files are in the asset group `Stellar-M22`.
+- **Handpieces:** each handpiece logo comes in `-black` (white and light grounds, including Rose Gold) and `-white` (Silken Rose and dark grounds); use them as variants such as `xpl-black` or `rfx-white`.
 - On a Rose Gold field the guide shows color logo versions (p. 10), but the color files in the source package use `#D7A193`, which is not in the palette; they aren't included. Use the black logo on Rose Gold.
 
 ## Motif

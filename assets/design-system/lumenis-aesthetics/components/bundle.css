@@ -14,7 +14,6 @@
 [data-pairing="lavender"]{--field:var(--lavender);--field-ink:var(--lavender-ink);--on-field:var(--ink)}
 [data-pairing="rose-gold"]{--field:var(--rose-gold);--field-ink:var(--rose-gold-ink);--on-field:var(--ink)}
 [data-pairing="silken-rose"]{--field:var(--silken-rose);--field-ink:var(--silken-rose-ink);--on-field:var(--color-white)}
-[data-pairing="bookend"]{--field:var(--bookend);--field-ink:var(--bookend-ink);--on-field:var(--color-white)}
 
 /* Product colors. Put data-product on that product's own page, section or slide: its brand-guide colors
    replace the chapter pairing there. Don't put data-pairing and data-product on the same element. */
@@ -62,9 +61,6 @@
 .la-pill{display:inline-flex;align-items:center;border-radius:var(--radius-pill);padding:5px 13px;background:var(--field);color:var(--on-field);white-space:nowrap}
 .la-pill-large{padding:10px 26px;font-size:18px;letter-spacing:3.5px}
 .la-pill-tint{background:color-mix(in srgb,var(--field) 30%,var(--surface-page));color:var(--text-primary)}
-.la-pill-winning{background:var(--verdict-winning);color:var(--text-inverse)}
-.la-pill-watch{background:var(--verdict-watch);color:var(--text-primary)}
-.la-pill-warning{background:var(--verdict-warning);color:var(--text-inverse)}
 
 /* Footer: wordmark, source note, page number on one line. */
 .la-footer{display:flex;align-items:flex-end;gap:var(--space-55)}
@@ -111,8 +107,8 @@
 .la-bleed-left{left:0}
 .la-bleed-right{right:0}
 .la-block{background:var(--field)}
-.la-bookend-logo{position:absolute;left:var(--space-89);top:var(--space-89)}
-.la-bookend-words{position:absolute;left:var(--space-89);right:var(--space-89);bottom:var(--space-89)}
+.la-block-logo{position:absolute;left:var(--space-89);top:var(--space-89)}
+.la-block-words{position:absolute;left:var(--space-89);right:var(--space-89);bottom:var(--space-89)}
 .la-slide-band{position:absolute;left:0;right:0;bottom:0}
 
 /* Showcase pages */

@@ -449,8 +449,8 @@
   },
   "lastChange": {
     "by": "Laarni Cayetano",
-    "at": "2026-11-08T03:59:36Z",
+    "at": "2026-11-08T04:08:02Z",
     "via": "GitHub · the-digital-nicholas-olsen/marketing-ai@add/aesthetics-design-system",
-    "note": "Removed product themes: one color set; product colors are named tokens checked against each brand guide, switched per page with data-product. Added stellar-shine-grey."
+    "note": "Moved the logo and icon notes from the asset group READMEs into the product modules and the README, where they show on the page."
   }
 }

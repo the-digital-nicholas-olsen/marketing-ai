@@ -32,6 +32,7 @@ The primary system is black and white, with Rose Gold alongside (p. 19). The gui
 - **Clear space:** 0.5X on all sides, X being the wordmark's cap height (p. 7).
 - **Minimum size:** 100 px wide on screen, 1.6 cm in print (p. 8). The page's diagram gives a 12 px hero-L height instead; use the larger of the two.
 - **Don't** alter or flip the triangle, fill it, outline the wordmark, stretch it, add effects or change the font (p. 11).
+- **In components:** `ProductLogo` with `product: "trilift"` and `variant` set to the file name after `trilift-2.0-` (for example `white` or `by-lumenis-color`). Without a variant it uses `color`, the file for white grounds. The files are in the asset group `triLift-2.0`.
 
 ## Motif
 

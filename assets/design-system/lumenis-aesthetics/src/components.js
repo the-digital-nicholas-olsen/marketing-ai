@@ -122,7 +122,7 @@ function SlideColumn(props) {
 }
 
 function SlideBleed(props) {
-  return h('div', { className: cx('la-bleed', props.width === 'major' ? 'la-bleed-major' : 'la-bleed-minor', props.side === 'left' ? 'la-bleed-left' : 'la-bleed-right', props.block && 'la-block'), 'data-pairing': props.block ? 'bookend' : undefined }, props.children);
+  return h('div', { className: cx('la-bleed', props.width === 'major' ? 'la-bleed-major' : 'la-bleed-minor', props.side === 'left' ? 'la-bleed-left' : 'la-bleed-right', props.block && 'la-block'), 'data-pairing': props.block ? props.pairing : undefined }, props.children);
 }
 
 function frame(props, side) {
@@ -137,16 +137,19 @@ function chapterPairing(props) {
   return props.chapters && props.chapters[props.current] ? props.chapters[props.current].pairing : props.pairing;
 }
 
+/* The opening and closing color block takes the chosen pairing's field (Rose Gold by default); the wordmark is white only where the type on the field is white. */
+var onWhite = function (pairing) { return pairing === 'silken-rose' ? 'white' : 'black'; };
+
 function SlideOpening(props) {
   return h(Slide, { scale: props.scale },
     h(SlideBleed, { side: 'left', width: 'major' }, h(Photo, { src: props.photo, alt: props.photoAlt, position: props.photoPosition })),
-    h(SlideBleed, { side: 'right', width: 'minor', block: true },
-      h('div', { className: 'la-bookend-logo' }, h(Logo, { tone: 'white', width: 210 })),
-      h(Stack, { gap: 'apart', className: 'la-bookend-words' },
+    h(SlideBleed, { side: 'right', width: 'minor', block: true, pairing: props.pairing },
+      h('div', { className: 'la-block-logo' }, h(Logo, { tone: onWhite(props.pairing), width: 210 })),
+      h(Stack, { gap: 'apart', className: 'la-block-words' },
         h(Stack, { gap: 'near' },
-          h(Text, { role: 'label', tone: 'inverse' }, props.label),
-          h(Text, { role: 'display', as: 'h1', tone: 'inverse' }, props.promise)),
-        h(Text, { role: 'label', tone: 'inverse' }, props.date))),
+          h(Text, { role: 'label', tone: 'on-field' }, props.label),
+          h(Text, { role: 'display', as: 'h1', tone: 'on-field' }, props.promise)),
+        h(Text, { role: 'label', tone: 'on-field' }, props.date))),
     props.band ? h('div', { className: 'la-slide-band' }, h(Band, null)) : null);
 }
 
@@ -214,11 +217,11 @@ function SlideProduct(props) {
 
 function SlideClosing(props) {
   return h(Slide, { scale: props.scale },
-    h(SlideBleed, { side: 'left', width: 'minor', block: true },
-      h('div', { className: 'la-bookend-logo' }, h(Logo, { tone: 'white', width: 210 })),
-      h(Stack, { gap: 'follow', className: 'la-bookend-words' },
-        h(Text, { role: 'display', as: 'h1', tone: 'inverse' }, props.line),
-        h(Text, { role: 'lead', tone: 'inverse' }, props.lead))),
+    h(SlideBleed, { side: 'left', width: 'minor', block: true, pairing: props.pairing },
+      h('div', { className: 'la-block-logo' }, h(Logo, { tone: onWhite(props.pairing), width: 210 })),
+      h(Stack, { gap: 'follow', className: 'la-block-words' },
+        h(Text, { role: 'display', as: 'h1', tone: 'on-field' }, props.line),
+        h(Text, { role: 'lead', tone: 'on-field' }, props.lead))),
     h(SlideBleed, { side: 'right', width: 'major' }, h(Photo, { src: props.photo, alt: props.photoAlt, position: props.photoPosition })));
 }
 

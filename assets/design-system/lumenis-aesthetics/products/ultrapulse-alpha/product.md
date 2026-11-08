@@ -28,6 +28,7 @@ Both purples are too light for small type on white, so small colored type takes 
 - **Clear space:** 0.5X on all sides, X being the height of the α (p. 7).
 - **Minimum size:** 100 px wide on screen, 1.6 cm in print (p. 8). The page's diagram gives a 12 px hero-L height instead; use the larger of the two.
 - **Don't** alter or fill the α, outline or stretch the wordmark, add effects or change its font (p. 10).
+- **In components:** `ProductLogo` with `product: "ultrapulse-alpha"` and `variant` set to the file name after `ultrapulse-alpha-` (for example `white` or `by-lumenis-color`). Without a variant it uses `color`, the file for white grounds. The files are in the asset group `UltraPulse-Alpha`.
 - The source package's "black & white" file (black wordmark, white α) matches nothing in the guide and isn't included.
 
 ## Motif

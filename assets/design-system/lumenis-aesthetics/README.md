@@ -45,7 +45,7 @@ One scale per format, with every role at a fixed size. Sizes never drift: if tex
 | Body | `la-body` 28 | Arizona Sans | Dark grey |
 | Lead line, quote, closing line | `la-lead` 36 | Arizona Mix | Ink |
 | Number | `la-number` 56 | Arizona Sans Light | Ink, or the chapter color |
-| Display (name, promise, bookend line) | `la-display` 88 | Arizona Sans | Uppercase |
+| Display (name, promise, opening and closing line) | `la-display` 88 | Arizona Sans | Uppercase |
 | Hero number | `la-hero` 136 | Arizona Sans Light | Ink |
 | Chapter number, single hero figure | `la-chapter` 220 | Arizona Sans Light | The field color |
 | Title | `la-title` 54 | Arizona Sans | Uppercase |
@@ -68,11 +68,9 @@ Each step up the scale is roughly the golden ratio or a Fibonacci step larger. T
 | `rose-gold` | `rose-gold` `#FABCAD` | `rose-gold-ink` (Silken Rose) `#BA6D81` | Ink |
 | `silken-rose` | `silken-rose` `#BA6D81` | `silken-rose-ink` `#8F4D61` | White |
 
-- **Contrast.** `mint-ink`, `lavender-ink` and `rose-gold-ink` fall below 4.5:1 on white, so colored type in them stays at 24px and up (the arrow, numbers). White on `silken-rose` (3.8:1) and on `bookend` (4.1:1) is for display, lead and the wordmark; 18px labels on the bookend fall short, as in the source.
-- **Bookend:** `bookend` purple `#7079BA` with white type (`data-pairing="bookend"`) is the color block on the opening and closing, not a chapter pairing.
+- **Contrast.** `mint-ink`, `lavender-ink` and `rose-gold-ink` fall below 4.5:1 on white, so colored type in them stays at 24px and up (the arrow, numbers). White on `silken-rose` (3.8:1) is for display, lead and the wordmark only.
 - **Pinks:** Rose Gold `#FABCAD` or Silken Rose `#BA6D81` only. Never Stellar Peach Beige `#DEAA9B`.
 - **The Accelerate color band** (`band-1` to `band-19`, the `Band` component) appears at most once per piece, as the opening's signature: a strip along the bottom edge. Don't pick colors from it for other uses.
-- **Verdicts:** `verdict-winning`, `verdict-watch`, `verdict-warning`, as pill fills only.
 
 ### Products inside the system
 
@@ -95,18 +93,18 @@ Built components live in `components/`; each has a preview and a short guide. Bu
 - **Chapter break** (`SlideChapter`): the chapter number at the chapter size in the field color, then the chapter title and its question as a lead line, centered vertically in the content area, beside a bleeding photo.
 - **Profile** (`SlideProfile`): a portrait bleeding at 38.2%; on the text column, a label above the name at display size, then the quote as a lead line and the stats below it. A persona is labeled as one.
 - **Product** (`SlideProduct`, `ProductLogo`): a skin or portrait photo bleeding beside the column, the official product logo leading the text column, the promise at display size, and the product's own colors.
-- **Pill** (`Pill`): one style for any tag or verdict: rounded (`radius-pill`), small uppercase, letter-spaced. Verdicts: `winning`, `watch`, `warning`. In-chapter navigation uses pills on the tracker line, right-aligned to the column: the current one filled in the chapter's field, the others a soft tint of it.
+- **Pill** (`Pill`): one style for any tag: rounded (`radius-pill`), small uppercase, letter-spaced, filled in the field color. In-chapter navigation uses pills on the tracker line, right-aligned to the column: the current one filled in the chapter's field, the others a soft tint of it.
 - **No lines.** No hairlines, rules, dividers, borders or boxes. Group with space and type size. The tracker dashes are the only marks.
 
 ## 5. Icons and logos
 
-- **Icons** (`Icon`, `assets/Icons/`): the 10 approved Lumenis line icons only, unaltered. Black on white, white on color. Set them large, cropped by the edge of a color field, and never touching type. Never put a colored tile behind an icon on white. No invented motifs.
-- **Logos** (`Logo`, `ProductLogo`, `assets/Logos/` and one asset group per product): official files only. The footer wordmark is black. On color, the symbol goes white and the wordmark black, except on the bookend block, where the wordmark is white. A product's own guide wins over these rules: UltraPulse Alpha goes all white on color. Never put a logo on a photo.
+- **Icons** (`Icon`, `assets/Icons/`): the 10 approved Lumenis line icons only, unaltered: burst, cross, crossover, lines, orbit, rings, sparkle, star, wave, zigzag. Each is a 1-unit stroke in `currentColor`, so set its color with the `Icon` component's `color`; never fill or recombine them. Black on white, white on color. Set them large, cropped by the edge of a color field, and never touching type. Never put a colored tile behind an icon on white. No invented motifs.
+- **Logos** (`Logo`, `ProductLogo`, `assets/Logos/` and one asset group per product): official files only. The Lumenis files are `lumenis-wordmark-black`, `lumenis-wordmark-white`, `lumenis-hero-l-black` and `lumenis-hero-l-white`. The footer wordmark is black, 89 wide on slides; on the opening and closing block it is 210 wide. On color, the symbol goes white and the wordmark black; the wordmark goes white only where the type on the field is white (Silken Rose). A product's own guide wins over these rules: UltraPulse Alpha goes all white on color. Never put a logo on a photo.
 
 ## 6. Opening and closing
 
-- **Opening** (`SlideOpening`): a photo bleeding at 61.8% and the purple block at 38.2%, with the white wordmark at the top of the block and, at its foot, a label above the promise at display size, then the date.
-- **Closing** (`SlideClosing`): mirrors the opening: the purple block holds the line the audience should remember at display size, with a closing lead line beneath it.
+- **Opening** (`SlideOpening`): a photo bleeding at 61.8% and a color block at 38.2% in the chosen pairing's field (Rose Gold by default), with the wordmark at the top of the block and, at its foot, a label above the promise at display size, then the date.
+- **Closing** (`SlideClosing`): mirrors the opening: the color block holds the line the audience should remember at display size, with a closing lead line beneath it.
 - **Signature devices** borrowed from the Lumenis office wall (big white line icons crossing a color field, white caps on Silken Rose, the Accelerate color band as a strip along the bottom edge) belong on the cover, opening, ask and closing only, never on content pages.
 
 **Range** (brand book pp. 62–63): layouts run from functional to inspirational, and photography from real and concrete to dreamy and abstract. Signature pages sit at the inspirational, dreamy end; content pages (practices, proof) at the functional, real end.

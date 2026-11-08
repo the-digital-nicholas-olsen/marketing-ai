@@ -12,7 +12,7 @@
   .art svg { display:block; width:480px; height:288px; }
   .rose { fill:var(--rose-gold); }
   .silken { fill:var(--silken-rose); }
-  .bookend { fill:var(--bookend); }
+  .lavender { fill:var(--lavender); }
   .mint { fill:var(--mint); }
   .sky { fill:var(--sky); }
   .words { position:absolute; left:var(--space-34); bottom:var(--space-34); max-width:440px; }
@@ -25,14 +25,14 @@
 <div class="art" aria-hidden="true">
 <svg viewBox="0 0 480 288" width="480" height="288">
 <!--
-  blocks      rose-gold 297x288 (the division pink, the default field) · silken-rose 183x178 · bookend 183x110 · together half of 960x288
+  blocks      rose-gold 297x288 (the division pink, the default field) · silken-rose 183x178 · lavender 183x110 · together half of 960x288
   arrangement the golden split, as the system composes: 61.8 / 38.2 of the width, then 61.8 / 38.2 of the narrow column, flush, square (radius-none), bleeding off top, right and bottom
-  pattern     "Every two-part layout splits 61.8 / 38.2": the golden spiral as two quarter-discs, mint (radius 178) cut into the rose block and sky (radius 110) into the bookend block
+  pattern     "Every two-part layout splits 61.8 / 38.2": the golden spiral as two quarter-discs, mint (radius 178) cut into the rose block and sky (radius 110) into the lavender block
   scales      297 = golden-major of 480; 178 and 110 = golden-minor steps of 288; corners radius-none
 -->
 <rect class="rose" x="0" y="0" width="297" height="288"/>
 <rect class="silken" x="297" y="0" width="183" height="178"/>
-<rect class="bookend" x="297" y="178" width="183" height="110"/>
+<rect class="lavender" x="297" y="178" width="183" height="110"/>
 <path class="mint" d="M297 288 L119 288 A178 178 0 0 1 297 110 Z"/>
 <path class="sky" d="M297 178 L407 178 A110 110 0 0 1 297 288 Z"/>
 </svg>

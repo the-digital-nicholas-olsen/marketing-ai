@@ -32,6 +32,7 @@ The skin colors serve as highlight, stroke, graphic fill and, if needed, backgro
 - **Clear space:** 0.5X on all sides, X being the X symbol (p. 3).
 - **Minimum size:** hero-L height 12 px on screen, 0.2 cm in print; 0.1 cm for the lockup (pp. 4–5).
 - **Don't** fill the symbol, stretch, alter, re-font or outline the logo, or add effects (p. 6).
+- **In components:** `ProductLogo` with `product: "splendor-x"` and `variant` set to the file name after `splendor-x-` (for example `white` or `by-lumenis-color`). Without a variant it uses `color`, the file for white grounds. The files are in the asset group `SPLENDOR-X`.
 - The file pairings for the skin fields come from what each file shows; the guide's figures (p. 7) name only "light skin" and "medium skin" versions.
 
 ## Motif

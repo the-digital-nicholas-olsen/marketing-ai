@@ -1,1 +1,1 @@
-Official FoLix logo files. `color` (black wordmark, turquoise symbol) on white, `on-turquoise` on a turquoise accent block, `white` on the blue field or dark grounds, `black` for one-color print, `by-lumenis-*` lockups. See the [FoLix module](../../products/folix/product.md). Use them through `ProductLogo` with `product: "folix"`.
+Official FoLix logo files, unchanged from the FoLix logo package. Which file goes on which ground, clear space, minimum size and how to use them in components: the [FoLix module](../../products/folix/product.md).

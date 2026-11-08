@@ -30,6 +30,7 @@ The guide forbids turquoise fills and large turquoise surfaces (p. 46), so the f
 - **Clear space:** 0.5X on all sides, X being the logo height (p. 5).
 - **Minimum size:** hero-L height 12 px on screen, 0.2 cm in print; 0.1 cm for the lockup (pp. 6–7).
 - **Don't** alter the symbol, recolor the turquoise, outline or stretch the wordmark, add effects or change its font (p. 9).
+- **In components:** `ProductLogo` with `product: "folix"` and `variant` set to the file name after `folix-` (for example `white` or `by-lumenis-color`). Without a variant it uses `color`, the file for white grounds. The files are in the asset group `FoLix`.
 - The logo files include the ™ glyph.
 
 ## Motif
