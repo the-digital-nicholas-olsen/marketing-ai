@@ -61,7 +61,8 @@ reference photographs, confirmed cleared by Nicholas Olsen on 2026-09-14.
 | `components/layout/` | `SplitLayout` (communication format), `SocialPost` (1080 grid) |
 | `guidelines/` | Specimen cards for the Design System pane (Brand, Colors, Type, Icons, Imagery, Layout, Spacing) |
 | `ui_kits/corporate-website/` | Click-through corporate homepage |
-| `ui_kits/communication-formats/` | A4 posters, social post templates, 16:9 slides |
+| `ui_kits/communication-formats/` | A4 posters and social post templates |
+| `ui_kits/slides/` | 16:9 slide grid, frame, type scale, rules and slide types |
 | `_ds_bundle.js` | Generated plain-JS bundle (`window.LumenisCorporateDesignSystem`) used by preview cards |
 | `build.py` | Regenerates `components/core/Icon.jsx` from the SVGs and rebuilds `_ds_bundle.js`. Run after editing components. |
 
@@ -257,8 +258,13 @@ collateral and concept mockups, not a coded component library.
   frosted header, grey hero with Hero L headline, rose-gold marquee of words and icons, product
   tabs (Aesthetics / Vision), floating testimonial card over a rings graphic, What's New tabs,
   black footer with a working newsletter field. Testimonial and news copy are placeholders.
-- **`ui_kits/communication-formats/`** — A4 split-layout posters, four 1080 social templates and
-  two 16:9 slides.
+- **`ui_kits/communication-formats/`** — A4 split-layout posters and four 1080 social templates.
+- **`ui_kits/slides/`** — the 16:9 slide format:
+  based on the 2027 Aesthetics AOP. 1920×1080 grid (128 margins, 973 text column, photos and
+  color blocks full bleed at 38.2% or 61.8%), fixed frame (tracker, eyebrow, title, so-what line,
+  source note, page number), slide type scale, Fibonacci spacing, chapter colors, rules (no
+  lines or boxes), and six slide types (opening, chapter break, content, hero number, profile,
+  closing) using Lumenis brand stock photography hosted in HubSpot.
 
 ## 6. Caveats — please help me iterate
 
