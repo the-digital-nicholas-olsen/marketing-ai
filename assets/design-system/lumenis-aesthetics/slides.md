@@ -25,7 +25,7 @@ The 16:9 deck format, based on the 2027 Aesthetics AOP. Every number is a slide 
 | Content | `SlideContent` | Title, the lead 34 below it, then 55 to up to three points (number in the chapter ink and point at 36 on one baseline, supporting line at 28 beneath); photo at 38.2%; closing line |
 | Hero number | `SlideHeroNumber` | Photo at 38.2% on the left, so the frame moves to the right-hand column; one figure at 220, one lead line, at most three numbers at 56 |
 | Profile | `SlideProfile` | Portrait at 38.2% on the left; who she is, her name at 88, her words in serif, her numbers at 56. A persona is labeled as one |
-| Product | `SlideProduct` | The product theme replaces the chapter pairing; the official logo leads the column, the promise at 88, the lead in dark grey, pills in the product field; photo at 38.2% |
+| Product | `SlideProduct` | The product's own colors (`data-product`) replace the chapter pairing; the official logo leads the column, the promise at 88, the lead in dark grey, pills in the product field; photo at 38.2% |
 | Closing | `SlideClosing` | Mirrors the opening: purple block at 38.2% with the wordmark and the line the room should remember; photo at 61.8% |
 
 ## Rules

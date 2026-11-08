@@ -87,7 +87,7 @@ h2{font-size:14px;letter-spacing:3.5px;text-transform:uppercase;color:var(--text
 </body>
 </html>
 " width="1000" height="288" loading="lazy" title="Cover" tabindex="-1"></iframe></div><figcaption><b>Cover</b><span></span></figcaption></figure></div></section>
-  <section class="wide"><h2>Showcase</h2><div class="grid"><figure class="tile"><div class="thumb" data-w="1440" data-h="1100" style="aspect-ratio:1440/1100"><iframe srcdoc="<!-- @dsCard group=&quot;Showcase&quot; height=1100 width=1440 subtitle=&quot;Each product's theme (field, field ink, accent) and logo, plus the named product colors for pieces that show several products&quot; page -->
+  <section class="wide"><h2>Showcase</h2><div class="grid"><figure class="tile"><div class="thumb" data-w="1440" data-h="1100" style="aspect-ratio:1440/1100"><iframe srcdoc="<!-- @dsCard group=&quot;Showcase&quot; height=1100 width=1440 subtitle=&quot;Each product's brand-guide colors and logo, and what data-product switches on its own page&quot; page -->
 <!doctype html>
 <html lang=&quot;en&quot;>
 <head><link rel=&quot;stylesheet&quot; href=&quot;tokens.css&quot;><link rel=&quot;stylesheet&quot; href=&quot;components/bundle.css&quot;><script src=&quot;https://unpkg.com/react@18.3.1/umd/react.production.min.js&quot;></script><script src=&quot;https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js&quot;></script><script src=&quot;components/bundle.js&quot;></script><meta charset=&quot;utf-8&quot;></head>
@@ -98,7 +98,7 @@ h2{font-size:14px;letter-spacing:3.5px;text-transform:uppercase;color:var(--text
 var DS = window.LumenisAesthetics, h = React.createElement;
 var ROWS = [
   {id:'trilift', on:'on-rose-gold', colors:['trilift-rose-gold','trilift-rose-gold-light','trilift-shine-grey']},
-  {id:'stellar-m22', on:'black', colors:['stellar-soft-rose-beige','stellar-silken-rose','stellar-metallic-rose']},
+  {id:'stellar-m22', on:'black', colors:['stellar-soft-rose-beige','stellar-silken-rose','stellar-metallic-rose','stellar-shine-grey']},
   {id:'splendor-x', on:'on-light-skin', colors:['splendor-light-skin','splendor-medium-skin','splendor-dark-skin','splendor-vascular']},
   {id:'folix', on:'white', colors:['folix-turquoise','folix-blue','folix-deep-blue']},
   {id:'ultrapulse-alpha', on:'white', colors:['ultrapulse-purple','ultrapulse-orchid']}
@@ -110,18 +110,18 @@ function Chip(name){
 }
 function Row(r){
   var p = DS.PRODUCTS[r.id];
-  return h('div', {key:r.id, 'data-theme':p.theme, style:{display:'grid',gridTemplateColumns:'280px 260px 1fr',gap:34,alignItems:'center'}},
+  return h('div', {key:r.id, 'data-product':r.id, style:{display:'grid',gridTemplateColumns:'280px 260px 1fr',gap:34,alignItems:'center'}},
     h('div', {className:'la-block', style:{height:144,display:'flex',alignItems:'center',padding:'0 34px'}}, h(DS.ProductLogo, {product:r.id, variant:r.on, height:34})),
     h('div', {className:'la-stack la-gap-near'},
       h(DS.ProductLogo, {product:r.id, height:34}),
-      h('div', {style:{fontSize:14,lineHeight:1.4,color:'var(--text-secondary)'}}, 'data-theme=&quot;' + p.theme + '&quot; · ' + p.module),
+      h('div', {style:{fontSize:14,lineHeight:1.4,color:'var(--text-secondary)'}}, 'data-product=&quot;' + r.id + '&quot; · ' + p.module),
       h('div', {className:'la-row la-gap-near'}, h(DS.Pill, null, p.name), h('span', {className:'la-lead', style:{fontSize:20,color:'var(--field-ink)'}}, '→ field ink'))),
     h('div', {className:'la-row la-gap-follow'}, r.colors.map(Chip)));
 }
 function App(){
   return h('div', {className:'la-showcase'},
     h('p', {className:'la-showcase-h'}, 'Products inside Lumenis Aesthetics'),
-    h('p', {style:{fontSize:15,lineHeight:1.5,color:'var(--text-secondary)',maxWidth:900,margin:0}}, 'Set data-theme to a product id on that product’s own page or section: field, field-ink, on-field and product-accent switch to the product, and the grid, type, frame and spacing stay Aesthetics. The named colors on the right exist in every theme, for pieces that show several products.'),
+    h('p', {style:{fontSize:15,lineHeight:1.5,color:'var(--text-secondary)',maxWidth:900,margin:0}}, 'Every color on the right is a named token taken from that product’s brand guide. On the product’s own page or section, set data-product to its id: field, field-ink, on-field and product-accent switch to the product, and the grid, type, frame and spacing stay Aesthetics.'),
     h('div', {className:'la-stack la-gap-apart'}, ROWS.map(Row)));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(App));
@@ -129,7 +129,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(h(App));
 </script>
 </body>
 </html>
-" width="1440" height="1100" loading="lazy" title="ProductThemes" tabindex="-1"></iframe></div><figcaption><b>ProductThemes</b><span>Each product's theme (field, field ink, accent) and logo, plus the named product colors for pieces that show several products</span></figcaption></figure><figure class="tile"><div class="thumb" data-w="1440" data-h="2100" style="aspect-ratio:1440/1200"><iframe srcdoc="<!-- @dsCard group=&quot;Showcase&quot; height=2100 width=1440 subtitle=&quot;The 16:9 deck: grid and fixed frame, chapter pairings and the seven slide types, based on the 2027 Aesthetics AOP&quot; page -->
+" width="1440" height="1100" loading="lazy" title="ProductColors" tabindex="-1"></iframe></div><figcaption><b>ProductColors</b><span>Each product's brand-guide colors and logo, and what data-product switches on its own page</span></figcaption></figure><figure class="tile"><div class="thumb" data-w="1440" data-h="2100" style="aspect-ratio:1440/1200"><iframe srcdoc="<!-- @dsCard group=&quot;Showcase&quot; height=2100 width=1440 subtitle=&quot;The 16:9 deck: grid and fixed frame, chapter pairings and the seven slide types, based on the 2027 Aesthetics AOP&quot; page -->
 <!doctype html>
 <html lang=&quot;en&quot;>
 <head><link rel=&quot;stylesheet&quot; href=&quot;tokens.css&quot;><link rel=&quot;stylesheet&quot; href=&quot;components/bundle.css&quot;><script src=&quot;https://unpkg.com/react@18.3.1/umd/react.production.min.js&quot;></script><script src=&quot;https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js&quot;></script><script src=&quot;components/bundle.js&quot;></script><meta charset=&quot;utf-8&quot;></head>
@@ -165,7 +165,7 @@ function App(){
         h(DS.SlideHeroNumber, {scale:S, chapters:DECK, current:0, title:'Sixty years of light', figure:'60', lead:'From the first medical lasers to the treatments patients ask for today.', stats:[{value:'1966',label:'Founded'},{value:'1',label:'Partner, first demo to hundredth patient'}], photoAlt:'A woman in warm sunlight', source:'Source: Lumenis, public company history.', page:'05'})),
       h(Item, {cap:'Profile · portrait at 38.2%; who she is, her name at 88, her words in serif, her numbers at 56. A persona is labeled as one.'},
         h(DS.SlideProfile, {scale:S, chapters:DECK, current:0, label:'Med spa owner · illustrative persona', name:'Meet Nicole', quote:'“I don’t need another device. I need one my patients ask for by name.”', stats:[{value:'2',label:'Locations'},{value:'3',label:'Devices'},{value:'12',label:'Years in practice'}], closing:'Lead with what her patients want.', photoAlt:'A woman in a white shirt, arms crossed', source:'Persona built from owner interviews.', page:'09'})),
-      h(Item, {cap:'Product · the product theme replaces the chapter pairing (here triLift 2.0); the official logo leads the column, never on the photo.'},
+      h(Item, {cap:'Product · the product’s own colors replace the chapter pairing (here triLift 2.0); the official logo leads the column, never on the photo.'},
         h(DS.SlideProduct, {scale:S, product:'trilift', chapters:DECK, current:2, promise:'Made for her best year', lead:'A name her patients ask for, with the training and marketing behind it.', pills:['Training','Marketing','Service'], closing:'Show the product where the owner already looks: her calendar.', photoAlt:'A close-up of a woman’s face', source:'Product colors and logo: triLift 2.0 module.', page:'22'})),
       h(Item, {cap:'Closing · mirrors the opening: the purple block holds the line the room should remember; the photo bleeds at 61.8%.'},
         h(DS.SlideClosing, {scale:S, line:'Here’s to their best year', lead:'Thank you.', photoAlt:'A woman in profile, eyes closed'}))));
@@ -338,7 +338,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
 </script>
 </body>
 </html>
-" width="1000" height="460" loading="lazy" title="SlideProduct" tabindex="-1"></iframe></div><figcaption><b>SlideProduct</b><span>A product page: the product's own theme replaces the chapter pairing, the official logo leads the text column, the promise at display size, pills in the product field.</span></figcaption></figure><figure class="tile"><div class="thumb" data-w="1000" data-h="460" style="aspect-ratio:1000/460"><iframe srcdoc="<!-- @dsCard group=&quot;Slides&quot; height=460 -->
+" width="1000" height="460" loading="lazy" title="SlideProduct" tabindex="-1"></iframe></div><figcaption><b>SlideProduct</b><span>A product page: the product's own colors replace the chapter pairing, the official logo leads the text column, the promise at display size, pills in the product field.</span></figcaption></figure><figure class="tile"><div class="thumb" data-w="1000" data-h="460" style="aspect-ratio:1000/460"><iframe srcdoc="<!-- @dsCard group=&quot;Slides&quot; height=460 -->
 <!doctype html>
 <html lang=&quot;en&quot;>
 <head><link rel=&quot;stylesheet&quot; href=&quot;tokens.css&quot;><link rel=&quot;stylesheet&quot; href=&quot;components/bundle.css&quot;><script src=&quot;https://unpkg.com/react@18.3.1/umd/react.production.min.js&quot;></script><script src=&quot;https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js&quot;></script><script src=&quot;components/bundle.js&quot;></script><meta charset=&quot;utf-8&quot;></head>
@@ -603,9 +603,9 @@ function Demo(){
     h(DS.Stack,{direction:'row',gap:'section'},h(DS.ProductLogo,{product:'trilift'}),h(DS.ProductLogo,{product:'stellar-m22'}),h(DS.ProductLogo,{product:'splendor-x'})),
     h(DS.Stack,{direction:'row',gap:'section'},h(DS.ProductLogo,{product:'folix'}),h(DS.ProductLogo,{product:'ultrapulse-alpha'})),
     h(DS.Stack,{direction:'row',gap:'section'},
-      h('div',{'data-theme':'folix',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'folix',variant:'white'})),
-      h('div',{'data-theme':'trilift',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'trilift',variant:'on-rose-gold'})),
-      h('div',{'data-theme':'ultrapulse-alpha',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'ultrapulse-alpha',variant:'white'}))));
+      h('div',{'data-product':'folix',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'folix',variant:'white'})),
+      h('div',{'data-product':'trilift',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'trilift',variant:'on-rose-gold'})),
+      h('div',{'data-product':'ultrapulse-alpha',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'ultrapulse-alpha',variant:'white'}))));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
 })();

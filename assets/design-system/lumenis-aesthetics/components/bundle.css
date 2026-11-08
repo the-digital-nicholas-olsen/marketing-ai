@@ -8,13 +8,21 @@
 @font-face{font-family:"ABC Arizona Mix";src:local("ABC Arizona Mix Regular Italic"),local("ABCArizonaMix-Italic");font-weight:400;font-style:italic;font-display:swap}
 
 /* Chapter pairings. Put data-pairing on a page, section or slide to switch the active field.
-   Don't put data-pairing and a product data-theme on the same element. */
+   Don't put data-pairing and data-product on the same element. */
 [data-pairing="mint"]{--field:var(--mint);--field-ink:var(--mint-ink);--on-field:var(--ink)}
 [data-pairing="sky"]{--field:var(--sky);--field-ink:var(--sky-ink);--on-field:var(--ink)}
 [data-pairing="lavender"]{--field:var(--lavender);--field-ink:var(--lavender-ink);--on-field:var(--ink)}
 [data-pairing="rose-gold"]{--field:var(--rose-gold);--field-ink:var(--rose-gold-ink);--on-field:var(--ink)}
 [data-pairing="silken-rose"]{--field:var(--silken-rose);--field-ink:var(--silken-rose-ink);--on-field:var(--color-white)}
 [data-pairing="bookend"]{--field:var(--bookend);--field-ink:var(--bookend-ink);--on-field:var(--color-white)}
+
+/* Product colors. Put data-product on that product's own page, section or slide: its brand-guide colors
+   replace the chapter pairing there. Don't put data-pairing and data-product on the same element. */
+[data-product="trilift"]{--field:var(--trilift-rose-gold);--field-ink:var(--ink);--on-field:var(--ink);--product-accent:var(--trilift-rose-gold-light)}
+[data-product="stellar-m22"]{--field:var(--stellar-soft-rose-beige);--field-ink:var(--stellar-silken-rose);--on-field:var(--ink);--product-accent:var(--stellar-silken-rose)}
+[data-product="splendor-x"]{--field:var(--splendor-light-skin);--field-ink:var(--splendor-dark-skin);--on-field:var(--ink);--product-accent:var(--splendor-medium-skin)}
+[data-product="folix"]{--field:var(--folix-blue);--field-ink:var(--folix-blue);--on-field:var(--color-white);--product-accent:var(--folix-turquoise)}
+[data-product="ultrapulse-alpha"]{--field:var(--ultrapulse-purple);--field-ink:var(--ink);--on-field:var(--ink);--product-accent:var(--ultrapulse-orchid)}
 
 /* Type roles: the type styles in tokens.css set size, leading, tracking and weight; these add case and color. */
 .la-text{margin:0}

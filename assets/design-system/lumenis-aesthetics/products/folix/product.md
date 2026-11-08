@@ -6,7 +6,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 
 - Always **FoLix**: capital F, lowercase o, capital L, lowercase ix (p. 9). Add **™** in superscript on first use: FoLix™. It is ™, not ®: the mark is not yet registered (p. 8).
 
-## Colors (theme `folix`)
+## Colors (`data-product="folix"`)
 
 | Color | HEX | Use |
 |---|---|---|

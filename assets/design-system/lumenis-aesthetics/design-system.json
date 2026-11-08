@@ -449,8 +449,8 @@
   },
   "lastChange": {
     "by": "Laarni Cayetano",
-    "at": "2026-11-08T03:43:41Z",
+    "at": "2026-11-08T03:59:36Z",
     "via": "GitHub · the-digital-nicholas-olsen/marketing-ai@add/aesthetics-design-system",
-    "note": "First sync from assets/design-system/lumenis-aesthetics: tokens, 23 components, 2 showcase pages, 51 logos and icons, product modules."
+    "note": "Removed product themes: one color set; product colors are named tokens checked against each brand guide, switched per page with data-product. Added stellar-shine-grey."
   }
 }

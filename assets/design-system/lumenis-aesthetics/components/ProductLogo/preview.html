@@ -13,9 +13,9 @@ function Demo(){
     h(DS.Stack,{direction:'row',gap:'section'},h(DS.ProductLogo,{product:'trilift'}),h(DS.ProductLogo,{product:'stellar-m22'}),h(DS.ProductLogo,{product:'splendor-x'})),
     h(DS.Stack,{direction:'row',gap:'section'},h(DS.ProductLogo,{product:'folix'}),h(DS.ProductLogo,{product:'ultrapulse-alpha'})),
     h(DS.Stack,{direction:'row',gap:'section'},
-      h('div',{'data-theme':'folix',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'folix',variant:'white'})),
-      h('div',{'data-theme':'trilift',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'trilift',variant:'on-rose-gold'})),
-      h('div',{'data-theme':'ultrapulse-alpha',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'ultrapulse-alpha',variant:'white'}))));
+      h('div',{'data-product':'folix',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'folix',variant:'white'})),
+      h('div',{'data-product':'trilift',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'trilift',variant:'on-rose-gold'})),
+      h('div',{'data-product':'ultrapulse-alpha',className:'la-block',style:{padding:21}},h(DS.ProductLogo,{product:'ultrapulse-alpha',variant:'white'}))));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
 })();

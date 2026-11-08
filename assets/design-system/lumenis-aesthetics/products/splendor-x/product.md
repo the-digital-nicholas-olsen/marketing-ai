@@ -6,7 +6,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 
 - Write **SPLENDOR X**, as the guide does throughout (pp. 2–16). The guide gives no trademark rule; follow the brief or legal review before adding ™ or ®.
 
-## Colors (theme `splendor-x`)
+## Colors (`data-product="splendor-x"`)
 
 | Color | HEX | Use |
 |---|---|---|

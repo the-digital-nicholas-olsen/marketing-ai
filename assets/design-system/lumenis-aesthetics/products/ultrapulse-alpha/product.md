@@ -6,7 +6,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 
 - The guide writes **ULTRApulseAlpha** as one word (pp. 4–46); the logo reads "ULTRApulse" followed by the α glyph. The guide gives no trademark rule; follow the brief or legal review before adding ™ or ®.
 
-## Colors (theme `ultrapulse-alpha`)
+## Colors (`data-product="ultrapulse-alpha"`)
 
 | Color | HEX | Use |
 |---|---|---|

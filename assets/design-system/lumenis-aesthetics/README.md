@@ -9,7 +9,7 @@ These rules hold for every format. Sizes and positions belong to the format: the
 | Piece | System |
 |---|---|
 | Speaks for the Aesthetics division, or covers several Aesthetics products | **Lumenis Aesthetics** |
-| One Aesthetics product with a module (triLift 2.0, Stellar M22, SPLENDOR X, FoLix, UltraPulse Alpha) | **Lumenis Aesthetics**, with that product's theme and [module](products/README.md) |
+| One Aesthetics product with a module (triLift 2.0, Stellar M22, SPLENDOR X, FoLix, UltraPulse Alpha) | **Lumenis Aesthetics**, with that product's colors and [module](products/README.md) |
 | Speaks as Lumenis the company, covers both divisions, or is an Accelerate by Lumenis event | Lumenis Corporate |
 
 Do not infer indications, claims or routing from the design examples. Take them from the brief, the regulatory do's and don'ts and the claims library, and run the claims check before delivery.
@@ -76,9 +76,11 @@ Each step up the scale is roughly the golden ratio or a Fibonacci step larger. T
 
 ### Products inside the system
 
-Each product with a module has a **theme**. On that product's own page or section, set `data-theme` to its id (`trilift`, `stellar-m22`, `splendor-x`, `folix`, `ultrapulse-alpha`): `field`, `field-ink`, `on-field` and `product-accent` switch to the product, in place of the chapter pairing. Grid, type, frame, spacing and voice stay Aesthetics. Don't put `data-pairing` and a product `data-theme` on the same element.
+Every product color is a **named token** taken from that product's brand guide: `trilift-rose-gold`, `trilift-rose-gold-light`, `trilift-shine-grey`; `stellar-soft-rose-beige`, `stellar-silken-rose`, `stellar-metallic-rose`, `stellar-shine-grey`; `splendor-light-skin`, `splendor-medium-skin`, `splendor-dark-skin`, `splendor-vascular`; `folix-turquoise`, `folix-blue`, `folix-deep-blue`; `ultrapulse-purple`, `ultrapulse-orchid`. Use them by name wherever a product appears.
 
-Every product color is also a **named token** in every theme (`trilift-rose-gold`, `folix-blue`, `splendor-dark-skin` and so on), for pieces that show several products. On a page that compares or lists products, the products README currently says to keep the chapter's Aesthetics pairing, set each product logo in its one-color version and not mix product colors on one page; whether the named product colors may appear together on one piece is still open for the Aesthetics team to confirm. Each product's colors, logos and rules are in its [module](products/README.md).
+On that product's own page or section, set `data-product` to its id (`trilift`, `stellar-m22`, `splendor-x`, `folix`, `ultrapulse-alpha`) and its colors replace the chapter pairing: `field`, `field-ink` and `on-field` switch to the product, and `product-accent` holds its second color. Grid, type, frame, spacing and voice stay Aesthetics. Don't put `data-pairing` and `data-product` on the same element.
+
+On a page that compares or lists products, the products README currently says to keep the chapter's Aesthetics pairing, set each product logo in its one-color version and not mix product colors on one page; whether the named product colors may appear together on one piece is still open for the Aesthetics team to confirm. Each product's colors, logos and rules are in its [module](products/README.md).
 
 ## 4. Components
 
@@ -92,7 +94,7 @@ Built components live in `components/`; each has a preview and a short guide. Bu
 - **Points** (`PointList`): up to three numbered points, the number in `field-ink`.
 - **Chapter break** (`SlideChapter`): the chapter number at the chapter size in the field color, then the chapter title and its question as a lead line, centered vertically in the content area, beside a bleeding photo.
 - **Profile** (`SlideProfile`): a portrait bleeding at 38.2%; on the text column, a label above the name at display size, then the quote as a lead line and the stats below it. A persona is labeled as one.
-- **Product** (`SlideProduct`, `ProductLogo`): a skin or portrait photo bleeding beside the column, the official product logo leading the text column, the promise at display size, and the product's own theme.
+- **Product** (`SlideProduct`, `ProductLogo`): a skin or portrait photo bleeding beside the column, the official product logo leading the text column, the promise at display size, and the product's own colors.
 - **Pill** (`Pill`): one style for any tag or verdict: rounded (`radius-pill`), small uppercase, letter-spaced. Verdicts: `winning`, `watch`, `warning`. In-chapter navigation uses pills on the tracker line, right-aligned to the column: the current one filled in the chapter's field, the others a soft tint of it.
 - **No lines.** No hairlines, rules, dividers, borders or boxes. Group with space and type size. The tracker dashes are the only marks.
 
@@ -126,7 +128,7 @@ One idea and one hero per page: a number, a photo or one line of display type. A
 
 Check the piece against this system only:
 
-- light ground, and one pairing per chapter (or the product's theme on its own page)
+- light ground, and one pairing per chapter (or the product's own colors on its own page)
 - pinks limited to Rose Gold and Silken Rose
 - one fixed type scale and frame for the format, and Fibonacci spacing
 - photos bleeding, with text and footer kept on the text column

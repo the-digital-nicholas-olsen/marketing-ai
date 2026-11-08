@@ -21,7 +21,7 @@ export interface IconProps { name: 'burst' | 'cross' | 'crossover' | 'lines' | '
 export interface BandProps { height?: number }
 export interface PhotoProps { src?: string; alt?: string; position?: string }
 
-export interface SlideProps { scale?: number; pairing?: Pairing; theme?: ProductId; children?: ReactNode }
+export interface SlideProps { scale?: number; pairing?: Pairing; product?: ProductId; children?: ReactNode }
 export interface SlideColumnProps { side?: 'left' | 'right'; title?: ReactNode; centered?: boolean; gap?: Gap; children?: ReactNode }
 export interface SlideBleedProps { side?: 'left' | 'right'; width?: 'minor' | 'major'; block?: boolean; children?: ReactNode }
 interface SlidePhoto { photo?: string; photoAlt?: string; photoPosition?: string; scale?: number }

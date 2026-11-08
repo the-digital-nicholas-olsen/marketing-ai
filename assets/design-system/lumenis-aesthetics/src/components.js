@@ -110,7 +110,7 @@ function Slide(props) {
   var scale = props.scale || 0.4;
   return h('div', { className: 'la-slide-frame', style: { width: 1920 * scale, height: 1080 * scale } },
     h('div', {
-      className: 'la-slide', 'data-pairing': props.pairing, 'data-theme': props.theme,
+      className: 'la-slide', 'data-pairing': props.pairing, 'data-product': props.product,
       style: { transform: 'scale(' + scale + ')' }
     }, props.children));
 }
@@ -201,8 +201,7 @@ function SlideProfile(props) {
 }
 
 function SlideProduct(props) {
-  var p = PRODUCTS[props.product] || {};
-  return h(Slide, { scale: props.scale, theme: p.theme },
+    return h(Slide, { scale: props.scale, product: props.product },
     h(SlideColumn, { side: 'left' },
       h('div', null, h(ProductLogo, { product: props.product, variant: props.logoVariant, height: 55 })),
       h(Stack, { gap: 'follow' },

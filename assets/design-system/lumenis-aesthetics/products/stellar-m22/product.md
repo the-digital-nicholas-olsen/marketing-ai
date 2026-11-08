@@ -8,13 +8,14 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 - Handpieces are sub-brands with their own logos: **XPL**, **RFX** (ResurFX), **NdY** and **QSW** (pp. 53–56).
 - Treatment sub-brands (SmoothGLO, PhotoFABULOUS) share the Stellar palette (pp. 57–60) but have no official logo files here yet.
 
-## Colors (theme `stellar-m22`)
+## Colors (`data-product="stellar-m22"`)
 
 | Color | HEX | Use |
 |---|---|---|
 | Soft Rose Beige (Rose Gold) | `#FABCAD` | Primary; the field on Stellar pages |
 | Silken Rose | `#BA6D81` | Primary; small colored type and the closing-line arrow (`--field-ink`) |
 | Metallic Rose | `#AF867C` | Device and handpiece branding only (p. 51) |
+| Shine Grey | `#404040` | A dark neutral beside black (`stellar-shine-grey`) |
 | Lumenis Black / White | `#000000` / `#FFFFFF` | The base system |
 
 Stellar colors serve as highlight, stroke, graphic fill and background (p. 36). The guide also lists Peach Beige `#DEAA9B` and Rose Beige `#CF9684`; neither is used in Aesthetics work.
@@ -46,3 +47,4 @@ Confident, face-focused portraits with direct eye contact; men and women mainly 
 - "Soft Rose Beige" names `#FABCAD` on p. 36 but `#DEAA9B` on pp. 58–60.
 - The handpiece files marked "-r" suggest ® while the guide uses ™ only; the plain files are used here.
 - Page 60 repeats page 59's text.
+- Shine Grey's printed RGB (64/4/64) doesn't match its hex `#404040`; the hex is used.

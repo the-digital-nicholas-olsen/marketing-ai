@@ -8,7 +8,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 - In running text, write **TriLIFT 2.0** as the guide does (p. 10). Add **™** in superscript on first use: TriLIFT 2.0™. It is ™, not ®: the mark is not yet registered (p. 10).
 - This module covers triLift 2.0 only. The guide never mentions the original triLift, so its files aren't included.
 
-## Colors (theme `trilift`)
+## Colors (`data-product="trilift"`)
 
 | Color | HEX | Use |
 |---|---|---|
