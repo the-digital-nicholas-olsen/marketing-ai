@@ -1,0 +1,51 @@
+<!-- @dsCard group="Showcase" height=6600 width=1440 subtitle="The web format: a 12-column grid with equal edges, one idea and one picture per section, light grounds with one accent section, product renders, agenda timeline, people, closing with the details, and the color band at the foot" page -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;background:var(--surface-page)">
+<div id="root"></div>
+<script>
+(function(){
+var DS = window.LumenisAesthetics, h = React.createElement;
+function Spec(rows){
+  return h('table', {style:{borderCollapse:'collapse',fontSize:13,lineHeight:1.4,width:'100%'}}, h('tbody', null, rows.map(function(r,i){
+    return h('tr', {key:i}, h('th', {style:{textAlign:'left',fontWeight:400,color:'var(--text-secondary)',padding:'6px 16px 6px 0',verticalAlign:'top',width:'30%'}}, r[0]), h('td', {style:{padding:'6px 0',verticalAlign:'top'}}, r[1]));
+  })));
+}
+var DAYS = [
+  {label:'Day 1 · Friday', date:'Month 5', sessions:[
+    {time:'3:00 PM', tag:'Arrival', title:'Check-in and welcome', text:'Pick up your badge and agenda, then meet the faculty and the Lumenis team.'},
+    {time:'4:00–5:30 PM', tag:'Clinical session', title:'Foundations', subtitle:'Session subtitle in Mix italic', text:'One or two sentences on what attendees do and leave with.'},
+    {time:'6:30–8:00 PM', tag:'Social', title:'Welcome reception', text:'Drinks and conversation with faculty and fellow owners.'}]},
+  {label:'Day 2 · Saturday', date:'Month 6', sessions:[
+    {time:'9:00 AM', tag:'Hands-on', title:'Stations', text:'Small groups rotate with a trainer at every station.'}]}
+];
+function App(){
+  return h('div', null,
+    h('div', {className:'aes-showcase'},
+      h('p', {className:'aes-showcase-h'}, 'Web · landing, event and program pages · 1440 desktop, one column below 1024'),
+      h('p', {style:{fontSize:15,lineHeight:1.5,color:'var(--text-secondary)',maxWidth:900,margin:0}}, 'One 12-column grid with the same left and right edge in every section; one idea and one picture per section, each about one screen tall; Arizona Mix headlines with no label above them; light grounds, with the product’s second color as one contrast section; product renders and real photographs inside the grid lines; the hero enters once, buttons and photos answer the pointer; the color band closes the page. Photos show as placeholders here.'),
+      h('div', {style:{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(380px,1fr))',gap:'8px 40px'}},
+        Spec([['Frame','Column 1280 wide on 12 columns, 24 gutters; margins 80 (48 tablet, 24 phone)'],['Sections','144 above the heading, 89 below the content; about one screen each at 1440 × 900'],['Grounds','White, surface-soft, surface-muted; one accent section in the product’s second color with white large type only; never dark'],['Pictures','Photos 4:5 in five columns; a product render standing whole in seven; renders on the product backdrop in cards']]),
+        Spec([['Type','h1 72 · h2 48 · lead 24 · h3 24 (Mix) · body 17 · small 15 · figure 40 Light · labels 13 caps for times and facts only'],['No labels above headings','The nav names the sections; the heading says something'],['Motion','The hero enters once; buttons rise and press; photos zoom 2.5% in their frame; links draw their underline; all rest under reduced motion'],['Color band','Once, at the foot of the page, under the footer']]))),
+    h(DS.WebPage, {product:'stellar-m22'},
+      h(DS.WebHeader, {links:[{label:'Platform',href:'#p'},{label:'Agenda',href:'#a'},{label:'Faculty',href:'#f'},{label:'Details',href:'#d'}], cta:{label:'Request a seat',href:'#d'}}),
+      h(DS.WebHero, {product:'stellar-m22', title:'A headline of about four words.', intro:'One sentence on who it is for and what they leave with.', meta:['Month 5–6, 2027','City, ST'], actions:[{label:'See the agenda',href:'#a'},{label:'Request a seat',href:'#d'}], photoAlt:'Opening photo, 61.8%', icon:'star'}),
+      h(DS.WebSplit, {id:'p', productImage:'', productAlt:'Product render standing whole', title:'The product, whole, beside what it does.', lead:'One serif line a reader remembers.', intro:'Two or three sentences in body type.'},
+        h('div', {style:{marginTop:55}}, h(DS.WebFacts, {items:[{label:'Format',value:'Small groups'},{label:'Stations',value:'One per handpiece'}]}))),
+      h(DS.WebSection, {ground:'accent', title:'One contrast section in the product’s second color.', lead:'White type here is large type only: the heading and this 26px line.'},
+        h(DS.WebCards, {items:[{title:'Part one',text:'One or two lines of supporting text.',alt:'Render'},{title:'Part two',text:'One or two lines of supporting text.',alt:'Render'},{title:'Part three',text:'One or two lines of supporting text.',alt:'Render'},{title:'Part four',text:'One or two lines of supporting text.',alt:'Render'}]})),
+      h(DS.WebSplit, {id:'a', title:'Every session, in order.', photoAlt:'Photo, 4:5'},
+        h(DS.WebAgenda, {id:'showcase-agenda', days:DAYS})),
+      h(DS.WebSection, {id:'f', ground:'muted', title:'The people leading the sessions.', intro:'One line on what they lead.'},
+        h(DS.WebPeople, {people:[{name:'Name Surname, MD',credentials:'Specialty',text:'Two or three lines of public biography.'},{name:'Name Surname, MD',credentials:'Specialty',text:'Two or three lines of public biography.'},{name:'Name Surname, PA-C',credentials:'Specialty',text:'Two or three lines of public biography.'}]})),
+      h(DS.WebSplit, {title:'A photo inside the grid beside a short list.', intro:'The words take seven columns, the photo five.', photoAlt:'Photo, 4:5'},
+        h(DS.WebRows, {items:[{when:'Fri 6:30 PM',title:'Welcome reception',text:'One line.'},{when:'Sat 12:00 PM',title:'Lunch with faculty',text:'One line.'},{when:'Sat 3:30 PM',title:'Owners’ circle',text:'One line.'}]})),
+      h(DS.WebClosing, {id:'d', product:'stellar-m22', title:'The line the reader should remember.', facts:[{label:'Dates',value:'Month 5–6'},{label:'Check-in',value:'Fri, 3 PM'}], intro:'City. How registration works, in one sentence.', actions:[{label:'Request a seat',href:'#d'},{label:'Review the agenda',href:'#a',kind:'text'}], photoAlt:'Closing photo, 61.8%', icon:'sparkle'}),
+      h(DS.WebFooter, {links:[{label:'Privacy Statement',href:'#'},{label:'Terms of Use',href:'#'},{label:'Safety Information',href:'#'}], note:'Footer note: sources, disclaimers and required safety text.'})));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+})();
+</script>
+</body>
+</html>

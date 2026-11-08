@@ -5,7 +5,7 @@ description: The standalone OptiLIFT brand system — colour, type, surfaces, im
 
 # OptiLIFT — brand system
 
-One of three separate Lumenis brand systems (Lumenis Corporate, OptiLIGHT, OptiLIFT), each a complete brand book for a different purpose. Everything OptiLIFT work needs is in this folder: these rules, the [reference](reference.md), `styles.css` and `tokens/`, logos in `assets/logo/` and specimen cards in `guidelines/`. It does not inherit from or defer to the other systems, and their different choices are not conflicts.
+One of the separate Lumenis brand systems listed in the [design-system README](../README.md), each a complete brand book for a different purpose. Everything OptiLIFT work needs is in this folder: these rules, the [reference](reference.md), `styles.css` and `tokens/`, logos in `assets/logo/` and specimen cards in `guidelines/`. It does not inherit from or defer to the other systems, and their different choices are not conflicts.
 
 ## Non-negotiables
 

@@ -1,0 +1,42 @@
+<!-- @dsCard group="Products" height=1100 width=1440 subtitle="Each product's brand-guide colors and logos, and what data-product switches on its own page" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;background:var(--surface-page)">
+<div id="root"></div>
+<script>
+(function(){
+var DS = window.LumenisAesthetics, h = React.createElement;
+var ROWS = [
+  {id:'trilift', on:'on-rose-gold', colors:['trilift-rose-gold','trilift-rose-gold-light','trilift-shine-grey']},
+  {id:'stellar-m22', on:'black', colors:['stellar-soft-rose-beige','stellar-silken-rose','stellar-metallic-rose','stellar-shine-grey']},
+  {id:'splendor-x', on:'on-light-skin', colors:['splendor-light-skin','splendor-medium-skin','splendor-dark-skin','splendor-vascular']},
+  {id:'folix', on:'white', colors:['folix-turquoise','folix-blue','folix-deep-blue']},
+  {id:'ultrapulse-alpha', on:'white', colors:['ultrapulse-purple','ultrapulse-orchid']}
+];
+function Chip(name){
+  return h('div', {key:name, style:{display:'flex',flexDirection:'column',gap:8,width:120}},
+    h('div', {style:{height:55,background:'var(--'+name+')'}}),
+    h('span', {style:{fontSize:12,color:'var(--text-secondary)',lineHeight:1.3}}, name));
+}
+function Row(r){
+  var p = DS.PRODUCTS[r.id];
+  return h('div', {key:r.id, 'data-product':r.id, style:{display:'grid',gridTemplateColumns:'280px 260px 1fr',gap:34,alignItems:'center'}},
+    h('div', {className:'aes-block', style:{height:144,display:'flex',alignItems:'center',padding:'0 34px'}}, h(DS.ProductLogo, {product:r.id, variant:r.on, height:34})),
+    h('div', {className:'aes-stack aes-gap-near'},
+      h(DS.ProductLogo, {product:r.id, height:34}),
+      h('div', {style:{fontSize:14,lineHeight:1.4,color:'var(--text-secondary)'}}, 'data-product="' + r.id + '" · ' + p.module),
+      h('div', {className:'aes-row aes-gap-near'}, h(DS.Pill, null, p.name), h('span', {className:'aes-lead', style:{fontSize:20,color:'var(--field-ink)'}}, '→ field ink'))),
+    h('div', {className:'aes-row aes-gap-follow'}, r.colors.map(Chip)));
+}
+function App(){
+  return h('div', {className:'aes-showcase'},
+    h('p', {className:'aes-showcase-h'}, 'Products'),
+    h('p', {style:{fontSize:15,lineHeight:1.5,color:'var(--text-secondary)',maxWidth:900,margin:0}}, 'Every color on the right is a named token taken from that product’s brand guide. On the product’s own page or section, set data-product to its id: field, field-ink, on-field and product-accent switch to the product, and the grid, type, frame and spacing stay Aesthetics.'),
+    h('div', {className:'aes-stack aes-gap-apart'}, ROWS.map(Row)));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+})();
+</script>
+</body>
+</html>

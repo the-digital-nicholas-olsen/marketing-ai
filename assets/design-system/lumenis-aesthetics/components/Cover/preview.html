@@ -1,0 +1,34 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lumenis Aesthetics</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface-page); color:var(--text-primary); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .field { position:absolute; top:0; left:480px; width:183px; height:288px; background:var(--color-rose-gold); }
+  .photo { position:absolute; top:0; left:663px; width:297px; height:288px; overflow:hidden; background:var(--color-rose-gold); }
+  .photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:55% 38%; }
+  .words { position:absolute; left:var(--space-34); bottom:var(--space-34); max-width:440px; }
+  .name { margin:0; font-family:var(--font-sans); font-weight:400; font-size:72px; line-height:.95; color:var(--text-primary); }
+  .tag { margin:var(--space-13) 0 0; font-size:14px; line-height:20px; color:var(--text-secondary); }
+</style>
+</head>
+<body>
+<div class="cover">
+<!--
+  layout   the opening slide in miniature: a rose-gold field (183 = golden-minor of 480) beside a photo that bleeds off the top, right and bottom (297 = golden-major)
+  photo    Lumenis brand stock, models no. 61 (a woman laughing, hands at her cheeks), the slides kit's opening photo. Uploaded to this artifact's asset store only, never to the repository
+  fallback where the upload doesn't load (the repository's local gallery), the photo slot shows rose-gold
+-->
+<div class="field" aria-hidden="true"></div>
+<div class="photo"><img src="/_blob/5c1cace88189160d83c0d41db5c55420" alt="A woman laughing, hands at her cheeks" onerror="this.remove()"></div>
+<div class="words">
+<h1 class="name">Lumenis<br>Aesthetics</h1>
+<p class="tag">One idea per page, real people, and color that carries meaning.</p>
+</div>
+</div>
+</body>
+</html>

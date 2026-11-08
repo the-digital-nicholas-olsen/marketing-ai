@@ -12,7 +12,7 @@ Use this for any HubSpot CMS landing page: campaign, registration or interest, a
 
 ## Inputs
 
-Resolve division, product, market, audience, campaign label, period, desired conversion and the external output folder. Select one brand system (Lumenis Corporate, OptiLIGHT or OptiLIFT) through [the design entry point](../../../assets/design-system/README.md) and read only that system's guidance. This procedure doesn't grant claim approval or make any brand system a division default. Consult the [claims library](../../../assets/claims-reference/index.md) for evidence status; source copy is not approval. Use [the campaign brief](../../../templates/campaign-brief.md) when a brief helps.
+Resolve division, product, market, audience, campaign label, period, desired conversion and the external output folder. Select one brand system (Lumenis Corporate, Lumenis Aesthetics, OptiLIGHT or OptiLIFT) through [the design entry point](../../../assets/design-system/README.md) and read only that system's guidance; for Lumenis Aesthetics that is its [web format](../../../assets/design-system/lumenis-aesthetics/web.md). This procedure doesn't grant claim approval or make any brand system a division default. Consult the [claims library](../../../assets/claims-reference/index.md) for evidence status; source copy is not approval. Use [the campaign brief](../../../templates/campaign-brief.md) when a brief helps.
 
 Run `node scripts/name.mjs <AES|VIS> "<campaign>" "<Qn YYYY>" <country-code>` from the repository root for proposed names. Confirm the convention applies to the selected market. The helper doesn't determine CRM values.
 

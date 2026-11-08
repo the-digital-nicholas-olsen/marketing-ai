@@ -1,0 +1,24 @@
+<!-- @dsCard group="Brand" height=600 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;background:var(--surface-page)">
+<div id="root" style="padding:24px"></div>
+<script>
+(function(){
+var DS = window.LumenisAesthetics, h = React.createElement;
+var DECK=[{name:'Chapter 1',pairing:'mint'},{name:'Chapter 2',pairing:'sky'},{name:'Chapter 3',pairing:'rose-gold'},{name:'Chapter 4',pairing:'lavender'},{name:'Finale',pairing:'silken-rose'}];
+function Demo(){
+  return h(DS.Stack,{gap:'apart'},
+    h(DS.Stack,{direction:'row',gap:'section'},h(DS.ProductLogo,{product:'trilift'}),h(DS.ProductLogo,{product:'stellar-m22'}),h(DS.ProductLogo,{product:'splendor-x'})),
+    h(DS.Stack,{direction:'row',gap:'section'},h(DS.ProductLogo,{product:'folix'}),h(DS.ProductLogo,{product:'ultrapulse-alpha'})),
+    h(DS.Stack,{direction:'row',gap:'section'},
+      h('div',{'data-product':'folix',className:'aes-block',style:{padding:21}},h(DS.ProductLogo,{product:'folix',variant:'white'})),
+      h('div',{'data-product':'trilift',className:'aes-block',style:{padding:21}},h(DS.ProductLogo,{product:'trilift',variant:'on-rose-gold'})),
+      h('div',{'data-product':'ultrapulse-alpha',className:'aes-block',style:{padding:21}},h(DS.ProductLogo,{product:'ultrapulse-alpha',variant:'white'}))));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!-- @dsCard group="Showcase" height=3400 width=1440 subtitle="The 16:9 deck: grid and fixed frame, chapter pairings, twelve slide types and a free layout built on the blank frame" page -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;background:var(--surface-page)">
+<div id="root"></div>
+<script>
+(function(){
+var DS = window.LumenisAesthetics, h = React.createElement;
+var DECK = [{name:'Chapter 1',pairing:'mint'},{name:'Chapter 2',pairing:'sky'},{name:'Chapter 3',pairing:'rose-gold'},{name:'Chapter 4',pairing:'lavender'},{name:'Finale',pairing:'silken-rose'}];
+var S = 0.3;
+function Item(props){ return h('div', null, props.children, h('p', {className:'aes-showcase-cap'}, props.cap)); }
+function Spec(rows){
+  return h('table', {style:{borderCollapse:'collapse',fontSize:13,lineHeight:1.4,width:'100%'}}, h('tbody', null, rows.map(function(r,i){
+    return h('tr', {key:i}, h('th', {style:{textAlign:'left',fontWeight:400,color:'var(--text-secondary)',padding:'6px 16px 6px 0',verticalAlign:'top',width:'30%'}}, r[0]), h('td', {style:{padding:'6px 0',verticalAlign:'top'}}, r[1]));
+  })));
+}
+function App(){
+  return h('div', {className:'aes-showcase'},
+    h('p', {className:'aes-showcase-h'}, 'Presentation · 16:9 · 1920 × 1080'),
+    h('p', {style:{fontSize:15,lineHeight:1.5,color:'var(--text-secondary)',maxWidth:820,margin:0}}, 'One idea per slide on a white ground, with photography that bleeds to the edge or sits inset on the grid. 1px rules and flat cards may group and divide content; the primary color is balanced with white and the secondary field. Every slide keeps the same frame and type scale, but the layout inside it is designed for its content: the types below are starting points. Proportions follow the golden ratio (61.8 / 38.2); spacing uses Fibonacci steps only. Photos show as placeholders here: the artifact cannot load hosted images.'),
+    h('div', {style:{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(360px,1fr))',gap:'8px 40px'}},
+      Spec([['Canvas','1920 × 1080, white ground'],['Text column','973 wide: x 128–1101 beside a right-hand photo, x 819–1792 beside a left-hand photo'],['Photo or color block','Full bleed: 733 (38.2%) beside the column, 1187 (61.8%) on the opening and closing'],['Spacing','8 · 13 · 21 · 34 · 55 · 89 · 144 only'],['Opening and closing block','The pairing’s field, Rose Gold by default; wordmark and headline inset 89']]),
+      Spec([['Tracker','Top 52 on the text column: chapter name 15 caps, one dash per chapter (current 28, others 12)'],['Title','54 caps at 149; 34 to the content, always'],['Closing line','Ends at 952; a second line grows upward. Arrow in the chapter ink, one sentence in Arizona Mix at 36'],['Footer','55 from the bottom: wordmark 89 wide, source note, page number, 14 in dark grey'],['Type','Label 18 · body 28 · lead 36 · number 56 · display 88 · hero 136 · chapter 220']])),
+    h('p', {className:'aes-showcase-h'}, 'Slide types'),
+    h('div', {className:'aes-showcase-grid'},
+      h(Item, {cap:'Opening · photo at 61.8%, color block at 38.2% in the pairing’s field with the wordmark, a label, the promise at 88 and the date; the color band along the bottom edge.'},
+        h(DS.SlideOpening, {scale:S, label:'2027 · North America Aesthetics', promise:'Their best year yet', date:'Month day, year', photoAlt:'A woman laughing, hands at her cheeks', band:true})),
+      h(Item, {cap:'Chapter break · the chapter number at 220 in the field color, the title at 88 and its question 21 beneath, centered beside a bleeding photo.'},
+        h(DS.SlideChapter, {scale:S, chapters:DECK, current:1, number:'02', title:'Our right to win', question:'Why should an owner choose Lumenis?', photoAlt:'A woman in profile, smiling', page:'12'})),
+      h(Item, {cap:'Content · title, lead 34 below, then 55 to three points; photo at 38.2%; the closing line ends at 952.'},
+        h(DS.SlideContent, {scale:S, chapters:DECK, current:1, title:'Owners buy certainty, not technology', lead:'Every owner asks three questions before signing. We answer all three, together.', points:[{head:'Proof',text:'Results patients can see, from doctors they trust.'},{head:'The menu',text:'Treatments patients ask for by name, priced to pay back.'},{head:'A partner that stays',text:'Training, marketing and service long after the install.'}], photoAlt:'Four women embracing, laughing', closing:'We win when proof, the menu and the partner arrive together.', source:'Source: what we hear from owners, field themes.', page:'14'})),
+      h(Item, {cap:'Hero number · photo on the left, so the frame moves to the right-hand column; one figure at 220, one lead line, at most three numbers at 56.'},
+        h(DS.SlideHeroNumber, {scale:S, chapters:DECK, current:0, title:'Sixty years of light', figure:'60', lead:'From the first medical lasers to the treatments patients ask for today.', stats:[{value:'1966',label:'Founded'},{value:'1',label:'Partner, first demo to hundredth patient'}], photoAlt:'A woman in warm sunlight', source:'Source: Lumenis, public company history.', page:'05'})),
+      h(Item, {cap:'Profile · portrait at 38.2%; who she is, her name at 88, her words in serif, her numbers at 56. A persona is labeled as one.'},
+        h(DS.SlideProfile, {scale:S, chapters:DECK, current:0, label:'Med spa owner · illustrative persona', name:'Meet Nicole', quote:'“I don’t need another device. I need one my patients ask for by name.”', stats:[{value:'2',label:'Locations'},{value:'3',label:'Devices'},{value:'12',label:'Years in practice'}], closing:'Lead with what her patients want.', photoAlt:'A woman in a white shirt, arms crossed', source:'Persona built from owner interviews.', page:'09'})),
+      h(Item, {cap:'Product · the product’s own colors replace the chapter pairing (here triLift 2.0); the official logo leads the column, never on the photo.'},
+        h(DS.SlideProduct, {scale:S, product:'trilift', chapters:DECK, current:2, promise:'Made for her best year', lead:'A name her patients ask for, with the training and marketing behind it.', pills:['Training','Marketing','Service'], closing:'Show the product where the owner already looks: her calendar.', photoAlt:'A close-up of a woman’s face', source:'Product colors and logo: triLift 2.0 module.', page:'22'})),
+      h(Item, {cap:'Text · no photo, so the content runs the full width; bullets split into two columns. No closing line: this slide doesn’t need one.'},
+        h(DS.SlideText, {scale:S, product:'stellar-m22', chapters:DECK, current:3, title:'Built to run from day one', lead:'Every owner asks how hard a new device is to implement. Here is the answer.', columns:2, bullets:[{head:'Safe Start settings',text:'Protocols built in, so providers don’t start from zero.'},{head:'Any trained operator',text:'Consistent results across staff changes.'},{head:'Insights dashboard',text:'Usage, volume and outcomes in one view.'},{head:'Training and service',text:'On-site training and Lumenis engineers.'}], source:'Illustrative copy.', page:'16'})),
+      h(Item, {cap:'Inset photo · the photo sits inside the margins instead of bleeding; contain keeps a product shot whole on the product backdrop. Bullets instead of numbers.'},
+        h(DS.SlideMedia, {scale:S, product:'stellar-m22', chapters:DECK, current:2, title:'One platform, four technologies', lead:'One device for the treatments patients ask for most.', bullets:['XPL™ expert pulsed light','ResurFX® fractional resurfacing','Multi-Spot™ Nd:YAG','Q-Switched Nd:YAG'], photoFit:'contain', photoAlt:'The Stellar M22 platform', caption:'Stellar M22 platform', source:'Illustrative copy.', page:'07'})),
+      h(Item, {cap:'Gallery · two to four images side by side across the full width, each labeled above and captioned beneath: before and after, handpieces, conditions.'},
+        h(DS.SlideGallery, {scale:S, product:'stellar-m22', chapters:DECK, current:2, title:'Results, case by case', lead:'Two cases, before and after.', images:[{label:'Before',alt:'Case 1 before',caption:'Case 1'},{label:'After',alt:'Case 1 after',caption:'After 2 treatments'},{label:'Before',alt:'Case 2 before',caption:'Case 2'},{label:'After',alt:'Case 2 after',caption:'After 3 treatments'}], source:'Illustrative layout.', page:'09'})),
+      h(Item, {cap:'Cards · outline cards group ideas; one filled with the primary and one with the secondary field lead the eye.'},
+        h(DS.SlideCards, {scale:S, chapters:DECK, current:2, title:'Why owners choose us', lead:'Three things every owner weighs before signing.', columns:3, cards:[{kind:'fill',label:'01',title:'Proof',text:'Results patients can see, from doctors they trust.'},{kind:'outline',label:'02',title:'The menu',text:'Treatments patients ask for by name.'},{kind:'secondary',label:'03',title:'A partner',text:'Training, marketing and service after the install.'}], source:'Illustrative copy.', page:'14'})),
+      h(Item, {cap:'Blank, as a horizontal timeline · no dedicated type: the frame, a 1px rule, dashes and the type scale, laid out across the content area.'},
+        h(DS.SlideBlank, {scale:S, chapters:DECK, current:0, title:'Six generations of light', source:'Lumenis, company history.', page:'06'},
+          h('div', {style:{position:'absolute',left:0,right:0,top:371}}, h(DS.Divider, null)),
+          h('div', {style:{position:'absolute',left:0,right:0,top:280,display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:34}},
+            [['1970','First laser photocoagulator'],['1993','Intense pulsed light'],['2008','High-speed hair removal'],['2024','FoLix™'],['2025','Stellar M22 with XPL™']].map(function(e,i){
+              return h('div', {key:i, style:{display:'flex',flexDirection:'column',gap:21}},
+                h(DS.Text, {role:'number', tone: i === 4 ? 'field-ink' : undefined}, e[0]),
+                h('span', {style:{display:'block',width:i === 4 ? 28 : 12,height:4,marginTop:21,background:'var(--field)'}}),
+                h(DS.Text, {role:'body'}, e[1]));
+            })))),
+      h(Item, {cap:'Closing · mirrors the opening: the color block holds the line the room should remember; the photo bleeds at 61.8%.'},
+        h(DS.SlideClosing, {scale:S, line:'Here’s to their best year', lead:'Thank you.', photoAlt:'A woman in profile, eyes closed'}))));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+})();
+</script>
+</body>
+</html>
