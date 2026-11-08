@@ -6,7 +6,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 
 - Write **SPLENDOR X**, as the guide does throughout (pp. 2–16). The guide gives no trademark rule; follow the brief or legal review before adding ™ or ®.
 
-## Colors (`data-product="splendor-x"`)
+## Colors (theme `splendor-x`)
 
 | Color | HEX | Use |
 |---|---|---|
@@ -22,12 +22,12 @@ The skin colors serve as highlight, stroke, graphic fill and, if needed, backgro
 
 | Ground | File |
 |---|---|
-| White, light photo | `logo/splendor-x-color.svg` |
-| Light skin field | `logo/splendor-x-on-light-skin.svg` (one arm of the X turns white) |
-| Medium skin field | `logo/splendor-x-on-medium-skin.svg` |
-| Dark field, dark photo | `logo/splendor-x-white.svg` |
-| One-color print | `logo/splendor-x-greyscale.svg` |
-| With "by Lumenis" | `logo/splendor-x-by-lumenis-color.svg`, `-white.svg` |
+| White, light photo | `assets/SPLENDOR-X/splendor-x-color.svg` |
+| Light skin field | `assets/SPLENDOR-X/splendor-x-on-light-skin.svg` (one arm of the X turns white) |
+| Medium skin field | `assets/SPLENDOR-X/splendor-x-on-medium-skin.svg` |
+| Dark field, dark photo | `assets/SPLENDOR-X/splendor-x-white.svg` |
+| One-color print | `assets/SPLENDOR-X/splendor-x-greyscale.svg` |
+| With "by Lumenis" | `assets/SPLENDOR-X/splendor-x-by-lumenis-color.svg`, `-white.svg` |
 
 - **Clear space:** 0.5X on all sides, X being the X symbol (p. 3).
 - **Minimum size:** hero-L height 12 px on screen, 0.2 cm in print; 0.1 cm for the lockup (pp. 4–5).

@@ -1,0 +1,18 @@
+<!-- @dsCard group="Slides" height=460 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;background:var(--surface-page)">
+<div id="root" style="padding:24px"></div>
+<script>
+(function(){
+var DS = window.LumenisAesthetics, h = React.createElement;
+var DECK=[{name:'Chapter 1',pairing:'mint'},{name:'Chapter 2',pairing:'sky'},{name:'Chapter 3',pairing:'rose-gold'},{name:'Chapter 4',pairing:'lavender'},{name:'Finale',pairing:'silken-rose'}];
+function Demo(){
+  return h(DS.SlideProfile,{scale:0.4,chapters:DECK,current:0,label:'Med spa owner · illustrative persona',name:'Meet Nicole',quote:'“I don’t need another device. I need one my patients ask for by name.”',stats:[{value:'2',label:'Locations'},{value:'3',label:'Devices'},{value:'12',label:'Years in practice'}],closing:'Lead with what her patients want.',photoAlt:'A woman in a white shirt, arms crossed',source:'Persona built from owner interviews.',page:'09'});
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+})();
+</script>
+</body>
+</html>

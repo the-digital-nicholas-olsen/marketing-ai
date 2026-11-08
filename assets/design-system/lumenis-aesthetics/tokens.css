@@ -1,0 +1,139 @@
+/* Lumenis Aesthetics — generated from tokens.json */
+:root, [data-theme="aesthetics"] {
+  --color-white: #ffffff;
+  --ink: #231f20;
+  --grey-text: #575757;
+  --product-backdrop: #f2f2f2;
+  --surface-page: var(--color-white);
+  --text-primary: var(--ink);
+  --text-secondary: var(--grey-text);
+  --text-inverse: var(--color-white);
+  --mint: #6cc39b;
+  --mint-ink: #2f8a68;
+  --sky: #7bc9ed;
+  --sky-ink: #316faf;
+  --lavender: #b5a7d1;
+  --lavender-ink: #7079ba;
+  --rose-gold: #fabcad;
+  --rose-gold-ink: #ba6d81;
+  --silken-rose: #ba6d81;
+  --silken-rose-ink: #8f4d61;
+  --bookend: #7079ba;
+  --bookend-ink: #ffffff;
+  --field: var(--rose-gold);
+  --field-ink: var(--rose-gold-ink);
+  --on-field: var(--ink);
+  --product-accent: var(--rose-gold-ink);
+  --trilift-rose-gold: #fabcad;
+  --trilift-rose-gold-light: #ffd1ca;
+  --trilift-shine-grey: #404040;
+  --stellar-soft-rose-beige: #fabcad;
+  --stellar-silken-rose: #ba6d81;
+  --stellar-metallic-rose: #af867c;
+  --splendor-light-skin: #e5c9a8;
+  --splendor-medium-skin: #c69275;
+  --splendor-dark-skin: #834436;
+  --splendor-vascular: #3a999b;
+  --folix-turquoise: #00c0af;
+  --folix-blue: #2c6c85;
+  --folix-deep-blue: #073044;
+  --ultrapulse-purple: #bc9aff;
+  --ultrapulse-orchid: #d690ff;
+  --verdict-winning: var(--sky-ink);
+  --verdict-watch: var(--sky);
+  --verdict-warning: var(--silken-rose);
+  --band-1: #6cc39b;
+  --band-2: #34aa98;
+  --band-3: #38bdc9;
+  --band-4: #7bc9ed;
+  --band-5: #5e99d2;
+  --band-6: #316faf;
+  --band-7: #b5a7d1;
+  --band-8: #cca3cc;
+  --band-9: #7079ba;
+  --band-10: #eae2da;
+  --band-11: #dcc9b7;
+  --band-12: #bfa090;
+  --band-13: #a38882;
+  --band-14: #876255;
+  --band-15: #eed5d1;
+  --band-16: #ecc5bb;
+  --band-17: #c16277;
+  --band-18: #d55868;
+  --band-19: #e37f60;
+}
+[data-theme="trilift"] {
+  --field: var(--trilift-rose-gold);
+  --field-ink: var(--ink);
+  --on-field: var(--ink);
+  --product-accent: var(--trilift-rose-gold-light);
+}
+[data-theme="stellar-m22"] {
+  --field: var(--stellar-soft-rose-beige);
+  --field-ink: var(--stellar-silken-rose);
+  --on-field: var(--ink);
+  --product-accent: var(--stellar-silken-rose);
+}
+[data-theme="splendor-x"] {
+  --field: var(--splendor-light-skin);
+  --field-ink: var(--splendor-dark-skin);
+  --on-field: var(--ink);
+  --product-accent: var(--splendor-medium-skin);
+}
+[data-theme="folix"] {
+  --field: var(--folix-blue);
+  --field-ink: var(--folix-blue);
+  --on-field: var(--color-white);
+  --product-accent: var(--folix-turquoise);
+}
+[data-theme="ultrapulse-alpha"] {
+  --field: var(--ultrapulse-purple);
+  --field-ink: var(--ink);
+  --on-field: var(--ink);
+  --product-accent: var(--ultrapulse-orchid);
+}
+:root {
+  --space-8: 8px;
+  --space-13: 13px;
+  --space-21: 21px;
+  --space-34: 34px;
+  --space-55: 55px;
+  --space-89: 89px;
+  --space-144: 144px;
+  --gap-tight: 8px;
+  --gap-near: 13px;
+  --gap-follow: 21px;
+  --gap-apart: 34px;
+  --gap-section: 55px;
+  --radius-none: 0px;
+  --radius-dash: 2px;
+  --radius-pill: 999px;
+  --golden-major: 61.8%;
+  --golden-minor: 38.2%;
+  --slide-width: 1920px;
+  --slide-height: 1080px;
+  --slide-margin: 128px;
+  --slide-column: 973px;
+  --slide-column-gap: 86px;
+  --slide-bleed-major: 1187px;
+  --slide-bleed-minor: 733px;
+  --slide-tracker-top: 52px;
+  --slide-title-top: 149px;
+  --slide-content-bottom: 952px;
+  --slide-footer-bottom: 55px;
+  --slide-footer-logo: 89px;
+  --slide-bookend-logo: 210px;
+  --font-sans: "ABC Arizona Sans", Helvetica, Arial, sans-serif;
+  --font-mix: "ABC Arizona Mix", Georgia, serif;
+}
+.la-label { font-family: var(--font-sans); font-size: 18px; line-height: 1.2; letter-spacing: 3.5px; font-weight: 400; }
+.la-body { font-family: var(--font-sans); font-size: 28px; line-height: 1.32; font-weight: 400; }
+.la-lead { font-family: var(--font-mix); font-size: 36px; line-height: 1.18; font-weight: 400; }
+.la-number { font-family: var(--font-sans); font-size: 56px; line-height: 0.85; letter-spacing: -1px; font-weight: 300; }
+.la-display { font-family: var(--font-sans); font-size: 88px; line-height: 0.95; font-weight: 400; }
+.la-hero { font-family: var(--font-sans); font-size: 136px; line-height: 0.85; letter-spacing: -6px; font-weight: 300; }
+.la-chapter { font-family: var(--font-sans); font-size: 220px; line-height: 0.85; letter-spacing: -6px; font-weight: 300; }
+.la-title { font-family: var(--font-sans); font-size: 54px; line-height: 1.05; font-weight: 400; }
+.la-tracker { font-family: var(--font-sans); font-size: 15px; line-height: 1; letter-spacing: 3px; font-weight: 400; }
+.la-foot { font-family: var(--font-sans); font-size: 14px; line-height: 1; font-weight: 400; }
+.la-pill { font-family: var(--font-sans); font-size: 11px; line-height: 1; letter-spacing: 1.32px; font-weight: 400; }

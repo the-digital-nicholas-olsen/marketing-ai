@@ -1,8 +1,0 @@
-:root{--card-line:#e6e1de} /* specimen chrome only, not a brand color */
-body{background:var(--color-white)}
-.card{padding:34px;font-size:14px;line-height:1.4}
-.h{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-secondary);margin:0 0 13px}
-.note{font-size:13px;color:var(--text-secondary);max-width:760px}
-.row{display:flex;gap:21px;flex-wrap:wrap}
-.mono{font-family:ui-monospace,Consolas,monospace;font-size:12px}
-.icon{display:inline-block;background:currentColor;-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat}

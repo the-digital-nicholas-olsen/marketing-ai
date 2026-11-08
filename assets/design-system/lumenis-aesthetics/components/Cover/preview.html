@@ -1,0 +1,46 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lumenis Aesthetics</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface-page); color:var(--text-primary); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; }
+  .art svg { display:block; width:480px; height:288px; }
+  .rose { fill:var(--rose-gold); }
+  .silken { fill:var(--silken-rose); }
+  .bookend { fill:var(--bookend); }
+  .mint { fill:var(--mint); }
+  .sky { fill:var(--sky); }
+  .words { position:absolute; left:var(--space-34); bottom:var(--space-34); max-width:440px; }
+  .name { margin:0; font-family:var(--font-sans); font-weight:400; font-size:72px; line-height:.95; color:var(--text-primary); }
+  .tag { margin:var(--space-13) 0 0; font-size:14px; line-height:20px; color:var(--text-secondary); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      rose-gold 297x288 (the division pink, the default field) · silken-rose 183x178 · bookend 183x110 · together half of 960x288
+  arrangement the golden split, as the system composes: 61.8 / 38.2 of the width, then 61.8 / 38.2 of the narrow column, flush, square (radius-none), bleeding off top, right and bottom
+  pattern     "Every two-part layout splits 61.8 / 38.2": the golden spiral as two quarter-discs, mint (radius 178) cut into the rose block and sky (radius 110) into the bookend block
+  scales      297 = golden-major of 480; 178 and 110 = golden-minor steps of 288; corners radius-none
+-->
+<rect class="rose" x="0" y="0" width="297" height="288"/>
+<rect class="silken" x="297" y="0" width="183" height="178"/>
+<rect class="bookend" x="297" y="178" width="183" height="110"/>
+<path class="mint" d="M297 288 L119 288 A178 178 0 0 1 297 110 Z"/>
+<path class="sky" d="M297 178 L407 178 A110 110 0 0 1 297 288 Z"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Lumenis<br>Aesthetics</h1>
+<p class="tag">One idea per page, real people, and color that carries meaning.</p>
+</div>
+</div>
+</body>
+</html>

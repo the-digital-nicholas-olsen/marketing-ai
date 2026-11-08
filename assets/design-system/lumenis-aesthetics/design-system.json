@@ -1,0 +1,456 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-08T03:43:41Z"
+  },
+  "title": "Lumenis Aesthetics",
+  "namespace": "LumenisAesthetics",
+  "editing": "code",
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18"
+    },
+    {
+      "name": "react-dom",
+      "version": "18"
+    }
+  ],
+  "sections": {},
+  "groups": [
+    "Logos",
+    "Icons",
+    "triLift-2.0",
+    "Stellar-M22",
+    "SPLENDOR-X",
+    "FoLix",
+    "UltraPulse-Alpha"
+  ],
+  "assetGroups": {
+    "Logos": {
+      "name": "Lumenis logos",
+      "tile": "l",
+      "order": [
+        "lumenis-hero-l-black.svg",
+        "lumenis-hero-l-white.svg",
+        "lumenis-wordmark-black.svg",
+        "lumenis-wordmark-white.svg"
+      ],
+      "files": {
+        "lumenis-hero-l-black.svg": {
+          "name": "lumenis-hero-l-black.svg",
+          "blob": "4b77b000dcb88e819530c590162b17c0",
+          "size": 370,
+          "type": "image/svg+xml"
+        },
+        "lumenis-hero-l-white.svg": {
+          "name": "lumenis-hero-l-white.svg",
+          "blob": "a8ad985c56fa3c90d72c87c91436f68a",
+          "size": 397,
+          "type": "image/svg+xml"
+        },
+        "lumenis-wordmark-black.svg": {
+          "name": "lumenis-wordmark-black.svg",
+          "blob": "1b57a5bec15c0c1f5e50cfd945319927",
+          "size": 4638,
+          "type": "image/svg+xml"
+        },
+        "lumenis-wordmark-white.svg": {
+          "name": "lumenis-wordmark-white.svg",
+          "blob": "c2304df70d02c8b3407cdc1359135c50",
+          "size": 4727,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "Icons": {
+      "name": "Icons",
+      "tile": "s",
+      "order": [
+        "burst.svg",
+        "cross.svg",
+        "crossover.svg",
+        "lines.svg",
+        "orbit.svg",
+        "rings.svg",
+        "sparkle.svg",
+        "star.svg",
+        "wave.svg",
+        "zigzag.svg"
+      ],
+      "files": {
+        "burst.svg": {
+          "name": "burst.svg",
+          "blob": "7709a2cc848f15b5d53371ad3415cde4",
+          "size": 507,
+          "type": "image/svg+xml"
+        },
+        "cross.svg": {
+          "name": "cross.svg",
+          "blob": "ba0b05286d7da2e4a22a0cc9142a89b6",
+          "size": 340,
+          "type": "image/svg+xml"
+        },
+        "crossover.svg": {
+          "name": "crossover.svg",
+          "blob": "efbbcdd5243d1a5f50d4b34a7b2e25ac",
+          "size": 482,
+          "type": "image/svg+xml"
+        },
+        "lines.svg": {
+          "name": "lines.svg",
+          "blob": "6ceed8e7e5c2726fea75215fb1d7641d",
+          "size": 642,
+          "type": "image/svg+xml"
+        },
+        "orbit.svg": {
+          "name": "orbit.svg",
+          "blob": "fdf46cacb127bebf6c72c59789d1d15f",
+          "size": 502,
+          "type": "image/svg+xml"
+        },
+        "rings.svg": {
+          "name": "rings.svg",
+          "blob": "cf9783fbe5334d4d02c643931ef1aadb",
+          "size": 697,
+          "type": "image/svg+xml"
+        },
+        "sparkle.svg": {
+          "name": "sparkle.svg",
+          "blob": "18e449fea80af8c281da698a73094dab",
+          "size": 344,
+          "type": "image/svg+xml"
+        },
+        "star.svg": {
+          "name": "star.svg",
+          "blob": "dc180d6c2d8790d6d0dc1429cae34536",
+          "size": 503,
+          "type": "image/svg+xml"
+        },
+        "wave.svg": {
+          "name": "wave.svg",
+          "blob": "ac5bd318e94434b265ae8692f5bd2cc0",
+          "size": 1370,
+          "type": "image/svg+xml"
+        },
+        "zigzag.svg": {
+          "name": "zigzag.svg",
+          "blob": "00529d1f11959c29223e6bd40ee36463",
+          "size": 591,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "triLift-2.0": {
+      "name": "triLift 2.0",
+      "tile": "l",
+      "order": [
+        "trilift-2.0-black.svg",
+        "trilift-2.0-by-lumenis-color.svg",
+        "trilift-2.0-by-lumenis-on-rose-gold.svg",
+        "trilift-2.0-by-lumenis-white.svg",
+        "trilift-2.0-color.svg",
+        "trilift-2.0-on-rose-gold.svg",
+        "trilift-2.0-white.svg"
+      ],
+      "files": {
+        "trilift-2.0-black.svg": {
+          "name": "trilift-2.0-black.svg",
+          "blob": "6aca983754afbcea70bbafbb512b07c1",
+          "size": 2613,
+          "type": "image/svg+xml"
+        },
+        "trilift-2.0-by-lumenis-color.svg": {
+          "name": "trilift-2.0-by-lumenis-color.svg",
+          "blob": "c2e9e664cd9a71fe29b86fa10858d493",
+          "size": 7683,
+          "type": "image/svg+xml"
+        },
+        "trilift-2.0-by-lumenis-on-rose-gold.svg": {
+          "name": "trilift-2.0-by-lumenis-on-rose-gold.svg",
+          "blob": "6e3fd1b626e74c81b538325abbb8e52c",
+          "size": 7683,
+          "type": "image/svg+xml"
+        },
+        "trilift-2.0-by-lumenis-white.svg": {
+          "name": "trilift-2.0-by-lumenis-white.svg",
+          "blob": "0c4a1835fe03d1e030c477ac4844d7fe",
+          "size": 7949,
+          "type": "image/svg+xml"
+        },
+        "trilift-2.0-color.svg": {
+          "name": "trilift-2.0-color.svg",
+          "blob": "73a9868b0d91704a4514674931743d4f",
+          "size": 2679,
+          "type": "image/svg+xml"
+        },
+        "trilift-2.0-on-rose-gold.svg": {
+          "name": "trilift-2.0-on-rose-gold.svg",
+          "blob": "184c60e99ec45605790bb24970d68a3b",
+          "size": 2679,
+          "type": "image/svg+xml"
+        },
+        "trilift-2.0-white.svg": {
+          "name": "trilift-2.0-white.svg",
+          "blob": "68af7466ef7b2d175d22e9ae2bd5b919",
+          "size": 2819,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "Stellar-M22": {
+      "name": "Stellar M22",
+      "tile": "l",
+      "order": [
+        "ndy-black.svg",
+        "ndy-white.svg",
+        "qsw-black.svg",
+        "qsw-white.svg",
+        "rfx-black.svg",
+        "rfx-white.svg",
+        "stellar-m22-black.svg",
+        "stellar-m22-by-lumenis-black.svg",
+        "stellar-m22-by-lumenis-white.svg",
+        "stellar-m22-white.svg",
+        "xpl-black.svg",
+        "xpl-white.svg"
+      ],
+      "files": {
+        "ndy-black.svg": {
+          "name": "ndy-black.svg",
+          "blob": "a82dc0739b6516eabae72fbbe25ec4ce",
+          "size": 978,
+          "type": "image/svg+xml"
+        },
+        "ndy-white.svg": {
+          "name": "ndy-white.svg",
+          "blob": "2fd2566fd8552659ee6674fc35812421",
+          "size": 1072,
+          "type": "image/svg+xml"
+        },
+        "qsw-black.svg": {
+          "name": "qsw-black.svg",
+          "blob": "1e04189b99490130d25b4386acab0c8c",
+          "size": 1412,
+          "type": "image/svg+xml"
+        },
+        "qsw-white.svg": {
+          "name": "qsw-white.svg",
+          "blob": "664ba9332fc127be3f15af2700954626",
+          "size": 1520,
+          "type": "image/svg+xml"
+        },
+        "rfx-black.svg": {
+          "name": "rfx-black.svg",
+          "blob": "47b2807bec9ea67ec067c049fada6f08",
+          "size": 1258,
+          "type": "image/svg+xml"
+        },
+        "rfx-white.svg": {
+          "name": "rfx-white.svg",
+          "blob": "b73eadbce0d71e08e80f6279bd6c7d15",
+          "size": 1422,
+          "type": "image/svg+xml"
+        },
+        "stellar-m22-black.svg": {
+          "name": "stellar-m22-black.svg",
+          "blob": "af4b5eeadc76622ec2592a0a73133918",
+          "size": 2920,
+          "type": "image/svg+xml"
+        },
+        "stellar-m22-by-lumenis-black.svg": {
+          "name": "stellar-m22-by-lumenis-black.svg",
+          "blob": "7de05144d4ba172a577ec9744ddc98d9",
+          "size": 7240,
+          "type": "image/svg+xml"
+        },
+        "stellar-m22-by-lumenis-white.svg": {
+          "name": "stellar-m22-by-lumenis-white.svg",
+          "blob": "ce34eb89279aad5772acee186f98fe63",
+          "size": 7239,
+          "type": "image/svg+xml"
+        },
+        "stellar-m22-white.svg": {
+          "name": "stellar-m22-white.svg",
+          "blob": "4e4ddf251540aa0001ffdecc297d3d07",
+          "size": 2919,
+          "type": "image/svg+xml"
+        },
+        "xpl-black.svg": {
+          "name": "xpl-black.svg",
+          "blob": "58ba7e6e4f0c1614673b194bd2c1aaff",
+          "size": 896,
+          "type": "image/svg+xml"
+        },
+        "xpl-white.svg": {
+          "name": "xpl-white.svg",
+          "blob": "c4d8deabe897271e0e0d6a969cd15bfa",
+          "size": 1004,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "SPLENDOR-X": {
+      "name": "SPLENDOR X",
+      "tile": "l",
+      "order": [
+        "splendor-x-by-lumenis-color.svg",
+        "splendor-x-by-lumenis-white.svg",
+        "splendor-x-color.svg",
+        "splendor-x-greyscale.svg",
+        "splendor-x-on-light-skin.svg",
+        "splendor-x-on-medium-skin.svg",
+        "splendor-x-white.svg"
+      ],
+      "files": {
+        "splendor-x-by-lumenis-color.svg": {
+          "name": "splendor-x-by-lumenis-color.svg",
+          "blob": "eb902355cfcb328ae31f1d61e6d648f4",
+          "size": 7952,
+          "type": "image/svg+xml"
+        },
+        "splendor-x-by-lumenis-white.svg": {
+          "name": "splendor-x-by-lumenis-white.svg",
+          "blob": "b5b2f536a1851cd8cba95f8fffa610f3",
+          "size": 7960,
+          "type": "image/svg+xml"
+        },
+        "splendor-x-color.svg": {
+          "name": "splendor-x-color.svg",
+          "blob": "f02aff250a55d655996ab27abbfd4845",
+          "size": 3426,
+          "type": "image/svg+xml"
+        },
+        "splendor-x-greyscale.svg": {
+          "name": "splendor-x-greyscale.svg",
+          "blob": "cb4ead03d0923e70adf48f41e989ec4e",
+          "size": 3426,
+          "type": "image/svg+xml"
+        },
+        "splendor-x-on-light-skin.svg": {
+          "name": "splendor-x-on-light-skin.svg",
+          "blob": "0c98cf94118a646b419982c0a68b940d",
+          "size": 3426,
+          "type": "image/svg+xml"
+        },
+        "splendor-x-on-medium-skin.svg": {
+          "name": "splendor-x-on-medium-skin.svg",
+          "blob": "0457124de1492ef345ba0910e5ba2f45",
+          "size": 3426,
+          "type": "image/svg+xml"
+        },
+        "splendor-x-white.svg": {
+          "name": "splendor-x-white.svg",
+          "blob": "05153b7bf0207fca4d02ffd8b6c2d7e5",
+          "size": 3426,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "FoLix": {
+      "name": "FoLix",
+      "tile": "l",
+      "order": [
+        "folix-black.svg",
+        "folix-by-lumenis-color.svg",
+        "folix-by-lumenis-white.svg",
+        "folix-color.svg",
+        "folix-on-turquoise.svg",
+        "folix-white.svg"
+      ],
+      "files": {
+        "folix-black.svg": {
+          "name": "folix-black.svg",
+          "blob": "b3d4e3f316de26e1ec2e8607613b9593",
+          "size": 3527,
+          "type": "image/svg+xml"
+        },
+        "folix-by-lumenis-color.svg": {
+          "name": "folix-by-lumenis-color.svg",
+          "blob": "6ef14430892d26fe91bae3faacf85236",
+          "size": 8149,
+          "type": "image/svg+xml"
+        },
+        "folix-by-lumenis-white.svg": {
+          "name": "folix-by-lumenis-white.svg",
+          "blob": "da8637d2afb6c088ba9d0a22ae46bc83",
+          "size": 8345,
+          "type": "image/svg+xml"
+        },
+        "folix-color.svg": {
+          "name": "folix-color.svg",
+          "blob": "1e9240afc5627e180c8563d8cbae35de",
+          "size": 3569,
+          "type": "image/svg+xml"
+        },
+        "folix-on-turquoise.svg": {
+          "name": "folix-on-turquoise.svg",
+          "blob": "eeaffc5854733335253c0151227e1c38",
+          "size": 3569,
+          "type": "image/svg+xml"
+        },
+        "folix-white.svg": {
+          "name": "folix-white.svg",
+          "blob": "b1c19a2553102871ce09da61f12b1808",
+          "size": 3636,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "UltraPulse-Alpha": {
+      "name": "UltraPulse Alpha",
+      "tile": "l",
+      "order": [
+        "ultrapulse-alpha-black.svg",
+        "ultrapulse-alpha-by-lumenis-color.svg",
+        "ultrapulse-alpha-by-lumenis-white.svg",
+        "ultrapulse-alpha-color.svg",
+        "ultrapulse-alpha-white.svg"
+      ],
+      "files": {
+        "ultrapulse-alpha-black.svg": {
+          "name": "ultrapulse-alpha-black.svg",
+          "blob": "ed8a8d7e471125f31e4619fb1d588e1a",
+          "size": 3022,
+          "type": "image/svg+xml"
+        },
+        "ultrapulse-alpha-by-lumenis-color.svg": {
+          "name": "ultrapulse-alpha-by-lumenis-color.svg",
+          "blob": "17bab1e09e070a9293d0284b8f0439f5",
+          "size": 7299,
+          "type": "image/svg+xml"
+        },
+        "ultrapulse-alpha-by-lumenis-white.svg": {
+          "name": "ultrapulse-alpha-by-lumenis-white.svg",
+          "blob": "e22069f2f278d74bbfcd09fbe271580d",
+          "size": 7299,
+          "type": "image/svg+xml"
+        },
+        "ultrapulse-alpha-color.svg": {
+          "name": "ultrapulse-alpha-color.svg",
+          "blob": "a1cbb4f129472b4509395636d9b6428a",
+          "size": 3022,
+          "type": "image/svg+xml"
+        },
+        "ultrapulse-alpha-white.svg": {
+          "name": "ultrapulse-alpha-white.svg",
+          "blob": "ecedddd80705218ed5f036a223b20387",
+          "size": 3022,
+          "type": "image/svg+xml"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Laarni Cayetano",
+    "at": "2026-11-08T03:43:41Z",
+    "via": "GitHub · the-digital-nicholas-olsen/marketing-ai@add/aesthetics-design-system",
+    "note": "First sync from assets/design-system/lumenis-aesthetics: tokens, 23 components, 2 showcase pages, 51 logos and icons, product modules."
+  }
+}

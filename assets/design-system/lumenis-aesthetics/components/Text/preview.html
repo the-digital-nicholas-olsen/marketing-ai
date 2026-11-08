@@ -1,0 +1,25 @@
+<!-- @dsCard group="Type" height=800 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;background:var(--surface-page)">
+<div id="root" style="padding:24px"></div>
+<script>
+(function(){
+var DS = window.LumenisAesthetics, h = React.createElement;
+var DECK=[{name:'Chapter 1',pairing:'mint'},{name:'Chapter 2',pairing:'sky'},{name:'Chapter 3',pairing:'rose-gold'},{name:'Chapter 4',pairing:'lavender'},{name:'Finale',pairing:'silken-rose'}];
+function Demo(){
+  return h(DS.Stack,{gap:'apart'},
+    h(DS.Text,{role:'label'},'Label · 18 · caps'),
+    h(DS.Text,{role:'body'},'Body · 28 · Results patients can see, from doctors they trust.'),
+    h(DS.Text,{role:'lead'},'Lead · 36 · We win when proof, the menu and the partner arrive together.'),
+    h(DS.Text,{role:'number'},'1966'),
+    h(DS.Text,{role:'title'},'Owners buy certainty'),
+    h(DS.Text,{role:'display'},'Their best year'),
+    h('div',{'data-pairing':'sky'},h(DS.Text,{role:'chapter',tone:'field'},'02')));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+})();
+</script>
+</body>
+</html>

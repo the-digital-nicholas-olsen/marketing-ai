@@ -6,7 +6,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 
 - Always **FoLix**: capital F, lowercase o, capital L, lowercase ix (p. 9). Add **™** in superscript on first use: FoLix™. It is ™, not ®: the mark is not yet registered (p. 8).
 
-## Colors (`data-product="folix"`)
+## Colors (theme `folix`)
 
 | Color | HEX | Use |
 |---|---|---|
@@ -21,11 +21,11 @@ The guide forbids turquoise fills and large turquoise surfaces (p. 46), so the f
 
 | Ground | File |
 |---|---|
-| White, light field, light photo | `logo/folix-color.svg` (black wordmark, turquoise symbol) (p. 10) |
-| Turquoise accent block | `logo/folix-on-turquoise.svg` (black wordmark, white symbol) (p. 10) |
-| Blue or black field, dark photo | `logo/folix-white.svg` (p. 10) |
-| One-color print or special finishes only | `logo/folix-black.svg` (p. 10) |
-| With "by Lumenis" | `logo/folix-by-lumenis-color.svg`, `-white.svg` |
+| White, light field, light photo | `assets/FoLix/folix-color.svg` (black wordmark, turquoise symbol) (p. 10) |
+| Turquoise accent block | `assets/FoLix/folix-on-turquoise.svg` (black wordmark, white symbol) (p. 10) |
+| Blue or black field, dark photo | `assets/FoLix/folix-white.svg` (p. 10) |
+| One-color print or special finishes only | `assets/FoLix/folix-black.svg` (p. 10) |
+| With "by Lumenis" | `assets/FoLix/folix-by-lumenis-color.svg`, `-white.svg` |
 
 - **Clear space:** 0.5X on all sides, X being the logo height (p. 5).
 - **Minimum size:** hero-L height 12 px on screen, 0.2 cm in print; 0.1 cm for the lockup (pp. 6–7).

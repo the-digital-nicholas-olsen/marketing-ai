@@ -6,7 +6,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 
 - The guide writes **ULTRApulseAlpha** as one word (pp. 4–46); the logo reads "ULTRApulse" followed by the α glyph. The guide gives no trademark rule; follow the brief or legal review before adding ™ or ®.
 
-## Colors (`data-product="ultrapulse-alpha"`)
+## Colors (theme `ultrapulse-alpha`)
 
 | Color | HEX | Use |
 |---|---|---|
@@ -20,10 +20,10 @@ Both purples are too light for small type on white, so small colored type takes 
 
 | Ground | File |
 |---|---|
-| White, light field, light photo | `logo/ultrapulse-alpha-color.svg` (black wordmark, purple α) (p. 5) |
-| Purple field, dark field, mid-tone or dark photo | `logo/ultrapulse-alpha-white.svg` (pp. 5–6) |
-| One-color print | `logo/ultrapulse-alpha-black.svg` |
-| With "by Lumenis" | `logo/ultrapulse-alpha-by-lumenis-color.svg`, `-white.svg`; not at the smallest sizes (p. 8) |
+| White, light field, light photo | `assets/UltraPulse-Alpha/ultrapulse-alpha-color.svg` (black wordmark, purple α) (p. 5) |
+| Purple field, dark field, mid-tone or dark photo | `assets/UltraPulse-Alpha/ultrapulse-alpha-white.svg` (pp. 5–6) |
+| One-color print | `assets/UltraPulse-Alpha/ultrapulse-alpha-black.svg` |
+| With "by Lumenis" | `assets/UltraPulse-Alpha/ultrapulse-alpha-by-lumenis-color.svg`, `-white.svg`; not at the smallest sizes (p. 8) |
 
 - **Clear space:** 0.5X on all sides, X being the height of the α (p. 7).
 - **Minimum size:** 100 px wide on screen, 1.6 cm in print (p. 8). The page's diagram gives a 12 px hero-L height instead; use the larger of the two.

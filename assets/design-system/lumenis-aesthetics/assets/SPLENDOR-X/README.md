@@ -1,0 +1,1 @@
+Official SPLENDOR X logo files. `color` on white, `on-light-skin` and `on-medium-skin` on those fields, `white` on dark grounds, `greyscale` for one-color print, `by-lumenis-*` lockups. See the [SPLENDOR X module](../../products/splendor-x/product.md). Use them through `ProductLogo` with `product: "splendor-x"`.

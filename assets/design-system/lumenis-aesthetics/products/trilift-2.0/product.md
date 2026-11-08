@@ -8,7 +8,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 - In running text, write **TriLIFT 2.0** as the guide does (p. 10). Add **™** in superscript on first use: TriLIFT 2.0™. It is ™, not ®: the mark is not yet registered (p. 10).
 - This module covers triLift 2.0 only. The guide never mentions the original triLift, so its files aren't included.
 
-## Colors (`data-product="trilift"`)
+## Colors (theme `trilift`)
 
 | Color | HEX | Use |
 |---|---|---|
@@ -23,11 +23,11 @@ The primary system is black and white, with Rose Gold alongside (p. 19). The gui
 
 | Ground | File |
 |---|---|
-| White, light grey, light photo | `logo/trilift-2.0-color.svg` (black wordmark, rose gold triangle) (p. 5) |
-| Rose Gold field, warm mid-tone photo | `logo/trilift-2.0-on-rose-gold.svg` (black wordmark, white triangle) (p. 5) |
-| Black, dark field, dark photo | `logo/trilift-2.0-white.svg` (p. 6) |
-| One-color print | `logo/trilift-2.0-black.svg` (p. 6) |
-| With "by Lumenis" | `logo/trilift-2.0-by-lumenis-color.svg`, `-on-rose-gold.svg`, `-white.svg` (p. 4); not at the smallest sizes (p. 8) |
+| White, light grey, light photo | `assets/triLift-2.0/trilift-2.0-color.svg` (black wordmark, rose gold triangle) (p. 5) |
+| Rose Gold field, warm mid-tone photo | `assets/triLift-2.0/trilift-2.0-on-rose-gold.svg` (black wordmark, white triangle) (p. 5) |
+| Black, dark field, dark photo | `assets/triLift-2.0/trilift-2.0-white.svg` (p. 6) |
+| One-color print | `assets/triLift-2.0/trilift-2.0-black.svg` (p. 6) |
+| With "by Lumenis" | `assets/triLift-2.0/trilift-2.0-by-lumenis-color.svg`, `-on-rose-gold.svg`, `-white.svg` (p. 4); not at the smallest sizes (p. 8) |
 
 - **Clear space:** 0.5X on all sides, X being the wordmark's cap height (p. 7).
 - **Minimum size:** 100 px wide on screen, 1.6 cm in print (p. 8). The page's diagram gives a 12 px hero-L height instead; use the larger of the two.

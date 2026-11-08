@@ -5,7 +5,7 @@ The Lumenis brand systems live here. Each is a complete brand book on its own â€
 | Call it | Use it for | Start with | Detail |
 |---|---|---|---|
 | **Lumenis Corporate** | The Lumenis company brand: corporate decks, website, events such as Accelerate by Lumenis, recruitment, social, print â€” anything that speaks as Lumenis | [SKILL](lumenis-corporate/SKILL.md) | [README](lumenis-corporate/README.md) |
-| **Lumenis Aesthetics** | Work that speaks for the Aesthetics division as a whole: division plans and decks, owner and practice programs, cross-portfolio Aesthetics campaigns | [guidance](lumenis-aesthetics/guidance.md) | [reference](lumenis-aesthetics/reference.md) |
+| **Lumenis Aesthetics** | Work that speaks for the Aesthetics division or one of its products: division plans and decks, owner and practice programs, Aesthetics product and cross-portfolio campaigns | [README](lumenis-aesthetics/README.md) | [products](lumenis-aesthetics/products/README.md), [slides](lumenis-aesthetics/slides.md) |
 | **OptiLIGHT** | OptiLIGHT product marketing for eye-care professionals and patients | [guidance](optilight/guidance.md) | [reference](optilight/reference.md) |
 | **OptiLIFT** | OptiLIFT product marketing for practices and patients | [guidance](optilift/guidance.md) | [reference](optilift/reference.md) |
 
@@ -30,11 +30,13 @@ Before delivery, check the piece against the selected system only: product casin
 
 ## Folder layout
 
-Each system folder is self-contained: its own `styles.css` and `tokens/`, its own guidance and reference files, and specimen cards under `guidelines/` that load only that folder's stylesheet. Lumenis Corporate also carries logos, brand line icons, components and UI kits; Lumenis Aesthetics carries the Lumenis logos, line icons and a slides UI kit.
+Each system folder is self-contained. Lumenis Corporate, OptiLIGHT and OptiLIFT use the older Claude Design export layout: their own `styles.css` and `tokens/`, guidance and reference files, and specimen cards under `guidelines/` that load only that folder's stylesheet; Lumenis Corporate also carries logos, brand line icons, components and UI kits.
+
+Lumenis Aesthetics uses the Design System artifact layout, so the folder matches its artifact on claude.ai file for file: `README.md` and further `.md` sections, `tokens.json` (the source of every value), `components/` (live previews, guides and the built `bundle.js`), `assets/<Group>/` (logos and icons) and `products/` (one module per product). `node lumenis-aesthetics/build.mjs` regenerates `tokens.css`, `components/bundle.js` and the local `index.html` gallery; the `lumenis-design-system-sync` skill republishes the artifact after a change.
 
 ## Viewing specimen cards and UI kits
 
-Open any `.html` file directly in Chrome, Edge or Safari, for example `lumenis-corporate/ui_kits/slides/index.html`. Stylesheets and scripts load by relative path; React and Babel load from unpkg and photos from HubSpot, so you need to be online. Fonts show in the fallback face unless ABC Arizona is installed locally ([download links](hubspot-assets.md)).
+Open any `.html` file directly in Chrome, Edge or Safari, for example `lumenis-corporate/ui_kits/corporate-website/index.html`. Stylesheets and scripts load by relative path; React and Babel load from unpkg and photos from HubSpot, so you need to be online. Fonts show in the fallback face unless ABC Arizona is installed locally ([download links](hubspot-assets.md)).
 
 Some viewers block relative scripts on local files: embedded previews, including the Claude desktop app's browser pane, and some locked-down browsers. If a page loads blank, serve the folder from the repository root and open the page through it:
 
@@ -42,11 +44,11 @@ Some viewers block relative scripts on local files: embedded previews, including
 npx --yes http-server@14.1.1 assets/design-system -p 8642 -c-1
 ```
 
-Then go to `http://localhost:8642/lumenis-corporate/ui_kits/slides/index.html` (or any other page under `assets/design-system`). For the Claude desktop app, put the same command in a local `.claude/launch.json` (`"runtimeExecutable": "npx"`, the rest as `runtimeArgs`, `"port": 8642`). That file is a personal setting and is not committed.
+Then go to `http://localhost:8642/lumenis-aesthetics/index.html` for the Aesthetics gallery (it always needs the server), or any other page under `assets/design-system`. For the Claude desktop app, put the same command in a local `.claude/launch.json` (`"runtimeExecutable": "npx"`, the rest as `runtimeArgs`, `"port": 8642`). That file is a personal setting and is not committed.
 
 ## Provenance
 
 - **OptiLIFT and OptiLIGHT** were imported on September 9, 2026 from [lumenis-design-system commit c2c8024](https://github.com/laarnicayetano/lumenis-design-system/tree/c2c80240eb29ac5cf0573a5d3271792b5e16e8a4) as product layers over a shared corporate baseline. On September 14, 2026 they were made standalone: each now has its own tokens, taken from the matching Claude Design system, and the baseline references were removed. One cross-system dependency was replaced with an in-system equivalent: OptiLIGHT coloured body text and links now use OptiLIGHT's own deep blue `#2F63D6` instead of OptiLIFT violet.
 - **Lumenis Corporate** was added on September 14, 2026 as a Claude Design export of the 2026 Lumenis brandbook. It replaces the upstream corporate baseline (`shared-guidance.md`, `brand-guidelines.md`, and the top-level `tokens/` and `styles.css`), which was retired so there is one corporate brand book. The retired files remain in Git history.
-- **Lumenis Aesthetics** was added on November 7, 2026 from the Aesthetics editorial design system approved for the 2027 North America Aesthetics plan. Rules, tokens, specimen cards and a slides kit; on the same date, product modules for triLift 2.0, Stellar M22, Splendor X, FoLix and UltraPulse Alpha, with official logo files. Brand guide PDFs, licensed photography and research stay outside Git.
+- **Lumenis Aesthetics** was added on November 7, 2026 from the Aesthetics editorial design system approved for the 2027 North America Aesthetics plan. Rules, tokens, specimen cards and a slides kit; on the same date, product modules for triLift 2.0, Stellar M22, Splendor X, FoLix and UltraPulse Alpha, with official logo files. Also on November 7 it moved to the Design System artifact layout (tokens.json, built components with live previews, a product theme per product) and was published as the Lumenis Aesthetics artifact; the slides kit moved there from Lumenis Corporate, which keeps its own two 16:9 slides in communication formats. Brand guide PDFs, licensed photography and research stay outside Git.
 - Internal working copies with licensed fonts and full imagery are kept outside Git. No production HubSpot pages or upstream repositories were changed.

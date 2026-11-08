@@ -8,7 +8,7 @@ Module for the Lumenis Aesthetics system. How products fit: [products README](..
 - Handpieces are sub-brands with their own logos: **XPL**, **RFX** (ResurFX), **NdY** and **QSW** (pp. 53–56).
 - Treatment sub-brands (SmoothGLO, PhotoFABULOUS) share the Stellar palette (pp. 57–60) but have no official logo files here yet.
 
-## Colors (`data-product="stellar-m22"`)
+## Colors (theme `stellar-m22`)
 
 | Color | HEX | Use |
 |---|---|---|
@@ -23,10 +23,10 @@ Stellar colors serve as highlight, stroke, graphic fill and background (p. 36). 
 
 | Ground | File |
 |---|---|
-| White, light field, light photo | `logo/stellar-m22-black.svg` |
-| Silken Rose field, dark field, dark photo | `logo/stellar-m22-white.svg` |
-| With Lumenis | `logo/stellar-m22-by-lumenis-black.svg`, `-white.svg` |
-| Handpieces | `logo/xpl-`, `rfx-`, `ndy-`, `qsw-` in `black` (light grounds) and `white` (dark grounds) |
+| White, light field, light photo | `assets/Stellar-M22/stellar-m22-black.svg` |
+| Silken Rose field, dark field, dark photo | `assets/Stellar-M22/stellar-m22-white.svg` |
+| With Lumenis | `assets/Stellar-M22/stellar-m22-by-lumenis-black.svg`, `-white.svg` |
+| Handpieces | `assets/Stellar-M22/xpl-`, `rfx-`, `ndy-`, `qsw-` in `black` (light grounds) and `white` (dark grounds) |
 
 - **Clear space:** the height of the symbol on all sides (p. 5).
 - **Minimum size:** hero-L height 12 px on screen, 0.2 cm in print; 0.1 cm for the Lumenis lockup (pp. 6–7).
