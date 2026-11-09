@@ -1,0 +1,436 @@
+<title>Vision Daily Brief</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Archivo:wght@600;700&display=swap">
+<style>
+/* Layout: one working column; person picker on top, then Today, Next 5 business days, Blockers. Team view swaps in a per-person table. */
+:root {
+  --bg: #f4f6f7;
+  --surface: #ffffff;
+  --fg: #141a1f;
+  --muted: #5b6770;
+  --line: #dde3e6;
+  --accent: #0d6b70;
+  --accent-soft: #e2f0f0;
+  --late: #b4282e;
+  --late-soft: #fbe9e9;
+  --today: #8a5a00;
+  --today-soft: #fdf1d8;
+  --wait: #5a4ab0;
+  --wait-soft: #ecebfa;
+  --ok: #2c7a3f;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1417; --surface: #172025; --fg: #e6ecef; --muted: #98a6ae; --line: #2a363d;
+    --accent: #5cc3c7; --accent-soft: #143236; --late: #ff8a8f; --late-soft: #3a1c1f;
+    --today: #f2c063; --today-soft: #3a2e14; --wait: #b3a8ff; --wait-soft: #262245; --ok: #79d18f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1417; --surface: #172025; --fg: #e6ecef; --muted: #98a6ae; --line: #2a363d;
+  --accent: #5cc3c7; --accent-soft: #143236; --late: #ff8a8f; --late-soft: #3a1c1f;
+  --today: #f2c063; --today-soft: #3a2e14; --wait: #b3a8ff; --wait-soft: #262245; --ok: #79d18f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 24px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 22px; }
+header { display: grid; gap: 10px; }
+.top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3.4vw, 2rem); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.date { font-family: var(--font-mono); color: var(--muted); font-size: 0.85rem; }
+.source { display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--muted); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
+.dot.live { background: var(--ok); }
+.people { display: flex; flex-wrap: wrap; gap: 6px; }
+.people button { font: 500 0.92rem var(--font-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.people button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.people button:focus-visible, .copy:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.greeting { font-size: 1.05rem; margin: 0; }
+.greeting strong { font-weight: 600; }
+.counts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.counts li { font-size: 0.85rem; padding: 3px 10px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.counts .n { font-weight: 600; }
+.counts .late { color: var(--late); background: var(--late-soft); border-color: transparent; }
+.counts .today { color: var(--today); background: var(--today-soft); border-color: transparent; }
+.counts .wait { color: var(--wait); background: var(--wait-soft); border-color: transparent; }
+section { display: grid; gap: 10px; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; }
+.list { display: grid; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.item { display: grid; grid-template-columns: 92px 1fr; gap: 4px 14px; padding: 12px 14px; border-top: 1px solid var(--line); }
+.item:first-child { border-top: 0; }
+.when { font-family: var(--font-mono); font-size: 0.8rem; padding-top: 2px; font-variant-numeric: tabular-nums; }
+.when.late { color: var(--late); font-weight: 500; }
+.when.today { color: var(--today); font-weight: 500; }
+.body { min-width: 0; display: grid; gap: 4px; }
+.task { margin: 0; overflow-wrap: anywhere; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 0.8rem; color: var(--muted); align-items: center; }
+.step { font-family: var(--font-mono); }
+.chip { font-size: 0.74rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+.chip.ai { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+.chip.wait { color: var(--wait); background: var(--wait-soft); border-color: transparent; }
+.chip.block { color: var(--late); background: var(--late-soft); border-color: transparent; }
+.note { font-size: 0.85rem; color: var(--muted); margin: 0; overflow-wrap: anywhere; }
+.claude { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 0.82rem; }
+.claude code { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); overflow-wrap: anywhere; }
+.copy { font: 500 0.78rem var(--font-body); color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 6px; padding: 2px 9px; cursor: pointer; }
+.empty { padding: 14px; color: var(--muted); font-size: 0.9rem; background: var(--surface); border: 1px dashed var(--line); border-radius: 10px; margin: 0; }
+.daygroup { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); padding: 8px 14px; background: var(--bg); border-top: 1px solid var(--line); }
+.daygroup:first-child { border-top: 0; }
+.start { background: var(--accent-soft); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; }
+.start p { margin: 0; }
+.start .prompt { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.start code { font-family: var(--font-mono); font-size: 0.85rem; overflow-wrap: anywhere; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+summary { padding: 10px 14px; cursor: pointer; font-size: 0.9rem; color: var(--muted); }
+details .list { border: 0; border-top: 1px solid var(--line); border-radius: 0; }
+.team { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 10px 14px; border-top: 1px solid var(--line); white-space: nowrap; }
+thead th { border-top: 0; font-weight: 500; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+td.num { text-align: right; }
+th.num { text-align: right; }
+td.late { color: var(--late); font-weight: 600; }
+td button { font: 600 0.9rem var(--font-body); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.banner { font-size: 0.85rem; padding: 10px 14px; border-radius: 8px; background: var(--today-soft); color: var(--fg); margin: 0; }
+footer { font-size: 0.8rem; color: var(--muted); display: grid; gap: 4px; }
+footer a { color: var(--accent); }
+@media (max-width: 560px) {
+  .item { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="top">
+      <h1>Vision Daily Brief</h1>
+      <span class="date" id="today"></span>
+    </div>
+    <div class="source"><span class="dot" id="dot"></span><span id="source">Loading the sprint plan…</span></div>
+    <div class="people" id="people" role="group" aria-label="Whose work to show"></div>
+  </header>
+  <p class="banner" id="banner" hidden></p>
+  <main id="main" class="wrap" style="padding:0;gap:22px"></main>
+  <footer>
+    <span>Built from Sprint Plan (Live) in Smartsheet: open steps due in the next two weeks, plus anything waiting or blocked. Rows owned by "Everyone" show for each person.</span>
+    <span id="sheetlink"></span>
+  </footer>
+</div>
+
+<script type="application/json" id="snapshot">/*SNAPSHOT*/null/*END*/</script>
+<script>
+(function () {
+  "use strict";
+  var CONFIG = {
+    sheetId: "__SHEET_ID__",
+    sheetUrl: "__SHEET_URL__",
+    people: ["Nicholas", "EJ", "Kaelyn", "Ted", "Laarni"],
+    tz: "America/Los_Angeles",
+    windowDays: 14
+  };
+  var snap = null;
+  try { snap = JSON.parse(document.getElementById("snapshot").textContent); } catch (e) { snap = null; }
+
+  var state = { person: null, rows: [], blockers: [], source: "none", updated: null, partial: false };
+  try { state.person = localStorage.getItem("brief.person"); } catch (e) {}
+
+  // ---- dates (team time zone) ----
+  function isoInTz(d) {
+    var p = new Intl.DateTimeFormat("en-CA", { timeZone: CONFIG.tz, year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(d);
+    var o = {}; p.forEach(function (x) { o[x.type] = x.value; });
+    return o.year + "-" + o.month + "-" + o.day;
+  }
+  function parseIso(s) { var a = s.split("-"); return new Date(Date.UTC(+a[0], +a[1] - 1, +a[2])); }
+  function addDays(s, n) { var d = parseIso(s); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+  function dayDiff(a, b) { return Math.round((parseIso(b) - parseIso(a)) / 86400000); }
+  function dow(s) { return parseIso(s).getUTCDay(); }
+  function nice(s, opts) { return parseIso(s).toLocaleDateString("en-US", Object.assign({ timeZone: "UTC" }, opts || { weekday: "short", month: "short", day: "numeric" })); }
+  var TODAY = isoInTz(new Date());
+  var NEXT5 = (function () { var out = [], d = TODAY; while (out.length < 5) { d = addDays(d, 1); var w = dow(d); if (w !== 0 && w !== 6) out.push(d); } return out; })();
+  document.getElementById("today").textContent = nice(TODAY, { weekday: "long", month: "long", day: "numeric" });
+  if (CONFIG.sheetUrl.indexOf("http") === 0) {
+    var a = document.createElement("a"); a.href = CONFIG.sheetUrl; a.textContent = "Open Sprint Plan (Live) in Smartsheet"; a.target = "_blank"; a.rel = "noopener";
+    document.getElementById("sheetlink").appendChild(a);
+  }
+
+  // ---- normalize rows from a get_sheet_summary payload ----
+  function fromPayload(p) {
+    var cols = {}; (p.availableColumns || []).forEach(function (c) { cols[c.index] = c.title; });
+    return (p.rows || []).map(function (r) {
+      var v = {}; (r.cells || []).forEach(function (c) { v[cols[c.columnIndex]] = c.value; });
+      return norm(r.rowId, v);
+    });
+  }
+  function norm(id, v) {
+    return {
+      id: String(id), task: v["Task"] || "", step: v["Step"] || "", status: v["Status"] || "Not Started",
+      owners: String(v["Owner"] || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean),
+      due: v["Due Date"] ? String(v["Due Date"]).slice(0, 10) : "", project: v["Project"] || "",
+      aiMode: v["AI Mode"] || "", agent: v["Agent (GitHub)"] || "", dependsOn: v["Depends On"] || "", notes: v["Notes / Blocker"] || ""
+    };
+  }
+  function merge(rows, blockers) {
+    var byId = {};
+    rows.forEach(function (r) { byId[r.id] = r; });
+    blockers.forEach(function (b) { if (byId[b.id]) byId[b.id].notes = b.notes || byId[b.id].notes; else byId[b.id] = b; });
+    return Object.keys(byId).map(function (k) { return byId[k]; });
+  }
+
+  // ---- dependency check: a step is blocked when a listed prerequisite step in the same project is still open ----
+  function depIndex(rows) { var ix = {}; rows.forEach(function (r) { if (r.step) ix[r.project + "|" + r.step] = r; }); return ix; }
+  function blockedBy(r, ix) {
+    var ids = String(r.dependsOn).split(/[,\s]+/).filter(function (t) { return /^[A-Z]{1,2}\d{1,2}$/.test(t); });
+    var out = [];
+    ids.forEach(function (s) { var p = ix[r.project + "|" + s]; if (p && p.id !== r.id) out.push(p); });
+    return out;
+  }
+
+  function mine(r, who) { return r.owners.indexOf(who) >= 0 || r.owners.indexOf("Everyone") >= 0; }
+  function isWaiting(r) { return r.status === "Blocked" || r.status === "Waiting on Someone"; }
+
+  function bucket(who) {
+    var all = state.rows.filter(function (r) { return mine(r, who); });
+    var ix = depIndex(state.rows);
+    var late = [], today = [], next = [], undated = [], waiting = [];
+    all.forEach(function (r) {
+      r._blockers = blockedBy(r, ix);
+      if (isWaiting(r) || r._blockers.length) waiting.push(r);
+      if (!r.due) { undated.push(r); return; }
+      if (r.due < TODAY) late.push(r);
+      else if (r.due === TODAY) today.push(r);
+      else if (r.due <= NEXT5[NEXT5.length - 1]) next.push(r);
+    });
+    var byDue = function (a, b) { return a.due < b.due ? -1 : a.due > b.due ? 1 : 0; };
+    late.sort(byDue); next.sort(byDue);
+    return { late: late, today: today, next: next, undated: undated, waiting: waiting };
+  }
+
+  // ---- rendering ----
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function copyBtn(text) {
+    var b = el("button", "copy", "Copy prompt"); b.type = "button";
+    b.addEventListener("click", function () {
+      var done = function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy prompt"; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { selectNear(b); });
+      } else selectNear(b);
+    });
+    return b;
+  }
+  function selectNear(b) { var c = b.parentNode.querySelector("code"); if (!c) return; var r = document.createRange(); r.selectNodeContents(c); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected, press Copy"; }
+  function promptFor(r) {
+    var skill = r.agent ? r.agent.split(/[ (]/)[0] : "";
+    var base = skill ? "Use the " + skill + " skill to " : "Help me with this step: ";
+    return base + "“" + r.task + "” (" + r.project + (r.step ? ", step " + r.step : "") + "). Read its row in Sprint Plan (Live) first.";
+  }
+
+  function item(r, mode) {
+    var row = el("div", "item");
+    var when = el("div", "when");
+    if (r.due && r.due < TODAY) { var d = dayDiff(r.due, TODAY); when.textContent = "Late " + d + "d"; when.classList.add("late"); }
+    else if (r.due === TODAY) { when.textContent = "Today"; when.classList.add("today"); }
+    else if (r.due) when.textContent = nice(r.due);
+    else when.textContent = "No date";
+    row.appendChild(when);
+    var body = el("div", "body");
+    body.appendChild(el("p", "task", r.task));
+    var meta = el("div", "meta");
+    meta.appendChild(el("span", null, r.project));
+    if (r.step) meta.appendChild(el("span", "step", r.step));
+    if (r.owners.length > 1 || r.owners[0] === "Everyone") meta.appendChild(el("span", null, "with " + r.owners.join(", ")));
+    if (isWaiting(r)) meta.appendChild(el("span", "chip wait", r.status));
+    (r._blockers || []).forEach(function (p) { meta.appendChild(el("span", "chip block", "Waits on " + p.step + " (" + (p.owners.join(", ") || "no owner") + ")")); });
+    if (r.aiMode === "AI executes") meta.appendChild(el("span", "chip ai", "Claude can do this"));
+    else if (r.aiMode === "AI drafts, human approves") meta.appendChild(el("span", "chip ai", "Claude can draft"));
+    else if (r.aiMode === "Human only") meta.appendChild(el("span", "chip", "Only you"));
+    body.appendChild(meta);
+    if (mode === "waiting" && r.notes) body.appendChild(el("p", "note", r.notes));
+    if (mode !== "waiting" && r.aiMode && r.aiMode !== "Human only" && !(r._blockers || []).length) {
+      var c = el("div", "claude");
+      var t = promptFor(r);
+      var code = el("code", null, r.agent ? r.agent : "Ask Claude");
+      c.appendChild(code); c.appendChild(copyBtn(t));
+      body.appendChild(c);
+    }
+    row.appendChild(body);
+    return row;
+  }
+
+  function listOf(items, mode, emptyText) {
+    if (!items.length) return el("p", "empty", emptyText);
+    var l = el("div", "list"); items.forEach(function (r) { l.appendChild(item(r, mode)); }); return l;
+  }
+
+  function renderPerson(who) {
+    var b = bucket(who), main = document.getElementById("main");
+    main.textContent = "";
+    var top = el("section");
+    var g = el("p", "greeting");
+    var hour = +new Intl.DateTimeFormat("en-US", { timeZone: CONFIG.tz, hour: "numeric", hour12: false }).format(new Date());
+    g.appendChild(document.createTextNode((hour < 12 ? "Good morning, " : hour < 17 ? "Good afternoon, " : "Good evening, ")));
+    g.appendChild(el("strong", null, who)); g.appendChild(document.createTextNode("."));
+    top.appendChild(g);
+    var counts = el("ul", "counts");
+    [[b.late.length, "late", "late"], [b.today.length, "due today", "today"], [b.next.length, "in the next 5 business days", ""], [b.waiting.length, "waiting or blocked", "wait"]].forEach(function (c) {
+      var li = el("li", c[0] && c[2] ? c[2] : null); li.appendChild(el("span", "n", String(c[0]))); li.appendChild(document.createTextNode(" " + c[1])); counts.appendChild(li);
+    });
+    top.appendChild(counts);
+    main.appendChild(top);
+
+    // Claude kick-start
+    var doable = b.late.concat(b.today, b.next).filter(function (r) { return r.aiMode && r.aiMode !== "Human only" && !(r._blockers || []).length && !isWaiting(r); });
+    var start = el("section", "start");
+    start.appendChild(el("h2", null, "Start with Claude"));
+    start.appendChild(el("p", null, doable.length ? doable.length + " of your steps this week can be run or drafted by Claude. Paste this into Claude to begin:" : "Paste this into Claude to go through your day:"));
+    var pr = el("div", "prompt");
+    var morning = "Use lumenis-daily-brief for " + who + ". Start with what's late, then today, and offer to run or draft every step whose AI Mode allows it.";
+    pr.appendChild(el("code", null, morning)); pr.appendChild(copyBtn(morning));
+    start.appendChild(pr);
+    main.appendChild(start);
+
+    var s1 = el("section"); s1.appendChild(el("h2", null, "Today (late first)"));
+    s1.appendChild(listOf(b.late.concat(b.today), "today", "Nothing late or due today."));
+    main.appendChild(s1);
+
+    var s2 = el("section"); s2.appendChild(el("h2", null, "Next 5 business days"));
+    if (!b.next.length) s2.appendChild(el("p", "empty", "Nothing due " + nice(NEXT5[0]) + " to " + nice(NEXT5[4]) + "."));
+    else {
+      var l = el("div", "list"), last = null;
+      b.next.forEach(function (r) { if (r.due !== last) { l.appendChild(el("div", "daygroup", nice(r.due, { weekday: "long", month: "short", day: "numeric" }))); last = r.due; } l.appendChild(item(r, "next")); });
+      s2.appendChild(l);
+    }
+    main.appendChild(s2);
+
+    var s3 = el("section"); s3.appendChild(el("h2", null, "Blockers and dependencies"));
+    s3.appendChild(listOf(b.waiting, "waiting", "Nothing waiting on someone else."));
+    main.appendChild(s3);
+
+    if (b.undated.length) {
+      var d = el("details"); d.appendChild(el("summary", null, b.undated.length + " open steps with no due date"));
+      d.appendChild(listOf(b.undated, "undated", "")); main.appendChild(d);
+    }
+  }
+
+  function renderTeam() {
+    var main = document.getElementById("main"); main.textContent = "";
+    var s = el("section"); s.appendChild(el("h2", null, "Team view"));
+    var wrap = el("div", "team"), t = el("table"), th = el("thead"), hr = el("tr");
+    [["Person", ""], ["Late", "num"], ["Due today", "num"], ["Next 5 business days", "num"], ["Waiting or blocked", "num"]].forEach(function (h) { hr.appendChild(el("th", h[1], h[0])); });
+    th.appendChild(hr); t.appendChild(th);
+    var tb = el("tbody");
+    CONFIG.people.forEach(function (p) {
+      var b = bucket(p), tr = el("tr"), td = el("td"), btn = el("button", null, p); btn.type = "button";
+      btn.addEventListener("click", function () { choose(p); }); td.appendChild(btn); tr.appendChild(td);
+      var c1 = el("td", "num" + (b.late.length ? " late" : ""), String(b.late.length)); tr.appendChild(c1);
+      tr.appendChild(el("td", "num", String(b.today.length)));
+      tr.appendChild(el("td", "num", String(b.next.length)));
+      tr.appendChild(el("td", "num", String(b.waiting.length)));
+      tb.appendChild(tr);
+    });
+    t.appendChild(tb); wrap.appendChild(t); s.appendChild(wrap); main.appendChild(s);
+    var all = state.rows.filter(isWaiting);
+    var s2 = el("section"); s2.appendChild(el("h2", null, "Everything waiting on someone"));
+    all.forEach(function (r) { r._blockers = []; });
+    s2.appendChild(listOf(all, "waiting", "Nothing is waiting or blocked."));
+    main.appendChild(s2);
+  }
+
+  function renderPeople() {
+    var box = document.getElementById("people"); box.textContent = "";
+    CONFIG.people.concat(["Team"]).forEach(function (p) {
+      var b = el("button", null, p === "Team" ? "Whole team" : p); b.type = "button";
+      b.setAttribute("aria-pressed", String(state.person === p));
+      b.addEventListener("click", function () { choose(p); });
+      box.appendChild(b);
+    });
+  }
+  function choose(p) { state.person = p; try { localStorage.setItem("brief.person", p); } catch (e) {} render(); }
+
+  function renderSource() {
+    var dot = document.getElementById("dot"), src = document.getElementById("source");
+    if (state.source === "live") { dot.className = "dot live"; src.textContent = "Live from Smartsheet" + (state.updated ? " · updated " + new Date(state.updated).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) : ""); }
+    else if (state.source === "snapshot") { dot.className = "dot"; src.textContent = "Snapshot from " + new Date(snap.generatedAt).toLocaleString("en-US", { weekday: "short", hour: "numeric", minute: "2-digit" }) + (snap.stale ? "" : ""); }
+    else { dot.className = "dot"; src.textContent = "No data yet"; }
+  }
+
+  function render() {
+    renderPeople(); renderSource();
+    if (!state.person) { var m = document.getElementById("main"); m.textContent = ""; m.appendChild(el("p", "empty", "Pick a person above to see their day.")); return; }
+    if (state.person === "Team") renderTeam(); else renderPerson(state.person);
+  }
+
+  function banner(text) { var b = document.getElementById("banner"); if (!text) { b.hidden = true; return; } b.textContent = text; b.hidden = false; }
+
+  // ---- start from the snapshot ----
+  if (snap && snap.rows) {
+    state.rows = merge(snap.rows.map(function (r) { return norm(r.id, r.v); }), (snap.blockers || []).map(function (r) { return norm(r.id, r.v); }));
+    state.source = "snapshot";
+    if (snap.generatedAt && isoInTz(new Date(snap.generatedAt)) !== TODAY) banner("This snapshot is from " + nice(isoInTz(new Date(snap.generatedAt))) + ". Live data loads if you have the Smartsheet connector; otherwise ask Claude to refresh the brief.");
+  }
+  render();
+
+  // ---- light up live data through the viewer's Smartsheet connector ----
+  if (!window.claude || !window.claude.use) return;
+  window.claude.use("user").then(function (user) {
+    if (!user || state.person) return;
+    user.me().then(function (me) {
+      var first = String((me && me.name) || "").split(" ")[0];
+      if (!state.person && CONFIG.people.indexOf(first) >= 0) choose(first);
+    }).catch(function () {});
+  }).catch(function () {});
+
+  if (!/^\d+$/.test(CONFIG.sheetId)) return;
+  window.claude.use("mcp").then(function (mcp) {
+    if (!mcp) return;
+    var cutoff = addDays(TODAY, CONFIG.windowDays);
+    var live = { rows: null, blockers: null };
+    function apply() {
+      if (!live.rows) return;
+      state.rows = merge(live.rows, live.blockers || []);
+      state.source = "live"; banner(null); render();
+    }
+    function onErr(err) {
+      var code = err && err.code;
+      if (code === "needs_reauth") banner("Reconnect Smartsheet in claude.ai Settings → Connectors to see live data. Showing the last snapshot.");
+      else if (code === "server_not_connected" || code === "selection_required") { if (state.source !== "snapshot") banner("Add the Smartsheet connector in claude.ai Settings → Connectors to see live data."); }
+      else if (code === "approval_required") banner("Allow this page to read Smartsheet to see live data. Showing the last snapshot.");
+      else if (code === "server_unavailable" || code === "upstream_error") { if (state.source === "live") banner("Smartsheet didn't answer just now; showing the last data loaded."); }
+      if (["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest"].indexOf(code) >= 0 && state.source === "live" && snap) {
+        state.rows = merge(snap.rows.map(function (r) { return norm(r.id, r.v); }), (snap.blockers || []).map(function (r) { return norm(r.id, r.v); }));
+        state.source = "snapshot"; render();
+      }
+    }
+    var base = { sheet_id: +CONFIG.sheetId };
+    mcp.watchTool("Smartsheet", "get_sheet_summary", Object.assign({}, base, {
+      columns: ["Task", "Step", "Status", "Owner", "Due Date", "Row Type", "Project", "AI Mode", "Agent (GitHub)", "Depends On"],
+      filters: [
+        { columnName: "Status", operator: "NOT_IN", columnValue: ["Complete", "Dropped"] },
+        { columnName: "Row Type", operator: "IN", columnValue: ["Task", "Subtask"] },
+        { columnName: "Due Date", operator: "LESS_THAN_OR_EQUAL", columnValue: cutoff }
+      ]
+    }), function (ev) {
+      if (ev.type === "error") return onErr(ev.error);
+      var p = ev.result && ev.result.payload;
+      if (!p || !p.rows) return;
+      if (p.metadata && p.metadata.isSampled) { banner("The live sheet returned only part of the next two weeks, so this view may be missing steps. The morning snapshot is complete."); return; }
+      live.rows = fromPayload(p);
+      state.updated = (ev.result.cache && ev.result.cache.storedAt) || Date.now();
+      apply();
+    }, { refetchInterval: 600000 });
+    mcp.watchTool("Smartsheet", "get_sheet_summary", Object.assign({}, base, {
+      columns: ["Task", "Step", "Status", "Owner", "Due Date", "Project", "Notes / Blocker"],
+      filters: [{ columnName: "Status", operator: "IN", columnValue: ["Blocked", "Waiting on Someone"] }]
+    }), function (ev) {
+      if (ev.type === "error") return onErr(ev.error);
+      var p = ev.result && ev.result.payload; if (!p || !p.rows) return;
+      live.blockers = fromPayload(p); apply();
+    }, { refetchInterval: 600000 });
+  }).catch(function () {});
+})();
+</script>
