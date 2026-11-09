@@ -13,7 +13,7 @@ The sprint plan holds every step of every campaign. Nobody should have to scan i
 It has two outputs:
 
 - **Chat brief** for the person asking (below).
-- **Team brief page**, a published Claude artifact with a person picker, so anyone (including a manager) can see any teammate's day. It is refreshed every weekday morning and reads Smartsheet live for viewers who have the Smartsheet connector.
+- **Team brief page**, a published Claude artifact with a person picker, so anyone (including a manager) can see any teammate's day. It is refreshed every weekday morning and reads Smartsheet live for viewers who have the Smartsheet connector. A teammate can also ask for their own copy of the page.
 
 ## Inputs
 
@@ -82,6 +82,8 @@ The page template is [assets/team-brief.html](assets/team-brief.html); [scripts/
    The script refuses a sampled read.
 3. Publish the output to the **existing** brief artifact so the link stays the same. Find it with the Artifact tool (`action: "list"`, title "Vision Daily Brief") and pass its URL. On the first publish, declare `capabilities: {mcp: {servers: [{server: "Smartsheet", tools: ["get_sheet_summary"]}]}, user: {scopes: ["profile"]}}`; on later publishes omit `capabilities` so the stored declaration carries forward.
 4. Report the counts the script printed. Don't change sharing; the owner shares the page from its Share menu.
+
+**A teammate's own copy:** when someone asks for "the daily brief page" (not the team refresh), run steps 1-2 above, then publish the output as a **new** private artifact for them (title "Vision Daily Brief", the same `capabilities` as the first publish) and give them the link. Never publish over the team page unless the person owns it or has edit access to it. Their copy looks and works the same, picks their name on open and reads Smartsheet live once they allow it; ask Claude again to rebuild it.
 
 **How the page stays current:** it opens on the baked snapshot (labelled with its time). If the viewer has the Smartsheet connector and allows it, the page re-runs the same two reads live and refreshes every 10 minutes; otherwise it says how to connect. The page picks the viewer's own name when it matches a teammate and remembers the last person chosen.
 
