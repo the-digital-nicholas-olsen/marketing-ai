@@ -1,6 +1,6 @@
 ---
 name: lumenis-accelerate-attendee-report
-description: Profile the practices registered for an Accelerate - devices they already own and products they're interested in, per division - for the sales VPs, marketing leadership and the session line-up, and build the current-owners list the service team uses to prepare. Use about two weeks before an Accelerate. Reads Smartsheet and Salesforce; writes a report, not records.
+description: Profile the practices registered for an Accelerate - devices they already own and products they're interested in, per division - for the sales VPs, marketing leadership and the session line-up. Use about two weeks before an Accelerate. Reads Smartsheet and Salesforce; writes a report, not records. The current-owners list for the service team is its own skill, lumenis-accelerate-current-owners.
 ---
 
 # Accelerate attendee report
@@ -8,7 +8,7 @@ description: Profile the practices registered for an Accelerate - devices they a
 Owner: EJ (marketing operations).
 Status: draft procedure, written 2026-10-29 from the Vision Accelerate planning session; not yet run. Review required.
 
-Two weeks out, the team decides which sessions to run (for example a double DMST track versus the medical model session) from who is coming. Service also wants to know which current owners are coming so it can prepare. Both come from the same read.
+Two weeks out, the team decides which sessions to run (for example a double DMST track versus the medical model session) from who is coming. Service also wants to know which current owners are coming so it can prepare; that list has its own skill, [lumenis-accelerate-current-owners](../lumenis-accelerate-current-owners/SKILL.md), and uses the same read.
 
 ## Inputs
 
@@ -18,7 +18,7 @@ Two weeks out, the team decides which sessions to run (for example a double DMST
 ## Procedure
 
 1. **Read** every registered row on both sheets (paginate). Skip rows marked Duplicate by pipeline sync.
-2. **Owned devices:** for each account, read the installed Lumenis products (asset or install records on the Salesforce account). If the read fails, mark "unknown", don't guess.
+2. **Owned devices:** for each account, take the devices owned from the sheet (Current Devices Owned, objections and notes) and the account's won opportunities in Salesforce. The Asset object is empty in this org, so won deals are the ownership record. Use the same rules as the [current owners list](../lumenis-accelerate-current-owners/SKILL.md#2-find-owners-on-the-approval-sheets). If the read fails, mark "unknown", don't guess.
 3. **Interest:** the sheet's Product of Interest plus the opportunity's product.
 
 ### S3 Attendee profile (T-14)
@@ -33,7 +33,7 @@ Send to the division's sales VP, marketing leadership and the marketing team. Sa
 
 ### S2 Current owners list (T-16)
 
-An Excel file of registered accounts that already own a device: practice, city, state, rep, devices owned. Draft the email to the service lead with the file attached.
+Follow [lumenis-accelerate-current-owners](../lumenis-accelerate-current-owners/SKILL.md). It builds the "<City> - Existing Customers Attending" sheet for Jeff Thompson's service team from the same read. If that list already exists for the show, reuse its owner findings here.
 
 ## Boundaries
 
