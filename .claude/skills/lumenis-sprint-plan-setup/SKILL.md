@@ -1,11 +1,12 @@
 ---
 name: lumenis-sprint-plan-setup
-description: Add a new campaign to the team's live Smartsheet sprint plan by copying its campaign template (Webinar, Accelerate, Trade Show) and turning each row's T-minus timing into a real due date. Use when a campaign's date is confirmed and it needs to appear in the sprint plan with owners and due dates.
+description: Vision only. Add a new campaign to the team's live Smartsheet sprint plan by copying its campaign template (Webinar, Accelerate, Trade Show) and turning each row's T-minus timing into a real due date. Use when a campaign's date is confirmed and it needs to appear in the sprint plan with owners and due dates.
 ---
 
 # Sprint plan setup
 
 Owner: Nicholas (marketing operations).
+Scope: **Vision Marketing (US) only.** The sprint plan workspace, templates, Backlog and brief page are Vision's. Aesthetics does not run its sprint plan in Smartsheet this way (as of November 2026 it is expected to use Asana), so if the request is for Aesthetics work, say this skill doesn't apply and stop. Listed in the [Vision Smartsheet procedures](../../../divisions/vision/smartsheet/README.md).
 Status: draft procedure, written 2026-10-27 from the Vision webinar playbook session; not yet run on a live campaign. Review required.
 
 Every campaign type has a template sheet in Smartsheet. Each row is one step, written as the finished state ("The flyer has been approved by the KOL"), with an owner, an AI mode, the agent that runs it and a **Timing** relative to the event day T. This skill copies those rows into the live sprint plan and gives each one a real due date, so the daily brief and the team can work from it.

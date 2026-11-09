@@ -1,11 +1,12 @@
 ---
 name: lumenis-daily-brief
-description: Give a teammate their "what's on my plate" brief from the live Smartsheet sprint plan (late, today, next 5 business days, blockers, and what Claude can run), or refresh the team's daily brief page where anyone can pick a person. Use when someone asks what's on their plate, what's due, for their morning brief, or to refresh or republish the team brief.
+description: Vision only. Give a Vision Marketing teammate their "what's on my plate" brief from the live Smartsheet sprint plan (late, today, next 5 business days, blockers, and what Claude can run), or refresh the team's daily brief page where anyone can pick a person. Use when someone asks what's on their plate, what's due, for their morning brief, or to refresh or republish the team brief.
 ---
 
 # Daily brief
 
 Owner: Nicholas (marketing operations).
+Scope: **Vision Marketing (US) only.** The sprint plan workspace, templates, Backlog and brief page are Vision's. Aesthetics does not run its sprint plan in Smartsheet this way (as of November 2026 it is expected to use Asana), so if the request is for Aesthetics work, say this skill doesn't apply and stop. Listed in the [Vision Smartsheet procedures](../../../divisions/vision/smartsheet/README.md).
 Status: draft procedure. Chat brief written 2026-10-27; team page added 2026-11-09 from the Vision sprint planning meeting. Review required.
 
 The sprint plan holds every step of every campaign. Nobody should have to scan it. This skill reads it and answers four questions for one person: what's late or due today, what's due in the next five business days, what's blocked and by whom, and what Claude can take off their plate right now.

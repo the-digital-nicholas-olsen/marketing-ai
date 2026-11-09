@@ -1,11 +1,12 @@
 ---
 name: lumenis-sprint-cleanup
-description: Weekly Monday-morning upkeep of the Smartsheet sprint plan before the team's sprint meeting. Opens the new weekly sprint, fixes Done/Status/Date Completed mismatches, moves Backlog campaigns onto the live plan when their first step comes due, and moves finished projects to the Archive sheet. Use when asked to run the sprint cleanup, prep the sprint plan for Monday, archive finished campaigns, or pull due Backlog items onto the plan.
+description: Vision only. Weekly Monday-morning upkeep of the Smartsheet sprint plan before the team's sprint meeting. Opens the new weekly sprint, fixes Done/Status/Date Completed mismatches, moves Backlog campaigns onto the live plan when their first step comes due, and moves finished projects to the Archive sheet. Use when asked to run the sprint cleanup, prep the sprint plan for Monday, archive finished campaigns, or pull due Backlog items onto the plan.
 ---
 
 # Sprint cleanup
 
 Owner: Nicholas (marketing operations).
+Scope: **Vision Marketing (US) only.** The sprint plan workspace, templates, Backlog and brief page are Vision's. Aesthetics does not run its sprint plan in Smartsheet this way (as of November 2026 it is expected to use Asana), so if the request is for Aesthetics work, say this skill doesn't apply and stop. Listed in the [Vision Smartsheet procedures](../../../divisions/vision/smartsheet/README.md).
 Status: draft procedure, written 2026-11-09 from the Vision sprint planning meeting; not yet run. Review required.
 
 Runs every Monday morning before the sprint meeting, so the team opens a plan that is current. Humans should rarely need to scan the plan themselves; this skill keeps it tidy and the [daily brief](../lumenis-daily-brief/SKILL.md) reads it for them.
