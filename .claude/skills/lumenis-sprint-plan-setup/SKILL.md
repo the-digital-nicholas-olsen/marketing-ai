@@ -1,11 +1,12 @@
 ---
 name: lumenis-sprint-plan-setup
-description: Add a new campaign to the team's live Smartsheet sprint plan by copying its campaign template (Webinar, Accelerate, Trade Show) and turning each row's T-minus timing into a real due date. Use when a campaign's date is confirmed and it needs to appear in the sprint plan with owners and due dates.
+description: Vision only. Add a new campaign to the team's live Smartsheet sprint plan by copying its campaign template (Webinar, Accelerate, Trade Show) and turning each row's T-minus timing into a real due date. Use when a campaign's date is confirmed and it needs to appear in the sprint plan with owners and due dates.
 ---
 
 # Sprint plan setup
 
 Owner: Nicholas (marketing operations).
+Scope: **Vision Marketing (US) only.** The sprint plan workspace, templates, Backlog and brief page are Vision's. Aesthetics does not run its sprint plan in Smartsheet this way (as of November 2026 it is expected to use Asana), so if the request is for Aesthetics work, say this skill doesn't apply and stop. Listed in the [Vision Smartsheet procedures](../../../divisions/vision/smartsheet/README.md).
 Status: draft procedure, written 2026-10-27 from the Vision webinar playbook session; not yet run on a live campaign. Review required.
 
 Every campaign type has a template sheet in Smartsheet. Each row is one step, written as the finished state ("The flyer has been approved by the KOL"), with an owner, an AI mode, the agent that runs it and a **Timing** relative to the event day T. This skill copies those rows into the live sprint plan and gives each one a real due date, so the daily brief and the team can work from it.
@@ -28,7 +29,7 @@ Requires the Smartsheet connector with edit access to both sheets. Without it, p
    - **No weekend or holiday adjustment.** A date that lands on a Saturday, Sunday or holiday stays there. The team works variable schedules (weekend KOL calls, weeks off), so the owner decides; the daily brief shows a missed date as late the next working day. Team decision, 2026-10-27.
    - A blank Days from Event means the row's AI Instructions hold a rule (for example "Monday of webinar week", or for an Accelerate "first business day of the show's quarter"); apply it. Accelerate rows timed "Annual" (the year's dates and budget) are done before any show is cloned: copy them with Status = Complete if their Key Info is known, otherwise Not Started with no date. If it can't be applied, leave the date blank and list the row in the report.
    - **Check dependencies.** If a row's date falls before the date of a step in its Depends On, don't move anything: flag it in the report and the row's Notes / Blocker. It means the template's timing needs fixing.
-4. **Add one Project row** at the right place in the live plan (under the campaign type's Category row when one exists), then the template's rows under it with the same hierarchy. Copy every template column as is. Set Project on every row, Status = Not Started, Done unchecked, Sprint = Backlog unless the user names a sprint.
+4. **Add one Project row** at the right place in the live plan (under the campaign type's Category row when one exists), then the template's rows under it with the same hierarchy. Copy every template column as is. Set Project on every row, Status = Not Started, Done unchecked, Date Completed blank, Sprint = Backlog unless the user names a sprint. If the campaign came from the Backlog sheet, tick its Moved to Live Plan box and set Stage = On Live Plan after the read-back (the weekly [sprint cleanup](../lumenis-sprint-cleanup/SKILL.md) runs this copy when a Backlog row's Moves to Live date arrives).
 5. **Fill Key Info** blanks you were given (KOL, host, date). Leave the rest as the template's fill-in prompts.
 6. **Ask the librarian for the project folder.** Follow [lumenis-librarian](../lumenis-librarian/SKILL.md) to create `<campaign root>/<Project>/` with its `_Context/` folder, and put the folder path or link in the Project row's Key Info. If the shared folder isn't synced on this machine, skip this step and list it as open.
 7. **Read back** the new rows: count matches the template, every Task row has an owner, every row with Days from Event has a due date, and any row due before its prerequisites is flagged.
