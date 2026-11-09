@@ -36,15 +36,18 @@ If either read reports `isSampled`, narrow it (shorter window, fewer columns) an
 
 1. **Run the two reads** and keep the person's rows (Owner includes them or Everyone).
 2. **Group the rows:**
+   - **Others are waiting on you:** the person's late or due-today steps that a teammate's step depends on (Depends On, same Project). Lead with these; clearing them unblocks someone else.
    - **Today:** late (Due Date before today) first, then due today.
-   - **Next 5 business days:** due in the next five weekdays, grouped by day.
-   - **Blockers and dependencies:** Status Blocked or Waiting on Someone (with the Notes / Blocker text), plus any row whose Depends On names a step in the same Project that is still open: "waits on C9 (Ted)".
+   - **Next 5 business days:** due in the next five weekdays.
+   - **Stuck:** Status Blocked or Waiting on Someone (with the Notes / Blocker text), or due within the next 5 business days while a teammate's prerequisite step is already late. An open prerequisite that isn't late yet is not a blocker: event-day steps ("The show has run") depend on earlier steps but happen anyway.
    - **No date:** a short list at the end.
+   Within each group, group by campaign (Project) when one campaign has several steps: "Dec 10 webinar: 7 late" with the steps under it.
 3. **Split Today and the next 5 days by AI Mode:**
    - **AI executes:** offer to run them now with the agent named in Agent (GitHub).
    - **AI drafts, human approves:** offer to draft them now; the person reviews and sends.
    - **Human only:** list them as reminders.
-   Never offer to run a step that waits on an open prerequisite.
+   Never offer to run a step whose prerequisite is still open. When a campaign has several Claude-ready steps, offer to work through them together in dependency order.
+   **Write for people, not the sheet:** never show step IDs (C9, L1) or raw Depends On values. Name the earlier step in words with its owner and lateness: "needs Ted's flyer first (9 days late)". Step IDs are for Claude only.
 4. **Write the brief** (format below). Lead with the counts, then the top three things to do today.
 5. **Act only on a yes.** Run or draft only the rows the person picks. After a step is done and checked, set Status to Complete, tick Done, set Date Completed to today and paste the result link in Deliverable Link. Drafts go to Ready for Review, not Complete.
 
@@ -55,19 +58,21 @@ Today, I'd start with:
 1. Send the flyer for KOL approval (late 1 day) — I can draft it now
 2. ...
 
+Others are waiting on you
+- Dec 10 webinar · Choose the title and send it to EJ (late 3d) · EJ's ON24 and HubSpot setup can't start until it's done
 Today
-- [Project] C10 · The flyer has been sent to the KOL for approval · late 1d · I can draft it
+- Dec 10 webinar (3 late): send the flyer for KOL approval · I can draft it; ...
 Next 5 business days
 ...
-Blockers
-- [Project] C1 · waits on K5 (Nicholas): the KOL hasn't agreed yet
+Stuck
+- Dec 10 webinar · Schedule the KOL interview · needs Nicholas to lock the KOL first (24 days late)
 ```
 
 Keep it under 25 lines. Link each project row.
 
 ## Team brief page
 
-The page template is [assets/team-brief.html](assets/team-brief.html); [scripts/build_brief.py](scripts/build_brief.py) bakes a snapshot of the two reads into it. The page shows, for the chosen person: counts, a copyable "Start with Claude" prompt, Today (late first), the next 5 business days by day, blockers and dependencies, and steps with no date. "Whole team" shows a table of every person's counts. Each AI-doable step has a copyable prompt naming its agent.
+The page template is [assets/team-brief.html](assets/team-brief.html); [scripts/build_brief.py](scripts/build_brief.py) bakes a snapshot of the two reads into it. The page shows, for the chosen person: counts, a copyable "Start with Claude" prompt, Others are waiting on you, Today (late first), the next 5 business days, Stuck (same rules as the chat brief), and steps with no date. A "Group by" menu switches between Campaign (default: each campaign folds open to its steps, with a copyable prompt that hands all its Claude-ready steps to Claude at once) and Due date. Dependencies sit in a fold-out line in plain words ("Needs 2 earlier steps first · waiting on Ted (1 late)"); step IDs never show. Each step links to its Smartsheet row, and each AI-doable step has a copyable prompt naming its agent. "Whole team" shows every person's counts, every late step by campaign, and everything marked waiting or blocked. The person picker lists the teammates who own work (for Vision: Nicholas, EJ, Kaelyn, Ted); managers use Whole team.
 
 **Refresh (every weekday morning, and on request):**
 

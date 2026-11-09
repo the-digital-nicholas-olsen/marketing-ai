@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Archivo:wght@600;700&display=swap">
 <style>
-/* Layout: one working column; person picker on top, then Today, Next 5 business days, Blockers. Team view swaps in a per-person table. */
+/* Layout: one working column. Person picker and "group by" on top; then Today, Next 5 business days, Stuck, Others waiting on you. Campaign groups fold open to their steps. */
 :root {
   --bg: #f4f6f7;
   --surface: #ffffff;
@@ -40,17 +40,21 @@
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
 .wrap { max-width: 980px; margin: 0 auto; padding-block: 24px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 22px; }
-header { display: grid; gap: 10px; }
+main { display: grid; gap: 24px; }
+header { display: grid; gap: 12px; }
 .top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
 h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3.4vw, 2rem); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
 .date { font-family: var(--font-mono); color: var(--muted); font-size: 0.85rem; }
 .source { display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--muted); }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
 .dot.live { background: var(--ok); }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; }
 .people { display: flex; flex-wrap: wrap; gap: 6px; }
 .people button { font: 500 0.92rem var(--font-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
 .people button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
-.people button:focus-visible, .copy:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.groupby { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--muted); }
+.groupby select { font: 500 0.88rem var(--font-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; }
+button:focus-visible, select:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .greeting { font-size: 1.05rem; margin: 0; }
 .greeting strong { font-weight: 600; }
 .counts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
@@ -60,49 +64,66 @@ h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem
 .counts .today { color: var(--today); background: var(--today-soft); border-color: transparent; }
 .counts .wait { color: var(--wait); background: var(--wait-soft); border-color: transparent; }
 section { display: grid; gap: 10px; }
+.sechead { display: grid; gap: 2px; }
 h2 { font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; }
-.list { display: grid; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.sechint { font-size: 0.82rem; color: var(--muted); margin: 0; }
+.list { display: grid; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 .item { display: grid; grid-template-columns: 92px 1fr; gap: 4px 14px; padding: 12px 14px; border-top: 1px solid var(--line); }
 .item:first-child { border-top: 0; }
 .when { font-family: var(--font-mono); font-size: 0.8rem; padding-top: 2px; font-variant-numeric: tabular-nums; }
 .when.late { color: var(--late); font-weight: 500; }
 .when.today { color: var(--today); font-weight: 500; }
-.body { min-width: 0; display: grid; gap: 4px; }
+.body { min-width: 0; display: grid; gap: 5px; }
 .task { margin: 0; overflow-wrap: anywhere; }
 .meta { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 0.8rem; color: var(--muted); align-items: center; }
-.step { font-family: var(--font-mono); }
+.meta a { color: var(--muted); }
 .chip { font-size: 0.74rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
 .chip.ai { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
 .chip.wait { color: var(--wait); background: var(--wait-soft); border-color: transparent; }
-.chip.block { color: var(--late); background: var(--late-soft); border-color: transparent; }
+.chip.late { color: var(--late); background: var(--late-soft); border-color: transparent; }
 .note { font-size: 0.85rem; color: var(--muted); margin: 0; overflow-wrap: anywhere; }
 .claude { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 0.82rem; }
 .claude code { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); overflow-wrap: anywhere; }
 .copy { font: 500 0.78rem var(--font-body); color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 6px; padding: 2px 9px; cursor: pointer; }
+.deps { font-size: 0.82rem; }
+.deps summary { cursor: pointer; color: var(--wait); list-style: none; display: inline-flex; gap: 6px; align-items: center; }
+.deps summary::-webkit-details-marker { display: none; }
+.deps summary::before { content: "▸"; font-size: 0.7rem; transition: transform .15s; }
+.deps[open] summary::before { transform: rotate(90deg); }
+.deps ul { margin: 6px 0 0; padding: 0 0 0 16px; display: grid; gap: 4px; color: var(--fg); }
+.deps li span { color: var(--muted); }
 .empty { padding: 14px; color: var(--muted); font-size: 0.9rem; background: var(--surface); border: 1px dashed var(--line); border-radius: 10px; margin: 0; }
 .daygroup { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); padding: 8px 14px; background: var(--bg); border-top: 1px solid var(--line); }
 .daygroup:first-child { border-top: 0; }
+.groups { display: grid; gap: 8px; }
+.group { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.group > summary { cursor: pointer; padding: 12px 14px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; list-style: none; }
+.group > summary::-webkit-details-marker { display: none; }
+.group > summary::before { content: "▸"; color: var(--muted); font-size: 0.75rem; transition: transform .15s; }
+.group[open] > summary::before { transform: rotate(90deg); }
+.gname { font-weight: 600; flex: 1 1 220px; min-width: 0; overflow-wrap: anywhere; }
+.gstats { display: flex; flex-wrap: wrap; gap: 6px; }
+.group .list { border: 0; border-top: 1px solid var(--line); border-radius: 0; }
+.gfoot { border-top: 1px solid var(--line); padding: 10px 14px; background: var(--accent-soft); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.82rem; }
 .start { background: var(--accent-soft); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; }
 .start p { margin: 0; }
 .start .prompt { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .start code { font-family: var(--font-mono); font-size: 0.85rem; overflow-wrap: anywhere; }
-details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
-summary { padding: 10px 14px; cursor: pointer; font-size: 0.9rem; color: var(--muted); }
-details .list { border: 0; border-top: 1px solid var(--line); border-radius: 0; }
+details.more { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+details.more > summary { padding: 10px 14px; cursor: pointer; font-size: 0.9rem; color: var(--muted); }
+details.more .list, details.more .groups { border-top: 1px solid var(--line); }
+details.more .list { border-left: 0; border-right: 0; border-bottom: 0; border-radius: 0; }
 .team { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
 table { border-collapse: collapse; width: 100%; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
 th, td { text-align: left; padding: 10px 14px; border-top: 1px solid var(--line); white-space: nowrap; }
 thead th { border-top: 0; font-weight: 500; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
-td.num { text-align: right; }
-th.num { text-align: right; }
+td.num, th.num { text-align: right; }
 td.late { color: var(--late); font-weight: 600; }
 td button { font: 600 0.9rem var(--font-body); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .banner { font-size: 0.85rem; padding: 10px 14px; border-radius: 8px; background: var(--today-soft); color: var(--fg); margin: 0; }
 footer { font-size: 0.8rem; color: var(--muted); display: grid; gap: 4px; }
 footer a { color: var(--accent); }
-@media (max-width: 560px) {
-  .item { grid-template-columns: 1fr; }
-}
+@media (max-width: 560px) { .item { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
@@ -113,12 +134,20 @@ footer a { color: var(--accent); }
       <span class="date" id="today"></span>
     </div>
     <div class="source"><span class="dot" id="dot"></span><span id="source">Loading the sprint plan…</span></div>
-    <div class="people" id="people" role="group" aria-label="Whose work to show"></div>
+    <div class="controls">
+      <div class="people" id="people" role="group" aria-label="Whose work to show"></div>
+      <label class="groupby" for="groupby">Group by
+        <select id="groupby">
+          <option value="campaign">Campaign</option>
+          <option value="date">Due date</option>
+        </select>
+      </label>
+    </div>
   </header>
   <p class="banner" id="banner" hidden></p>
-  <main id="main" class="wrap" style="padding:0;gap:22px"></main>
+  <main id="main"></main>
   <footer>
-    <span>Built from Sprint Plan (Live) in Smartsheet: open steps due in the next two weeks, plus anything waiting or blocked. Rows owned by "Everyone" show for each person.</span>
+    <span>Built from Sprint Plan (Live) in Smartsheet: open steps due in the next two weeks, plus anything marked waiting or blocked. Steps owned by "Everyone" show for each person.</span>
     <span id="sheetlink"></span>
   </footer>
 </div>
@@ -130,15 +159,21 @@ footer a { color: var(--accent); }
   var CONFIG = {
     sheetId: "__SHEET_ID__",
     sheetUrl: "__SHEET_URL__",
-    people: ["Nicholas", "EJ", "Kaelyn", "Ted", "Laarni"],
+    people: ["Nicholas", "EJ", "Kaelyn", "Ted"],
     tz: "America/Los_Angeles",
     windowDays: 14
   };
   var snap = null;
   try { snap = JSON.parse(document.getElementById("snapshot").textContent); } catch (e) { snap = null; }
 
-  var state = { person: null, rows: [], blockers: [], source: "none", updated: null, partial: false };
-  try { state.person = localStorage.getItem("brief.person"); } catch (e) {}
+  var state = { person: null, groupBy: "campaign", rows: [], source: "none", updated: null, open: {} };
+  try {
+    state.person = localStorage.getItem("brief.person");
+    state.groupBy = localStorage.getItem("brief.groupBy") || "campaign";
+    state.open = JSON.parse(localStorage.getItem("brief.open") || "{}") || {};
+  } catch (e) {}
+  if (CONFIG.people.indexOf(state.person) < 0 && state.person !== "Team") state.person = null;
+  function save(k, v) { try { localStorage.setItem(k, typeof v === "string" ? v : JSON.stringify(v)); } catch (e) {} }
 
   // ---- dates (team time zone) ----
   function isoInTz(d) {
@@ -153,13 +188,17 @@ footer a { color: var(--accent); }
   function nice(s, opts) { return parseIso(s).toLocaleDateString("en-US", Object.assign({ timeZone: "UTC" }, opts || { weekday: "short", month: "short", day: "numeric" })); }
   var TODAY = isoInTz(new Date());
   var NEXT5 = (function () { var out = [], d = TODAY; while (out.length < 5) { d = addDays(d, 1); var w = dow(d); if (w !== 0 && w !== 6) out.push(d); } return out; })();
+  var END5 = NEXT5[NEXT5.length - 1];
   document.getElementById("today").textContent = nice(TODAY, { weekday: "long", month: "long", day: "numeric" });
-  if (CONFIG.sheetUrl.indexOf("http") === 0) {
-    var a = document.createElement("a"); a.href = CONFIG.sheetUrl; a.textContent = "Open Sprint Plan (Live) in Smartsheet"; a.target = "_blank"; a.rel = "noopener";
-    document.getElementById("sheetlink").appendChild(a);
+  var hasSheet = CONFIG.sheetUrl.indexOf("http") === 0;
+  if (hasSheet) {
+    var a0 = document.createElement("a"); a0.href = CONFIG.sheetUrl; a0.textContent = "Open Sprint Plan (Live) in Smartsheet"; a0.target = "_blank"; a0.rel = "noopener";
+    document.getElementById("sheetlink").appendChild(a0);
   }
+  document.getElementById("groupby").value = state.groupBy;
+  document.getElementById("groupby").addEventListener("change", function (e) { state.groupBy = e.target.value; save("brief.groupBy", state.groupBy); render(); });
 
-  // ---- normalize rows from a get_sheet_summary payload ----
+  // ---- rows ----
   function fromPayload(p) {
     var cols = {}; (p.availableColumns || []).forEach(function (c) { cols[c.index] = c.title; });
     return (p.rows || []).map(function (r) {
@@ -171,120 +210,224 @@ footer a { color: var(--accent); }
     return {
       id: String(id), task: v["Task"] || "", step: v["Step"] || "", status: v["Status"] || "Not Started",
       owners: String(v["Owner"] || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean),
-      due: v["Due Date"] ? String(v["Due Date"]).slice(0, 10) : "", project: v["Project"] || "",
+      due: v["Due Date"] ? String(v["Due Date"]).slice(0, 10) : "", project: v["Project"] || "Other",
       aiMode: v["AI Mode"] || "", agent: v["Agent (GitHub)"] || "", dependsOn: v["Depends On"] || "", notes: v["Notes / Blocker"] || ""
     };
   }
-  function merge(rows, blockers) {
+  function merge(rows, extra) {
     var byId = {};
     rows.forEach(function (r) { byId[r.id] = r; });
-    blockers.forEach(function (b) { if (byId[b.id]) byId[b.id].notes = b.notes || byId[b.id].notes; else byId[b.id] = b; });
+    extra.forEach(function (b) { if (byId[b.id]) { if (b.notes) byId[b.id].notes = b.notes; } else byId[b.id] = b; });
     return Object.keys(byId).map(function (k) { return byId[k]; });
   }
+  function fromSnap() { return merge(snap.rows.map(function (r) { return norm(r.id, r.v); }), (snap.blockers || []).map(function (r) { return norm(r.id, r.v); })); }
 
-  // ---- dependency check: a step is blocked when a listed prerequisite step in the same project is still open ----
-  function depIndex(rows) { var ix = {}; rows.forEach(function (r) { if (r.step) ix[r.project + "|" + r.step] = r; }); return ix; }
-  function blockedBy(r, ix) {
-    var ids = String(r.dependsOn).split(/[,\s]+/).filter(function (t) { return /^[A-Z]{1,2}\d{1,2}$/.test(t); });
-    var out = [];
-    ids.forEach(function (s) { var p = ix[r.project + "|" + s]; if (p && p.id !== r.id) out.push(p); });
-    return out;
+  // ---- dependencies: open prerequisite steps in the same project (finished steps aren't in the data, so they count as done) ----
+  function link(rows) {
+    var ix = {}; rows.forEach(function (r) { if (r.step) ix[r.project + "|" + r.step] = r; r.needs = []; r.neededBy = []; });
+    rows.forEach(function (r) {
+      String(r.dependsOn).split(/[,\s]+/).forEach(function (t) {
+        if (!/^[A-Z]{1,2}\d{1,2}$/.test(t)) return;
+        var p = ix[r.project + "|" + t];
+        if (p && p.id !== r.id) { r.needs.push(p); p.neededBy.push(r); }
+      });
+    });
   }
-
+  function isLate(r) { return !!r.due && r.due < TODAY; }
+  function lateNeeds(r) { return r.needs.filter(isLate); }
+  function flagged(r) { return r.status === "Blocked" || r.status === "Waiting on Someone"; }
   function mine(r, who) { return r.owners.indexOf(who) >= 0 || r.owners.indexOf("Everyone") >= 0; }
-  function isWaiting(r) { return r.status === "Blocked" || r.status === "Waiting on Someone"; }
+  function ownersOf(r) { return r.owners.length ? r.owners.join(", ") : "no owner"; }
+  function stuck(r, who) {
+    if (flagged(r)) return true;
+    // A dependency only counts as a blocker when someone else's prerequisite is already late and this step is due soon.
+    var soon = r.due && r.due <= END5;
+    return soon && lateNeeds(r).some(function (p) { return !mine(p, who); });
+  }
 
   function bucket(who) {
     var all = state.rows.filter(function (r) { return mine(r, who); });
-    var ix = depIndex(state.rows);
-    var late = [], today = [], next = [], undated = [], waiting = [];
+    var b = { late: [], today: [], next: [], undated: [], stuck: [], holding: [] };
     all.forEach(function (r) {
-      r._blockers = blockedBy(r, ix);
-      if (isWaiting(r) || r._blockers.length) waiting.push(r);
-      if (!r.due) { undated.push(r); return; }
-      if (r.due < TODAY) late.push(r);
-      else if (r.due === TODAY) today.push(r);
-      else if (r.due <= NEXT5[NEXT5.length - 1]) next.push(r);
+      if (stuck(r, who)) b.stuck.push(r);
+      if (!r.due) b.undated.push(r);
+      else if (r.due < TODAY) b.late.push(r);
+      else if (r.due === TODAY) b.today.push(r);
+      else if (r.due <= END5) b.next.push(r);
+      var others = r.neededBy.filter(function (x) { return !mine(x, who); });
+      if (others.length && r.due && r.due <= TODAY) b.holding.push(r);
     });
-    var byDue = function (a, b) { return a.due < b.due ? -1 : a.due > b.due ? 1 : 0; };
-    late.sort(byDue); next.sort(byDue);
-    return { late: late, today: today, next: next, undated: undated, waiting: waiting };
+    var byDue = function (x, y) { return x.due < y.due ? -1 : x.due > y.due ? 1 : 0; };
+    b.late.sort(byDue); b.next.sort(byDue); b.stuck.sort(byDue); b.holding.sort(byDue);
+    return b;
   }
 
-  // ---- rendering ----
+  // ---- UI helpers ----
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-  function copyBtn(text) {
-    var b = el("button", "copy", "Copy prompt"); b.type = "button";
-    b.addEventListener("click", function () {
-      var done = function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy prompt"; }, 1600); };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(done, function () { selectNear(b); });
-      } else selectNear(b);
+  function copyBtn(text, label) {
+    label = label || "Copy prompt";
+    var b = el("button", "copy", label); b.type = "button";
+    b.addEventListener("click", function (ev) {
+      ev.preventDefault(); ev.stopPropagation();
+      var done = function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = label; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { selectNear(b); });
+      else selectNear(b);
     });
     return b;
   }
   function selectNear(b) { var c = b.parentNode.querySelector("code"); if (!c) return; var r = document.createRange(); r.selectNodeContents(c); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected, press Copy"; }
+  function skillOf(r) { return r.agent ? r.agent.split(/[ (+]/)[0] : ""; }
   function promptFor(r) {
-    var skill = r.agent ? r.agent.split(/[ (]/)[0] : "";
-    var base = skill ? "Use the " + skill + " skill to " : "Help me with this step: ";
-    return base + "“" + r.task + "” (" + r.project + (r.step ? ", step " + r.step : "") + "). Read its row in Sprint Plan (Live) first.";
+    var skill = skillOf(r);
+    return (skill ? "Use the " + skill + " skill to " : "Help me with this step: ") + "“" + r.task + "” (" + r.project + (r.step ? ", step " + r.step : "") + "). Read its row in Sprint Plan (Live) first.";
+  }
+  function campaignPrompt(project, rows) {
+    var list = rows.map(function (r) { return "- " + r.task + (r.step ? " (step " + r.step + ")" : ""); }).join("\n");
+    return "Help me catch up " + project + " in Sprint Plan (Live). For each step below, run or draft it with the skill named in its Agent (GitHub) column, in dependency order, and tell me what needs a human:\n" + list;
+  }
+  function whenText(r) {
+    if (isLate(r)) { var d = dayDiff(r.due, TODAY); return { t: d === 1 ? "1 day late" : d + " days late", c: "late" }; }
+    if (r.due === TODAY) return { t: "Today", c: "today" };
+    if (r.due) return { t: nice(r.due), c: "" };
+    return { t: "No date", c: "" };
+  }
+  function shortWhen(p) {
+    if (isLate(p)) { var d = dayDiff(p.due, TODAY); return d + "d late"; }
+    if (p.due === TODAY) return "due today";
+    return p.due ? "due " + nice(p.due, { month: "short", day: "numeric" }) : "no date";
   }
 
-  function item(r, mode) {
+  function depsBlock(r, who) {
+    if (!r.needs.length) return null;
+    var waitingOn = {};
+    r.needs.forEach(function (p) { p.owners.forEach(function (o) { if (o !== who) waitingOn[o] = 1; }); });
+    var names = Object.keys(waitingOn);
+    var late = lateNeeds(r).length;
+    var d = el("details", "deps");
+    var label = r.needs.length === 1 ? "Needs 1 earlier step first" : "Needs " + r.needs.length + " earlier steps first";
+    if (names.length) label += " · waiting on " + names.join(", ");
+    else label += " · all yours";
+    if (late) label += " (" + late + " late)";
+    d.appendChild(el("summary", null, label));
+    var ul = el("ul");
+    r.needs.forEach(function (p) {
+      var li = el("li"); li.appendChild(document.createTextNode(p.task + " "));
+      li.appendChild(el("span", null, "— " + ownersOf(p) + ", " + shortWhen(p)));
+      ul.appendChild(li);
+    });
+    d.appendChild(ul);
+    return d;
+  }
+
+  function item(r, who, opts) {
+    opts = opts || {};
     var row = el("div", "item");
-    var when = el("div", "when");
-    if (r.due && r.due < TODAY) { var d = dayDiff(r.due, TODAY); when.textContent = "Late " + d + "d"; when.classList.add("late"); }
-    else if (r.due === TODAY) { when.textContent = "Today"; when.classList.add("today"); }
-    else if (r.due) when.textContent = nice(r.due);
-    else when.textContent = "No date";
-    row.appendChild(when);
+    var w = whenText(r); row.appendChild(el("div", "when" + (w.c ? " " + w.c : ""), w.t));
     var body = el("div", "body");
     body.appendChild(el("p", "task", r.task));
     var meta = el("div", "meta");
-    meta.appendChild(el("span", null, r.project));
-    if (r.step) meta.appendChild(el("span", "step", r.step));
-    if (r.owners.length > 1 || r.owners[0] === "Everyone") meta.appendChild(el("span", null, "with " + r.owners.join(", ")));
-    if (isWaiting(r)) meta.appendChild(el("span", "chip wait", r.status));
-    (r._blockers || []).forEach(function (p) { meta.appendChild(el("span", "chip block", "Waits on " + p.step + " (" + (p.owners.join(", ") || "no owner") + ")")); });
+    if (opts.showProject) meta.appendChild(el("span", null, r.project));
+    var co = r.owners.filter(function (o) { return o !== who; });
+    if (co.length) meta.appendChild(el("span", null, "with " + co.join(", ")));
+    if (flagged(r)) meta.appendChild(el("span", "chip wait", r.status));
     if (r.aiMode === "AI executes") meta.appendChild(el("span", "chip ai", "Claude can do this"));
     else if (r.aiMode === "AI drafts, human approves") meta.appendChild(el("span", "chip ai", "Claude can draft"));
-    else if (r.aiMode === "Human only") meta.appendChild(el("span", "chip", "Only you"));
+    else if (r.aiMode === "Human only") meta.appendChild(el("span", "chip", "Needs you"));
+    if (hasSheet) { var a = el("a", null, "Open row"); a.href = CONFIG.sheetUrl + "?rowId=" + r.id; a.target = "_blank"; a.rel = "noopener"; meta.appendChild(a); }
     body.appendChild(meta);
-    if (mode === "waiting" && r.notes) body.appendChild(el("p", "note", r.notes));
-    if (mode !== "waiting" && r.aiMode && r.aiMode !== "Human only" && !(r._blockers || []).length) {
+    if (opts.notes && r.notes) body.appendChild(el("p", "note", r.notes));
+    if (opts.holding) {
+      var who2 = r.neededBy.filter(function (x) { return !mine(x, who); });
+      var d = el("details", "deps"); d.appendChild(el("summary", null, who2.length + (who2.length === 1 ? " step by " : " steps by ") + uniq(who2.map(ownersOf)).join(", ") + " can't start until this is done"));
+      var ul = el("ul"); who2.forEach(function (x) { var li = el("li"); li.appendChild(document.createTextNode(x.task + " ")); li.appendChild(el("span", null, "— " + ownersOf(x) + ", " + shortWhen(x))); ul.appendChild(li); });
+      d.appendChild(ul); body.appendChild(d);
+    } else {
+      var dep = depsBlock(r, who); if (dep) body.appendChild(dep);
+    }
+    if (!opts.notes && r.aiMode && r.aiMode !== "Human only") {
       var c = el("div", "claude");
-      var t = promptFor(r);
-      var code = el("code", null, r.agent ? r.agent : "Ask Claude");
-      c.appendChild(code); c.appendChild(copyBtn(t));
+      c.appendChild(el("code", null, r.agent || "Ask Claude")); c.appendChild(copyBtn(promptFor(r)));
       body.appendChild(c);
     }
     row.appendChild(body);
     return row;
   }
+  function uniq(a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); }
 
-  function listOf(items, mode, emptyText) {
-    if (!items.length) return el("p", "empty", emptyText);
-    var l = el("div", "list"); items.forEach(function (r) { l.appendChild(item(r, mode)); }); return l;
+  function flatList(items, who, opts, byDay) {
+    var l = el("div", "list"), last = null;
+    items.forEach(function (r) {
+      if (byDay && r.due !== last) { l.appendChild(el("div", "daygroup", r.due ? nice(r.due, { weekday: "long", month: "short", day: "numeric" }) : "No date")); last = r.due; }
+      l.appendChild(item(r, who, Object.assign({ showProject: true }, opts)));
+    });
+    return l;
+  }
+
+  function grouped(items, who, opts, key) {
+    var order = [], by = {};
+    items.forEach(function (r) { if (!by[r.project]) { by[r.project] = []; order.push(r.project); } by[r.project].push(r); });
+    var box = el("div", "groups");
+    var single = order.length === 1;
+    order.forEach(function (proj) {
+      var rows = by[proj];
+      var g = el("details", "group");
+      var oid = key + "|" + proj;
+      if (single || state.open[oid]) g.open = true;
+      g.addEventListener("toggle", function () { state.open[oid] = g.open; save("brief.open", state.open); });
+      var s = el("summary");
+      s.appendChild(el("span", "gname", proj));
+      var st = el("span", "gstats");
+      var late = rows.filter(isLate).length, today = rows.filter(function (r) { return r.due === TODAY; }).length;
+      if (late) st.appendChild(el("span", "chip late", late + " late"));
+      if (today) st.appendChild(el("span", "chip", today + " today"));
+      var rest = rows.length - late - today;
+      if (rest) st.appendChild(el("span", "chip", rest + (key === "next" || key === "undated" ? (rest === 1 ? " step" : " steps") : " more")));
+      var ai = rows.filter(function (r) { return r.aiMode && r.aiMode !== "Human only"; }).length;
+      if (ai && !opts.notes && !opts.holding) st.appendChild(el("span", "chip ai", ai + " Claude can help"));
+      s.appendChild(st);
+      g.appendChild(s);
+      var l = el("div", "list");
+      rows.forEach(function (r) { l.appendChild(item(r, who, opts)); });
+      g.appendChild(l);
+      var doable = rows.filter(function (r) { return r.aiMode && r.aiMode !== "Human only"; });
+      if (doable.length > 1 && !opts.notes && !opts.holding) {
+        var f = el("div", "gfoot"); var t = campaignPrompt(proj, doable);
+        f.appendChild(el("span", null, "Hand the " + doable.length + " Claude-ready steps in this campaign to Claude at once:"));
+        var hiddenCode = el("code", null, t); hiddenCode.hidden = true; f.appendChild(hiddenCode);
+        f.appendChild(copyBtn(t, "Copy campaign prompt"));
+        g.appendChild(f);
+      }
+      box.appendChild(g);
+    });
+    return box;
+  }
+
+  function section(title, hint, items, who, opts, key, emptyText, byDay) {
+    var s = el("section");
+    var h = el("div", "sechead"); h.appendChild(el("h2", null, title)); if (hint) h.appendChild(el("p", "sechint", hint)); s.appendChild(h);
+    if (!items.length) { s.appendChild(el("p", "empty", emptyText)); return s; }
+    s.appendChild(state.groupBy === "campaign" ? grouped(items, who, opts, key) : flatList(items, who, opts, byDay));
+    return s;
   }
 
   function renderPerson(who) {
     var b = bucket(who), main = document.getElementById("main");
     main.textContent = "";
     var top = el("section");
-    var g = el("p", "greeting");
     var hour = +new Intl.DateTimeFormat("en-US", { timeZone: CONFIG.tz, hour: "numeric", hour12: false }).format(new Date());
-    g.appendChild(document.createTextNode((hour < 12 ? "Good morning, " : hour < 17 ? "Good afternoon, " : "Good evening, ")));
+    var g = el("p", "greeting");
+    g.appendChild(document.createTextNode(hour < 12 ? "Good morning, " : hour < 17 ? "Good afternoon, " : "Good evening, "));
     g.appendChild(el("strong", null, who)); g.appendChild(document.createTextNode("."));
     top.appendChild(g);
     var counts = el("ul", "counts");
-    [[b.late.length, "late", "late"], [b.today.length, "due today", "today"], [b.next.length, "in the next 5 business days", ""], [b.waiting.length, "waiting or blocked", "wait"]].forEach(function (c) {
+    [[b.late.length, "late", "late"], [b.today.length, "due today", "today"], [b.next.length, "in the next 5 business days", ""], [b.stuck.length, "stuck", "wait"], [b.holding.length, "holding others up", "late"]].forEach(function (c) {
+      if (!c[0] && (c[1] === "stuck" || c[1] === "holding others up")) return;
       var li = el("li", c[0] && c[2] ? c[2] : null); li.appendChild(el("span", "n", String(c[0]))); li.appendChild(document.createTextNode(" " + c[1])); counts.appendChild(li);
     });
     top.appendChild(counts);
     main.appendChild(top);
 
-    // Claude kick-start
-    var doable = b.late.concat(b.today, b.next).filter(function (r) { return r.aiMode && r.aiMode !== "Human only" && !(r._blockers || []).length && !isWaiting(r); });
+    var doable = b.late.concat(b.today, b.next).filter(function (r) { return r.aiMode && r.aiMode !== "Human only"; });
     var start = el("section", "start");
     start.appendChild(el("h2", null, "Start with Claude"));
     start.appendChild(el("p", null, doable.length ? doable.length + " of your steps this week can be run or drafted by Claude. Paste this into Claude to begin:" : "Paste this into Claude to go through your day:"));
@@ -294,26 +437,15 @@ footer a { color: var(--accent); }
     start.appendChild(pr);
     main.appendChild(start);
 
-    var s1 = el("section"); s1.appendChild(el("h2", null, "Today (late first)"));
-    s1.appendChild(listOf(b.late.concat(b.today), "today", "Nothing late or due today."));
-    main.appendChild(s1);
-
-    var s2 = el("section"); s2.appendChild(el("h2", null, "Next 5 business days"));
-    if (!b.next.length) s2.appendChild(el("p", "empty", "Nothing due " + nice(NEXT5[0]) + " to " + nice(NEXT5[4]) + "."));
-    else {
-      var l = el("div", "list"), last = null;
-      b.next.forEach(function (r) { if (r.due !== last) { l.appendChild(el("div", "daygroup", nice(r.due, { weekday: "long", month: "short", day: "numeric" }))); last = r.due; } l.appendChild(item(r, "next")); });
-      s2.appendChild(l);
-    }
-    main.appendChild(s2);
-
-    var s3 = el("section"); s3.appendChild(el("h2", null, "Blockers and dependencies"));
-    s3.appendChild(listOf(b.waiting, "waiting", "Nothing waiting on someone else."));
-    main.appendChild(s3);
+    if (b.holding.length) main.appendChild(section("Others are waiting on you", "Your late or due-today steps that a teammate's next step depends on. Clearing these unblocks someone else.", b.holding, who, { holding: true }, "holding", "", false));
+    main.appendChild(section("Today", "Late first, then due today.", b.late.concat(b.today), who, {}, "today", "Nothing late or due today.", false));
+    main.appendChild(section("Next 5 business days", nice(NEXT5[0]) + " to " + nice(END5) + ".", b.next, who, {}, "next", "Nothing due in the next 5 business days.", true));
+    main.appendChild(section("Stuck", "Marked waiting or blocked, or due soon while a teammate's earlier step is already late.", b.stuck, who, { notes: true }, "stuck", "Nothing is stuck on someone else.", false));
 
     if (b.undated.length) {
-      var d = el("details"); d.appendChild(el("summary", null, b.undated.length + " open steps with no due date"));
-      d.appendChild(listOf(b.undated, "undated", "")); main.appendChild(d);
+      var d = el("details", "more"); d.appendChild(el("summary", null, b.undated.length + " open steps with no due date"));
+      d.appendChild(state.groupBy === "campaign" ? grouped(b.undated, who, {}, "undated") : flatList(b.undated, who, {}, false));
+      main.appendChild(d);
     }
   }
 
@@ -321,24 +453,23 @@ footer a { color: var(--accent); }
     var main = document.getElementById("main"); main.textContent = "";
     var s = el("section"); s.appendChild(el("h2", null, "Team view"));
     var wrap = el("div", "team"), t = el("table"), th = el("thead"), hr = el("tr");
-    [["Person", ""], ["Late", "num"], ["Due today", "num"], ["Next 5 business days", "num"], ["Waiting or blocked", "num"]].forEach(function (h) { hr.appendChild(el("th", h[1], h[0])); });
+    [["Person", ""], ["Late", "num"], ["Due today", "num"], ["Next 5 business days", "num"], ["Stuck", "num"], ["Holding others up", "num"]].forEach(function (h) { hr.appendChild(el("th", h[1], h[0])); });
     th.appendChild(hr); t.appendChild(th);
     var tb = el("tbody");
     CONFIG.people.forEach(function (p) {
       var b = bucket(p), tr = el("tr"), td = el("td"), btn = el("button", null, p); btn.type = "button";
       btn.addEventListener("click", function () { choose(p); }); td.appendChild(btn); tr.appendChild(td);
-      var c1 = el("td", "num" + (b.late.length ? " late" : ""), String(b.late.length)); tr.appendChild(c1);
+      tr.appendChild(el("td", "num" + (b.late.length ? " late" : ""), String(b.late.length)));
       tr.appendChild(el("td", "num", String(b.today.length)));
       tr.appendChild(el("td", "num", String(b.next.length)));
-      tr.appendChild(el("td", "num", String(b.waiting.length)));
+      tr.appendChild(el("td", "num", String(b.stuck.length)));
+      tr.appendChild(el("td", "num" + (b.holding.length ? " late" : ""), String(b.holding.length)));
       tb.appendChild(tr);
     });
     t.appendChild(tb); wrap.appendChild(t); s.appendChild(wrap); main.appendChild(s);
-    var all = state.rows.filter(isWaiting);
-    var s2 = el("section"); s2.appendChild(el("h2", null, "Everything waiting on someone"));
-    all.forEach(function (r) { r._blockers = []; });
-    s2.appendChild(listOf(all, "waiting", "Nothing is waiting or blocked."));
-    main.appendChild(s2);
+    var late = state.rows.filter(isLate).sort(function (x, y) { return x.due < y.due ? -1 : 1; });
+    main.appendChild(section("Late across the team", "Every late step, by campaign. Open a campaign to see who owns what.", late, "", { }, "teamlate", "Nothing is late.", false));
+    main.appendChild(section("Marked waiting or blocked", null, state.rows.filter(flagged), "", { notes: true }, "teamwait", "Nothing is marked waiting or blocked.", false));
   }
 
   function renderPeople() {
@@ -350,32 +481,30 @@ footer a { color: var(--accent); }
       box.appendChild(b);
     });
   }
-  function choose(p) { state.person = p; try { localStorage.setItem("brief.person", p); } catch (e) {} render(); }
+  function choose(p) { state.person = p; save("brief.person", p); render(); }
 
   function renderSource() {
     var dot = document.getElementById("dot"), src = document.getElementById("source");
     if (state.source === "live") { dot.className = "dot live"; src.textContent = "Live from Smartsheet" + (state.updated ? " · updated " + new Date(state.updated).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) : ""); }
-    else if (state.source === "snapshot") { dot.className = "dot"; src.textContent = "Snapshot from " + new Date(snap.generatedAt).toLocaleString("en-US", { weekday: "short", hour: "numeric", minute: "2-digit" }) + (snap.stale ? "" : ""); }
+    else if (state.source === "snapshot") { dot.className = "dot"; src.textContent = "Snapshot from " + new Date(snap.generatedAt).toLocaleString("en-US", { weekday: "short", hour: "numeric", minute: "2-digit" }); }
     else { dot.className = "dot"; src.textContent = "No data yet"; }
   }
 
   function render() {
+    link(state.rows);
     renderPeople(); renderSource();
     if (!state.person) { var m = document.getElementById("main"); m.textContent = ""; m.appendChild(el("p", "empty", "Pick a person above to see their day.")); return; }
     if (state.person === "Team") renderTeam(); else renderPerson(state.person);
   }
-
   function banner(text) { var b = document.getElementById("banner"); if (!text) { b.hidden = true; return; } b.textContent = text; b.hidden = false; }
 
-  // ---- start from the snapshot ----
   if (snap && snap.rows) {
-    state.rows = merge(snap.rows.map(function (r) { return norm(r.id, r.v); }), (snap.blockers || []).map(function (r) { return norm(r.id, r.v); }));
-    state.source = "snapshot";
+    state.rows = fromSnap(); state.source = "snapshot";
     if (snap.generatedAt && isoInTz(new Date(snap.generatedAt)) !== TODAY) banner("This snapshot is from " + nice(isoInTz(new Date(snap.generatedAt))) + ". Live data loads if you have the Smartsheet connector; otherwise ask Claude to refresh the brief.");
   }
   render();
 
-  // ---- light up live data through the viewer's Smartsheet connector ----
+  // ---- live data through the viewer's Smartsheet connector ----
   if (!window.claude || !window.claude.use) return;
   window.claude.use("user").then(function (user) {
     if (!user || state.person) return;
@@ -390,21 +519,14 @@ footer a { color: var(--accent); }
     if (!mcp) return;
     var cutoff = addDays(TODAY, CONFIG.windowDays);
     var live = { rows: null, blockers: null };
-    function apply() {
-      if (!live.rows) return;
-      state.rows = merge(live.rows, live.blockers || []);
-      state.source = "live"; banner(null); render();
-    }
+    function apply() { if (!live.rows) return; state.rows = merge(live.rows, live.blockers || []); state.source = "live"; banner(null); render(); }
     function onErr(err) {
       var code = err && err.code;
       if (code === "needs_reauth") banner("Reconnect Smartsheet in claude.ai Settings → Connectors to see live data. Showing the last snapshot.");
       else if (code === "server_not_connected" || code === "selection_required") { if (state.source !== "snapshot") banner("Add the Smartsheet connector in claude.ai Settings → Connectors to see live data."); }
       else if (code === "approval_required") banner("Allow this page to read Smartsheet to see live data. Showing the last snapshot.");
       else if (code === "server_unavailable" || code === "upstream_error") { if (state.source === "live") banner("Smartsheet didn't answer just now; showing the last data loaded."); }
-      if (["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest"].indexOf(code) >= 0 && state.source === "live" && snap) {
-        state.rows = merge(snap.rows.map(function (r) { return norm(r.id, r.v); }), (snap.blockers || []).map(function (r) { return norm(r.id, r.v); }));
-        state.source = "snapshot"; render();
-      }
+      if (["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest"].indexOf(code) >= 0 && state.source === "live" && snap) { state.rows = fromSnap(); state.source = "snapshot"; render(); }
     }
     var base = { sheet_id: +CONFIG.sheetId };
     mcp.watchTool("Smartsheet", "get_sheet_summary", Object.assign({}, base, {
@@ -418,7 +540,7 @@ footer a { color: var(--accent); }
       if (ev.type === "error") return onErr(ev.error);
       var p = ev.result && ev.result.payload;
       if (!p || !p.rows) return;
-      if (p.metadata && p.metadata.isSampled) { banner("The live sheet returned only part of the next two weeks, so this view may be missing steps. The morning snapshot is complete."); return; }
+      if (p.metadata && p.metadata.isSampled) { banner("The live sheet returned only part of the next two weeks, so live data is paused. The morning snapshot is complete."); return; }
       live.rows = fromPayload(p);
       state.updated = (ev.result.cache && ev.result.cache.storedAt) || Date.now();
       apply();
