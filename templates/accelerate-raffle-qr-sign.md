@@ -9,13 +9,15 @@ Don't redesign the sign, rebuild it in another tool, or change the copy. Every v
 
 ## Inputs
 
-- **The master PDF:** `Accelerate - Raffle Waiver QR Sign.pdf`, in the `Lumenis Vision US MKT - Graphic Templates` OneDrive folder with the other master graphics. It stays outside Git because finished artwork doesn't belong in this repository and its QR opens a live form. Always start from the master, never from a previous event's sign.
+- **The master PDF:** `Accelerate - Raffle Waiver QR Sign - Current Customers.pdf`, in the `Lumenis Vision US MKT - Graphic Templates` OneDrive folder with the other master graphics. This is the current customers version of the sign, headed "For current customers", and it replaces the earlier `Accelerate - Raffle Waiver QR Sign.pdf`. It stays outside Git because finished artwork doesn't belong in this repository and its QR opens a live form. Always start from the master, never from a previous event's sign.
 - **The new raffle waiver link:** the public link of the event's new waiver form (`https://form.jotform.com/<form ID>`), taken from the form as soon as it passes the clone procedure's read-back, or supplied by the team. If there's no link, stop. Don't reuse the last event's link or guess one. To make the form, follow [Accelerate raffle waiver clone](accelerate-raffle-waiver-clone.md).
 - **Node.js,** to run the script below.
 
 Encode the link exactly as supplied. Don't add UTM tags or shorten it unless the person who supplied it asks. Keep the link and finished PDFs in the event's work folder, not in Git.
 
 ## Release checks
+
+**Blocked: the script can't read the current customers master yet.** `swap-raffle-qr.mjs` stops before it reaches the QR code, because this master stores its page objects in compressed object streams. The QR position, size and module count in the locked specification were measured on the earlier master and haven't been re-measured. Don't build or print a sign from this procedure until the script handles this master and the specification has been re-measured.
 
 The specification below describes one observed master. Confirm current artwork clearance, brand approval, licensed embedded fonts and the required year before print release. Unresolved Trial-font licensing or an unapproved brand exception blocks release. Drafting can continue with those blockers reported.
 
@@ -33,6 +35,7 @@ Check any finished sign against these. All measurements are from the top-left co
 The sign's copy must stay exactly as follows:
 
 - Eyebrow: ACCELERATE BY LUMENIS
+- Heading: FOR CURRENT CUSTOMERS
 - Headline: ENTER THE PRIZE DRAWING.
 - Subhead: Scan the code to complete your entry, release and consent form. It takes about two minutes.
 - Step 01: Scan. Open your phone camera and scan the code.
@@ -55,7 +58,7 @@ This procedure can't change anything but the QR code. If anything else needs to 
 2. **Build the sign.** Copy the master into the same folder, then run:
 
    ```bash
-   node swap-raffle-qr.mjs "Accelerate - Raffle Waiver QR Sign.pdf" "<city>-raffle-qr-sign.pdf" "<link>"
+   node swap-raffle-qr.mjs "Accelerate - Raffle Waiver QR Sign - Current Customers.pdf" "<city>-raffle-qr-sign.pdf" "<link>"
    ```
 
 3. **Check the module size.** The script prints it. The QR code stays the same overall size, so a longer link means smaller modules. Below 3 pt per module (more than 57 x 57), ask for a shorter link.
@@ -125,4 +128,4 @@ Mistake: rebuilding the sign in Canva, InDesign or HTML to change the QR code. I
 
 ## Source and review
 
-Source: the approved master PDF, reviewed 2026-10-30. Proposed subject reviewer: Kaelyn. The 3 pt module limit is proposed guidance, not a brand or vendor rule. GitHub approval isn't legal approval of the sign, the Official Rules or the waiver form.
+Source: the approved master PDF, reviewed 2026-10-30. The current customers master replaced it on 2026-11-09. Proposed subject reviewer: Kaelyn. The 3 pt module limit is proposed guidance, not a brand or vendor rule. GitHub approval isn't legal approval of the sign, the Official Rules or the waiver form.
