@@ -36,7 +36,17 @@ The form supports both event and non-event purchases. Use the internal guide for
 | Date * | Required for every request. For event-related spending, use the **first day of the related event** under the Vision rule. For non-event spending, use the applicable date confirmed by the requester or procurement owner; do not invent an event or automatically substitute the invoice or submission date. |
 | Additional Comments | Optional. |
 | File Upload | Attach the related invoice or agreement when there is one. |
-| Send me a copy of my responses | Check the box and enter the **submitter's own** email. |
+| Send me a copy of my responses | Check the box and enter the **submitter's own** email. Fill this first. See [Filling the form safely](#filling-the-form-safely). |
+
+## Filling the form safely
+
+The "Send me a copy of my responses" checkbox sits directly above Submit. An AI clicking by screen position has aimed at the checkbox and hit Submit after the page shifted. The PR went in before the requester reviewed it, and no copy email was sent.
+
+- Fill the copy checkbox and email field first, before the other fields.
+- Below File Upload, set every field through the page's element references or form-input tools, never by screen coordinates.
+- Take a fresh screenshot before any click by coordinates. Closing dropdowns and fields that grow move the page.
+- When done, check that the box is ticked and the email is correct. Then stop and hand the form to the requester. Click Submit only if the requester has reviewed the form and asks you to.
+- If a success banner or a blank form appears unexpectedly, the PR went in. Stop and tell the requester. Do not refill the form.
 
 ## Short/Header Text formula
 
@@ -106,6 +116,7 @@ Do not change the PR tracking sheets. They are read-only.
 - Requiring an event for a non-event purchase, guessing its date, or categorizing all non-event spending as trade show expenses.
 - Using `WORKSHOPS` for anything that isn't an Accelerate.
 - Writing a physician's last name only. Older PR records do this, but new PRs use the full name.
+- Clicking near Submit by screen coordinates.
 - Submitting the form without the requester's review. This form has been seen to clear itself after sitting open for a while, so check every field again right before submitting.
 - Skipping the Master Budget and budget tracker write-back for an Accelerate PR, or marking only the honorarium row when one PR covers honorarium and T&E.
 
