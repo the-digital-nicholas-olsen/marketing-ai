@@ -127,6 +127,17 @@ footer a { color: var(--accent); }
 .tick { display: flex; padding-top: 2px; }
 .tick input { width: 18px; height: 18px; margin: 0; accent-color: var(--ok); cursor: pointer; }
 .tick input:disabled { cursor: progress; }
+.note { white-space: pre-line; }
+.addnote { font-size: 0.82rem; }
+.addnote summary { cursor: pointer; color: var(--accent); list-style: none; display: inline-flex; gap: 6px; align-items: center; }
+.addnote summary::-webkit-details-marker { display: none; }
+.addnote summary::before { content: "+"; font-weight: 600; }
+.noteform { display: grid; gap: 8px; margin-top: 8px; max-width: 560px; }
+.noteform textarea { font: 0.88rem var(--font-body); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; resize: vertical; width: 100%; }
+.checkback { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; color: var(--muted); }
+.checkback input { font: 0.85rem var(--font-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; }
+.noteactions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.notemsg { color: var(--muted); }
 .toast { position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); max-width: min(560px, calc(100vw - 32px)); display: flex; gap: 12px; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--fg); color: var(--bg); font-size: 0.88rem; box-shadow: 0 6px 24px rgba(0,0,0,.2); z-index: 10; }
 .toast[hidden] { display: none; }
 .toast span { overflow-wrap: anywhere; }
@@ -232,7 +243,16 @@ footer a { color: var(--accent); }
     extra.forEach(function (b) { if (byId[b.id]) { if (b.notes) byId[b.id].notes = b.notes; } else byId[b.id] = b; });
     return Object.keys(byId).map(function (k) { return byId[k]; });
   }
-  function fromSnap() { return merge(snap.rows.map(function (r) { return norm(r.id, r.v); }), (snap.blockers || []).map(function (r) { return norm(r.id, r.v); })); }
+  // Notes come from a third read (open rows with a note); they only fill in notes on rows already shown.
+  function addNotes(rows, noteRows) {
+    var byId = {}; (noteRows || []).forEach(function (n) { if (n.notes) byId[n.id] = n.notes; });
+    rows.forEach(function (r) { if (byId[r.id]) r.notes = byId[r.id]; });
+    return rows;
+  }
+  function fromSnap() {
+    var rows = merge(snap.rows.map(function (r) { return norm(r.id, r.v); }), (snap.blockers || []).map(function (r) { return norm(r.id, r.v); }));
+    return addNotes(rows, (snap.notes || []).map(function (r) { return norm(r.id, r.v); }));
+  }
 
   // ---- dependencies: open prerequisite steps in the same project (finished steps aren't in the data, so they count as done) ----
   function link(rows) {
@@ -366,7 +386,7 @@ footer a { color: var(--accent); }
     else if (r.aiMode === "Human only") meta.appendChild(el("span", "chip", "Needs you"));
     if (hasSheet) { var a = el("a", null, "Open row"); a.href = CONFIG.sheetUrl + "?rowId=" + r.id; a.target = "_blank"; a.rel = "noopener"; meta.appendChild(a); }
     body.appendChild(meta);
-    if (opts.notes && r.notes) body.appendChild(el("p", "note", r.notes));
+    if (r.notes) body.appendChild(el("p", "note", r.notes));
     if (opts.holding) {
       var who2 = r.neededBy.filter(function (x) { return !mine(x, who); });
       var d = el("details", "deps"); d.appendChild(el("summary", null, who2.length + (who2.length === 1 ? " step by " : " steps by ") + uniq(who2.map(ownersOf)).join(", ") + " can't start until this is done"));
@@ -375,6 +395,7 @@ footer a { color: var(--accent); }
     } else {
       var dep = depsBlock(r, who); if (dep) body.appendChild(dep);
     }
+    if (tickable) body.appendChild(noteForm(r, who));
     if (!opts.notes && r.aiMode && r.aiMode !== "Human only") {
       var c = el("div", "claude");
       c.appendChild(el("code", null, r.agent || "Ask Claude")); c.appendChild(copyBtn(promptFor(r)));
@@ -382,6 +403,30 @@ footer a { color: var(--accent); }
     }
     row.appendChild(body);
     return row;
+  }
+  // "Add note": appends a dated line to Notes / Blocker and, if a date is picked, moves the Due Date.
+  function noteForm(r, who) {
+    var d = el("details", "addnote");
+    d.appendChild(el("summary", null, "Add note"));
+    var f = el("div", "noteform");
+    var ta = el("textarea"); ta.rows = 3; ta.maxLength = 1000;
+    ta.placeholder = "What happened, who you're waiting on, what's next…";
+    ta.setAttribute("aria-label", "Note for: " + r.task);
+    var dl = el("label", "checkback", "Check back on (moves the due date) ");
+    var di = el("input"); di.type = "date"; di.min = addDays(TODAY, 1); dl.appendChild(di);
+    var row = el("div", "noteactions");
+    var save = el("button", "copy", "Save to Smartsheet"); save.type = "button";
+    var msg = el("span", "notemsg");
+    save.addEventListener("click", function () {
+      var text = ta.value.trim();
+      if (!text && !di.value) { msg.textContent = "Write a note or pick a date first."; return; }
+      save.disabled = true; msg.textContent = "Saving…";
+      saveNote(r, who, text, di.value).then(function () { msg.textContent = ""; }, function () { save.disabled = false; msg.textContent = ""; });
+    });
+    row.appendChild(save); row.appendChild(msg);
+    f.appendChild(ta); f.appendChild(dl); f.appendChild(row);
+    d.appendChild(f);
+    return d;
   }
   function uniq(a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); }
 
@@ -571,13 +616,47 @@ footer a { color: var(--accent); }
       return res;
     });
   }
+  var NOTES_READ = null; // set once live data starts: the read of open rows that have a note
+  function saveNote(r, who, text, newDue) {
+    banner(null);
+    var author = state.me || who;
+    var fresh = NOTES_READ
+      ? state.mcp.callTool("Smartsheet", "get_sheet_summary", NOTES_READ, { cache: false }).then(function (res) {
+          var hit = fromPayload((res && res.payload) || {}).filter(function (n) { return n.id === r.id; })[0];
+          return hit ? hit.notes : "";
+        }, function () { return r.notes; })
+      : Promise.resolve(r.notes);
+    return fresh.then(function (current) {
+      var notes = current || "";
+      if (text) {
+        var line = nice(TODAY, { month: "numeric", day: "numeric" }) + " " + author + ": " + text;
+        notes = notes ? notes + "\n" + line : line;
+        if (notes.length > 3900) notes = "…" + notes.slice(notes.length - 3899);
+      }
+      return getCols().then(function (c) {
+        if (!c["Notes / Blocker"] || !c["Due Date"]) throw { code: "missing_columns" };
+        var cells = [];
+        if (text) cells.push({ columnId: c["Notes / Blocker"], value: notes });
+        if (newDue) cells.push({ columnId: c["Due Date"], value: newDue });
+        return state.mcp.callTool("Smartsheet", "update_rows", { sheet_id: +CONFIG.sheetId, rows: [{ id: +r.id, cells: cells }] }, { cache: false });
+      }).then(function (res) {
+        var p = res && res.payload;
+        if (p && p.failedItems && p.failedItems.length) throw { code: "tool_error", message: "Smartsheet didn't accept the change for this row." };
+        if (state.mcp.invalidate) state.mcp.invalidate("Smartsheet", "get_sheet_summary").catch(function () {});
+        if (text) r.notes = notes;
+        if (newDue) r.due = newDue;
+        render();
+        showToast((text ? "Note saved" : "Saved") + (newDue ? " · due date moved to " + nice(newDue) : "") + ": " + r.task, null);
+      });
+    }).catch(function (err) { writeError(err, "save notes"); throw err; });
+  }
   function writeError(err, verb) {
     var code = err && err.code;
     if (code === "approval_required") banner("To " + verb + ", allow this page to update Smartsheet when claude.ai asks, then tick the box again.");
     else if (code === "not_in_manifest" || code === "blocked_by_policy") banner("This page isn't allowed to update Smartsheet for you. Mark the step done in Smartsheet or ask Claude.");
     else if (code === "needs_reauth") banner("Reconnect Smartsheet in claude.ai Settings → Connectors, then try again.");
     else if (code === "server_not_connected" || code === "selection_required") banner("Add the Smartsheet connector in claude.ai Settings → Connectors to " + verb + " from this page.");
-    else if (code === "missing_columns") banner("The sheet is missing a Status, Done or Date Completed column, so nothing was changed.");
+    else if (code === "missing_columns") banner("The sheet is missing a column this page writes to (Status, Done, Date Completed, Notes / Blocker or Due Date), so nothing was changed.");
     else if (code === "tool_error") banner("Smartsheet refused the change: " + ((err && err.message) || "no reason given") + ". Nothing was marked done.");
     else banner("Smartsheet didn't confirm the change. Open the row to check it before trying again.");
   }
@@ -645,8 +724,8 @@ footer a { color: var(--accent); }
     if (!mcp) { explainNoMcp(); return; }
     state.mcp = mcp; render();
     var cutoff = addDays(TODAY, CONFIG.windowDays);
-    var live = { rows: null, blockers: null };
-    function apply() { if (!live.rows) return; state.rows = merge(live.rows, live.blockers || []); state.source = "live"; banner(null); render(); }
+    var live = { rows: null, blockers: null, notes: null };
+    function apply() { if (!live.rows) return; state.rows = addNotes(merge(live.rows, live.blockers || []), live.notes); state.source = "live"; banner(null); render(); }
     function onErr(err) {
       var code = err && err.code;
       if (code === "needs_reauth") banner("Reconnect Smartsheet in claude.ai Settings → Connectors to see live data. Showing the last snapshot.");
@@ -690,6 +769,18 @@ footer a { color: var(--accent); }
       if (ev.type === "error") return onErr(ev.error);
       var p = ev.result && ev.result.payload; if (!p || !p.rows) return;
       live.blockers = fromPayload(p); apply();
+    }, { refetchInterval: 600000 });
+    NOTES_READ = Object.assign({}, base, {
+      columns: ["Task", "Notes / Blocker"],
+      filters: [
+        { columnName: "Status", operator: "NOT_IN", columnValue: ["Complete", "Dropped"] },
+        { columnName: "Notes / Blocker", operator: "IS_NOT_BLANK" }
+      ]
+    });
+    mcp.watchTool("Smartsheet", "get_sheet_summary", NOTES_READ, function (ev) {
+      if (ev.type === "error") return; // notes are extra; the other reads report connection problems
+      var p = ev.result && ev.result.payload; if (!p || !p.rows) return;
+      live.notes = fromPayload(p); apply();
     }, { refetchInterval: 600000 });
   }).catch(function () {});
 })();
