@@ -525,7 +525,18 @@ footer a { color: var(--accent); }
     if (!state.person) { var m = document.getElementById("main"); m.textContent = ""; m.appendChild(el("p", "empty", "Pick a person above to see their day.")); return; }
     if (state.person === "Team") renderTeam(); else renderPerson(state.person);
   }
-  function banner(text) { var b = document.getElementById("banner"); if (!text) { b.hidden = true; return; } b.textContent = text; b.hidden = false; }
+  // banner(text) shows a notice; banner(text, label, fn) adds one button. banner(null) hides it.
+  function banner(text, label, fn) {
+    var b = document.getElementById("banner");
+    if (!text) { b.hidden = true; return; }
+    b.textContent = text + " ";
+    if (label && fn) {
+      var btn = el("button", "copy", label); btn.type = "button";
+      btn.addEventListener("click", function () { btn.disabled = true; fn(); });
+      b.appendChild(btn);
+    }
+    b.hidden = false;
+  }
 
   // ---- tick a step done: writes Status, Done and Date Completed to Smartsheet as the viewer ----
   var colIds = null, toastTimer = null, toastUndo = null;
@@ -608,8 +619,25 @@ footer a { color: var(--accent); }
   }).catch(function () {});
 
   if (!/^\d+$/.test(CONFIG.sheetId)) return;
+  // No Smartsheet link in this view: say why there are no tick boxes and offer the one fix the viewer can make.
+  function explainNoMcp() {
+    var noLink = "This view isn't connected to Smartsheet, so you're seeing the morning snapshot and there are no tick boxes.";
+    window.claude.use("permissions").then(function (perms) {
+      if (!perms) return "unavailable";
+      return perms.state("mcp:Smartsheet").catch(function () { return "unavailable"; }).then(function (s) { return { s: s, perms: perms }; });
+    }).then(function (r) {
+      if (r && r.s === "denied") {
+        banner(noLink + " Smartsheet is turned off for this page.", "Turn Smartsheet on", function () {
+          r.perms.manage().then(function () { location.reload(); }, function () { banner("Open this page's Permissions menu (top right in claude.ai), switch Smartsheet on, then reload."); });
+        });
+      } else {
+        banner(noLink + " Open it at claude.ai in a browser or the Claude desktop app, signed in to your Lumenis account with the Smartsheet connector added (Settings → Connectors).");
+      }
+    }).catch(function () { banner(noLink); });
+  }
+
   window.claude.use("mcp").then(function (mcp) {
-    if (!mcp) return;
+    if (!mcp) { explainNoMcp(); return; }
     state.mcp = mcp; render();
     var cutoff = addDays(TODAY, CONFIG.windowDays);
     var live = { rows: null, blockers: null };
@@ -618,19 +646,30 @@ footer a { color: var(--accent); }
       var code = err && err.code;
       if (code === "needs_reauth") banner("Reconnect Smartsheet in claude.ai Settings → Connectors to see live data. Showing the last snapshot.");
       else if (code === "server_not_connected" || code === "selection_required") { if (state.source !== "snapshot") banner("Add the Smartsheet connector in claude.ai Settings → Connectors to see live data."); }
-      else if (code === "approval_required") banner("Allow this page to read Smartsheet to see live data. Showing the last snapshot.");
+      else if (code === "approval_required") banner("Showing the morning snapshot. Allow this page to use Smartsheet to see live data and tick steps off.", "Allow Smartsheet", allowNow);
       else if (code === "server_unavailable" || code === "upstream_error") { if (state.source === "live") banner("Smartsheet didn't answer just now; showing the last data loaded."); }
       if (["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest"].indexOf(code) >= 0 && state.source === "live" && snap) { state.rows = fromSnap(); state.source = "snapshot"; render(); }
     }
     var base = { sheet_id: +CONFIG.sheetId };
-    mcp.watchTool("Smartsheet", "get_sheet_summary", Object.assign({}, base, {
+    var windowInput = Object.assign({}, base, {
       columns: ["Task", "Step", "Status", "Owner", "Due Date", "Row Type", "Project", "AI Mode", "Agent (GitHub)", "Depends On"],
       filters: [
         { columnName: "Status", operator: "NOT_IN", columnValue: ["Complete", "Dropped"] },
         { columnName: "Row Type", operator: "IN", columnValue: ["Task", "Subtask"] },
         { columnName: "Due Date", operator: "LESS_THAN_OR_EQUAL", columnValue: cutoff }
       ]
-    }), function (ev) {
+    });
+    // A watch never asks for approval; this one call (from the viewer's click) does, then the watches refetch.
+    function allowNow() {
+      mcp.callTool("Smartsheet", "get_sheet_summary", windowInput).then(function () {
+        banner(null);
+        if (mcp.invalidate) mcp.invalidate("Smartsheet", "get_sheet_summary").catch(function () {});
+      }, function (err) {
+        if (err && err.code === "approval_required") banner("Smartsheet wasn't allowed, so you're seeing the morning snapshot. You can allow it from this page's Permissions menu in claude.ai.");
+        else onErr(err);
+      });
+    }
+    mcp.watchTool("Smartsheet", "get_sheet_summary", windowInput, function (ev) {
       if (ev.type === "error") return onErr(ev.error);
       var p = ev.result && ev.result.payload;
       if (!p || !p.rows) return;
