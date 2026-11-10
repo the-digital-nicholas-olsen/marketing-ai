@@ -32,6 +32,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rows", required=True)
     ap.add_argument("--blockers", required=True)
+    ap.add_argument("--notes", help="optional third read: open rows with a Notes / Blocker value")
     ap.add_argument("--sheet-id", required=True)
     ap.add_argument("--sheet-url", default="")
     ap.add_argument("--out", required=True)
@@ -39,10 +40,13 @@ def main():
 
     rows, rows_sampled = flatten(json.loads(Path(a.rows).read_text()))
     blockers, blk_sampled = flatten(json.loads(Path(a.blockers).read_text()))
+    notes, notes_sampled = flatten(json.loads(Path(a.notes).read_text())) if a.notes else ([], False)
     if rows_sampled or blk_sampled:
         raise SystemExit("A read came back sampled. Narrow it (fewer columns or a shorter window) and rerun; a partial brief hides work.")
+    if notes_sampled:
+        print("Note: the notes read came back sampled, so some notes are missing from the snapshot (live view still loads them).")
 
-    snap = {"generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"), "rows": rows, "blockers": blockers}
+    snap = {"generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"), "rows": rows, "blockers": blockers, "notes": notes}
     data = json.dumps(snap, ensure_ascii=False).replace("</", "<\\/")
 
     html = TEMPLATE.read_text()
