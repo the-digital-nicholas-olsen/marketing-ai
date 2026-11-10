@@ -5,7 +5,7 @@
 - System: Smartsheet event folder (see the [event backend shape](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#shape)) and the internal sales org chart sheets, Smartsheet copies of the monthly sales org chart (one for Vision Sales, one for Aesthetics Sales). Traveler names, practices, contact details, sheet links, IDs and cost center codes remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: draft for review.
-- Source and review: Kaelyn Gray's working procedure, set 2026-10-07 and narrowed to Vision only on 2026-10-23; extended to Aesthetics, with a human email check after org chart changes, on 2026-10-28. Sheet names, column names and Division values were observed read-only in two Q4 2026 event folders on 2026-10-23 (Vision) and 2026-10-28 (Aesthetics).
+- Source and review: Kaelyn Gray's working procedure, set 2026-10-07 and narrowed to Vision only on 2026-10-23; extended to Aesthetics, with a human email check after org chart changes, on 2026-10-28; rep follow-up email templates added 2026-11-10. Sheet names, column names and Division values were observed read-only in two Q4 2026 event folders on 2026-10-23 (Vision) and 2026-10-28 (Aesthetics).
 - Division-specific gate: Vision retains its rep-entered `RSM Approval`; Aesthetics requires `RSM Approved (RSM to complete)`, as detailed below.
 
 ## Use this when
@@ -66,7 +66,7 @@ For each flight-only traveler, find their sales rep and say where it came from: 
 Include, per division:
 
 - Name, practice and the sheets each traveler is on.
-- **Not RSM approved:** every traveler who is on both the flight sheet and the rep approval sheet but whose RSM approval is not `Yes`. Give the traveler, practice, current approval value, **the rep's name and the rep's RSM** (name and email, from the org chart sheet; use the approval row's `RSM Name` if the rep isn't on the chart, and say so). These are not flight-approved; the list lets the team email the RSM to ask for approval.
+- **Not RSM approved:** every traveler who is on both the flight sheet and the rep approval sheet but whose RSM approval is not `Yes`. Give the traveler, practice, current approval value, **the rep's name and the rep's RSM** (name and email, from the org chart sheet; use the approval row's `RSM Name` if the rep isn't on the chart, and say so). These are not flight-approved; the list feeds the rep follow-up emails in step 5.
 - Possible-match flags, with both spellings side by side and the matching approval row's RSM approval value.
 - For flight-only travelers: the salesperson's name and email, and their RSM's email (looked up as in step 4). This is for the report only; nothing is written to these rows.
 - Practices with more than one traveler.
@@ -87,6 +87,53 @@ For travelers in **In both sheets — approved**, plus identity-match flags the 
 5. **`Lumenis Notes`:** when more than one traveler comes from the same practice, list all of their names on each of their rows so it's clear who flies together.
 
 Leave flight-only and not-RSM-approved rows unchanged unless told otherwise. If a rep or manager isn't on the org chart sheet, or a name is truncated or unusually formatted, leave the cell blank and list it in the report. Don't write emails from an org chart sheet whose emails haven't been verified since its last change.
+
+## 5. Draft rep follow-up emails
+
+Once the review list is approved, draft emails for every flight-sheet-only and not-RSM-approved traveler in the division being checked. These are drafts only: the reviewer checks and sends them.
+
+- **To the sales rep, CC the rep's RSM**, with both addresses taken from the org chart sheet. Don't address the email to the RSM.
+- Send one email per rep, covering all of that rep's travelers. When a rep has more than one practice, list the travelers as bullets grouped by practice (`<Practice>: <names>`).
+- Use only the lines below. Don't add policy, background or a long sign-off.
+- Each division has its own rep approval form for each city. Pull the link from Smartsheet: open the event's `VIS Rep Approval - <Event>` or `AES Rep Approval - <Event>` sheet, go to its forms, and copy that form's share link. Never reuse another city's or division's form, and never use an editor URL or a sheet link. If the form can't be found, leave the placeholder and flag it.
+- If the org chart emails haven't been verified since the sheet last changed, say so with the drafts.
+
+**Traveler not on the rep approval sheet:**
+
+```text
+To: {{REP_EMAIL}}
+CC: {{RSM_EMAIL}}
+Subject: Accelerate {{CITY}} – flight approval needed
+
+Hi {{REP_FIRST_NAME}},
+{{NUMBER}} guests from {{PRACTICE}}, {{TRAVELER_NAMES}}, have registered for flights to Accelerate {{CITY}}. They aren't on the {{VIS_OR_AES}} Rep Approval sheet yet.
+Can you please submit here, if approved? {{REP_APPROVAL_FORM_URL}}
+```
+
+For one guest, the second line reads: `{{TRAVELER_NAME}} from {{PRACTICE}} has registered for a flight to Accelerate {{CITY}} and isn't on the {{VIS_OR_AES}} Rep Approval sheet yet.`
+
+**Traveler on the sheet but not RSM approved:** no form link, because the row already exists.
+
+```text
+To: {{REP_EMAIL}}
+CC: {{RSM_EMAIL}}
+Subject: Accelerate {{CITY}} – RSM approval needed for {{PRACTICE}}
+
+Hi {{REP_FIRST_NAME}},
+{{TRAVELER_NAMES}} from {{PRACTICE}} are on the {{VIS_OR_AES}} Rep Approval sheet, but they still need {{RSM_FIRST_NAME}}'s RSM approval before we can book their flights.
+```
+
+Leave possible-match questions, such as a name spelled differently on the two sheets, out of the email. Those stay in the review list for the reviewer.
+
+**More than two travelers from one practice:** always add this line to that rep's email, worded exactly as follows:
+
+```text
+Note: {{PRACTICE}} has {{NUMBER}} practice members on the flight registration sheet. Please confirm if the {{NUMBER}} flights have been approved by {{DIVISION_VP}} and Stacey, or advise which two people we should approve.
+```
+
+`{{DIVISION_VP}}` is the VP that the division's RSMs report to (`Reports To` on an RSM's org chart row), by first name. Look it up on the current edition each time rather than reusing an earlier one.
+
+Fictional example: rep Jordan Example has three travelers from Lake Example Eye Care and one from Example Vision, and none of them are on the approval sheet. Jordan gets one email, CC to their RSM, with two practice bullets, the "more than two travelers" note for Lake Example Eye Care, and the division's rep approval form link.
 
 ## Reading the org chart
 
@@ -151,6 +198,7 @@ A practice has three Aesthetics travelers on the flight sheet. Two match an AES 
 - Typing over the org chart's `Email` formula; fix the `Name` instead.
 - Writing emails from an org chart sheet that changed and hasn't had its emails verified.
 - Copying traveler details, sheet links or cost center codes into public issues or pull requests.
+- Addressing follow-up emails to the RSM instead of the rep, or sending them without the reviewer's go-ahead.
 
 ## Missing information and decisions
 
@@ -160,4 +208,4 @@ A practice has three Aesthetics travelers on the flight sheet. Two match an AES 
 
 ## Maintenance
 
-Review date: 2026-10-28. Revalidate sheet and column names on each new event folder; copied templates can drift. Keep the review list and approval evidence in the internal work system.
+Review date: 2026-11-10. Revalidate sheet and column names on each new event folder; copied templates can drift. Keep the review list and approval evidence in the internal work system.
