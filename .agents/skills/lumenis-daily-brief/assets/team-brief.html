@@ -631,7 +631,7 @@ footer a { color: var(--accent); }
           r.perms.manage().then(function () { location.reload(); }, function () { banner("Open this page's Permissions menu (top right in claude.ai), switch Smartsheet on, then reload."); });
         });
       } else {
-        banner(noLink + " Open it at claude.ai in a browser or the Claude desktop app, signed in to your Lumenis account with the Smartsheet connector added (Settings → Connectors).");
+        banner(noLink + " If someone shared this page with you from their Claude account, it can't use your Smartsheet connector: ask Claude to build your own copy with the lumenis-daily-brief skill. Otherwise, open it in the Claude desktop app or claude.ai with the Smartsheet connector added (Settings → Connectors).");
       }
     }).catch(function () { banner(noLink); });
   }
