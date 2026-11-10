@@ -101,6 +101,11 @@ function readXref(off) {
   let prev;
   if (text.startsWith('xref', off)) {
     const end = text.indexOf('trailer', off);
+    const dict = text.slice(end, text.indexOf('startxref', end));
+    if (!trailer) trailer = dict;
+    // Hybrid file: the table marks compressed objects as free, so read its XRef stream first.
+    const stm = dict.match(/\/XRefStm (\d+)/);
+    if (stm) readXref(+stm[1]);
     const lines = text.slice(off + 4, end).trim().split(/\r?\n|\r/);
     for (let l = 0; l < lines.length;) {
       const [first, count] = lines[l++].trim().split(/\s+/).map(Number);
@@ -110,10 +115,6 @@ function readXref(off) {
         else if (!(first + i in entries)) entries[first + i] = {type: 0};
       }
     }
-    const dict = text.slice(end, text.indexOf('startxref', end));
-    if (!trailer) trailer = dict;
-    const stm = dict.match(/\/XRefStm (\d+)/);
-    if (stm) readXref(+stm[1]);
     prev = dict.match(/\/Prev (\d+)/);
   } else {
     const {dict, data} = streamAt(off);
