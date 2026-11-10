@@ -250,11 +250,16 @@ footer a { color: var(--accent); }
   function flagged(r) { return r.status === "Blocked" || r.status === "Waiting on Someone"; }
   function mine(r, who) { return r.owners.indexOf(who) >= 0 || r.owners.indexOf("Everyone") >= 0; }
   function ownersOf(r) { return r.owners.length ? r.owners.join(", ") : "no owner"; }
-  function stuck(r, who) {
+  // Stuck: marked waiting/blocked, or due soon while an earlier step is either someone else's and late, or stuck itself
+  // (so "PO received" is stuck when the purchase request it needs is stuck behind a teammate's late step).
+  function stuck(r, who, seen) {
     if (flagged(r)) return true;
-    // A dependency only counts as a blocker when someone else's prerequisite is already late and this step is due soon.
     var soon = r.due && r.due <= END5;
-    return soon && lateNeeds(r).some(function (p) { return !mine(p, who); });
+    if (!soon) return false;
+    seen = seen || {};
+    if (seen[r.id]) return false;
+    seen[r.id] = true;
+    return r.needs.some(function (p) { return (isLate(p) && !mine(p, who)) || stuck(p, who, seen); });
   }
 
   // A stuck step shows only under Stuck, never in its date group too. Late stuck steps still count toward "late" (lateTotal).
