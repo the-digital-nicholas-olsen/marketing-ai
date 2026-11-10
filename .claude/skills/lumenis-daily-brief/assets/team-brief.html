@@ -123,7 +123,15 @@ td button { font: 600 0.9rem var(--font-body); color: var(--accent); background:
 .banner { font-size: 0.85rem; padding: 10px 14px; border-radius: 8px; background: var(--today-soft); color: var(--fg); margin: 0; }
 footer { font-size: 0.8rem; color: var(--muted); display: grid; gap: 4px; }
 footer a { color: var(--accent); }
-@media (max-width: 560px) { .item { grid-template-columns: 1fr; } }
+.item.check { grid-template-columns: 22px 92px 1fr; }
+.tick { display: flex; padding-top: 2px; }
+.tick input { width: 18px; height: 18px; margin: 0; accent-color: var(--ok); cursor: pointer; }
+.tick input:disabled { cursor: progress; }
+.toast { position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); max-width: min(560px, calc(100vw - 32px)); display: flex; gap: 12px; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--fg); color: var(--bg); font-size: 0.88rem; box-shadow: 0 6px 24px rgba(0,0,0,.2); z-index: 10; }
+.toast[hidden] { display: none; }
+.toast span { overflow-wrap: anywhere; }
+.toast button { font: 600 0.85rem var(--font-body); color: var(--bg); background: transparent; border: 1px solid currentColor; border-radius: 6px; padding: 3px 10px; cursor: pointer; flex: none; }
+@media (max-width: 560px) { .item { grid-template-columns: 1fr; } .item.check { grid-template-columns: 22px 1fr; } .item.check .when, .item.check .body { grid-column: 2; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
@@ -145,6 +153,7 @@ footer a { color: var(--accent); }
     </div>
   </header>
   <p class="banner" id="banner" hidden></p>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastText"></span><button type="button" id="toastUndo">Undo</button></div>
   <main id="main"></main>
   <footer>
     <span>Built from Sprint Plan (Live) in Smartsheet: open steps due in the next two weeks, plus anything marked waiting or blocked. Steps owned by "Everyone" show for each person.</span>
@@ -166,11 +175,13 @@ footer a { color: var(--accent); }
   var snap = null;
   try { snap = JSON.parse(document.getElementById("snapshot").textContent); } catch (e) { snap = null; }
 
-  var state = { person: null, groupBy: "campaign", rows: [], source: "none", updated: null, open: {} };
+  // done: steps ticked off on this page today ({rowId: {prev, on}}), hidden until the sheet itself says Complete.
+  var state = { person: null, groupBy: "campaign", rows: [], vis: [], source: "none", updated: null, open: {}, done: {}, me: null, mcp: null };
   try {
     state.person = localStorage.getItem("brief.person");
     state.groupBy = localStorage.getItem("brief.groupBy") || "campaign";
     state.open = JSON.parse(localStorage.getItem("brief.open") || "{}") || {};
+    state.done = JSON.parse(localStorage.getItem("brief.done") || "{}") || {};
   } catch (e) {}
   if (CONFIG.people.indexOf(state.person) < 0 && state.person !== "Team") state.person = null;
   function save(k, v) { try { localStorage.setItem(k, typeof v === "string" ? v : JSON.stringify(v)); } catch (e) {} }
@@ -187,6 +198,7 @@ footer a { color: var(--accent); }
   function dow(s) { return parseIso(s).getUTCDay(); }
   function nice(s, opts) { return parseIso(s).toLocaleDateString("en-US", Object.assign({ timeZone: "UTC" }, opts || { weekday: "short", month: "short", day: "numeric" })); }
   var TODAY = isoInTz(new Date());
+  Object.keys(state.done).forEach(function (k) { if (!state.done[k] || state.done[k].on !== TODAY) delete state.done[k]; });
   var NEXT5 = (function () { var out = [], d = TODAY; while (out.length < 5) { d = addDays(d, 1); var w = dow(d); if (w !== 0 && w !== 6) out.push(d); } return out; })();
   var END5 = NEXT5[NEXT5.length - 1];
   document.getElementById("today").textContent = nice(TODAY, { weekday: "long", month: "long", day: "numeric" });
@@ -245,12 +257,14 @@ footer a { color: var(--accent); }
     return soon && lateNeeds(r).some(function (p) { return !mine(p, who); });
   }
 
+  // A stuck step shows only under Stuck, never in its date group too. Late stuck steps still count toward "late" (lateTotal).
   function bucket(who) {
-    var all = state.rows.filter(function (r) { return mine(r, who); });
-    var b = { late: [], today: [], next: [], undated: [], stuck: [], holding: [] };
+    var all = state.vis.filter(function (r) { return mine(r, who); });
+    var b = { late: [], today: [], next: [], undated: [], stuck: [], holding: [], lateTotal: 0 };
     all.forEach(function (r) {
+      if (isLate(r)) b.lateTotal++;
       if (stuck(r, who)) b.stuck.push(r);
-      if (!r.due) b.undated.push(r);
+      else if (!r.due) b.undated.push(r);
       else if (r.due < TODAY) b.late.push(r);
       else if (r.due === TODAY) b.today.push(r);
       else if (r.due <= END5) b.next.push(r);
@@ -319,9 +333,21 @@ footer a { color: var(--accent); }
     return d;
   }
 
+  // The tick box shows on the viewer's own steps (or on anyone's when the viewer's name is unknown), only when this view can reach Smartsheet.
+  function canTick(r, who, opts) {
+    return !!(opts.check && state.mcp && who && mine(r, who) && (!state.me || state.me === who));
+  }
   function item(r, who, opts) {
     opts = opts || {};
-    var row = el("div", "item");
+    var tickable = canTick(r, who, opts);
+    var row = el("div", "item" + (tickable ? " check" : ""));
+    if (tickable) {
+      var tk = el("label", "tick"), cb = el("input"); cb.type = "checkbox";
+      cb.setAttribute("aria-label", "Mark done in Smartsheet: " + r.task);
+      cb.title = "Mark done in Smartsheet";
+      cb.addEventListener("change", function () { if (cb.checked) markDone(r, cb); });
+      tk.appendChild(cb); row.appendChild(tk);
+    }
     var w = whenText(r); row.appendChild(el("div", "when" + (w.c ? " " + w.c : ""), w.t));
     var body = el("div", "body");
     body.appendChild(el("p", "task", r.task));
@@ -420,7 +446,7 @@ footer a { color: var(--accent); }
     g.appendChild(el("strong", null, who)); g.appendChild(document.createTextNode("."));
     top.appendChild(g);
     var counts = el("ul", "counts");
-    [[b.late.length, "late", "late"], [b.today.length, "due today", "today"], [b.next.length, "in the next 5 business days", ""], [b.stuck.length, "stuck", "wait"], [b.holding.length, "holding others up", "late"]].forEach(function (c) {
+    [[b.lateTotal, "late", "late"], [b.today.length, "due today", "today"], [b.next.length, "in the next 5 business days", ""], [b.stuck.length, "stuck", "wait"], [b.holding.length, "holding others up", "late"]].forEach(function (c) {
       if (!c[0] && (c[1] === "stuck" || c[1] === "holding others up")) return;
       var li = el("li", c[0] && c[2] ? c[2] : null); li.appendChild(el("span", "n", String(c[0]))); li.appendChild(document.createTextNode(" " + c[1])); counts.appendChild(li);
     });
@@ -438,13 +464,15 @@ footer a { color: var(--accent); }
     main.appendChild(start);
 
     if (b.holding.length) main.appendChild(section("Others are waiting on you", "Your late or due-today steps that a teammate's next step depends on. Clearing these unblocks someone else.", b.holding, who, { holding: true }, "holding", "", false));
-    main.appendChild(section("Today", "Late first, then due today.", b.late.concat(b.today), who, {}, "today", "Nothing late or due today.", false));
-    main.appendChild(section("Next 5 business days", nice(NEXT5[0]) + " to " + nice(END5) + ".", b.next, who, {}, "next", "Nothing due in the next 5 business days.", true));
-    main.appendChild(section("Stuck", "Marked waiting or blocked, or due soon while a teammate's earlier step is already late.", b.stuck, who, { notes: true }, "stuck", "Nothing is stuck on someone else.", false));
+    var stuckLate = b.lateTotal - b.late.length;
+    var todayHint = "Late first, then due today." + (stuckLate ? " " + stuckLate + (stuckLate === 1 ? " more late step is" : " more late steps are") + " under Stuck." : "");
+    main.appendChild(section("Today", todayHint, b.late.concat(b.today), who, { check: true }, "today", stuckLate ? "Nothing else late or due today." : "Nothing late or due today.", false));
+    main.appendChild(section("Next 5 business days", nice(NEXT5[0]) + " to " + nice(END5) + ".", b.next, who, { check: true }, "next", "Nothing due in the next 5 business days.", true));
+    main.appendChild(section("Stuck", "Marked waiting or blocked, or due soon while a teammate's earlier step is already late.", b.stuck, who, { notes: true, check: true }, "stuck", "Nothing is stuck on someone else.", false));
 
     if (b.undated.length) {
       var d = el("details", "more"); d.appendChild(el("summary", null, b.undated.length + " open steps with no due date"));
-      d.appendChild(state.groupBy === "campaign" ? grouped(b.undated, who, {}, "undated") : flatList(b.undated, who, {}, false));
+      d.appendChild(state.groupBy === "campaign" ? grouped(b.undated, who, { check: true }, "undated") : flatList(b.undated, who, { check: true }, false));
       main.appendChild(d);
     }
   }
@@ -459,7 +487,7 @@ footer a { color: var(--accent); }
     CONFIG.people.forEach(function (p) {
       var b = bucket(p), tr = el("tr"), td = el("td"), btn = el("button", null, p); btn.type = "button";
       btn.addEventListener("click", function () { choose(p); }); td.appendChild(btn); tr.appendChild(td);
-      tr.appendChild(el("td", "num" + (b.late.length ? " late" : ""), String(b.late.length)));
+      tr.appendChild(el("td", "num" + (b.lateTotal ? " late" : ""), String(b.lateTotal)));
       tr.appendChild(el("td", "num", String(b.today.length)));
       tr.appendChild(el("td", "num", String(b.next.length)));
       tr.appendChild(el("td", "num", String(b.stuck.length)));
@@ -467,9 +495,9 @@ footer a { color: var(--accent); }
       tb.appendChild(tr);
     });
     t.appendChild(tb); wrap.appendChild(t); s.appendChild(wrap); main.appendChild(s);
-    var late = state.rows.filter(isLate).sort(function (x, y) { return x.due < y.due ? -1 : 1; });
-    main.appendChild(section("Late across the team", "Every late step, by campaign. Open a campaign to see who owns what.", late, "", { }, "teamlate", "Nothing is late.", false));
-    main.appendChild(section("Marked waiting or blocked", null, state.rows.filter(flagged), "", { notes: true }, "teamwait", "Nothing is marked waiting or blocked.", false));
+    var late = state.vis.filter(function (r) { return isLate(r) && !flagged(r); }).sort(function (x, y) { return x.due < y.due ? -1 : 1; });
+    main.appendChild(section("Late across the team", "Every late step, by campaign, except those marked waiting or blocked (listed below). Open a campaign to see who owns what.", late, "", { }, "teamlate", "Nothing else is late.", false));
+    main.appendChild(section("Marked waiting or blocked", null, state.vis.filter(flagged), "", { notes: true }, "teamwait", "Nothing is marked waiting or blocked.", false));
   }
 
   function renderPeople() {
@@ -491,12 +519,75 @@ footer a { color: var(--accent); }
   }
 
   function render() {
-    link(state.rows);
+    state.vis = state.rows.filter(function (r) { return !state.done[r.id]; });
+    link(state.vis);
     renderPeople(); renderSource();
     if (!state.person) { var m = document.getElementById("main"); m.textContent = ""; m.appendChild(el("p", "empty", "Pick a person above to see their day.")); return; }
     if (state.person === "Team") renderTeam(); else renderPerson(state.person);
   }
   function banner(text) { var b = document.getElementById("banner"); if (!text) { b.hidden = true; return; } b.textContent = text; b.hidden = false; }
+
+  // ---- tick a step done: writes Status, Done and Date Completed to Smartsheet as the viewer ----
+  var colIds = null, toastTimer = null, toastUndo = null;
+  function getCols() {
+    if (colIds) return Promise.resolve(colIds);
+    return state.mcp.callTool("Smartsheet", "get_columns", { sheet_id: +CONFIG.sheetId }, { cache: { staleTime: 86400000, gcTime: 86400000 } }).then(function (res) {
+      var p = res && res.payload, map = {};
+      ((p && p.data) || []).forEach(function (c) { map[c.title] = c.id; });
+      if (!map["Status"] || !map["Done"] || !map["Date Completed"]) throw { code: "missing_columns" };
+      colIds = map; return map;
+    });
+  }
+  function writeRow(rowId, status, done, dateCompleted) {
+    return getCols().then(function (c) {
+      return state.mcp.callTool("Smartsheet", "update_rows", {
+        sheet_id: +CONFIG.sheetId,
+        rows: [{ id: +rowId, cells: [
+          { columnId: c["Status"], value: status },
+          { columnId: c["Done"], value: done },
+          { columnId: c["Date Completed"], value: dateCompleted }
+        ] }]
+      }, { cache: false });
+    }).then(function (res) {
+      var p = res && res.payload;
+      if (p && p.failedItems && p.failedItems.length) throw { code: "tool_error", message: "Smartsheet didn't accept the change for this row." };
+      if (state.mcp.invalidate) state.mcp.invalidate("Smartsheet", "get_sheet_summary").catch(function () {});
+      return res;
+    });
+  }
+  function writeError(err, verb) {
+    var code = err && err.code;
+    if (code === "approval_required") banner("To " + verb + ", allow this page to update Smartsheet when claude.ai asks, then tick the box again.");
+    else if (code === "not_in_manifest" || code === "blocked_by_policy") banner("This page isn't allowed to update Smartsheet for you. Mark the step done in Smartsheet or ask Claude.");
+    else if (code === "needs_reauth") banner("Reconnect Smartsheet in claude.ai Settings → Connectors, then try again.");
+    else if (code === "server_not_connected" || code === "selection_required") banner("Add the Smartsheet connector in claude.ai Settings → Connectors to " + verb + " from this page.");
+    else if (code === "missing_columns") banner("The sheet is missing a Status, Done or Date Completed column, so nothing was changed.");
+    else if (code === "tool_error") banner("Smartsheet refused the change: " + ((err && err.message) || "no reason given") + ". Nothing was marked done.");
+    else banner("Smartsheet didn't confirm the change. Open the row to check it before trying again.");
+  }
+  function showToast(text, onUndo) {
+    var t = document.getElementById("toast");
+    document.getElementById("toastText").textContent = text;
+    var u = document.getElementById("toastUndo"); u.hidden = !onUndo; u.disabled = false; toastUndo = onUndo;
+    t.hidden = false; clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.hidden = true; toastUndo = null; }, 12000);
+  }
+  document.getElementById("toastUndo").addEventListener("click", function () { var f = toastUndo; toastUndo = null; this.disabled = true; if (f) f(); });
+  function markDone(r, box) {
+    box.disabled = true; banner(null);
+    var prev = r.status;
+    writeRow(r.id, "Complete", true, TODAY).then(function () {
+      state.done[r.id] = { prev: prev, on: TODAY }; save("brief.done", state.done); render();
+      showToast("Marked done in Smartsheet: " + r.task, function () { undoDone(r); });
+    }, function (err) { box.checked = false; box.disabled = false; writeError(err, "mark steps done"); });
+  }
+  function undoDone(r) {
+    var rec = state.done[r.id]; if (!rec) return;
+    writeRow(r.id, rec.prev || "Not Started", false, "").then(function () {
+      delete state.done[r.id]; save("brief.done", state.done); render();
+      showToast("Put back: " + r.task, null);
+    }, function (err) { document.getElementById("toast").hidden = true; writeError(err, "undo"); });
+  }
 
   if (snap && snap.rows) {
     state.rows = fromSnap(); state.source = "snapshot";
@@ -507,16 +598,19 @@ footer a { color: var(--accent); }
   // ---- live data through the viewer's Smartsheet connector ----
   if (!window.claude || !window.claude.use) return;
   window.claude.use("user").then(function (user) {
-    if (!user || state.person) return;
+    if (!user) return;
     user.me().then(function (me) {
       var first = String((me && me.name) || "").split(" ")[0];
-      if (!state.person && CONFIG.people.indexOf(first) >= 0) choose(first);
+      if (CONFIG.people.indexOf(first) < 0) return;
+      state.me = first;
+      if (!state.person) choose(first); else render();
     }).catch(function () {});
   }).catch(function () {});
 
   if (!/^\d+$/.test(CONFIG.sheetId)) return;
   window.claude.use("mcp").then(function (mcp) {
     if (!mcp) return;
+    state.mcp = mcp; render();
     var cutoff = addDays(TODAY, CONFIG.windowDays);
     var live = { rows: null, blockers: null };
     function apply() { if (!live.rows) return; state.rows = merge(live.rows, live.blockers || []); state.source = "live"; banner(null); render(); }

@@ -40,7 +40,7 @@ If either read reports `isSampled`, narrow it (shorter window, fewer columns) an
    - **Others are waiting on you:** the person's late or due-today steps that a teammate's step depends on (Depends On, same Project). Lead with these; clearing them unblocks someone else.
    - **Today:** late (Due Date before today) first, then due today.
    - **Next 5 business days:** due in the next five weekdays.
-   - **Stuck:** Status Blocked or Waiting on Someone (with the Notes / Blocker text), or due within the next 5 business days while a teammate's prerequisite step is already late. An open prerequisite that isn't late yet is not a blocker: event-day steps ("The show has run") depend on earlier steps but happen anyway.
+   - **Stuck:** Status Blocked or Waiting on Someone (with the Notes / Blocker text), or due within the next 5 business days while a teammate's prerequisite step is already late. An open prerequisite that isn't late yet is not a blocker: event-day steps ("The show has run") depend on earlier steps but happen anyway. A stuck step appears **only** here, not also under Today or Next 5 business days (decided 2026-11-10 from team feedback). It still counts toward the "late" total, and Today says how many more late steps are under Stuck.
    - **No date:** a short list at the end.
    Within each group, group by campaign (Project) when one campaign has several steps: "Dec 10 webinar: 7 late" with the steps under it.
 3. **Split Today and the next 5 days by AI Mode:**
@@ -50,7 +50,7 @@ If either read reports `isSampled`, narrow it (shorter window, fewer columns) an
    Never offer to run a step whose prerequisite is still open. When a campaign has several Claude-ready steps, offer to work through them together in dependency order.
    **Write for people, not the sheet:** never show step IDs (C9, L1) or raw Depends On values. Name the earlier step in words with its owner and lateness: "needs Ted's flyer first (9 days late)". Step IDs are for Claude only.
 4. **Write the brief** (format below). Lead with the counts, then the top three things to do today.
-5. **Act only on a yes.** Run or draft only the rows the person picks. After a step is done and checked, set Status to Complete, tick Done, set Date Completed to today and paste the result link in Deliverable Link. Drafts go to Ready for Review, not Complete.
+5. **Act only on a yes.** Run or draft only the rows the person picks. After a step is done and checked, set Status to Complete, tick Done, set Date Completed to today and paste the result link in Deliverable Link. An email the person says they've sent goes straight to Complete; other drafts go to Ready for Review, not Complete.
 
 ```
 Good morning, Ted. 2 late, 1 due today, 5 in the next 5 business days, 1 blocked.
@@ -73,7 +73,7 @@ Keep it under 25 lines. Link each project row.
 
 ## Team brief page
 
-The page template is [assets/team-brief.html](assets/team-brief.html); [scripts/build_brief.py](scripts/build_brief.py) bakes a snapshot of the two reads into it. The page shows, for the chosen person: counts, a copyable "Start with Claude" prompt, Others are waiting on you, Today (late first), the next 5 business days, Stuck (same rules as the chat brief), and steps with no date. A "Group by" menu switches between Campaign (default: each campaign folds open to its steps, with a copyable prompt that hands all its Claude-ready steps to Claude at once) and Due date. Dependencies sit in a fold-out line in plain words ("Needs 2 earlier steps first · waiting on Ted (1 late)"); step IDs never show. Each step links to its Smartsheet row, and each AI-doable step has a copyable prompt naming its agent. "Whole team" shows every person's counts, every late step by campaign, and everything marked waiting or blocked. The person picker lists the teammates who own work (for Vision: Nicholas, EJ, Kaelyn, Ted); managers use Whole team.
+The page template is [assets/team-brief.html](assets/team-brief.html); [scripts/build_brief.py](scripts/build_brief.py) bakes a snapshot of the two reads into it. The page shows, for the chosen person: counts, a copyable "Start with Claude" prompt, Others are waiting on you, Today (late first), the next 5 business days, Stuck (same rules as the chat brief), and steps with no date. A "Group by" menu switches between Campaign (default: each campaign folds open to its steps, with a copyable prompt that hands all its Claude-ready steps to Claude at once) and Due date. Dependencies sit in a fold-out line in plain words ("Needs 2 earlier steps first · waiting on Ted (1 late)"); step IDs never show. Each step links to its Smartsheet row, and each AI-doable step has a copyable prompt naming its agent. A stuck step shows only under Stuck. Each of the viewer's own steps has a **tick box**: ticking it sets Status to Complete, ticks Done and sets Date Completed to today in Smartsheet, through the viewer's own Smartsheet connector (so the sheet records who did it), then offers Undo for 12 seconds. Undo restores the previous Status and clears Done and Date Completed. The box shows only on the viewer's own steps (on anyone's if the page can't tell who is viewing) and only when the page can reach Smartsheet; the first tick asks the viewer to allow writes. Ticking is for steps that are already done; it doesn't do the work. "Whole team" shows every person's counts, every late step by campaign, and everything marked waiting or blocked. The person picker lists the teammates who own work (for Vision: Nicholas, EJ, Kaelyn, Ted); managers use Whole team.
 
 **Refresh (every weekday morning, and on request):**
 
@@ -81,7 +81,7 @@ The page template is [assets/team-brief.html](assets/team-brief.html); [scripts/
 2. Build the page:
    `python3 scripts/build_brief.py --rows window.json --blockers waiting.json --sheet-id <live plan sheet id> --sheet-url <live plan link> --out vision-daily-brief.html`
    The script refuses a sampled read.
-3. Publish the output to the **existing** brief artifact so the link stays the same. Find it with the Artifact tool (`action: "list"`, title "Vision Daily Brief") and pass its URL. On the first publish, declare `capabilities: {mcp: {servers: [{server: "Smartsheet", tools: ["get_sheet_summary"]}]}, user: {scopes: ["profile"]}}`; on later publishes omit `capabilities` so the stored declaration carries forward.
+3. Publish the output to the **existing** brief artifact so the link stays the same. Find it with the Artifact tool (`action: "list"`, title "Vision Daily Brief") and pass its URL. On the first publish, declare `capabilities: {mcp: {servers: [{server: "Smartsheet", tools: ["get_sheet_summary", "get_columns", "update_rows"]}]}, user: {scopes: ["profile"]}}` (`get_columns` and `update_rows` power the tick box; added 2026-11-10); on later publishes omit `capabilities` so the stored declaration carries forward.
 4. Report the counts the script printed. Don't change sharing; the owner shares the page from its Share menu.
 
 **A teammate's own copy:** when someone asks for "the daily brief page" (not the team refresh), run steps 1-2 above, then publish the output as a **new** private artifact for them (title "Vision Daily Brief", the same `capabilities` as the first publish) and give them the link. Never publish over the team page unless the person owns it or has edit access to it. Their copy looks and works the same, picks their name on open and reads Smartsheet live once they allow it; ask Claude again to rebuild it.
@@ -95,3 +95,4 @@ The page template is [assets/team-brief.html](assets/team-brief.html); [scripts/
 - Running an "AI executes" step whose dependency isn't done.
 - Listing another person's rows in a chat brief. The chat brief is per person; the team page is for looking across people.
 - Publishing the page as a new artifact. Always republish to the existing URL so bookmarks keep working.
+- Republishing with a `capabilities` list that drops `get_columns` or `update_rows`. A non-empty list replaces the stored one, and the tick box stops working.
