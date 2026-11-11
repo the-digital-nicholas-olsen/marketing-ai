@@ -897,6 +897,8 @@ footer a { color: var(--accent); }
     Array.prototype.forEach.call(wrap.querySelectorAll("input[type=checkbox]"), function (cb) { if (cb.checked) pick[cb.dataset.kind][cb.dataset.i] = true; });
     var author = state.me || (state.person && state.person !== "Team" ? state.person : "Brief");
     var stamp = nice(TODAY, { month: "numeric", day: "numeric" }) + " " + author + ": ";
+    var req = String(ask.request || "").replace(/\s+/g, " ").slice(0, 300);
+    var src = " (from the daily brief" + (req ? ": \"" + req + "\"" : "") + ")";
     var keyToId = {}, added = 0, changed = 0;
     askBusy(true); askMsg("Writing to Smartsheet…");
     Promise.all([getCols(), loadSprints()]).then(function (r) {
@@ -908,7 +910,7 @@ footer a { color: var(--accent); }
         var due = validDate(s.due), sp = sprintFor(due);
         return [cell("Task", s.task), cell("Step", s.step), cell("Status", STATUSES.indexOf(s.status) >= 0 ? s.status : "Not Started"), ownersCell(s.owners),
           cell("Due Date", due), sp ? cell("Sprint", sp) : null, cell("Row Type", "Task"), cell("Workstream", WORKSTREAMS.indexOf(s.workstream) >= 0 ? s.workstream : ""),
-          cell("Depends On", s.dependsOn), cell("Notes / Blocker", stamp + (s.note ? s.note : "added from the daily brief."))].filter(Boolean);
+          cell("Depends On", s.dependsOn), cell("Notes / Blocker", stamp + (s.note ? s.note : "added.") + src)].filter(Boolean);
       }
       // 1. new projects, one call each so each id comes back
       var chain = Promise.resolve();
@@ -917,7 +919,7 @@ footer a { color: var(--accent); }
         chain = chain.then(function () {
           var title = String(p.name).replace(/[:/\\*?"<>|]/g, "-") + (p.detail ? " — " + p.detail : "");
           return addRows([{ toBottom: true, cells: [cell("Task", title), cell("Status", "Not Started"), ownersCell(p.owners), cell("Due Date", validDate(p.due)), cell("Row Type", "Project"),
-            cell("Key Info", p.keyInfo), cell("CRM Campaign Name", "To look up"), cell("Notes / Blocker", stamp + "added from the daily brief. OneDrive folder not created yet: ask Claude to create it with lumenis-sprint-intake.")].filter(Boolean) }])
+            cell("Key Info", p.keyInfo), cell("CRM Campaign Name", "To look up"), cell("Notes / Blocker", stamp + "added" + src + ". [needs folder] The OneDrive folder and context note are created automatically within the hour.")].filter(Boolean) }])
             .then(function (ids) { keyToId[p.key] = ids[0]; added++; });
         });
       });
@@ -944,7 +946,7 @@ footer a { color: var(--accent); }
             var due = validDate(u.due); if (due) { cells.push({ columnId: c["Due Date"], value: due }); var sp = sprintFor(due); if (sp) cells.push({ columnId: c["Sprint"], value: sp }); }
             var o = ownersCell(u.owners); if (o) cells.push(o);
             if (STATUSES.indexOf(u.status) >= 0) cells.push({ columnId: c["Status"], value: u.status });
-            if (u.note) { var old = cur[String(u.rowId)] || ""; var nn = (old ? old + "\n" : "") + stamp + u.note; if (nn.length > 3900) nn = "…" + nn.slice(nn.length - 3899); cells.push({ columnId: c["Notes / Blocker"], value: nn }); }
+            if (u.note) { var old = cur[String(u.rowId)] || ""; var nn = (old ? old + "\n" : "") + stamp + u.note + src; if (nn.length > 3900) nn = "…" + nn.slice(nn.length - 3899); cells.push({ columnId: c["Notes / Blocker"], value: nn }); }
             return cells.length ? { id: +u.rowId, cells: cells } : null;
           }).filter(Boolean);
           if (!rows.length) return;
@@ -974,7 +976,7 @@ footer a { color: var(--accent); }
       ask.sample = sample; $("ask").hidden = false;
       $("askGo").addEventListener("click", function () {
         var v = $("askText").value.trim(); if (!v) { askMsg("Describe what you need first."); return; }
-        ask.turns = []; ask.projects = null; $("askOut").textContent = ""; askRun(v);
+        ask.turns = []; ask.projects = null; ask.request = v; $("askOut").textContent = ""; askRun(v);
       });
       $("askStop").addEventListener("click", function () { if (ask.ctl) ask.ctl.abort(); });
       $("askReset").addEventListener("click", function () { if (ask.ctl) ask.ctl.abort(); ask.turns = []; ask.plan = null; $("askOut").textContent = ""; $("askReset").hidden = true; askMsg(""); });
