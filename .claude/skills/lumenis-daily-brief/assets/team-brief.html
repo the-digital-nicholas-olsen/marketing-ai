@@ -183,7 +183,7 @@ footer a { color: var(--accent); }
   <section class="ask" id="ask" hidden aria-labelledby="askHead">
     <div class="sechead">
       <h2 id="askHead">Add to the plan</h2>
-      <p class="sechint">Need to update the plan, start a campaign or assign someone a task? Describe it here. Claude asks about anything missing, shows you the changes, and writes them to the sprint plan only when you confirm.</p>
+      <p class="sechint">Need to update the plan, start a campaign or assign someone a task? Describe it here. Claude asks about anything missing, shows you the changes, and writes them to the sprint plan only when you confirm (agent: lumenis-sprint-intake). New projects get their OneDrive folder and context note within the hour (agent: lumenis-intake-filing).</p>
     </div>
     <textarea id="askText" rows="3" aria-label="Describe what you need" placeholder="For example: Ted needs to send the Toronto deck to Sugas by Friday, and move Dr. Zia's approval to 11/30."></textarea>
     <div class="askbar">
@@ -314,19 +314,19 @@ footer a { color: var(--accent); }
     return r.needs.some(function (p) { return (isLate(p) && !mine(p, who)) || stuck(p, who, seen); });
   }
 
-  // A stuck step shows only under Stuck, never in its date group too. Late stuck steps still count toward "late" (lateTotal).
+  // A stuck step, or a late/due-today step a teammate is waiting on, shows only under "Stuck or holding others up", never in its date group too. Late stuck steps still count toward "late" (lateTotal).
   function bucket(who) {
     var all = state.vis.filter(function (r) { return mine(r, who); });
     var b = { late: [], today: [], next: [], undated: [], stuck: [], holding: [], lateTotal: 0 };
     all.forEach(function (r) {
       if (isLate(r)) b.lateTotal++;
+      var others = r.neededBy.filter(function (x) { return !mine(x, who); });
       if (stuck(r, who)) b.stuck.push(r);
+      else if (others.length && r.due && r.due <= TODAY) b.holding.push(r);
       else if (!r.due) b.undated.push(r);
       else if (r.due < TODAY) b.late.push(r);
       else if (r.due === TODAY) b.today.push(r);
       else if (r.due <= END5) b.next.push(r);
-      var others = r.neededBy.filter(function (x) { return !mine(x, who); });
-      if (others.length && r.due && r.due <= TODAY) b.holding.push(r);
     });
     var byDue = function (x, y) { return x.due < y.due ? -1 : x.due > y.due ? 1 : 0; };
     b.late.sort(byDue); b.next.sort(byDue); b.stuck.sort(byDue); b.holding.sort(byDue);
@@ -419,8 +419,8 @@ footer a { color: var(--accent); }
     if (hasSheet) { var a = el("a", null, "Open row"); a.href = CONFIG.sheetUrl + "?rowId=" + r.id; a.target = "_blank"; a.rel = "noopener"; meta.appendChild(a); }
     body.appendChild(meta);
     if (r.notes) body.appendChild(el("p", "note", r.notes));
-    if (opts.holding) {
-      var who2 = r.neededBy.filter(function (x) { return !mine(x, who); });
+    var who2 = r.neededBy.filter(function (x) { return !mine(x, who); });
+    if (who2.length && r.due && r.due <= TODAY && who) {
       var d = el("details", "deps"); d.appendChild(el("summary", null, who2.length + (who2.length === 1 ? " step by " : " steps by ") + uniq(who2.map(ownersOf)).join(", ") + " can't start until this is done"));
       var ul = el("ul"); who2.forEach(function (x) { var li = el("li"); li.appendChild(document.createTextNode(x.task + " ")); li.appendChild(el("span", null, "— " + ownersOf(x) + ", " + shortWhen(x))); ul.appendChild(li); });
       d.appendChild(ul); body.appendChild(d);
@@ -491,14 +491,14 @@ footer a { color: var(--accent); }
       var rest = rows.length - late - today;
       if (rest) st.appendChild(el("span", "chip", rest + (key === "next" || key === "undated" ? (rest === 1 ? " step" : " steps") : " more")));
       var ai = rows.filter(function (r) { return r.aiMode && r.aiMode !== "Human only"; }).length;
-      if (ai && !opts.notes && !opts.holding) st.appendChild(el("span", "chip ai", ai + " Claude can help"));
+      if (ai && !opts.notes) st.appendChild(el("span", "chip ai", ai + " Claude can help"));
       s.appendChild(st);
       g.appendChild(s);
       var l = el("div", "list");
       rows.forEach(function (r) { l.appendChild(item(r, who, opts)); });
       g.appendChild(l);
       var doable = rows.filter(function (r) { return r.aiMode && r.aiMode !== "Human only"; });
-      if (doable.length > 1 && !opts.notes && !opts.holding) {
+      if (doable.length > 1 && !opts.notes) {
         var f = el("div", "gfoot"); var t = campaignPrompt(proj, doable);
         f.appendChild(el("span", null, "Hand the " + doable.length + " Claude-ready steps in this campaign to Claude at once:"));
         var hiddenCode = el("code", null, t); hiddenCode.hidden = true; f.appendChild(hiddenCode);
@@ -528,14 +528,14 @@ footer a { color: var(--accent); }
     g.appendChild(el("strong", null, who)); g.appendChild(document.createTextNode("."));
     top.appendChild(g);
     var counts = el("ul", "counts");
-    [[b.lateTotal, "late", "late"], [b.today.length, "due today", "today"], [b.next.length, "in the next 5 business days", ""], [b.stuck.length, "stuck", "wait"], [b.holding.length, "holding others up", "late"]].forEach(function (c) {
-      if (!c[0] && (c[1] === "stuck" || c[1] === "holding others up")) return;
+    [[b.lateTotal, "late", "late"], [b.today.length, "due today", "today"], [b.next.length, "in the next 5 business days", ""], [b.stuck.length + b.holding.length, "stuck or holding others up", "wait"]].forEach(function (c) {
+      if (!c[0] && c[1] === "stuck or holding others up") return;
       var li = el("li", c[0] && c[2] ? c[2] : null); li.appendChild(el("span", "n", String(c[0]))); li.appendChild(document.createTextNode(" " + c[1])); counts.appendChild(li);
     });
     top.appendChild(counts);
     main.appendChild(top);
 
-    var doable = b.late.concat(b.today, b.next).filter(function (r) { return r.aiMode && r.aiMode !== "Human only"; });
+    var doable = b.holding.concat(b.late, b.today, b.next).filter(function (r) { return r.aiMode && r.aiMode !== "Human only"; });
     var start = el("section", "start");
     start.appendChild(el("h2", null, "Start with Claude"));
     start.appendChild(el("p", null, doable.length ? doable.length + " of your steps this week can be run or drafted by Claude. Paste this into Claude to begin:" : "Paste this into Claude to go through your day:"));
@@ -545,12 +545,11 @@ footer a { color: var(--accent); }
     start.appendChild(pr);
     main.appendChild(start);
 
-    if (b.holding.length) main.appendChild(section("Others are waiting on you", "Your late or due-today steps that a teammate's next step depends on. Clearing these unblocks someone else.", b.holding, who, { holding: true }, "holding", "", false));
     var stuckLate = b.lateTotal - b.late.length;
-    var todayHint = "Late first, then due today." + (stuckLate ? " " + stuckLate + (stuckLate === 1 ? " more late step is" : " more late steps are") + " under Stuck." : "");
+    var todayHint = "Late first, then due today." + (stuckLate ? " " + stuckLate + (stuckLate === 1 ? " more late step is" : " more late steps are") + " under Stuck or holding others up." : "");
     main.appendChild(section("Today", todayHint, b.late.concat(b.today), who, { check: true }, "today", stuckLate ? "Nothing else late or due today." : "Nothing late or due today.", false));
     main.appendChild(section("Next 5 business days", nice(NEXT5[0]) + " to " + nice(END5) + ".", b.next, who, { check: true }, "next", "Nothing due in the next 5 business days.", true));
-    main.appendChild(section("Stuck", "Marked waiting or blocked, or due soon while a teammate's earlier step is already late.", b.stuck, who, { notes: true, check: true }, "stuck", "Nothing is stuck on someone else.", false));
+    main.appendChild(section("Stuck or holding others up", "Anything not moving: your late or due-today steps a teammate is waiting on (clear these first), then steps marked waiting or blocked, or waiting on a teammate's late step.", b.holding.concat(b.stuck), who, { notes: true, check: true }, "stuck", "Nothing is stuck, and nobody is waiting on you.", false));
 
     if (b.undated.length) {
       var d = el("details", "more"); d.appendChild(el("summary", null, b.undated.length + " open steps with no due date"));
@@ -563,7 +562,7 @@ footer a { color: var(--accent); }
     var main = document.getElementById("main"); main.textContent = "";
     var s = el("section"); s.appendChild(el("h2", null, "Team view"));
     var wrap = el("div", "team"), t = el("table"), th = el("thead"), hr = el("tr");
-    [["Person", ""], ["Late", "num"], ["Due today", "num"], ["Next 5 business days", "num"], ["Stuck", "num"], ["Holding others up", "num"]].forEach(function (h) { hr.appendChild(el("th", h[1], h[0])); });
+    [["Person", ""], ["Late", "num"], ["Due today", "num"], ["Next 5 business days", "num"], ["Stuck or holding others up", "num"]].forEach(function (h) { hr.appendChild(el("th", h[1], h[0])); });
     th.appendChild(hr); t.appendChild(th);
     var tb = el("tbody");
     CONFIG.people.forEach(function (p) {
@@ -572,8 +571,7 @@ footer a { color: var(--accent); }
       tr.appendChild(el("td", "num" + (b.lateTotal ? " late" : ""), String(b.lateTotal)));
       tr.appendChild(el("td", "num", String(b.today.length)));
       tr.appendChild(el("td", "num", String(b.next.length)));
-      tr.appendChild(el("td", "num", String(b.stuck.length)));
-      tr.appendChild(el("td", "num" + (b.holding.length ? " late" : ""), String(b.holding.length)));
+      tr.appendChild(el("td", "num" + (b.holding.length ? " late" : ""), String(b.stuck.length + b.holding.length)));
       tb.appendChild(tr);
     });
     t.appendChild(tb); wrap.appendChild(t); s.appendChild(wrap); main.appendChild(s);
