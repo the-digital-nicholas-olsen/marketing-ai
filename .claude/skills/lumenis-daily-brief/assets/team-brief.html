@@ -142,6 +142,23 @@ footer a { color: var(--accent); }
 .toast[hidden] { display: none; }
 .toast span { overflow-wrap: anywhere; }
 .toast button { font: 600 0.85rem var(--font-body); color: var(--bg); background: transparent; border: 1px solid currentColor; border-radius: 6px; padding: 3px 10px; cursor: pointer; flex: none; }
+.ask { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 10px; }
+.ask textarea { font: 0.95rem var(--font-body); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; resize: vertical; width: 100%; min-height: 64px; }
+.askbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.primary { font: 600 0.88rem var(--font-body); color: var(--surface); background: var(--accent); border: 1px solid var(--accent); border-radius: 8px; padding: 6px 14px; cursor: pointer; }
+.primary:disabled, .copy:disabled { opacity: .55; cursor: progress; }
+.askout { display: grid; gap: 10px; }
+.askout:empty { display: none; }
+.askq { margin: 0; padding: 0 0 0 18px; display: grid; gap: 6px; }
+.askq li span { color: var(--muted); }
+.plan { display: grid; gap: 8px; }
+.plan h3 { font: 600 0.85rem var(--font-body); margin: 6px 0 0; }
+.plan label { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: start; font-size: 0.9rem; padding: 6px 0; border-top: 1px solid var(--line); }
+.plan label:first-of-type { border-top: 0; }
+.plan input[type=checkbox] { margin-top: 3px; accent-color: var(--accent); }
+.plan .pm { display: block; color: var(--muted); font-size: 0.8rem; }
+.assume { font-size: 0.85rem; color: var(--today); background: var(--today-soft); border-radius: 8px; padding: 8px 12px; margin: 0; }
+.assume ul { margin: 4px 0 0; padding-left: 18px; }
 @media (max-width: 560px) { .item { grid-template-columns: 1fr; } .item.check { grid-template-columns: 22px 1fr; } .item.check .when, .item.check .body { grid-column: 2; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -163,6 +180,21 @@ footer a { color: var(--accent); }
       </label>
     </div>
   </header>
+  <section class="ask" id="ask" hidden aria-labelledby="askHead">
+    <div class="sechead">
+      <h2 id="askHead">Add to the plan</h2>
+      <p class="sechint">Need to update the plan, start a campaign or assign someone a task? Describe it here. Claude asks about anything missing, shows you the changes, and writes them to the sprint plan only when you confirm.</p>
+    </div>
+    <textarea id="askText" rows="3" aria-label="Describe what you need" placeholder="For example: Ted needs to send the Toronto deck to Sugas by Friday, and move Dr. Zia's approval to 11/30."></textarea>
+    <div class="askbar">
+      <button type="button" class="primary" id="askGo">Ask Claude</button>
+      <button type="button" class="copy" id="askMic" hidden>Speak</button>
+      <button type="button" class="copy" id="askStop" hidden>Stop</button>
+      <button type="button" class="copy" id="askReset" hidden>Start over</button>
+      <span class="notemsg" id="askMsg" role="status" aria-live="polite"></span>
+    </div>
+    <div class="askout" id="askOut"></div>
+  </section>
   <p class="banner" id="banner" hidden></p>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastText"></span><button type="button" id="toastUndo">Undo</button></div>
   <main id="main"></main>
@@ -684,6 +716,281 @@ footer a { color: var(--accent); }
     }, function (err) { document.getElementById("toast").hidden = true; writeError(err, "undo"); });
   }
 
+  // ---- "Add to the plan": the sprint intake procedure (lumenis-sprint-intake), run from this page ----
+  // Claude (sample) reads the request, looks up projects and open steps through page tools, asks what's missing,
+  // and returns a proposal. Nothing is written until the viewer confirms; writes go through the viewer's Smartsheet connector.
+  var OWNERS = ["Nicholas", "EJ", "Kaelyn", "Ted", "Derek", "Laarni", "Everyone"];
+  var STATUSES = ["Not Started", "In Progress", "Waiting on Someone", "Blocked", "Ready for Review", "Complete", "Dropped"];
+  var WORKSTREAMS = ["Content", "Event Operations", "Digital Operations", "KOL Coordination", "Launch", "Reporting", "Other"];
+  var ask = { sample: null, dict: null, turns: [], plan: null, ctl: null, projects: null, busy: false, sprints: null };
+  var $ = function (id) { return document.getElementById(id); };
+  function askMsg(t) { $("askMsg").textContent = t || ""; }
+  function askBusy(on) {
+    ask.busy = on; $("askGo").disabled = on; $("askStop").hidden = !on;
+    Array.prototype.forEach.call($("askOut").querySelectorAll("button"), function (b) { b.disabled = on; });
+  }
+  function rowsOf(res) {
+    var p = (res && res.payload) || {}, cols = {};
+    (p.availableColumns || []).forEach(function (c) { cols[c.index] = c.title; });
+    return (p.rows || []).map(function (r) { var v = { _id: String(r.rowId) }; (r.cells || []).forEach(function (c) { v[cols[c.columnIndex]] = c.value; }); return v; });
+  }
+  function canon(name) { var i = String(name).indexOf(" — "); return i > 0 ? String(name).slice(0, i) : String(name); }
+  function loadProjects() {
+    return state.mcp.callTool("Smartsheet", "get_sheet_summary", {
+      sheet_id: +CONFIG.sheetId, columns: ["Task", "Key Info", "Status", "Due Date"],
+      filters: [{ columnName: "Row Type", operator: "EQUAL", columnValue: "Project" }]
+    }, { cache: false }).then(function (res) {
+      ask.projects = rowsOf(res).map(function (v) { return { id: v._id, name: v["Task"] || "", status: v["Status"] || "", due: v["Due Date"] || "", info: String(v["Key Info"] || "").slice(0, 280) }; });
+      return ask.projects;
+    });
+  }
+  function loadSprints() {
+    if (ask.sprints) return Promise.resolve(ask.sprints);
+    return state.mcp.callTool("Smartsheet", "get_columns", { sheet_id: +CONFIG.sheetId }, { cache: { staleTime: 86400000, gcTime: 86400000 } }).then(function (res) {
+      var col = (((res && res.payload) || {}).data || []).filter(function (c) { return c.title === "Sprint"; })[0];
+      ask.sprints = (col && col.options) || []; return ask.sprints;
+    }, function () { ask.sprints = []; return ask.sprints; });
+  }
+  function sprintFor(due) {
+    if (!due) return "Backlog";
+    var d = parseIso(due), back = (d.getUTCDay() + 6) % 7; d.setUTCDate(d.getUTCDate() - back);
+    var label = (d.getUTCMonth() + 1) + "." + d.getUTCDate() + "." + d.getUTCFullYear();
+    return (ask.sprints || []).indexOf(label) >= 0 ? label : null;
+  }
+  var TOOLS = [{
+    name: "open_steps",
+    description: "Lists the open steps (not Complete or Dropped) under one sprint plan project: row id, step id, task, owner, due date, status. Use it before proposing a change to an existing step, or to avoid adding a step that already exists.",
+    inputSchema: { type: "object", properties: { project_row_id: { type: "string", description: "The project's row id from the project list." } }, required: ["project_row_id"] },
+    execute: function (input, ctx) {
+      var proj = (ask.projects || []).filter(function (p) { return p.id === String(input.project_row_id); })[0];
+      if (!proj) throw new Error("No project with that row id.");
+      askMsg("Reading " + canon(proj.name) + "…");
+      return state.mcp.callTool("Smartsheet", "get_sheet_summary", {
+        sheet_id: +CONFIG.sheetId, columns: ["Task", "Step", "Owner", "Due Date", "Status", "Row Type"],
+        filters: [{ columnName: "Project", operator: "EQUAL", columnValue: canon(proj.name) }, { columnName: "Status", operator: "NOT_IN", columnValue: ["Complete", "Dropped"] }]
+      }, { cache: false, signal: ctx.signal }).then(function (res) {
+        return rowsOf(res).filter(function (v) { return v["Row Type"] === "Task" || v["Row Type"] === "Subtask"; }).slice(0, 80).map(function (v) {
+          return { row_id: v._id, step: v["Step"] || "", task: v["Task"], owner: v["Owner"] || "", due: v["Due Date"] || "", status: v["Status"] || "" };
+        });
+      });
+    }
+  }];
+  function rules(who) {
+    return [
+      "You run the Lumenis Vision marketing team's sprint intake. A teammate (" + who + ") typed a request on the team's daily brief page. Turn it into exact changes to the Smartsheet sprint plan.",
+      "Today is " + TODAY + " (" + nice(TODAY, { weekday: "long" }) + "). Team owners: " + OWNERS.join(", ") + " (Nicholas = director, EJ = marketing ops, Kaelyn = events and KOL logistics, Ted = content, Derek = payments, Laarni = VP).",
+      "RULES:",
+      "- Put work under an EXISTING project when one fits (check the project list; call open_steps to see its steps). Never add a step that already exists; propose an update instead.",
+      "- Create a new project only for work with its own goal, an owner and more than one or two steps. Name it '<Type> - <Topic> - <Date>' with Type one of Accelerate, Webinar, Trade Show, Rep Event, Sponsored Session, Campaign, Content, KOL, Ops. Date: 'Mon D YYYY' for one-off events, the year for annual or ongoing work. No colons or slashes.",
+      "- Write each task as the finished state: 'Ted has sent the final deck to Sugas.' not 'Send deck'.",
+      "- Owners come only from the team list. Work owned by someone outside the team: owner = the team member who chases it, status 'Waiting on Someone', note 'Waiting on <name>'.",
+      "- Due dates are YYYY-MM-DD. If none was given, propose one from context and list it under assumptions. Fridays are fine; say 'end of day tomorrow' = tomorrow's date.",
+      "- Changing an existing step: give its row_id and only the fields that change (due, owners, status, note). A note is a short sentence; the page adds the date and name.",
+      "- If anything essential is unclear (which project, who owns it, what done looks like), ask. Ask at most 3 short questions at once, each with your proposed answer, so the person can just say yes. Don't ask about things with a sensible default.",
+      "- Status for new steps: 'Not Started' unless told otherwise. Workstream (optional) one of: " + WORKSTREAMS.join(", ") + ".",
+      "PROJECT LIST (row id | name | status | due | key info):",
+      (ask.projects || []).map(function (p) { return p.id + " | " + p.name + " | " + p.status + " | " + (p.due || "") + " | " + p.info.replace(/\s+/g, " "); }).join("\n"),
+      "ANSWER with ONE JSON object and nothing else, in one of two shapes:",
+      '{"type":"question","questions":[{"q":"...","proposed":"..."}]}',
+      '{"type":"plan","summary":"one sentence","assumptions":["..."],"newProjects":[{"key":"new1","name":"Type - Topic - Date","detail":"short detail or empty","keyInfo":"what it is, why, for whom, key date","owners":["Nicholas"],"due":"YYYY-MM-DD or empty"}],"addSteps":[{"project":"<project row id or new project key>","step":"short id like MV8 or empty","task":"finished-state sentence","owners":["Ted"],"due":"YYYY-MM-DD or empty","status":"Not Started","workstream":"Content","dependsOn":"","note":""}],"updates":[{"rowId":"<row id>","task":"<the step text, for display>","due":"","owners":[],"status":"","note":""}]}'
+    ].join("\n");
+  }
+  function parsePlan(text) {
+    var a = text.indexOf("{"), b = text.lastIndexOf("}");
+    if (a < 0 || b <= a) throw { code: "invalid_json" };
+    return JSON.parse(text.slice(a, b + 1));
+  }
+  function askRun(userText) {
+    if (ask.busy || !ask.sample) return;
+    var who = state.me || (state.person && state.person !== "Team" ? state.person : "a teammate");
+    ask.turns.push({ role: "user", content: userText });
+    askBusy(true); askMsg("Thinking… (this can take up to a minute)");
+    ask.ctl = new AbortController();
+    var go = ask.projects ? Promise.resolve() : Promise.all([loadProjects(), loadSprints()]);
+    go.then(function () {
+      var turns = [{ role: "user", content: rules(who) }, { role: "assistant", content: "Understood. Send the request." }].concat(ask.turns);
+      return ask.sample(turns, { tools: TOOLS, signal: ask.ctl.signal, modelTier: "default" });
+    }).then(function (res) {
+      ask.turns.push({ role: "assistant", content: res.text });
+      var out = parsePlan(res.text);
+      askBusy(false); askMsg(""); $("askReset").hidden = false;
+      if (out.type === "question") showQuestions(out); else showPlan(out);
+    }).catch(function (e) {
+      askBusy(false);
+      ask.turns.pop();
+      var c = e && e.code;
+      if (c === "cancelled") askMsg("Stopped.");
+      else if (c === "not_granted") { askMsg("Claude wasn't allowed for this page, so the box is off."); $("ask").hidden = true; }
+      else if (c === "rate_limited" || c === "queue_overflow") askMsg("Claude is busy. Try again in a minute.");
+      else if (c === "invalid_json" || e instanceof SyntaxError) askMsg("Claude's answer didn't come back in the expected form. Try again, or add more detail.");
+      else if (c && /^(approval_required|needs_reauth|server_not_connected|selection_required|not_in_manifest|blocked_by_policy)$/.test(c)) { askMsg(""); writeError(e, "add to the plan"); }
+      else askMsg("That didn't work (" + (c || "unknown error") + "). Try again.");
+    });
+  }
+  function replyBox(placeholder, prefill) {
+    var w = el("div", "noteform"), t = el("textarea"); t.rows = 2; t.placeholder = placeholder; t.value = prefill || ""; t.setAttribute("aria-label", placeholder);
+    var bar = el("div", "noteactions"), send = el("button", "primary", "Send"); send.type = "button";
+    send.addEventListener("click", function () { var v = t.value.trim(); if (v) askRun(v); });
+    bar.appendChild(send); w.appendChild(t); w.appendChild(bar);
+    return { wrap: w, bar: bar };
+  }
+  function showQuestions(out) {
+    var box = $("askOut"); box.textContent = "";
+    box.appendChild(el("p", "note", "Claude has a few questions:"));
+    var ol = el("ol", "askq");
+    (out.questions || []).forEach(function (q) { var li = el("li", null, q.q + " "); if (q.proposed) li.appendChild(el("span", null, "Proposed: " + q.proposed)); ol.appendChild(li); });
+    box.appendChild(ol);
+    var r = replyBox("Answer here, or use the proposed answers");
+    var yes = el("button", "copy", "Use proposed answers"); yes.type = "button";
+    yes.addEventListener("click", function () { askRun("Yes, use your proposed answers."); });
+    r.bar.appendChild(yes); box.appendChild(r.wrap);
+  }
+  function projName(key, plan) {
+    var n = (plan.newProjects || []).filter(function (p) { return p.key === key; })[0];
+    if (n) return n.name + " (new)";
+    var p = (ask.projects || []).filter(function (x) { return x.id === String(key); })[0];
+    return p ? canon(p.name) : "unknown project";
+  }
+  function cleanOwners(o) { return (Array.isArray(o) ? o : String(o || "").split(",")).map(function (s) { return String(s).trim(); }).filter(function (s) { return OWNERS.indexOf(s) >= 0; }); }
+  function validDate(s) { return /^\d{4}-\d{2}-\d{2}$/.test(String(s || "")) ? String(s) : ""; }
+  function showPlan(plan) {
+    ask.plan = plan;
+    var box = $("askOut"); box.textContent = "";
+    var wrap = el("div", "plan");
+    if (plan.summary) wrap.appendChild(el("p", "note", plan.summary));
+    if ((plan.assumptions || []).length) {
+      var a = el("div", "assume"); a.appendChild(document.createTextNode("Check these assumptions:"));
+      var ul = el("ul"); plan.assumptions.forEach(function (s) { ul.appendChild(el("li", null, s)); }); a.appendChild(ul); wrap.appendChild(a);
+    }
+    function item(kind, i, title, meta) {
+      var l = el("label"), cb = el("input"); cb.type = "checkbox"; cb.checked = true; cb.dataset.kind = kind; cb.dataset.i = i;
+      var t = el("span", null, title); if (meta) t.appendChild(el("span", "pm", meta));
+      l.appendChild(cb); l.appendChild(t); return l;
+    }
+    if ((plan.newProjects || []).length) {
+      wrap.appendChild(el("h3", null, "New projects"));
+      plan.newProjects.forEach(function (p, i) { wrap.appendChild(item("newProjects", i, p.name + (p.detail ? " — " + p.detail : ""), [cleanOwners(p.owners).join(", "), validDate(p.due) ? "due " + nice(p.due) : "", p.keyInfo].filter(Boolean).join(" · "))); });
+    }
+    if ((plan.addSteps || []).length) {
+      wrap.appendChild(el("h3", null, "New steps"));
+      plan.addSteps.forEach(function (s, i) { wrap.appendChild(item("addSteps", i, s.task, [projName(s.project, plan), cleanOwners(s.owners).join(", ") || "no owner", validDate(s.due) ? "due " + nice(s.due) : "no date (Backlog)", s.status && s.status !== "Not Started" ? s.status : "", s.note].filter(Boolean).join(" · "))); });
+    }
+    if ((plan.updates || []).length) {
+      wrap.appendChild(el("h3", null, "Changes to existing steps"));
+      plan.updates.forEach(function (u, i) { wrap.appendChild(item("updates", i, u.task || ("Row " + u.rowId), [validDate(u.due) ? "due → " + nice(u.due) : "", cleanOwners(u.owners).length ? "owner → " + cleanOwners(u.owners).join(", ") : "", STATUSES.indexOf(u.status) >= 0 ? "status → " + u.status : "", u.note ? "note: " + u.note : ""].filter(Boolean).join(" · "))); });
+    }
+    if (!wrap.querySelector("label")) wrap.appendChild(el("p", "note", "Claude didn't propose any changes."));
+    box.appendChild(wrap);
+    var bar = el("div", "noteactions"), write = el("button", "primary", "Write to the sprint plan"); write.type = "button";
+    write.addEventListener("click", function () { applyPlan(wrap); });
+    bar.appendChild(write); box.appendChild(bar);
+    box.appendChild(replyBox("Or tell Claude what to change").wrap);
+  }
+  function addRows(rows) {
+    return state.mcp.callTool("Smartsheet", "add_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (res) {
+      var p = (res && res.payload) || {};
+      return (p.result || p.data || []).map(function (r) { return String(r.id); });
+    });
+  }
+  function applyPlan(wrap) {
+    var plan = ask.plan, pick = { newProjects: {}, addSteps: {}, updates: {} };
+    Array.prototype.forEach.call(wrap.querySelectorAll("input[type=checkbox]"), function (cb) { if (cb.checked) pick[cb.dataset.kind][cb.dataset.i] = true; });
+    var author = state.me || (state.person && state.person !== "Team" ? state.person : "Brief");
+    var stamp = nice(TODAY, { month: "numeric", day: "numeric" }) + " " + author + ": ";
+    var keyToId = {}, added = 0, changed = 0;
+    askBusy(true); askMsg("Writing to Smartsheet…");
+    Promise.all([getCols(), loadSprints()]).then(function (r) {
+      var c = r[0];
+      ["Task", "Owner", "Due Date", "Row Type", "Notes / Blocker", "Sprint"].forEach(function (k) { if (!c[k]) throw { code: "missing_columns" }; });
+      function cell(title, value) { return c[title] && value !== undefined && value !== "" ? { columnId: c[title], value: value } : null; }
+      function ownersCell(list) { var o = cleanOwners(list); return o.length ? { columnId: c["Owner"], objectValue: { objectType: "MULTI_PICKLIST", values: o } } : null; }
+      function stepCells(s) {
+        var due = validDate(s.due), sp = sprintFor(due);
+        return [cell("Task", s.task), cell("Step", s.step), cell("Status", STATUSES.indexOf(s.status) >= 0 ? s.status : "Not Started"), ownersCell(s.owners),
+          cell("Due Date", due), sp ? cell("Sprint", sp) : null, cell("Row Type", "Task"), cell("Workstream", WORKSTREAMS.indexOf(s.workstream) >= 0 ? s.workstream : ""),
+          cell("Depends On", s.dependsOn), cell("Notes / Blocker", stamp + (s.note ? s.note : "added from the daily brief."))].filter(Boolean);
+      }
+      // 1. new projects, one call each so each id comes back
+      var chain = Promise.resolve();
+      (plan.newProjects || []).forEach(function (p, i) {
+        if (!pick.newProjects[i]) return;
+        chain = chain.then(function () {
+          var title = String(p.name).replace(/[:/\\*?"<>|]/g, "-") + (p.detail ? " — " + p.detail : "");
+          return addRows([{ toBottom: true, cells: [cell("Task", title), cell("Status", "Not Started"), ownersCell(p.owners), cell("Due Date", validDate(p.due)), cell("Row Type", "Project"),
+            cell("Key Info", p.keyInfo), cell("CRM Campaign Name", "To look up"), cell("Notes / Blocker", stamp + "added from the daily brief. OneDrive folder not created yet: ask Claude to create it with lumenis-sprint-intake.")].filter(Boolean) }])
+            .then(function (ids) { keyToId[p.key] = ids[0]; added++; });
+        });
+      });
+      // 2. new steps, one call per parent project
+      chain = chain.then(function () {
+        var byParent = {};
+        (plan.addSteps || []).forEach(function (s, i) {
+          if (!pick.addSteps[i]) return;
+          var parent = keyToId[s.project] || ((ask.projects || []).some(function (x) { return x.id === String(s.project); }) ? String(s.project) : null);
+          if (!parent) return;
+          (byParent[parent] = byParent[parent] || []).push({ parentId: +parent, toBottom: true, cells: stepCells(s) });
+        });
+        return Object.keys(byParent).reduce(function (pr, k) { return pr.then(function () { return addRows(byParent[k]).then(function (ids) { added += ids.length || byParent[k].length; }); }); }, Promise.resolve());
+      });
+      // 3. updates: notes are appended to the latest text
+      chain = chain.then(function () {
+        var ups = (plan.updates || []).filter(function (u, i) { return pick.updates[i] && /^\d+$/.test(String(u.rowId)); });
+        if (!ups.length) return;
+        var needNotes = ups.some(function (u) { return u.note; });
+        var notesP = needNotes && NOTES_READ ? state.mcp.callTool("Smartsheet", "get_sheet_summary", NOTES_READ, { cache: false }).then(function (res) { var m = {}; rowsOf(res).forEach(function (v) { m[v._id] = v["Notes / Blocker"] || ""; }); return m; }, function () { return {}; }) : Promise.resolve({});
+        return notesP.then(function (cur) {
+          var rows = ups.map(function (u) {
+            var cells = [];
+            var due = validDate(u.due); if (due) { cells.push({ columnId: c["Due Date"], value: due }); var sp = sprintFor(due); if (sp) cells.push({ columnId: c["Sprint"], value: sp }); }
+            var o = ownersCell(u.owners); if (o) cells.push(o);
+            if (STATUSES.indexOf(u.status) >= 0) cells.push({ columnId: c["Status"], value: u.status });
+            if (u.note) { var old = cur[String(u.rowId)] || ""; var nn = (old ? old + "\n" : "") + stamp + u.note; if (nn.length > 3900) nn = "…" + nn.slice(nn.length - 3899); cells.push({ columnId: c["Notes / Blocker"], value: nn }); }
+            return cells.length ? { id: +u.rowId, cells: cells } : null;
+          }).filter(Boolean);
+          if (!rows.length) return;
+          return state.mcp.callTool("Smartsheet", "update_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (res) {
+            var p = (res && res.payload) || {};
+            changed += rows.length - ((p.failedItems || []).length);
+            if ((p.failedItems || []).length) throw { code: "tool_error", message: (p.failedItems.length) + " change(s) weren't accepted" };
+          });
+        });
+      });
+      return chain;
+    }).then(function () {
+      askBusy(false);
+      if (state.mcp.invalidate) state.mcp.invalidate("Smartsheet", "get_sheet_summary").catch(function () {});
+      ask.turns = []; ask.plan = null; ask.projects = null; $("askText").value = ""; $("askOut").textContent = ""; $("askReset").hidden = true;
+      askMsg("Done: " + added + " row" + (added === 1 ? "" : "s") + " added, " + changed + " changed in the sprint plan.");
+    }).catch(function (err) {
+      askBusy(false);
+      askMsg(added || changed ? "Partly written: " + added + " added, " + changed + " changed. Check the sheet before trying again." : "");
+      writeError(err, "add to the plan");
+    });
+  }
+  function askSetup() {
+    if (ask.sample || !window.claude || !window.claude.use) return;
+    window.claude.use("sample").then(function (sample) {
+      if (!sample || !state.mcp) return;
+      ask.sample = sample; $("ask").hidden = false;
+      $("askGo").addEventListener("click", function () {
+        var v = $("askText").value.trim(); if (!v) { askMsg("Describe what you need first."); return; }
+        ask.turns = []; ask.projects = null; $("askOut").textContent = ""; askRun(v);
+      });
+      $("askStop").addEventListener("click", function () { if (ask.ctl) ask.ctl.abort(); });
+      $("askReset").addEventListener("click", function () { if (ask.ctl) ask.ctl.abort(); ask.turns = []; ask.plan = null; $("askOut").textContent = ""; $("askReset").hidden = true; askMsg(""); });
+      window.claude.use("dictation").then(function (d) {
+        if (!d) return;
+        ask.dict = d; var mic = $("askMic"), listening = false; mic.hidden = false;
+        d.onFinal(function (e) { var t = $("askText"); t.value = (t.value ? t.value.replace(/\s*$/, " ") : "") + e.text; });
+        d.onState(function (e) { listening = e.state !== "idle"; mic.textContent = listening ? "Stop speaking" : "Speak"; if (e.state === "idle" && e.reason === "not_granted") mic.hidden = true; });
+        mic.addEventListener("click", function () {
+          if (listening) { d.stop().catch(function () {}); return; }
+          d.start().catch(function (e) { if (e && e.code === "not_granted") mic.hidden = true; });
+        });
+      }).catch(function () {});
+    }).catch(function () {});
+  }
+
   if (snap && snap.rows) {
     state.rows = fromSnap(); state.source = "snapshot";
     if (snap.generatedAt && isoInTz(new Date(snap.generatedAt)) !== TODAY) banner("This snapshot is from " + nice(isoInTz(new Date(snap.generatedAt))) + ". Live data loads if you have the Smartsheet connector; otherwise ask Claude to refresh the brief.");
@@ -722,7 +1029,7 @@ footer a { color: var(--accent); }
 
   window.claude.use("mcp").then(function (mcp) {
     if (!mcp) { explainNoMcp(); return; }
-    state.mcp = mcp; render();
+    state.mcp = mcp; render(); askSetup();
     var cutoff = addDays(TODAY, CONFIG.windowDays);
     var live = { rows: null, blockers: null, notes: null };
     function apply() { if (!live.rows) return; state.rows = addNotes(merge(live.rows, live.blockers || []), live.notes); state.source = "live"; banner(null); render(); }
