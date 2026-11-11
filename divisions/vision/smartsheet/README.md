@@ -16,6 +16,7 @@ Contents:
 - [Trade show planner from a template](trade-show-planner.md) (draft): looking a show up on the event schedule, matching its tier to a template and duplicating that template folder into the right year's Trade Shows folder.
 - [Trade show invoice filing](trade-show-invoice-filing.md) (draft): filing a trade show invoice, linking it on the Master Budget and syncing actuals to the budget tracker.
 - [Trade show finals close-out](trade-show-finals-close-out.md) (draft): syncing the budget tracker from a show's Master Budget once final actuals are in, marking the show done and running one last audit.
+- [Sprint intake](../../../.agents/skills/lumenis-sprint-intake/SKILL.md) (draft): turning a transcript, note or request into sprint plan rows, with context saved in OneDrive and one name across Smartsheet, OneDrive, HubSpot and Salesforce.
 - [Sprint plan setup](../../../.agents/skills/lumenis-sprint-plan-setup/SKILL.md) (draft): copying a campaign template onto Sprint Plan (Live) with real due dates.
 - [Sprint cleanup](../../../.agents/skills/lumenis-sprint-cleanup/SKILL.md) (draft): the Monday upkeep of the sprint plan, Backlog moves and archiving.
 - [Daily brief](../../../.agents/skills/lumenis-daily-brief/SKILL.md) (draft): each teammate's day from the sprint plan, in chat or as the team brief page.
