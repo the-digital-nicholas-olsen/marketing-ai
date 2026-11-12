@@ -1,9 +1,9 @@
 ---
 title: KOL biography and headshot library
-summary: Library of 16 Lumenis KOL biographies, grouped by division, with source references and web-ready headshot candidates in the HubSpot image library.
+summary: Library of 18 Lumenis KOL biographies, grouped by division, with source references and web-ready headshot candidates in the HubSpot image library.
 status: source-derived; verify each entry before external use
 owner: Ted Carmichael
-reviewed: 2026-10-05
+reviewed: 2026-11-12
 ---
 
 # KOL library
@@ -35,6 +35,8 @@ Each profile's frontmatter has a `division` list naming the Lumenis business uni
 | Patricia Fulmer, OD, FAAO | Legacy Vision Center (Huntsville, AL) | [patricia-fulmer.md](./patricia-fulmer.md) | HubSpot candidate; low resolution; rights unverified |
 | Kiranjeet Sran, OD | Lumos Eyecare, inside Costco (Bridgewater, NJ) | [kiranjeet-sran.md](./kiranjeet-sran.md) | HubSpot candidate; provided by Ted; rights unverified |
 | Sandra Zhang, OD | Gemini Optometry (Moreno Valley, CA) | [sandra-zhang.md](./sandra-zhang.md) | HubSpot candidate; provided by Ted; rights unverified |
+| Jacob Rullo, MD, PhD | Queen's University / Kingston Health Sciences Centre (Kingston, ON, Canada) | [jacob-rullo.md](./jacob-rullo.md) | Source images found; not yet in HubSpot catalog; rights unverified |
+| Clare Halleran, OD, FAAO | East Coast Eye Care (Clarenville, NL, Canada) | [clare-halleran.md](./clare-halleran.md) | Practice-site source found; not yet in HubSpot catalog; low resolution; rights unverified |
 
 ## Aesthetics
 
@@ -51,6 +53,8 @@ No entries yet.
 - **Kiranjeet Sran and Sandra Zhang:** formal education/credentials beyond "OD" were not published on their practice sites or in secondary sources found during this pass. Both are KOLs Ted already has a working relationship with — fastest fix is asking them directly.
 - **Patricia Fulmer:** the available source is 403 pixels wide. Use only for small placements or request a larger file.
 - **Michael H. Gold:** education and residency were not published on his practice site or IMCAS profile. The only Lumenis-hosted image is a 139×129 agenda thumbnail. The practice-site photo needs a rights check before it goes through the `lumenis-image-library` workflow.
+- **Jacob Rullo:** some event materials title him a neuro-ophthalmologist. No public source gives that title or a neuro-ophthalmology fellowship; Queen's lists him as Assistant Professor and Clinician Scientist, though many of his recent case reports are neuro-ophthalmic. Confirm his preferred title with him. The CPSO register also lists a practice location in Hamilton, ON that no other source describes. No public source links him to dry eye treatment or IPL.
+- **Clare Halleran:** her graduation year and BSc school are not published. FAAO appears on the practice's team page only and was not checked against the American Academy of Optometry directory. No public source names the IPL or other devices she uses. The only headshot found is 600 × 568 px from 2019; request a current high-resolution file.
 - No headshot in this library has documented reuse clearance in this public repository. Public availability or a HubSpot URL is not reuse approval.
 
 ## Next steps
