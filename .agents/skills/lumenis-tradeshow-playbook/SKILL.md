@@ -34,7 +34,7 @@ Set in R1 Key Info. Rows starting **(Tier 1)** or **(Small)** apply to that tier
 2. **Show where it stands,** one line per workstream: done / total, anything late, the next step and its owner. Then the steps due in the next 7 days. A status question stops here.
 3. **For each eligible step that is due or late:** resume, don't redo; check Depends On first; then follow the row's AI Mode (AI executes / AI drafts, human approves / Human only), as in the [Accelerate playbook](../lumenis-accelerate-playbook/SKILL.md).
 4. **Respect the gates** below even when a date says a step is due.
-5. **Write back** Key Info values as they become known (booth number, vendor artwork date, venue, hotel link, PR numbers, Calendly link). Never change another person's completed row.
+5. **Write back** Key Info values as they become known (booth number, vendor artwork date, venue, hotel link, PR numbers, Calendly link). Never change another person's completed row. Log every start, block, finish and due-date move in Date Log, and keep Original Due Date as it is ([date log](../lumenis-sprint-intake/references/date-log.md)). When the event date moves, recompute each open step's Due Date from Days from Event and log each move with the reason "event moved to <date>"; a catch-up plan gets its own line per step.
 
 ## Gates
 

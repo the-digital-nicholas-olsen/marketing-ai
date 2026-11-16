@@ -51,7 +51,7 @@ If the window or waiting read reports `isSampled`, narrow it (shorter window, fe
    Never offer to run a step whose prerequisite is still open. When a campaign has several Claude-ready steps, offer to work through them together in dependency order.
    **Write for people, not the sheet:** never show step IDs (C9, L1) or raw Depends On values. Name the earlier step in words with its owner and lateness: "needs Ted's flyer first (9 days late)". Step IDs are for Claude only.
 4. **Write the brief** (format below). Lead with the counts, then the top three things to do today.
-5. **Act only on a yes.** Run or draft only the rows the person picks. After a step is done and checked, set Status to Complete, tick Done, set Date Completed to today and paste the result link in Deliverable Link. An email the person says they've sent goes straight to Complete; other drafts go to Ready for Review, not Complete.
+5. **Act only on a yes.** Run or draft only the rows the person picks. After a step is done and checked, set Status to Complete, tick Done, set Date Completed to today, add a `done` line to Date Log and paste the result link in Deliverable Link. A date the person asks to move gets a Date Log line with the reason ([date log](../lumenis-sprint-intake/references/date-log.md)). An email the person says they've sent goes straight to Complete; other drafts go to Ready for Review, not Complete.
 
 ```
 Good morning, Ted. 2 late, 1 due today, 5 in the next 5 business days, 1 blocked.
