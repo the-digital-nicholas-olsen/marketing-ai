@@ -1,9 +1,9 @@
 ---
 title: KOL biography and headshot library
-summary: Library of 18 Lumenis KOL biographies, grouped by division, with source references and web-ready headshot candidates in the HubSpot image library.
+summary: Library of 19 Lumenis KOL biographies, grouped by division, with source references and web-ready headshot candidates in the HubSpot image library.
 status: source-derived; verify each entry before external use
 owner: Ted Carmichael
-reviewed: 2026-11-12
+reviewed: 2026-11-18
 ---
 
 # KOL library
@@ -23,6 +23,7 @@ Each profile's frontmatter has a `division` list naming the Lumenis business uni
 | Amanda Amberg, OD | Hollywood Eye Institute (Hollywood/Cooper City, FL) | [amanda-amberg.md](./amanda-amberg.md) | HubSpot candidate; practice-page identity checked; rights unverified |
 | Celesta Ferreira, OD | Cypress Optique (Cypress, TX) | [celesta-ferreira.md](./celesta-ferreira.md) | HubSpot candidate; rights unverified |
 | Chandler R. Mann II, OD | Stone Oak Vision Source (San Antonio, TX) | [chandler-mann.md](./chandler-mann.md) | HubSpot candidate; practice-page identity checked; rights unverified |
+| Chantel N. Garcia, OD | Carolina Eye Doctors (Harrisburg, NC) | [chantel-garcia.md](./chantel-garcia.md) | High-resolution practice-site source found (5044 × 5044 px); not yet in HubSpot catalog; rights unverified |
 | James G. Chelnis, MD, FACS | Manhattan Face & Eye / Mount Sinai (New York, NY) | [chelnis.md](./chelnis.md) | HubSpot candidate; institutional source; rights unverified |
 | Jenn Chinn, OD | Dr. Chinn's Vision Care (San Diego, CA) | [jenn-chinn.md](./jenn-chinn.md) | HubSpot candidate; provided by Ted; rights unverified |
 | Cory J. Lappin, OD, MS, FAAO | The Dry Eye Center of Ohio (Cincinnati, OH) | [cory-lappin.md](./cory-lappin.md) | HubSpot candidate; rights unverified |
@@ -52,6 +53,7 @@ No entries yet.
 
 - **Kiranjeet Sran and Sandra Zhang:** formal education/credentials beyond "OD" were not published on their practice sites or in secondary sources found during this pass. Both are KOLs Ted already has a working relationship with — fastest fix is asking them directly.
 - **Patricia Fulmer:** the available source is 403 pixels wide. Use only for small placements or request a larger file.
+- **Chantel N. Garcia:** her practice site uses Garcia; NPPES lists her as Garcia Tarbett. Confirm which name she wants in Lumenis materials. Her graduation year is not published. The practice site says she became an associate professor at Salus University in 2012, which would be at or soon after her Salus residency; confirm her current faculty title. NPPES lists Pennsylvania and North Carolina taxonomies; her North Carolina license status was not checked against the state board. Her bio names no devices; the practice offers Lumenis OptiLIGHT IPL, NuEra Tight and TriLift, so confirm her Lumenis KOL scope internally.
 - **Michael H. Gold:** education and residency were not published on his practice site or IMCAS profile. The only Lumenis-hosted image is a 139×129 agenda thumbnail. The practice-site photo needs a rights check before it goes through the `lumenis-image-library` workflow.
 - **Jacob Rullo:** some event materials title him a neuro-ophthalmologist. No public source gives that title or a neuro-ophthalmology fellowship; Queen's lists him as Assistant Professor and Clinician Scientist, though many of his recent case reports are neuro-ophthalmic. Confirm his preferred title with him. The CPSO register also lists a practice location in Hamilton, ON that no other source describes. No public source links him to dry eye treatment or IPL.
 - **Clare Halleran:** her graduation year and BSc school are not published. FAAO appears on the practice's team page only and was not checked against the American Academy of Optometry directory. No public source names the IPL or other devices she uses. The only headshot found is 600 × 568 px from 2019; request a current high-resolution file.
