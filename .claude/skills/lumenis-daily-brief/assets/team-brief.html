@@ -205,7 +205,7 @@ footer a { color: var(--accent); }
   <section class="ask" id="ask" hidden aria-labelledby="askHead">
     <div class="sechead">
       <h2 id="askHead">Add to the plan</h2>
-      <p class="sechint">Need to update the plan, start a campaign or assign someone a task? Describe it here. Claude asks about anything missing, shows you the changes, and writes them to the sprint plan only when you confirm (agent: lumenis-sprint-intake). New projects get their OneDrive folder and context note within the hour (agent: lumenis-intake-filing).</p>
+      <p class="sechint">Need to update the plan, start a campaign or assign someone a task? Describe it here. Claude asks about anything missing, shows you the changes, and writes them to the sprint plan only when you confirm (agent: lumenis-sprint-intake). New projects get their OneDrive folder within the hour. Paste a transcript or notes and Claude also writes a context note for each project it touches (no small talk, rants or personal topics); you check them before anything is saved, and they're filed in each project's _Context folder within the hour (agent: lumenis-intake-filing).</p>
     </div>
     <textarea id="askText" rows="3" aria-label="Describe what you need" placeholder="For example: Ted needs to send the Toronto deck to Sugas by Friday, and move Dr. Zia's approval to 11/30."></textarea>
     <div class="askbar">
@@ -821,7 +821,9 @@ footer a { color: var(--accent); }
       (ask.projects || []).map(function (p) { return p.id + " | " + p.name + " | " + p.status + " | " + (p.due || "") + " | " + p.info.replace(/\s+/g, " "); }).join("\n"),
       "ANSWER with ONE JSON object and nothing else, in one of two shapes:",
       '{"type":"question","questions":[{"q":"...","proposed":"..."}]}',
-      '{"type":"plan","summary":"one sentence","assumptions":["..."],"newProjects":[{"key":"new1","name":"Type - Topic - Date","detail":"short detail or empty","keyInfo":"what it is, why, for whom, key date","owners":["Nicholas"],"due":"YYYY-MM-DD or empty"}],"addSteps":[{"project":"<project row id or new project key>","step":"short id like MV8 or empty","task":"finished-state sentence","owners":["Ted"],"due":"YYYY-MM-DD or empty","status":"Not Started","workstream":"Content","dependsOn":"","note":""}],"updates":[{"rowId":"<row id>","task":"<the step text, for display>","due":"","owners":[],"status":"","note":""}]}'
+      "- CONTEXT NOTES: when the request includes a transcript, meeting notes, a message or background (anything beyond a short instruction), also write one context note per project it touches, including projects that only get background and no new steps (pick the closest existing project). A note is markdown for a teammate or agent picking up the project later: date, who was there, decisions and who made them, numbers, dates, open questions, and opinions attributed to whoever holds them. Leave out small talk, travel stories, rants and venting (keep only the business point, stated neutrally), and anything personal: pay, bonus, MBO, performance reviews, health, time off. Don't quote at length. A request that is just an instruction gets no context notes.",
+      "- contextSlug: a short kebab-case name for the source, used as the note's file name, e.g. 'kaelyn-nicholas-1on1' or 'audrey-nsm-pitch-deck'.",
+      '{"type":"plan","summary":"one sentence","contextSlug":"short-kebab-slug","context":[{"project":"<project row id or new project key>","notes":"markdown"}],"assumptions":["..."],"newProjects":[{"key":"new1","name":"Type - Topic - Date","detail":"short detail or empty","keyInfo":"what it is, why, for whom, key date","owners":["Nicholas"],"due":"YYYY-MM-DD or empty"}],"addSteps":[{"project":"<project row id or new project key>","step":"short id like MV8 or empty","task":"finished-state sentence","owners":["Ted"],"due":"YYYY-MM-DD or empty","status":"Not Started","workstream":"Content","dependsOn":"","note":""}],"updates":[{"rowId":"<row id>","task":"<the step text, for display>","due":"","owners":[],"status":"","note":""}]}'
     ].join("\n");
   }
   function parsePlan(text) {
@@ -908,6 +910,10 @@ footer a { color: var(--accent); }
       wrap.appendChild(el("h3", null, "Changes to existing steps"));
       plan.updates.forEach(function (u, i) { wrap.appendChild(item("updates", i, u.task || ("Row " + u.rowId), [validDate(u.due) ? "due → " + nice(u.due) : "", cleanOwners(u.owners).length ? "owner → " + cleanOwners(u.owners).join(", ") : "", STATUSES.indexOf(u.status) >= 0 ? "status → " + u.status : "", u.note ? "note: " + u.note : ""].filter(Boolean).join(" · "))); });
     }
+    if ((plan.context || []).length) {
+      wrap.appendChild(el("h3", null, "Context notes (filed in each project's _Context folder)"));
+      plan.context.forEach(function (c, i) { var n = String(c.notes || "").replace(/\s+/g, " "); wrap.appendChild(item("context", i, projName(c.project, plan), n.length > 220 ? n.slice(0, 220) + "…" : n)); });
+    }
     if (!wrap.querySelector("label")) wrap.appendChild(el("p", "note", "Claude didn't propose any changes."));
     box.appendChild(wrap);
     var bar = el("div", "noteactions"), write = el("button", "primary", "Write to the sprint plan"); write.type = "button";
@@ -922,12 +928,21 @@ footer a { color: var(--accent); }
     });
   }
   function applyPlan(wrap) {
-    var plan = ask.plan, pick = { newProjects: {}, addSteps: {}, updates: {} };
+    var plan = ask.plan, pick = { newProjects: {}, addSteps: {}, updates: {}, context: {} };
     Array.prototype.forEach.call(wrap.querySelectorAll("input[type=checkbox]"), function (cb) { if (cb.checked) pick[cb.dataset.kind][cb.dataset.i] = true; });
     var author = state.me || (state.person && state.person !== "Team" ? state.person : "Brief");
     var stamp = nice(TODAY, { month: "numeric", day: "numeric" }) + " " + author + ": ";
     var req = String(ask.request || "").replace(/\s+/g, " ").slice(0, 300);
     var src = " (from the daily brief" + (req ? ": \"" + req + "\"" : "") + ")";
+    // Context notes Claude wrote per project (cleaned: no small talk, rants or personal topics) go on the
+    // project row as a comment thread; rows in those projects are tagged so lumenis-intake-filing saves
+    // each note as _Context/<ctxId>.md in the project folder. The raw transcript is never stored.
+    var slug = String(plan.contextSlug || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "daily-brief";
+    var ctxId = TODAY + "-" + slug;
+    var ctxList = (plan.context || []).filter(function (c, i) { return pick.context[i] && String(c.notes || "").trim(); });
+    var ctxKeys = ctxList.map(function (c) { return String(c.project); });
+    var hasCtx = ctxList.length > 0, ctxSaved = false;
+    function tag(projectKey) { return hasCtx && (projectKey === "*" || ctxKeys.indexOf(String(projectKey)) >= 0) ? " [needs context " + ctxId + "]" : ""; }
     var keyToId = {}, added = 0, changed = 0;
     askMsg(""); askBusy(true, "Writing your changes to the sprint plan…");
     Promise.all([getCols(), loadSprints()]).then(function (r) {
@@ -939,7 +954,7 @@ footer a { color: var(--accent); }
         var due = validDate(s.due), sp = sprintFor(due);
         return [cell("Task", s.task), cell("Step", s.step), cell("Status", STATUSES.indexOf(s.status) >= 0 ? s.status : "Not Started"), ownersCell(s.owners),
           cell("Due Date", due), sp ? cell("Sprint", sp) : null, cell("Row Type", "Task"), cell("Workstream", WORKSTREAMS.indexOf(s.workstream) >= 0 ? s.workstream : ""),
-          cell("Depends On", s.dependsOn), cell("Notes / Blocker", stamp + (s.note ? s.note : "added.") + src)].filter(Boolean);
+          cell("Depends On", s.dependsOn), cell("Notes / Blocker", stamp + (s.note ? s.note : "added.") + src + tag(s.project))].filter(Boolean);
       }
       // 1. new projects, one call each so each id comes back
       var chain = Promise.resolve();
@@ -948,7 +963,7 @@ footer a { color: var(--accent); }
         chain = chain.then(function () {
           var title = String(p.name).replace(/[:/\\*?"<>|]/g, "-") + (p.detail ? " — " + p.detail : "");
           return addRows([{ toBottom: true, cells: [cell("Task", title), cell("Status", "Not Started"), ownersCell(p.owners), cell("Due Date", validDate(p.due)), cell("Row Type", "Project"),
-            cell("Key Info", p.keyInfo), cell("CRM Campaign Name", "To look up"), cell("Notes / Blocker", stamp + "added" + src + ". [needs folder] The OneDrive folder and context note are created automatically within the hour.")].filter(Boolean) }])
+            cell("Key Info", p.keyInfo), cell("CRM Campaign Name", "To look up"), cell("Notes / Blocker", stamp + "added" + src + tag(p.key) + ". [needs folder] The OneDrive folder and context note are created automatically within the hour.")].filter(Boolean) }])
             .then(function (ids) { keyToId[p.key] = ids[0]; added++; });
         });
       });
@@ -975,7 +990,7 @@ footer a { color: var(--accent); }
             var due = validDate(u.due); if (due) { cells.push({ columnId: c["Due Date"], value: due }); var sp = sprintFor(due); if (sp) cells.push({ columnId: c["Sprint"], value: sp }); }
             var o = ownersCell(u.owners); if (o) cells.push(o);
             if (STATUSES.indexOf(u.status) >= 0) cells.push({ columnId: c["Status"], value: u.status });
-            if (u.note) { var old = cur[String(u.rowId)] || ""; var nn = (old ? old + "\n" : "") + stamp + u.note + src; if (nn.length > 3900) nn = "…" + nn.slice(nn.length - 3899); cells.push({ columnId: c["Notes / Blocker"], value: nn }); }
+            if (u.note) { var old = cur[String(u.rowId)] || ""; var nn = (old ? old + "\n" : "") + stamp + u.note + src + tag("*"); if (nn.length > 3900) nn = "…" + nn.slice(nn.length - 3899); cells.push({ columnId: c["Notes / Blocker"], value: nn }); }
             return cells.length ? { id: +u.rowId, cells: cells } : null;
           }).filter(Boolean);
           if (!rows.length) return;
@@ -986,12 +1001,35 @@ footer a { color: var(--accent); }
           });
         });
       });
+      // 4. context notes: one comment thread on each project row, split into parts if long
+      chain = chain.then(function () {
+        if (!hasCtx) return;
+        var jobs = ctxList.map(function (c) {
+          var rowId = keyToId[c.project] || ((ask.projects || []).some(function (x) { return x.id === String(c.project); }) ? String(c.project) : null);
+          return rowId ? { rowId: rowId, notes: String(c.notes).trim() } : null;
+        }).filter(Boolean);
+        return jobs.reduce(function (pr, job) {
+          var rowId = job.rowId, parts = [], size = 3600;
+          for (var k = 0; k < job.notes.length; k += size) parts.push(job.notes.slice(k, k + size));
+          var head = "Context " + ctxId + " | " + stamp.replace(/: $/, "") + " | from the daily brief. lumenis-intake-filing: save as _Context/" + ctxId + ".md in this project's folder, then replace [needs context " + ctxId + "] on this project's rows with the file path.\n\n";
+          return pr.then(function () {
+            return state.mcp.callTool("Smartsheet", "execute_discussions_write", { tool_name: "create_discussion", arguments: { sheet_id: +CONFIG.sheetId, target_type: "ROW", row_id: +rowId, discussion: { comment: { text: head + "Part 1 of " + parts.length + "\n" + parts[0] } } } }, { cache: false }).then(function (res) {
+              var d = (res && res.payload) || {}, did = ((d.result || d.data || {}).id);
+              return parts.slice(1).reduce(function (p2, t, n) {
+                return p2.then(function () { if (!did) return; return state.mcp.callTool("Smartsheet", "execute_discussions_write", { tool_name: "add_comment", arguments: { sheet_id: +CONFIG.sheetId, discussion_id: +did, comment: { text: "Context " + ctxId + " | Part " + (n + 2) + " of " + parts.length + "\n" + t } } }, { cache: false }); });
+              }, Promise.resolve());
+            });
+          });
+        }, Promise.resolve()).then(function () { ctxSaved = true; }, function () { ctxSaved = false; });
+      });
       return chain;
     }).then(function () {
       askBusy(false);
+      var ctxWarn = hasCtx && ctxSaved !== true;
       if (state.mcp.invalidate) state.mcp.invalidate("Smartsheet", "get_sheet_summary").catch(function () {});
       ask.turns = []; ask.plan = null; ask.projects = null; $("askText").value = ""; $("askReset").hidden = true;
       askMsg(""); showSuccess(added, changed);
+      if (ctxWarn) askMsg("The rows are in the plan, but the context notes couldn't be saved to Smartsheet comments, so they won't be filed. Paste the transcript to Claude to file them.");
     }).catch(function (err) {
       askBusy(false);
       askMsg(added || changed ? "Partly written: " + added + " added, " + changed + " changed. Check the sheet before trying again." : "");
