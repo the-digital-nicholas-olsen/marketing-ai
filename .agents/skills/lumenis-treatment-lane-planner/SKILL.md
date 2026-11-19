@@ -16,9 +16,10 @@ Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning s
 
 ## Tier 2 and Tier 3 shows: KOLs don't treat
 
-At Tier 2 (small) and Tier 3 (tabletop) shows, KOLs are only at the booth or table to talk with customers (Meet the Expert). Clinical trainers and trained reps do every treatment and cover each other's breaks. So for these tiers:
+At Tier 2 (small) and Tier 3 (tabletop) shows, KOLs are only at the booth or table to talk with customers (Meet the Expert). Only clinical trainers do treatments, and they cover each other's breaks; sales reps never treat. So for these tiers:
 
-- Skip steps 4 and 5 below. Size the lanes to what clinical and reps can cover; don't plan KOL treatment hours.
+- Skip steps 4 and 5 below. Size the lanes to what clinical can cover; with one trainer, the lane closes during breaks. Don't plan KOL treatment hours.
+- At Tier 3, if no clinical trainer attends, there are no treatments: tell EJ so the Calendly schedule (D9) and sign-up QR (L3) are skipped.
 - Plan **KOL booth hours** instead: 1-2 hour blocks around peak traffic, recorded in K1 Key Info as "KOL booth hours" (Tier 3: "KOL table hours").
 - Marketing usually isn't on site, so the schedule (E7) names the booth captain or attending rep as the KOLs' on-site contact.
 
@@ -28,7 +29,7 @@ Steps 4 and 5 apply to Tier 1 shows only.
 
 1. **Lanes.** With sales and clinical, decide how many lanes are open at once (usually 1-3).
 2. **Hours needed** = open lanes x show hours, per day.
-3. **Clinical coverage.** Hours each trainer treats per day, minus breaks. Clinical can't treat all day.
+3. **Clinical coverage.** Hours each trainer treats per day, minus breaks. Clinical can't treat all day. Sales reps never treat, at any tier.
 4. **(Tier 1 only) KOL hours to fill** = hours needed - clinical coverage. Only LIFT-trained KOLs. No IPL at shows: it needs an enclosed space.
 5. **(Tier 1 only) KOL role.** Decide per show and write it in Key Info:
    - **Treat:** multi-lane optometry shows (Vision Expo, Vision Source Exchange), where trainers tire and KOLs can fire the device.
@@ -45,7 +46,7 @@ Fill the K1 grid with confirmed KOLs (K4) and add every other item: Meet the Exp
 
 Owner: EJ. At Tier 1 and Tier 2, build it from the K1 lane plan in the show notes, not from E7, because the landing page form redirects to it from T-35. Tier 3 has no landing page: build one column from the E7 schedule.
 
-1. One bookable calendar per lane (or one event with as many slots per time as there are lanes), covering show hours only, with breaks blocked. Slots follow the treatment lanes (clinical and reps), not KOL hours.
+1. One bookable calendar per lane (or one event with as many slots per time as there are lanes), covering show hours only, with breaks blocked. Slots follow the clinical treatment hours, not KOL hours.
 2. Required fields: name, email, practice, city and state, so on-site and pre-show bookings both come through complete.
 3. Test: book and cancel one slot; record the link in Key Info.
 4. On site, attendees book themselves from Calendly QR codes in stanchions at the booth (L3); no calendar exports are needed. Keep Calendly signed in and live through the show.
@@ -54,7 +55,7 @@ Owner: EJ. At Tier 1 and Tier 2, build it from the K1 lane plan in the show note
 
 Tier 1: two lanes, 8 hours a day for 2 days = 32 hours. Two trainers treat 6 hours a day each = 24 hours. KOL hours to fill = 8, offered as four 2-hour blocks.
 
-Tier 2/3: a one-lane show, 8 hours a day for 2 days. One trainer and one trained rep alternate so the lane is always covered. KOLs are booked for two 2-hour booth blocks a day at peak traffic, to talk with customers.
+Tier 2/3: a one-lane show, 8 hours a day for 2 days. Two clinical trainers alternate so the lane is always covered (with one trainer, the lane closes during their breaks). KOLs are booked for two 2-hour booth blocks a day at peak traffic, to talk with customers.
 
 ## Boundaries
 
