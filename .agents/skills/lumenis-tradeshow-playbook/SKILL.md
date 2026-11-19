@@ -23,7 +23,7 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 | Sponsorships | Yes | Yes | No |
 | Dinner | Usually (two KOLs) | No | No |
 | KOLs | Booth (treating or talking, per K1) + dinner; social filming if the BU wants it | Booth KOLs who talk with customers; they don't treat. No filming | Table KOLs who talk with customers; they don't treat |
-| Treatments | Clinical, plus KOLs where K1 says treat | Clinical trainers and trained reps only | Clinical trainer and/or rep only |
+| Treatments | Clinical, plus KOLs where K1 says treat; never sales reps | Clinical trainers only; never sales reps or KOLs | Clinical trainer only, so none without one; never sales reps or KOLs |
 | Rooms | Team hotel block + sales huddle room | Sales boot camp room only | None |
 | Marketers on site | Two (operations + sales-facing) | Usually none: the booth captain and clinical run the booth | Usually none: the attending rep runs the table |
 | Show Days rows | Pre-flight + on-site marketing rows | L1, L3, L4 (pre-flight only; no on-site marketing rows) | L3, L4 (pre-flight only) |
@@ -50,7 +50,7 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 | Vendor artwork date known (B6) | BU artwork request (B7), artwork hand-off (B8) | Vendor date and internal date (vendor minus 10-14 days) in Key Info |
 | Venue contract signed (N4; Tier 1) | Dinner KOL choice (N5), menu, decor | Signed contract in the project folder |
 | Dinner KOL said yes (N6; Tier 1) | KOL purchase request (K3), Ted's next steps (N7) | Written yes that names the honorarium and preparation |
-| Lane plan set (K1) | Booth KOL invites (K2), treatment schedule (E7) | Tier 1: lanes, clinical hours and KOL hours to fill in Key Info. Tier 2/3: lanes, who treats (clinical and reps) and KOL booth or table hours in Key Info; no KOL treatment hours |
+| Lane plan set (K1) | Booth KOL invites (K2), treatment schedule (E7) | Tier 1: lanes, clinical hours and KOL hours to fill in Key Info. Tier 2/3: lanes, clinical treatment hours and breaks, and KOL booth or table hours in Key Info; no KOL treatment hours |
 | Lane plan in the show notes (K1; Tier 1-2) | Calendly schedule (D9), and so the booth demo form (D4) | Lanes and show hours in Key Info |
 | Treatment schedule shared (E7; Tier 3) | Calendly slots (D9) | EJ and Hannah have confirmed it |
 | BU filming answer (K5; Tier 1) | Booth and dinner KOL invites (K2, N6) | Yes or no in Key Info; a yes adds the filming line to both invites |
