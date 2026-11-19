@@ -1002,6 +1002,12 @@ footer a { color: var(--accent); }
         });
       });
       // 4. context notes: one comment thread on each project row, split into parts if long
+      function discWrite(name, args) {
+        return state.mcp.callTool("Smartsheet", name, args, { cache: false }).catch(function (e) {
+          if (e && /^(not_in_manifest|tool_error|unknown_tool|tool_not_found)$/.test(e.code)) return state.mcp.callTool("Smartsheet", "execute_discussions_write", { tool_name: name, arguments: args }, { cache: false });
+          throw e;
+        });
+      }
       chain = chain.then(function () {
         if (!hasCtx) return;
         var jobs = ctxList.map(function (c) {
@@ -1013,10 +1019,10 @@ footer a { color: var(--accent); }
           for (var k = 0; k < job.notes.length; k += size) parts.push(job.notes.slice(k, k + size));
           var head = "Context " + ctxId + " | " + stamp.replace(/: $/, "") + " | from the daily brief. lumenis-intake-filing: save as _Context/" + ctxId + ".md in this project's folder, then replace [needs context " + ctxId + "] on this project's rows with the file path.\n\n";
           return pr.then(function () {
-            return state.mcp.callTool("Smartsheet", "execute_discussions_write", { tool_name: "create_discussion", arguments: { sheet_id: +CONFIG.sheetId, target_type: "ROW", row_id: +rowId, discussion: { comment: { text: head + "Part 1 of " + parts.length + "\n" + parts[0] } } } }, { cache: false }).then(function (res) {
+            return discWrite("create_discussion", { sheet_id: +CONFIG.sheetId, target_type: "ROW", row_id: +rowId, discussion: { comment: { text: head + "Part 1 of " + parts.length + "\n" + parts[0] } } }).then(function (res) {
               var d = (res && res.payload) || {}, did = ((d.result || d.data || {}).id);
               return parts.slice(1).reduce(function (p2, t, n) {
-                return p2.then(function () { if (!did) return; return state.mcp.callTool("Smartsheet", "execute_discussions_write", { tool_name: "add_comment", arguments: { sheet_id: +CONFIG.sheetId, discussion_id: +did, comment: { text: "Context " + ctxId + " | Part " + (n + 2) + " of " + parts.length + "\n" + t } } }, { cache: false }); });
+                return p2.then(function () { if (!did) return; return discWrite("add_comment", { sheet_id: +CONFIG.sheetId, discussion_id: +did, comment: { text: "Context " + ctxId + " | Part " + (n + 2) + " of " + parts.length + "\n" + t } }); });
               }, Promise.resolve());
             });
           });
