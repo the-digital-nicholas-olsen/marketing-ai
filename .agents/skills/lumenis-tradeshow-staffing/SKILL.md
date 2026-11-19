@@ -23,7 +23,7 @@ With no marketer on site, name an owner for each job on the roster and confirm i
 | Print and set out the consent and Calendly QR signs (L3) | Booth captain or clinical trainer | Attending rep or clinical trainer |
 | Bring clinical supplies to the booth (F7) | Clinical trainer | Clinical trainer or rep |
 | Keep the front desk or table staffed, including breaks | Booth captain | Attending rep(s) |
-| Treatments, and covering each other's breaks | Clinical trainers and trained reps (KOLs don't treat) | Clinical trainer and/or rep (KOLs don't treat) |
+| Treatments, and covering each other's breaks | Clinical trainers only (sales reps and KOLs never treat) | Clinical trainer only; no clinical trainer means no treatments (sales reps and KOLs never treat) |
 
 KOLs at Tier 2/3 shows only talk with customers. Their booth or table hours come from the lane plan (K1), not from this roster.
 
