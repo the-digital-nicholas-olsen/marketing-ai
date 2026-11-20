@@ -2,9 +2,9 @@
 
 Owner: Kaelyn Gray (Vision event marketing).
 Proposed reviewer: Nicholas Olsen.
-Status: draft, written 2026-10-30 from Kaelyn's working reference. Mimeo behavior below was observed, not documented by Mimeo, so recheck it before relying on it.
+Status: draft, written 2026-10-30 from Kaelyn's working reference; warehouse-first sourcing, the shared-folder fallback and the ship-to steps added 2026-11-20 after a live Accelerate order. Mimeo behavior below was observed, not documented by Mimeo, so recheck it before relying on it.
 
-This is how to turn a print plan in Smartsheet into a checked Mimeo cart, then submit it.
+This is how to turn a print plan in Smartsheet into a checked Mimeo cart with its ship-to address, then hand it off for the delivery date and submission.
 
 **Applies to:** Vision Mimeo account. Aesthetics requires its owner's confirmation before applying these settings.
 
@@ -14,14 +14,16 @@ This is how to turn a print plan in Smartsheet into a checked Mimeo cart, then s
 
 - A Mimeo login. The person signs in; the AI never handles the password.
 - Access to the print planning sheet, in Vision Marketing Events > Print Planner. Sheet links stay in the internal work system.
-- The show or order name, the ship-to address and the date the prints are needed.
+- The show or order name and the date the prints are needed.
+- Access to the event's **Shipping** sheet in the event's own Smartsheet folder (for example, Accelerate Marketing Events > `<year>` Accelerates > `<NN City>` > Shipping). Its **Shipping Address** column holds the ship-to address and any ATTN or C/O line.
 
 ## Rules
 
-1. **Stage the cart, then stop.** An AI builds and checks the cart. It does not click **Continue** or submit the order unless the person says so. Ordering and paying are a person's job.
+1. **Stage the cart and the ship-to address, then stop at the delivery date.** An AI builds and checks the cart and, when asked, enters the ship-to address. It stops on the **Delivery** step, before a delivery date or shipping method is chosen. Choosing the delivery date, ordering and paying are a person's job.
 2. **Only rows with a positive whole-number quantity get ordered; zero and blank mean omit, and negative or ambiguous values are flagged.** Everything else on the sheet is out of scope.
-3. **Search again for every order.** Do not reuse last time's folder or copy.
-4. **Never save from the editor.** Clicking an item name opens **Build A Document**. Leave with **Cancel**. **Save** and **Save As New** change the stored library copy.
+3. **Warehouse stock first.** When an item exists as an `Inventoried Item` (warehouse stock), order from stock instead of printing a new copy, even if a printable copy has the exact sheet name. For example, a clinical studies book with warehouse stock is ordered from the warehouse, not reprinted. Print a new copy only when there is no warehouse item or the stock shown on the cart line ("(N QTY available)") can't cover the quantity; flag a shortfall instead of silently splitting.
+4. **Search again for every order.** Do not reuse last time's folder or copy.
+5. **Never save from the editor.** Clicking an item name opens **Build A Document**. Leave with **Cancel**. **Save** and **Save As New** change the stored library copy.
 
 ## The procedure
 
@@ -52,12 +54,15 @@ To search:
 2. Search for the 9-digit product code when the item has one. It is far more reliable than the name.
 3. Click **Search**. Pressing Enter does not submit.
 4. Read full names from the page text. The grid cuts long names off, which is how LETTER and A4 get mixed up.
+5. **If an item isn't found in My Library, check Folders Shared To Me.** Select **Folders Shared To Me** in the tree and search again there; some items, especially warehouse stock, are shared from another account rather than stored in My Library. Only report an item as missing after both places come back empty.
+
+Selecting a folder in the tree closes the search panel. Click **Search** in the toolbar again before the next search.
 
 For each result, check:
 
 - **Found In Folder:** which set it belongs to.
 - **Created and Last Modified:** a later modification is a reason to inspect its settings, not proof of what changed or which version is approved. A change dated today deserves a look.
-- **Type:** `Bound Document`, `Single Sheet`, `Kit`, `Poster`, `Printfile` or `Inventoried Item`. A `Printfile` is a raw upload, not a configured product, so it is almost never the one you want.
+- **Type:** `Bound Document`, `Single Sheet`, `Kit`, `Poster`, `Printfile` or `Inventoried Item`. A `Printfile` is a raw upload, not a configured product, so it is almost never the one you want. An `Inventoried Item` is warehouse stock and wins over a printable copy (rule 3). Warehouse items can have a slightly different name from the sheet, such as a `Lumenis` prefix, so search on the distinctive words too.
 
 Pick the source folder from what the search returns that day. Folders drift: copies get moved or deleted, and an item may have one copy left. If an item has more than one good copy, say which you picked and why at handoff. Quote items with 9-digit codes have consistently lived in **Quotes**, each next to a raw Printfile.
 
@@ -78,14 +83,14 @@ Open the cart icon, then **Checkout**. Despite the "Order Checkout" heading, thi
 
 Type each quantity, then click **Update** at the bottom. **This step is required.** A typed quantity looks right, but it isn't saved, and leaving or reloading the page puts it back to 1. After Update, every line's **Total** should recalculate. If it didn't, the quantity didn't save.
 
-The page also has **Set Qty for All**, **Empty Cart**, **Add More Items** and **Remove**. **Continue** moves into the real order flow, so click it only when you mean to order.
+The page also has **Set Qty for All**, **Empty Cart**, **Add More Items** and **Remove**. **Continue** moves into the order flow (step 8). Nothing is placed until the final submit, but click it only when the cart is checked and you're asked to enter the ship-to.
 
 ### 6. Check each line by product type
 
 | Type | What to check |
 |---|---|
 | **Kit** | Has a setup fee and adds about 24 hours of production. Expand **Show Items** and compare the contents to the sheet. The packaging setting there, such as *Shrinkwrap entire kit*, shows whether "plastic wrap together" is already built in. |
-| **Inventoried item** | Warehouse stock such as table throws and banners. Has a setup fee and adds about 4 hours. Don't order more than the "(N QTY available)" on the line. |
+| **Inventoried item** | Warehouse stock such as table throws, banners, pens, lanyards and stocked books. Preferred over printing (rule 3). Has a setup fee and adds about 4 hours. Don't order more than the "(N QTY available)" on the line. |
 | **Bound document, single sheet, booklet, poster** | Standard print products. |
 | **Printfile** | Raw PDF with no build settings. Generally not what you want. |
 
@@ -95,9 +100,33 @@ Unit prices drift between orders. Check the unit price before assuming a differe
 
 Mimeo shows a banner on the cart when the order is at risk, with a submit-by time and the earliest delivery date. The slowest line sets the production time, so one kit can push the whole order out a day. The delivery date moves later each day the order waits. Compare it to the date you need.
 
-### 8. Hand off or submit
+### 8. Enter the ship-to address
 
-An AI stops here and reports the items, the copy choices it made and anything unresolved. The person sets the recipient and shipping address, reviews the order and submits it.
+Pull the address from the event's **Shipping** sheet (Smartsheet, in the event's folder), **Shipping Address** column. If it still holds a placeholder such as `GUEST NAME`, or no hotel name, stop and ask; don't guess who the boxes are held under.
+
+1. On the cart, click **Continue**.
+2. **Special Instructions:** leave every option unticked unless the person asks for one. They include do-not-ship, warehouse-return and discard instructions.
+3. **Recipients:** search **Your Address Book** for the hotel or city first and reuse a matching, current entry. Otherwise click **Create New Recipient**.
+4. Fill the label fields so the hotel can match the box to the guest. Only the fields above "The following fields do not appear on the shipping label" print:
+
+| Field | Enter | Example |
+|---|---|---|
+| **First Name** | The guest the hotel holds the boxes for, full name | `Jane Doe` |
+| **Last Name** | `Lumenis` | `Lumenis` |
+| **Company** | Leave blank unless the Shipping sheet gives one | |
+| **Address 1** | Street address | `100 Example Plaza` |
+| **Address 2** | The hotel name, plus any C/O or ATTN note from the Shipping sheet | `Example Hotel Downtown` |
+| **City / State / Zip** | From the Shipping sheet | |
+| **Daytime Phone Number** | Required. The person's own number, given by them; an AI never invents one | |
+| **Display Name** | Leave blank | |
+
+Put any C/O or ATTN note in the name fields or on **Address 2**, never only in **Care of**, **Reference** or **Display Name**, so it shows on the shipping label.
+
+5. Keep Mimeo's save option as it is unless the person says otherwise, then continue to **Delivery**.
+
+### 9. Stop at the delivery date
+
+An AI stops on the **Delivery** step, before a delivery date or shipping method is selected, and reports the items, the copy choices it made (including any warehouse-versus-print decisions), the ship-to entered and anything unresolved. The person picks the delivery date against the hotel's package-receiving dates, reviews the summary and submits.
 
 ## Naming traps
 
@@ -140,13 +169,19 @@ Compare the name to the cell text character for character. To find a replacement
 
 Good: "`Example Product Brochure LETTER` is in the cart at 25, Total recalculated after Update. Two copies existed; I used the Quotes copy because the other was changed for one past show. Delivery date meets the show. Not submitted."
 
+Good: "The clinical studies book has warehouse stock (54 available), so I used the inventoried item instead of printing one. One item wasn't in My Library; I found it in Folders Shared To Me. Ship-to entered from the Shipping sheet with the guest name on the name line and the hotel on Address 2. Stopped at the delivery date."
+
 Avoid: "Added everything from Print Planner like last time and typed in the quantities." No search was rerun, the wrong copies may be in the cart, and without Update every line is still a quantity of 1.
+
+Avoid: printing a new copy of a book that has warehouse stock, or putting the hotel name or ATTN note only in **Care of** or **Display Name**, where it doesn't reach the label.
 
 ## Checklist
 
 - [ ] Use positive whole-number quantities and flag invalid values
 - [ ] Open the cart and check what's already there
 - [ ] Search each item with My Library selected; check folder, dates and type
+- [ ] Search Folders Shared To Me for anything not found in My Library
+- [ ] Use the warehouse (`Inventoried Item`) copy over printing whenever stock covers the quantity
 - [ ] Confirm 9-digit codes where present
 - [ ] Read full names from the page text for near-identical results
 - [ ] Choose the source folder from today's results and note judgment calls
@@ -156,9 +191,12 @@ Avoid: "Added everything from Print Planner like last time and typed in the quan
 - [ ] Confirm every line's Total recalculated
 - [ ] Expand **Show Items** on each kit; check contents and packaging
 - [ ] Check stock on inventoried lines
-- [ ] Set the recipient and shipping address (person)
 - [ ] Compare the production banner to the needed date
-- [ ] Submit, or hand off for approval (person)
+- [ ] Leave Special Instructions unticked unless asked
+- [ ] Pull the ship-to from the event's Shipping sheet; stop if it has a placeholder
+- [ ] Guest name in First Name, `Lumenis` in Last Name, hotel name on Address 2; Display Name blank
+- [ ] Phone number from the person (required, not printed)
+- [ ] Stop at the Delivery step; the person picks the delivery date and submits
 
 Before staging, verify the approved revision, country, audience, print settings and asset clearance with the owner or approved record. Missing clearance blocks that item.
 
@@ -170,3 +208,4 @@ Open items:
 
 - The folder names here may predate the October 2026 library reorganization. They should be checked against the current structure.
 - No Aesthetics or second-person run has tested this guide.
+- The Delivery step itself (date and shipping-method options) hasn't been documented yet, because the guide stops before it.
