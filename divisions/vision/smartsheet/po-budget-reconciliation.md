@@ -1,7 +1,7 @@
 # Vision trade show PO-to-budget reconciliation
 
 - Division: US Vision Marketing. Do not apply this procedure to Aesthetics or Hospital budgets.
-- Scope: trade show Master Budgets only. Accelerate budgets are out of scope.
+- Scope: trade show Master Budgets, plus the Vision KOL lines on Accelerate Master Budgets (see [Accelerate budgets: Vision KOL lines only](#accelerate-budgets-vision-kol-lines-only)). Everything else on Accelerate budgets is out of scope. Only PRs on the Vision Marketing cost center are in scope. Skip PRs whose quarter code ends in `A` instead of `V` (for example `Q426A`): they are Aesthetics items, so they get no tracker row, no Master Budget write and no "missing" flag, even when the event is shared. If one is already on a Vision tracker, ask the subject owner before removing it.
 - System: Smartsheet PR tracking sheets (one for 2026, one for 2027), trade show Master Budgets and the Vision budget trackers (FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder). Actual PO/PR numbers, amounts, payees, identifiers, links and audit findings remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: reviewed Vision workflow guidance.
@@ -35,13 +35,17 @@ Check both tracking sheets on every run, at every status that has a PO. A PO can
 - **2026 sheet:** include every non-cancelled row with a PO; the observed statuses include `PO Created, Pending Invoice`, `Invoice Received, Sent to AP`, `Payment Issued, Process Complete` and `Invoice Received, Correction Needed`, read all currently available statuses and confirm no PO-bearing status was omitted. Read `Quarter`, `Vendor`, `Header Text`, `Category`, `PR#`, `Valuation Price` and `PO#`.
 - **2027 sheet:** it holds every business area, so filter `BusArea` to `VIS`. The description column is `Header Data`, and quarter codes read `Q127VIS` instead of `Q127V`. Status names can carry a bracketed prefix, so match on the words after it. Include `Partial PO amount left over (see notes)`.
 
-Skip cancelled PRs and PRs with no PO# in this pass. Count a PO logged on both sheets once. Confirm that results are complete, not sampled or truncated. Use the description to identify the likely event and confirm ambiguous matches.
+Skip cancelled PRs and PRs with no PO# in this pass. Count a PO logged on both sheets once. Confirm that results are complete, not sampled or truncated. Connector sheet summaries sample once a pull goes above roughly 250 rows, so split large pulls (for example by quarter, or with a cost center filter) until each part comes back unsampled. Use the description to identify the likely event and confirm ambiguous matches.
 
 ## 2. Collect trade show Master Budgets
 
 Browse the Vision events workspace each run so new trade show folders are included. The usual layout is `Line Item / Projected Cost / Actual Cost / Notes / PR/PO`; the last column may be titled `PR / PO #`.
 
 Confirm all relevant rows were retrieved. Parse complete PO numbers from references such as `PO: <number>` or `PO: <number> & <number>` and match exactly. A prefix or substring is only a search aid.
+
+### Accelerate budgets: Vision KOL lines only
+
+Accelerate Master Budgets live in the Accelerate events workspace (`<Year> Accelerates > <City> > Master Budget`). Read them on every run for **Vision KOL lines only**: honoraria and travel for Vision KOLs on the Vision Marketing cost center. Put each ready PO on the matching KOL line's PR/PO cell (replace `PR In` or fill a blank) and add `PR In` for a submitted KOL PR with no PO yet, exactly as for trade shows (sections 6 and 7). Leave every other line alone: venue, AV, hotel, food and beverage, totals and the other division's KOLs. The over-pool check (section 4) stays trade-show only.
 
 ## 3. Find missing POs
 
@@ -116,7 +120,7 @@ Section 6 swaps `PR In` for the PO once the PR has one.
 
 ## 8. Update the Vision budget tracker (every run)
 
-Each fiscal year has its own tracker and dashboard: FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder. Each tracker feeds its dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace. Skip Accelerates. Skip PRs whose quarter code has an `A` instead of a `V` (such as `Q426A`). They aren't Vision budget items, so they aren't tracked. Use the tracker for the event's fiscal year, from the quarter code (`Q426V` = FY26, `Q127V` = FY27). Both trackers use the same Budget Line codes.
+Each fiscal year has its own tracker and dashboard: FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder. Each tracker feeds its dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace, plus Accelerate PRs, which go under the Accelerate's workshop budget line. Skip PRs on any cost center other than Vision Marketing: no row, no note and no Done marker, and say in the report which were skipped. A PR whose tracking-sheet cost center is a known typo, confirmed by the subject owner, is treated as Vision Marketing. Skip PRs whose quarter code has an `A` instead of a `V` (such as `Q426A`). They aren't Vision budget items, so they aren't tracked. Use the tracker for the event's fiscal year, from the quarter code (`Q426V` = FY26, `Q127V` = FY27). Both trackers use the same Budget Line codes.
 
 Two category columns:
 
@@ -163,6 +167,7 @@ Report only what needs attention. If nothing does, say so in one line. Leave out
 - Allocation tables for pools that aren't over.
 - The no-budget-to-compare list.
 - Possibly misfiled POs, unless asked.
+- Duplicate PRs the subject owner has already accepted. Keep their tracker rows and keep refreshing their PO# and status, but don't flag them, don't delete them and don't put their POs on a Master Budget. The list of accepted duplicates stays in the internal work system.
 - Data issues on POs that aren't for a Master Budget item.
 
 ## Optional: check remaining SAP funds
