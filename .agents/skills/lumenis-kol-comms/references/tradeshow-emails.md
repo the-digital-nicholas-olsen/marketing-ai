@@ -16,7 +16,7 @@ Recurring brackets:
 
 | Step | Message | Timing | Sender |
 |---|---|---|---|
-| K2 | Booth invitation | T-75 | Kaelyn or Nicholas |
+| K2 | Booth invitation | T-75 (Tier 3: T-60), after the schedule (E7) | Kaelyn or Nicholas |
 | K4 | Booth confirmation (paper trail) | After they accept; reminder a week before | Kaelyn |
 | N6 | Dinner invitation | T-85 | Kaelyn |
 | N7 | Dinner next steps | After they accept | Ted |
@@ -38,7 +38,7 @@ If that works for you, just reply here and I'll confirm the details.
 Thank you,
 [Sender]
 
-*Notes:* don't turn down an RSM's recommendation. Offer the block length the lane plan needs (E9): at Tier 2/3 shows these are KOL booth (or table) hours, usually 1-2 hours at peak traffic. Avoid overlap with other KOLs. Tier 3: say "table" instead of "booth" throughout.
+*Notes:* don't turn down an RSM's recommendation. Offer an open KOL block from the show and treatment schedule (E7), which is built from the lane plan (E9) before any invite goes out: at Tier 2/3 shows these are KOL booth (or table) hours, usually 1-2 hours at peak traffic. Avoid overlap with other KOLs. Tier 3: say "table" instead of "booth" throughout.
 
 ## K4 Booth confirmation
 
