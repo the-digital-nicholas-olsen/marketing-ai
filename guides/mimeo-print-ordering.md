@@ -122,11 +122,29 @@ Pull the address from the event's **Shipping** sheet (Smartsheet, in the event's
 
 Put any C/O or ATTN note in the name fields or on **Address 2**, never only in **Care of**, **Reference** or **Display Name**, so it shows on the shipping label.
 
-5. Keep Mimeo's save option as it is unless the person says otherwise, then continue to **Delivery**.
+5. Keep Mimeo's save option as it is unless the person says otherwise and click **Save**.
+6. Mimeo checks the address against USPS and offers **Keep Original Address** or **Use Recommended Address**. Use the recommended one when it only reformats the street, adds the ZIP+4 and keeps the guest and hotel lines; only the recommended address carries Mimeo's delivery guarantee. If it drops or changes the name or hotel line, keep the original and say so.
+7. Under **View Recipients**, confirm the order has exactly the one intended recipient, then click **Continue**.
 
 ### 9. Stop at the delivery date
 
-An AI stops on the **Delivery** step, before a delivery date or shipping method is selected, and reports the items, the copy choices it made (including any warehouse-versus-print decisions), the ship-to entered and anything unresolved. The person picks the delivery date against the hotel's package-receiving dates, reviews the summary and submits.
+The **Delivery** page ("Choose Shipping") shows the turnaround, the earliest estimated delivery, the validated shipping address, a list of delivery dates and times with a shipping cost for each, and a signature preference per package. One date may already be marked; it can be the fastest and most expensive option, so don't take it as a recommendation.
+
+An AI stops here, before a delivery date, shipping option or signature preference is selected. It reports the items, the copy choices it made (including any warehouse-versus-print decisions), the ship-to entered, the date options with their costs, the submit-by time and anything unresolved. The person picks the delivery date against the hotel's package-receiving dates, reviews the summary and submits.
+
+### 10. Log the order number
+
+When the person places the order, they give the AI the Mimeo order number. The AI logs it in the event's **Shipping** sheet as a new row:
+
+| Column | Enter |
+|---|---|
+| **Item** | What was ordered, such as `Mimeo print + supplies order` |
+| **Tracking #** | Leave blank until the order ships |
+| **Order Date** | The day the order was placed |
+| **Shipping Address** | The ship-to as validated in Mimeo |
+| **Notes** | `Mimeo Order # <number>`; tracking to follow |
+
+Add a row rather than overwriting the existing ship-to row, then read it back. When the order ships, add the tracking number to that row and to the sprint plan task that tracks the order.
 
 ## Naming traps
 
@@ -196,7 +214,9 @@ Avoid: printing a new copy of a book that has warehouse stock, or putting the ho
 - [ ] Pull the ship-to from the event's Shipping sheet; stop if it has a placeholder
 - [ ] Guest name in First Name, `Lumenis` in Last Name, hotel name on Address 2; Display Name blank
 - [ ] Phone number from the person (required, not printed)
-- [ ] Stop at the Delivery step; the person picks the delivery date and submits
+- [ ] Use the USPS-recommended address if it keeps the guest and hotel lines
+- [ ] Stop at the Delivery step; report the date options and costs; the person picks the delivery date and submits
+- [ ] Log the order number the person gives you as a new row in the event's Shipping sheet; add tracking when it ships
 
 Before staging, verify the approved revision, country, audience, print settings and asset clearance with the owner or approved record. Missing clearance blocks that item.
 
@@ -208,4 +228,4 @@ Open items:
 
 - The folder names here may predate the October 2026 library reorganization. They should be checked against the current structure.
 - No Aesthetics or second-person run has tested this guide.
-- The Delivery step itself (date and shipping-method options) hasn't been documented yet, because the guide stops before it.
+- The **Summary & Payment** step after Delivery isn't documented; the person handles it.
