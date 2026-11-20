@@ -1,7 +1,7 @@
 # Vision trade show PO-to-budget reconciliation
 
 - Division: US Vision Marketing. Do not apply this procedure to Aesthetics or Hospital budgets.
-- Scope: trade show Master Budgets, plus the Vision KOL lines on Accelerate Master Budgets (see [Accelerate budgets: Vision KOL lines only](#accelerate-budgets-vision-kol-lines-only)). Everything else on Accelerate budgets is out of scope. Only PRs on the Vision Marketing cost center are in scope.
+- Scope: trade show Master Budgets, plus the Vision KOL lines on Accelerate Master Budgets (see [Accelerate budgets: Vision KOL lines only](#accelerate-budgets-vision-kol-lines-only)). Everything else on Accelerate budgets is out of scope. Only PRs on the Vision Marketing cost center are in scope. Skip PRs whose quarter code ends in `A` instead of `V` (for example `Q426A`): they are Aesthetics items, so they get no tracker row, no Master Budget write and no "missing" flag, even when the event is shared. If one is already on a Vision tracker, ask the subject owner before removing it.
 - System: Smartsheet PR tracking sheets (one for 2026, one for 2027), trade show Master Budgets and the Vision budget trackers (FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder). Actual PO/PR numbers, amounts, payees, identifiers, links and audit findings remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: reviewed Vision workflow guidance.
