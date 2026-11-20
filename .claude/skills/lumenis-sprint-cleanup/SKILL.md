@@ -15,9 +15,9 @@ Runs every Monday morning before the sprint meeting, so the team opens a plan th
 
 In the team's sprint plan workspace (for Vision: *Vision Marketing Sprint Plans*), found by Smartsheet search:
 
-- **Sprint Plan (Live):** every step of every active campaign. Has Done, Status, Due Date, **Date Completed** and Sprint columns.
+- **Sprint Plan (Live):** every step of every active campaign. Has Done, Status, Due Date, **Date Completed**, Sprint and the [date log](../lumenis-sprint-intake/references/date-log.md) columns (**Original Due Date**, **Date Log**, automatic **Times Rescheduled**).
 - **Backlog:** one row per upcoming campaign, grouped by campaign (a parent row with its pieces under it). **Moves to Live** is the date the campaign comes onto the live plan; **Template** names its campaign template; **Moved to Live Plan** is ticked once it is there.
-- **Archive:** same columns as the live plan plus **Archived On** and a **Days Late** formula (Date Completed minus Due Date).
+- **Archive:** same columns as the live plan plus **Archived On**, a **Days Late** formula (Date Completed minus the last Due Date) and **Days Late vs Original** (Date Completed minus Original Due Date, the true lateness).
 - **Sprints & Outages:** one row per weekly sprint (Monday to Sunday) with who is out.
 - **Campaign Templates** folder: TEMPLATE - Webinar, Accelerate, Tradeshow.
 
@@ -34,6 +34,7 @@ Work in this order; each step reads the sheet fresh.
    - Status Complete but Done unticked: tick Done.
    - Complete with Date Completed blank: use the date Done or Status changed to complete from cell history; if history isn't available, use today and say so in the report.
    - A future event step ticked Done (for example "The show has run" before the show date): don't change it; list it in the report as probably ticked by mistake.
+   - Due Date set but Original Due Date blank: copy Due Date into Original Due Date and add `M/D Claude: due set <date> (filled by cleanup)` to Date Log. Report the count; a high count means someone is adding rows without the [date log](../lumenis-sprint-intake/references/date-log.md).
 4. **Move due Backlog campaigns onto the live plan.** For each Backlog row with Moved to Live Plan unticked, Stage not Dropped or On Hold, and Moves to Live on or before this Sunday:
    - **Template campaign:** run [lumenis-sprint-plan-setup](../lumenis-sprint-plan-setup/SKILL.md) with the row's Template, event date and project name. The whole campaign comes over at once, every step, even those due months later; that is intended.
    - **No template:** add a Project row and one Task row per deliverable in the Backlog row's Summary and Next Step, with owners and due dates from the Backlog row.
@@ -41,7 +42,7 @@ Work in this order; each step reads the sheet fresh.
    - After a copy succeeds and reads back, tick Moved to Live Plan, set Stage On Live Plan and note the date in Notes.
    - A parent (campaign group) row never moves; its children move on their own dates.
 5. **Archive finished projects.** A project is finished when every Task and Subtask row under it is Complete or Dropped and its event or due date has passed (open questions can stay open; list them). For each finished project:
-   1. Copy the Project row and every row under it to Archive, in order, keeping the hierarchy and every column. Set Archived On to today.
+   1. Copy the Project row and every row under it to Archive, in order, keeping the hierarchy and every column, including Original Due Date and Date Log (Times Rescheduled and both Days Late columns are formulas on the Archive; don't write them). Set Archived On to today.
    2. Read back the Archive rows and confirm the count matches.
    3. Only then delete those rows from the live plan, at most 10 per call, children before parents.
    4. On the Backlog row for that project, add "Archived <date>" to Notes.
@@ -54,7 +55,8 @@ Work in this order; each step reads the sheet fresh.
 Sprint cleanup, Mon <date>
 
 Opened sprint <this Monday> (added <next Monday> to the picklist). 38 steps tagged for this week.
-Fixed: 4 rows ticked Done but not Complete; 6 Date Completed filled (2 from today, no history).
+Fixed: 4 rows ticked Done but not Complete; 6 Date Completed filled (2 from today, no history); 3 Original Due Dates filled.
+Moved most: <step> (<campaign>) rescheduled 3 times, now 12 days past its original date.
 Moved to the live plan: <campaign> (no template, 2 tasks).
 Waiting for your OK (move date passed more than 14 days ago): <campaign> (T-120 was <date>), ...
 Archived: <campaign> (96 rows). 2 open questions left on it.
@@ -68,3 +70,4 @@ Check: "The show has run" is ticked Done but the show is next month.
 - Silently copying a long-overdue campaign onto the plan, flooding everyone's brief with late steps.
 - Moving dates to avoid weekends; templates use calendar days and the owner decides.
 - Overwriting a teammate's Sprint, owner or notes edits.
+- Changing Original Due Date or editing earlier Date Log lines. They are the record.

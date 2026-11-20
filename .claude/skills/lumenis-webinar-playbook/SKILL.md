@@ -30,7 +30,7 @@ The [daily brief](../lumenis-daily-brief/SKILL.md) is per person across all camp
    - **AI drafts, human approves:** run the agent to draft, set Status = Ready for Review, and tell the owner where the draft is. It becomes Complete only after the owner sends, schedules, imports or publishes.
    - **Human only:** remind the owner with what they need (links, Key Info), and offer to prepare anything around it.
 4. **Respect the gates** below even when a date says a step is due.
-5. **Write back.** Fill Key Info blanks as values become known (event ID, campaign IDs, links), and put blockers in Notes / Blocker. Never change another person's completed row.
+5. **Write back.** Fill Key Info blanks as values become known (event ID, campaign IDs, links), and put blockers in Notes / Blocker. Never change another person's completed row. Log every start, block, finish and due-date move in Date Log, and keep Original Due Date as it is ([date log](../lumenis-sprint-intake/references/date-log.md)). When the event date moves, recompute each open step's Due Date from Days from Event and log each move with the reason "event moved to <date>"; a catch-up plan gets its own line per step.
 
 Steps without an agent of their own use the references here:
 
