@@ -52,13 +52,17 @@ For any invoice, check existing files and budget records for the same vendor, in
 
 ## 3. Convert Word documents to PDF
 
-If the invoice is a `.doc` or `.docx`, convert a copy to PDF, inspect the rendered PDF and retain the original Word file in the authorized work folder. Never delete the source. On Windows, Word's `ExportAsFixedFormat` with format 17 does this. Existing invoices outside the request remain unchanged.
+If the invoice is a `.doc` or `.docx`, convert it to PDF and inspect the rendered PDF. Once the PDF checks out, delete the Word file from the Invoices folder, so only the PDF is filed and linked (subject owner's rule, 2026-11-20). If the PDF doesn't render correctly, keep the Word file and ask. On Windows, Word's `ExportAsFixedFormat` with format 17 does the conversion; it also converts an image invoice opened in Word. Existing invoices outside the request remain unchanged.
 
 ## 4. Save it to the event's Invoices folder
 
 Copy the PDF to the event's **Invoices** folder in the shared work folder (for trade shows, **Campaigns > <Show> <Year> > Invoices**; for webinars, the project folder's `Invoices/`). If the event has no Invoices folder, ask where it goes.
 
-KOL and luminary invoices, at every event type, are named `YYYY.MM.DD - <Name> Luminary Invoice <EVENT>.pdf`, using the invoice date. Add `-2` before `.pdf` for a corrected invoice. Other invoices copy the style of the files already in the folder.
+KOL and luminary invoices, at every event type, are named `YYYY.MM.DD - <Name> Luminary Invoice <EVENT>.pdf`, using the invoice date. Add `-2` before `.pdf` for a corrected invoice. Other invoices copy the style of the files already in the folder, for example `<Line Item> - <invoice number>.pdf` for vendor installments, or `<Line Item> Receipt.pdf` for a card payment receipt.
+
+**Year folders differ.** In the shared Vision library, 2026 campaigns sit under `<Year>/Campaigns/`, but 2027 campaigns sit under `2027/2027 Campaigns/<Show> 2027/`. A `2027/Campaigns` folder also exists but is empty; don't file there. Check the current folder name before saving, because show folders get renamed (which also breaks existing links; re-point them when that happens).
+
+If the year's library isn't synced to the computer, stage the renamed PDF locally and ask the person to drag it into the SharePoint folder, then continue once it's there.
 
 ## 5. Log it on the Master Budget
 
@@ -68,8 +72,8 @@ Find the existing matching line item on the budget from step 1. If multiple line
 
 | Column | Enter |
 |---|---|
-| **Notes** | The file name as text, hyperlinked to the file in SharePoint. The link must point to the PDF. If Notes says "Invoice Requested", replace that placeholder with the link; preserve other notes and earlier invoice links. |
-| **Actual Cost** | Reconciled cumulative invoiced cost for this line, including prior distinct invoices and credits once. Do not overwrite prior actuals with the latest invoice alone. Flag ambiguous allocations. |
+| **Notes** | The file name as text, hyperlinked to the file in SharePoint. The link must point to the PDF. If Notes says "Invoice Requested", replace that placeholder with the link; preserve other notes and earlier invoice links. Before linking, confirm the file exists at that URL. URL-encode spaces and `#` (`%23`). When two or more files back one line, link the Invoices folder instead. |
+| **Actual Cost** | Reconciled cumulative invoiced cost for this line, including prior distinct invoices and credits once. Do not overwrite prior actuals with the latest invoice alone. Flag ambiguous allocations. Vendors such as exhibition organizers bill in installments (downpayment, deposit, remainder), so a repeat amount is usually the next scheduled installment, not a duplicate: check the budget's installment lines first. A card payment's convenience fee is part of the actual cost. |
 
 **Accelerates:** the Master Budget has Line Item, Rate, PR/PO Number and Notes, and no Actual Cost column. In **Notes**, add the file name hyperlinked to the PDF in SharePoint, keeping the division tag already there (for example "Vision") and any earlier links. Leave Rate (the budgeted amount) and PR/PO Number as they are, and don't add columns. If the invoiced amount differs from Rate, say so in the report back.
 
