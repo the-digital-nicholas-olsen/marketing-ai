@@ -1,6 +1,6 @@
 ---
 title: KOL biography and headshot library
-summary: Library of 19 Lumenis KOL biographies, grouped by division, with source references and web-ready headshot candidates in the HubSpot image library.
+summary: Library of 20 Lumenis KOL biographies, grouped by division, with source references and web-ready headshot candidates in the HubSpot image library.
 status: source-derived; verify each entry before external use
 owner: Ted Carmichael
 reviewed: 2026-11-18
