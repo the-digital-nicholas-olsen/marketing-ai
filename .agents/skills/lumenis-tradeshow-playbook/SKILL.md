@@ -51,6 +51,7 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 | Venue contract signed (N4; Tier 1) | Dinner KOL choice (N5), menu, decor | Signed contract in the project folder |
 | Dinner KOL said yes (N6; Tier 1) | KOL purchase request (K3), Ted's next steps (N7) | Written yes that names the honorarium and preparation |
 | Lane plan set (E9) | Booth KOL invites (K2), treatment schedule (E7) | Tier 1: lanes, clinical hours and KOL hours to fill in Key Info. Tier 2/3: lanes, clinical treatment hours and breaks, and KOL booth or table hours in Key Info; no KOL treatment hours |
+| Show and treatment schedule built (E7) | Booth or table KOL invites (K2) | Every KOL block in the schedule has a day and time; KOL names go in as they confirm (K4) |
 | Lane plan in the show notes (E9; Tier 1-2) | Calendly schedule (D9), and so the booth demo form (D4) | Lanes and show hours in Key Info |
 | Treatment schedule shared (E7; Tier 3) | Calendly slots (D9) | EJ and Hannah have confirmed it |
 | BU filming answer (K5; Tier 1) | Booth and dinner KOL invites (K2, N6) | Yes or no in Key Info; a yes adds the filming line to both invites |
@@ -92,7 +93,7 @@ At shows with Canadian attendees, make it an unticked checkbox instead: Canadian
 
 ## L4 Pre-flight (T-1)
 
-Every row due by now is Complete or has an owner and a plan. Check: lead retrieval logins are in Smartsheet (B10); the schedule is shared (E7); Mimeo tracking shows delivery to the vendor warehouse or hotel (F4); KOLs are confirmed (K4, plus N6 at Tier 1); the demo device is confirmed (F6, Tier 3); both QR codes scan (L3: from the printed page at Tier 1; at Tier 2/3, the file went to sales and clinical by T-3 to print); the final decks are in Dropbox and the on-site presenter support has them (C22, when there's a talk); the clinical consent form carries the marketing opt-in line (D10). At Tier 2/3, also check that every on-site job has a named owner from sales or clinical (see [lumenis-tradeshow-staffing](../lumenis-tradeshow-staffing/SKILL.md)) and that they have the KOL schedule. Share the report with Kaelyn and Nicholas.
+Every row due by now is Complete or has an owner and a plan. Check: lead retrieval logins are in Smartsheet (B10); the schedule is shared and every KOL block has a confirmed name (E7); Mimeo tracking shows delivery to the vendor warehouse or hotel (F4); KOLs are confirmed (K4, plus N6 at Tier 1); the demo device is confirmed (F6, Tier 3); both QR codes scan (L3: from the printed page at Tier 1; at Tier 2/3, the file went to sales and clinical by T-3 to print); the final decks are in Dropbox and the on-site presenter support has them (C22, when there's a talk); the clinical consent form carries the marketing opt-in line (D10). At Tier 2/3, also check that every on-site job has a named owner from sales or clinical (see [lumenis-tradeshow-staffing](../lumenis-tradeshow-staffing/SKILL.md)) and that they have the KOL schedule. Share the report with Kaelyn and Nicholas.
 
 At Tier 2/3 the L4 pre-flight is the last pre-show step; post-show rows that used to wait for L6 now depend on L4.
 
