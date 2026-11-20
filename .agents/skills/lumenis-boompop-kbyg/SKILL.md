@@ -87,6 +87,8 @@ The show → **Guest Management** (left nav) → **Guest Website & RSVPs**.
 
 The top bar holds **Manage Guest Experience**, **Preview as Guest**, **Invite** and **Done**. At a narrow window it's pushed off screen, so widen the window.
 
+Section saves can start failing ("Your section failed to save") about a minute after the editor loads, because the session token doesn't refresh. Reload the editor right before each section save; the guest-website edit URL deep-links back to the editor. A reload discards unsaved text, so keep the section's text ready to re-enter. In the rich-text body, bold and underline carry over to the next line after Enter: turn them off before typing on.
+
 ### 5. Set up the hero
 
 The logo, event name, city and dates come from **Event Details**, so fix wrong values there. On the page, set the **cover photos** (replace the stock images when you have real venue or brand imagery) and **Edit color theme**. A new page usually carries the house palette already; check it against a recent show before changing it.
