@@ -21,3 +21,4 @@ Contents:
 - [Sprint plan setup](../../../.agents/skills/lumenis-sprint-plan-setup/SKILL.md) (draft): copying a campaign template onto Sprint Plan (Live) with real due dates.
 - [Sprint cleanup](../../../.agents/skills/lumenis-sprint-cleanup/SKILL.md) (draft): the Monday upkeep of the sprint plan, Backlog moves and archiving.
 - [Daily brief](../../../.agents/skills/lumenis-daily-brief/SKILL.md) (draft): each teammate's day from the sprint plan, in chat or as the team brief page.
+- [Smartsheet working tips](smartsheet-working-tips.md) (draft): Agenda sheet formats and browser fixes for what the connector can't do (view switch, folder moves, column widths).
