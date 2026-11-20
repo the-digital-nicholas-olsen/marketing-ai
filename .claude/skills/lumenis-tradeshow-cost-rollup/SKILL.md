@@ -15,17 +15,17 @@ Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning s
 | Line | Row |
 |---|---|
 | Registration | R5 |
-| Sponsorships | R8 |
-| Booth build | B5 |
-| Show services (Brex) | B5 |
+| Sponsorships (Tier 1-2) | R8 |
+| Booth build (Tier 1-2) | B5 |
+| Show services (Brex) | B5 (Tier 3: F5) |
 | Print (Mimeo) | F4 |
-| Dinner venue, food, decor | N3, N8, N9 |
+| Dinner venue, food, decor (Tier 1) | N3, N8, N9 |
 | KOL honoraria | K3 |
-| Shipping, supplies | F4, F7 |
+| Shipping, supplies | F4, plus F9 (Tier 1 booth supplies) or F7 (Tier 2 clinical supplies) |
 
 2. Mark each line Invoiced or Estimated. An estimate needs a note saying what's outstanding.
 3. Total the show and the dinner separately, then together. Write them to P11 Key Info.
-4. Draft an email to EJ (who enters the total in the Salesforce campaign, P12) and Derek (who reconciles budget vs actuals once every invoice is in, P13).
+4. Draft an email to EJ (who enters the total in the Salesforce campaign, P12) and Derek (who reconciles budget vs actuals once every invoice is in; that isn't a template step).
 
 ## Boundaries
 

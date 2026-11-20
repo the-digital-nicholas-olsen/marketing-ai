@@ -22,14 +22,14 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 | Booth | Bigger than 10x10, built by Dircy | 10x10, RS Displays | A table, no vendor |
 | Sponsorships | Yes | Yes | No |
 | Dinner | Usually (two KOLs) | No | No |
-| KOLs | Booth (treating or talking, per K1) + dinner; social filming if the BU wants it | Booth KOLs who talk with customers; they don't treat. No filming | Table KOLs who talk with customers; they don't treat |
-| Treatments | Clinical, plus KOLs where K1 says treat; never sales reps | Clinical trainers only; never sales reps or KOLs | Clinical trainer only, so none without one; never sales reps or KOLs |
+| KOLs | Booth (treating or talking, per E9) + dinner; social filming if the BU wants it | Booth KOLs who talk with customers; they don't treat. No filming | Table KOLs who talk with customers; they don't treat |
+| Treatments | Clinical, plus KOLs where E9 says treat; never sales reps | Clinical trainers only; never sales reps or KOLs | Clinical trainer only, so none without one; never sales reps or KOLs |
 | Rooms | Team hotel block + sales huddle room | Sales boot camp room only | None |
 | Marketers on site | Two (operations + sales-facing) | Usually none: the booth captain and clinical run the booth | Usually none: the attending rep runs the table |
 | Show Days rows | Pre-flight + on-site marketing rows | L1, L3, L4 (pre-flight only; no on-site marketing rows) | L3, L4 (pre-flight only) |
 | KOL card notes (P8a) | Nicholas or Ted | Sales (booth captain or RSM) | Sales (attending rep or RSM) |
-| Promotion | Flyer, landing page, one email, dinner KBYG, decks | Flyer, landing page, one email, decks only for a speaking session | No new content: Calendly sign-ups and leads only |
-| Talks | Dinner presentation and one speaking session (about 45 minutes) | Only with an educational sponsorship or speaking slot | None |
+| Promotion | Flyer, landing page, one email, dinner KBYG, decks | Flyer, landing page, one email; no decks | No new content: Calendly sign-ups and leads only |
+| Talks | Dinner presentation and one speaking session (about 45 minutes) | None | None |
 | Booth monitors | Video plan approved by Laarni; captioned files to the vendor about 30 days out | None | None |
 | PR + press | Yes (McDougall); align editor interviews with the PR agency | No | No |
 | Logistics | Vendor ships print and orders lead retrieval; Amazon booth supplies (mints, sanitizer) to the hotel | RS Displays ships print and orders lead retrieval; Amazon clinical supplies to the trainer's hotel | Order lead retrieval and electrical directly; ask the rep to bring a demo unit; Mimeo to the hotel; attendee list before and after |
@@ -47,14 +47,15 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 | Gate | Blocks | Passes when |
 |---|---|---|
 | Booth locked (R7; Tier 1-2) | Vendor brief (B1) and everything in Booth Build | Booth number and size in Key Info, matching R4 |
-| Vendor artwork date known (B6) | BU artwork request (B7), artwork hand-off (B8) | Vendor date and internal date (vendor minus 10-14 days) in Key Info |
+| Vendor artwork date known (B6; Tier 1) | BU artwork request (B7), artwork hand-off (B8) | Vendor date and internal date (vendor minus 10-14 days) in Key Info |
 | Venue contract signed (N4; Tier 1) | Dinner KOL choice (N5), menu, decor | Signed contract in the project folder |
 | Dinner KOL said yes (N6; Tier 1) | KOL purchase request (K3), Ted's next steps (N7) | Written yes that names the honorarium and preparation |
-| Lane plan set (K1) | Booth KOL invites (K2), treatment schedule (E7) | Tier 1: lanes, clinical hours and KOL hours to fill in Key Info. Tier 2/3: lanes, clinical treatment hours and breaks, and KOL booth or table hours in Key Info; no KOL treatment hours |
-| Lane plan in the show notes (K1; Tier 1-2) | Calendly schedule (D9), and so the booth demo form (D4) | Lanes and show hours in Key Info |
+| Lane plan set (E9) | Booth KOL invites (K2), treatment schedule (E7) | Tier 1: lanes, clinical hours and KOL hours to fill in Key Info. Tier 2/3: lanes, clinical treatment hours and breaks, and KOL booth or table hours in Key Info; no KOL treatment hours |
+| Show and treatment schedule built (E7) | Booth or table KOL invites (K2) | Every KOL block in the schedule has a day and time; KOL names go in as they confirm (K4) |
+| Lane plan in the show notes (E9; Tier 1-2) | Calendly schedule (D9), and so the booth demo form (D4) | Lanes and show hours in Key Info |
 | Treatment schedule shared (E7; Tier 3) | Calendly slots (D9) | EJ and Hannah have confirmed it |
 | BU filming answer (K5; Tier 1) | Booth and dinner KOL invites (K2, N6) | Yes or no in Key Info; a yes adds the filming line to both invites |
-| Talk brief set (C24; Tier 1-2) | Presenter interview (C17) or reuse of an existing deck | Presenter, length, audience, topic and new-or-reused in Key Info |
+| Talk brief set (C24; Tier 1) | Presenter interview (C17) or reuse of an existing deck | Presenter, length, audience, topic and new-or-reused in Key Info |
 
 ## Promotion rules (2026-11-04; Tier 1 and Tier 2)
 
@@ -67,9 +68,9 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 
 Tier 3 tabletops have no new promotional content.
 
-## Clinical consent opt-in (D10)
+## Clinical consent opt-in
 
-Approved by the marketing director 2026-11-04. Clinical owns the Jotform consent form; ask them to put this in small print above the submit button and link the Privacy Policy:
+Approved by the marketing director 2026-11-04. This isn't a step of its own: check it when Clinical sends the consent Jotform QR (L3), and again at the L4 pre-flight. P5 relies on it. Clinical owns the Jotform consent form; ask them to put this in small print above the submit button and link the Privacy Policy:
 
 > By submitting this form, I agree that Lumenis and its affiliates may send me marketing and promotional communications, including email, about their products, services and events. My consent is not a condition of receiving a demonstration treatment. I may withdraw my consent at any time by using the unsubscribe link in any email or by contacting Lumenis. My information will be handled in accordance with the Lumenis Privacy Policy.
 
@@ -80,19 +81,19 @@ At shows with Canadian attendees, make it an unticked checkbox instead: Canadian
 | Steps | Agent |
 |---|---|
 | C23 Meet the Experts, C19 missing bios | [lumenis-kol-profile](../lumenis-kol-profile/SKILL.md) |
-| C24, C17, C20-C22 talks | [lumenis-speaker-presentation](../lumenis-speaker-presentation/SKILL.md) |
+| C24, C17, C20-C22 talks (Tier 1) | [lumenis-speaker-presentation](../lumenis-speaker-presentation/SKILL.md) |
 | K5-K8 social filming | [lumenis-social-filming](../lumenis-social-filming/SKILL.md) |
 | M1-M2 PR | [lumenis-press-briefing](../lumenis-press-briefing/SKILL.md) |
 | B11-B12 booth monitors | [lumenis-booth-video-loop](../lumenis-booth-video-loop/SKILL.md) |
-| K1, D9 Calendly, E7 | [lumenis-treatment-lane-planner](../lumenis-treatment-lane-planner/SKILL.md) |
+| E9, D9 Calendly, E7 | [lumenis-treatment-lane-planner](../lumenis-treatment-lane-planner/SKILL.md) |
 | E1-E6 roster, rooms, badges, KBYG | [lumenis-tradeshow-staffing](../lumenis-tradeshow-staffing/SKILL.md) |
 | F2-F4, L3 print and QR signs | [lumenis-tradeshow-print-kit](../lumenis-tradeshow-print-kit/SKILL.md) |
-| P1-P5, P16 leads | [lumenis-tradeshow-leads](../lumenis-tradeshow-leads/SKILL.md) |
+| P1-P5, P16 (Tier 1) leads | [lumenis-tradeshow-leads](../lumenis-tradeshow-leads/SKILL.md) |
 | P15 floor tracker | [lumenis-tradeshow-deal-attribution](../lumenis-tradeshow-deal-attribution/SKILL.md) |
 
 ## L4 Pre-flight (T-1)
 
-Every row due by now is Complete or has an owner and a plan. Check: lead retrieval logins are in Smartsheet (B10); the schedule is shared (E7); Mimeo tracking shows delivery to the vendor warehouse or hotel (F4); KOLs are confirmed (K4, plus N6 at Tier 1); the demo device is confirmed (F6, Tier 3); both QR codes scan (L3: from the printed page at Tier 1; at Tier 2/3, the file went to sales and clinical by T-3 to print); the final decks are in Dropbox and the on-site presenter support has them (C22, when there's a talk); the clinical consent form carries the marketing opt-in line (D10). At Tier 2/3, also check that every on-site job has a named owner from sales or clinical (see [lumenis-tradeshow-staffing](../lumenis-tradeshow-staffing/SKILL.md)) and that they have the KOL schedule. Share the report with Kaelyn and Nicholas.
+Every row due by now is Complete or has an owner and a plan. Check: lead retrieval logins are in Smartsheet (B10); the schedule is shared and every KOL block has a confirmed name (E7); Mimeo tracking shows delivery to the vendor warehouse or hotel (F4); KOLs are confirmed (K4, plus N6 at Tier 1); the demo device is confirmed (F6, Tier 3); both QR codes scan (L3: from the printed page at Tier 1; at Tier 2/3, the file went to sales and clinical by T-3 to print); the final decks are in Dropbox and the on-site presenter support has them (C22, when there's a talk); the clinical consent form carries the marketing opt-in line (see Clinical consent opt-in above). At Tier 2/3, also check that every on-site job has a named owner from sales or clinical (see [lumenis-tradeshow-staffing](../lumenis-tradeshow-staffing/SKILL.md)) and that they have the KOL schedule. Share the report with Kaelyn and Nicholas.
 
 At Tier 2/3 the L4 pre-flight is the last pre-show step; post-show rows that used to wait for L6 now depend on L4.
 

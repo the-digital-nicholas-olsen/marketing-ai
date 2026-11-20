@@ -21,7 +21,7 @@ Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning s
 For each approved sponsorship list every deliverable (description copy, KOL name and bio, artwork, specs) with its deadline and owner:
 
 - **US team owns** all promotional artwork for US shows; Ted creates it and works with the KOL on any session PowerPoint.
-- **BU owns** only what the BU pays for, and the booth artwork (B7).
+- **BU owns** only what the BU pays for, and the booth artwork (B7, Tier 1; Tier 2 uses the standard RS Displays booth).
 
 Write the deadlines into R9 Key Info and add each one to the owner's rows.
 
