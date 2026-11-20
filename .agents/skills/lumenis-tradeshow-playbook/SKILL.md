@@ -32,7 +32,7 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 | Talks | Dinner presentation and one speaking session (about 45 minutes) | Only with an educational sponsorship or speaking slot | None |
 | Booth monitors | Video plan approved by Laarni; captioned files to the vendor about 30 days out | None | None |
 | PR + press | Yes (McDougall); align editor interviews with the PR agency | No | No |
-| Logistics | Vendor ships print and orders lead retrieval; Amazon booth supplies (mints, sanitizer) to the hotel | RS Displays ships print and orders lead retrieval; Amazon clinical supplies to the trainer's hotel | Order lead retrieval and electrical directly; ask the rep to bring a demo unit; Mimeo to the hotel; attendee list before and after |
+| Logistics | Vendor ships print and orders lead retrieval; Amazon booth supplies (mints, sanitizer) to SLC to ship with the devices (F9, T-70) | RS Displays ships print and orders lead retrieval; Amazon clinical supplies to SLC to ship with the devices (F7, T-70) | Order lead retrieval and electrical directly; ask the rep to bring a demo unit; Amazon clinical supplies to SLC to ship with the device when a clinical trainer attends (F7, T-70); Mimeo to the hotel; attendee list before and after |
 
 ## Procedure
 
