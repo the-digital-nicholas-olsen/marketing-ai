@@ -1,6 +1,6 @@
 ---
 name: lumenis-treatment-lane-planner
-description: Plan a tradeshow booth's treatment capacity - how many lanes are open, how many hours clinical can cover with breaks, and (Tier 1 only) how many KOL treatment hours must be backfilled, or (Tier 2/3) when KOLs are at the booth to talk with customers - then build the show and treatment schedule. Use at E9 (T-100), D9 (T-40, Calendly) and E7 (T-35) of a tradeshow. Drafts the plan; Kaelyn and Nicholas approve.
+description: Plan a tradeshow booth's treatment capacity - how many lanes are open, how many hours clinical can cover with breaks, and (Tier 1 only) how many KOL treatment hours must be backfilled, or (Tier 2/3) when KOLs are at the booth to talk with customers - then build the show and treatment schedule. Use at E9 (T-100), D9 (T-40, Calendly) and E7 (T-80 at Tier 1-2, T-65 at Tier 3) of a tradeshow. Drafts the plan; Kaelyn and Nicholas approve.
 ---
 
 # Treatment lane planner
@@ -38,9 +38,9 @@ Steps 4 and 5 apply to Tier 1 shows only.
 
 Output: one table per day (time slots x lanes, clinical or "KOL needed"), saved to the project folder; totals in E9 Key Info.
 
-## E7 Show and treatment schedule (T-35)
+## E7 Show and treatment schedule (T-80 at Tier 1-2, T-65 at Tier 3)
 
-Fill the E9 grid with confirmed KOLs (K4) and add every other item: Meet the Experts, dinner (N6), education sessions, wet labs. Avoid KOL overlap. Send to everyone attending; EJ and Hannah confirm it works for clinical. At Tier 3, the Calendly slots (D9) are built from this schedule.
+Build it from the E9 grid before the KOL invites go out (K2), so each invite offers a real time slot. Mark each KOL block as open, then add every other item: Meet the Experts, dinner (N6), education sessions, wet labs. Fill in each KOL's name as they confirm (K4), and avoid KOL overlap. Send to everyone attending; EJ and Hannah confirm it works for clinical. At Tier 3, the Calendly slots (D9) are built from this schedule.
 
 ## D9 Calendly schedule (T-40)
 
@@ -59,5 +59,5 @@ Tier 2/3: a one-lane show, 8 hours a day for 2 days. Two clinical trainers alter
 
 ## Boundaries
 
-- Drafts only. KOL invites go through [lumenis-kol-comms](../lumenis-kol-comms/SKILL.md).
+- Drafts only. KOL invites (K2) offer the open KOL blocks from the E7 schedule and go through [lumenis-kol-comms](../lumenis-kol-comms/SKILL.md).
 - KOL rates come from the row's Key Info, never from memory.
