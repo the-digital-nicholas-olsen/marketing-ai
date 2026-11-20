@@ -1,6 +1,6 @@
 ---
 name: lumenis-treatment-lane-planner
-description: Plan a tradeshow booth's treatment capacity - how many lanes are open, how many hours clinical can cover with breaks, and (Tier 1 only) how many KOL treatment hours must be backfilled, or (Tier 2/3) when KOLs are at the booth to talk with customers - then build the show and treatment schedule. Use at K1 (T-100), D9 (T-40, Calendly) and E7 (T-35) of a tradeshow. Drafts the plan; Kaelyn and Nicholas approve.
+description: Plan a tradeshow booth's treatment capacity - how many lanes are open, how many hours clinical can cover with breaks, and (Tier 1 only) how many KOL treatment hours must be backfilled, or (Tier 2/3) when KOLs are at the booth to talk with customers - then build the show and treatment schedule. Use at E9 (T-100), D9 (T-40, Calendly) and E7 (T-35) of a tradeshow. Drafts the plan; Kaelyn and Nicholas approve.
 ---
 
 # Treatment lane planner
@@ -20,12 +20,12 @@ At Tier 2 (small) and Tier 3 (tabletop) shows, KOLs are only at the booth or tab
 
 - Skip steps 4 and 5 below. Size the lanes to what clinical can cover; with one trainer, the lane closes during breaks. Don't plan KOL treatment hours.
 - At Tier 3, if no clinical trainer attends, there are no treatments: tell EJ so the Calendly schedule (D9) and sign-up QR (L3) are skipped.
-- Plan **KOL booth hours** instead: 1-2 hour blocks around peak traffic, recorded in K1 Key Info as "KOL booth hours" (Tier 3: "KOL table hours").
+- Plan **KOL booth hours** instead: 1-2 hour blocks around peak traffic, recorded in E9 Key Info as "KOL booth hours" (Tier 3: "KOL table hours").
 - Marketing usually isn't on site, so the schedule (E7) names the booth captain or attending rep as the KOLs' on-site contact.
 
 Steps 4 and 5 apply to Tier 1 shows only.
 
-## K1 Lane plan (T-100)
+## E9 Lane plan (T-100)
 
 1. **Lanes.** With sales and clinical, decide how many lanes are open at once (usually 1-3).
 2. **Hours needed** = open lanes x show hours, per day.
@@ -36,15 +36,15 @@ Steps 4 and 5 apply to Tier 1 shows only.
    - **Talk:** ophthalmology shows (AAO), where KOLs cost about $1,000/hour and don't treat in their own practices. Clinical treats; KOLs talk with customers, prospects and leadership (Hannah's recommendation).
 6. **Block length** follows the gap: up to 4-hour blocks at Vision Expo or Vision Source Exchange (Tier 1). At Tier 2/3 shows, KOL booth blocks are 1-2 hours.
 
-Output: one table per day (time slots x lanes, clinical or "KOL needed"), saved to the project folder; totals in K1 Key Info.
+Output: one table per day (time slots x lanes, clinical or "KOL needed"), saved to the project folder; totals in E9 Key Info.
 
 ## E7 Show and treatment schedule (T-35)
 
-Fill the K1 grid with confirmed KOLs (K4) and add every other item: Meet the Experts, dinner (N6), education sessions, wet labs. Avoid KOL overlap. Send to everyone attending; EJ and Hannah confirm it works for clinical. At Tier 3, the Calendly slots (D9) are built from this schedule.
+Fill the E9 grid with confirmed KOLs (K4) and add every other item: Meet the Experts, dinner (N6), education sessions, wet labs. Avoid KOL overlap. Send to everyone attending; EJ and Hannah confirm it works for clinical. At Tier 3, the Calendly slots (D9) are built from this schedule.
 
 ## D9 Calendly schedule (T-40)
 
-Owner: EJ. At Tier 1 and Tier 2, build it from the K1 lane plan in the show notes, not from E7, because the landing page form redirects to it from T-35. Tier 3 has no landing page: build one column from the E7 schedule.
+Owner: EJ. At Tier 1 and Tier 2, build it from the E9 lane plan in the show notes, not from E7, because the landing page form redirects to it from T-35. Tier 3 has no landing page: build one column from the E7 schedule.
 
 1. One bookable calendar per lane (or one event with as many slots per time as there are lanes), covering show hours only, with breaks blocked. Slots follow the clinical treatment hours, not KOL hours.
 2. Required fields: name, email, practice, city and state, so on-site and pre-show bookings both come through complete.
