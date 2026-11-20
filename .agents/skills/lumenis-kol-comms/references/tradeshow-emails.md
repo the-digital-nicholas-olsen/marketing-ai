@@ -11,7 +11,7 @@ Recurring brackets:
 
 - **[booth rate]:** the hourly rate in the record. The usual rate for optometrists is $250/hour; ophthalmology shows can differ. Always use the record.
 - **[dinner honorarium]:** the amount in N6 Key Info, usually $2,000-$2,500. It covers preparation and the presentation. No travel or expenses: dinner KOLs are already attending the show.
-- **[role]:** from K1 Key Info. Tier 1: treating at the booth, or talking with attendees while clinical treats. Tier 2 and Tier 3: always "talking with attendees at the booth (or table) while our clinical team treats". KOLs don't treat at Tier 2/3 shows, so never offer or imply treating.
+- **[role]:** from E9 Key Info. Tier 1: treating at the booth, or talking with attendees while clinical treats. Tier 2 and Tier 3: always "talking with attendees at the booth (or table) while our clinical team treats". KOLs don't treat at Tier 2/3 shows, so never offer or imply treating.
 - **[on-site contact]:** who greets the KOL at the show. Tier 1: the on-site marketer. Tier 2: the booth captain (E1). Tier 3: the attending rep (E1). Marketing usually isn't on site at Tier 2/3 shows.
 
 | Step | Message | Timing | Sender |
@@ -38,7 +38,7 @@ If that works for you, just reply here and I'll confirm the details.
 Thank you,
 [Sender]
 
-*Notes:* don't turn down an RSM's recommendation. Offer the block length the lane plan needs (K1): at Tier 2/3 shows these are KOL booth (or table) hours, usually 1-2 hours at peak traffic. Avoid overlap with other KOLs. Tier 3: say "table" instead of "booth" throughout.
+*Notes:* don't turn down an RSM's recommendation. Offer the block length the lane plan needs (E9): at Tier 2/3 shows these are KOL booth (or table) hours, usually 1-2 hours at peak traffic. Avoid overlap with other KOLs. Tier 3: say "table" instead of "booth" throughout.
 
 ## K4 Booth confirmation
 
