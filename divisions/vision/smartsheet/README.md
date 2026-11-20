@@ -19,5 +19,5 @@ Contents:
 - [Sprint intake](../../../.agents/skills/lumenis-sprint-intake/SKILL.md) (draft): turning a transcript, note or request into sprint plan rows, with context saved in OneDrive and one name across Smartsheet, OneDrive, HubSpot and Salesforce.
 - [Intake filing](../../../.agents/skills/lumenis-intake-filing/SKILL.md): creating OneDrive folders for new sprint plan projects and filing Daily Brief box requests into _Context; runs on any teammate's computer with OneDrive synced.
 - [Sprint plan setup](../../../.agents/skills/lumenis-sprint-plan-setup/SKILL.md) (draft): copying a campaign template onto Sprint Plan (Live) with real due dates.
-- [Sprint cleanup](../../../.agents/skills/lumenis-sprint-cleanup/SKILL.md) (draft): the Monday upkeep of the sprint plan, Backlog moves and archiving.
+- [Sprint cleanup](../../../.agents/skills/lumenis-sprint-cleanup/SKILL.md) (draft): the Monday upkeep of the sprint plan, placeholder-date flags and archiving.
 - [Daily brief](../../../.agents/skills/lumenis-daily-brief/SKILL.md) (draft): each teammate's day from the sprint plan, in chat or as the team brief page.

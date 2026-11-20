@@ -37,7 +37,7 @@ Project details, names of customers and internal IDs never go into this reposito
 
 ## Prerequisites
 
-- The librarian's local config, `Librarian/AGENTS.md` in the team's shared folder. It names the campaign root, the live sprint plan sheet and the Backlog sheet. If it's missing, stop and say so.
+- The librarian's local config, `Librarian/AGENTS.md` in the team's shared folder. It names the campaign root and the live sprint plan sheet. Ignore any Backlog sheet it still names: the Backlog was retired on 2026-11-20. If it's missing, stop and say so.
 - The Smartsheet connector with edit access to the live plan. Without it, produce the rows as a table and say nothing was written.
 - HubSpot or Salesforce access is optional. Without it, ask the person for the campaign name or leave it as an open item.
 
@@ -67,10 +67,9 @@ Show the person the list before writing when there are more than a handful of it
 For every item, look for an existing home before making a new one:
 
 1. **Sprint plan:** search the Project rows, Key Info (it holds older names) and the CRM Campaign Name column.
-2. **Backlog sheet:** the campaign may be planned there already.
-3. **OneDrive campaign root:** look for the folder, including near-matches (other year, abbreviation, old name).
-4. **HubSpot / Salesforce:** if the work involves a campaign, search for it by name variants.
-5. **Open tasks:** don't add a task that already exists with different wording. Update the existing one instead.
+2. **OneDrive campaign root:** look for the folder, including near-matches (other year, abbreviation, old name).
+3. **HubSpot / Salesforce:** if the work involves a campaign, search for it by name variants.
+4. **Open tasks:** don't add a task that already exists with different wording. Update the existing one instead.
 
 Create a new project only when the work has its own goal, an owner and more than one or two steps. One-off tasks go under the closest existing project. When two candidates fit, ask.
 
@@ -80,7 +79,7 @@ Ask only what the source doesn't answer, in one batch, with a proposed answer fo
 
 For **every task:**
 - Who owns it? (Must be a team member in the Owner list. Outside people go in the notes.)
-- When is it due? (If no date was said, propose one from the project's next milestone, and say it's a proposal.)
+- When is it due? (If no date was given, use a placeholder one week from today and say it's a placeholder.)
 - What does it depend on?
 
 For a **new project**, also:
@@ -90,7 +89,7 @@ For a **new project**, also:
 - Is it a campaign type with a template (webinar, Accelerate, trade show)? If so, hand over to [sprint plan setup](../lumenis-sprint-plan-setup/SKILL.md) for the rows.
 - Will it have a HubSpot or Salesforce campaign? What is it called, or should we name it now?
 
-When a request is vague ("we should do something with Dr. X"), help the person sharpen it before anything is written: what's the outcome, by when, and what's the first concrete step. A vague idea with no owner or date goes to the Backlog, not the live plan.
+When a request is vague ("we should do something with Dr. X"), help the person sharpen it before anything is written: what's the outcome, by when, and what's the first concrete step. A vague idea still goes on the live plan: with no date, give it the placeholder date below and say so.
 
 ### 5. Name it
 
@@ -103,7 +102,8 @@ Follow the sheet's conventions:
 - **Owner** from the Owner list only. Outside owners: see step 2.
 - **Due Date** is when it's due, not when to start. Check the local config for team days off before setting a date on someone's day off.
 - **Original Due Date** is set to the same date when a row first gets one, and never changed afterwards. Every later move of Due Date, and every start, block or finish, gets one line in **Date Log** ([date log](references/date-log.md)). Never type in **Times Rescheduled**; it's automatic.
-- **Sprint** is the Monday of the due week. No date means Backlog.
+- **Sprint** is the Monday of the due week.
+- **No date given:** there is no Backlog sheet (retired 2026-11-20). Put the item on the live plan with a placeholder Due Date one week from the day it's added, and log it as `M/D Claude: placeholder due date (no date given)` in Date Log so [sprint cleanup](../lumenis-sprint-cleanup/SKILL.md) and the owner can tell it from a real deadline. When the real date arrives, move Due Date and log it like any other change.
 - **Step ID** short and unique within the project (`MV1`, `MV2`). **Depends On** uses those IDs.
 - **Notes / Blocker** are dated lines: `11/11 Nicholas: …`. Always add to the existing notes; never replace them. Read the cell first.
 - **Project row:** a top-level row titled `<canonical name> — <short detail>`. Key Info answers the "what is this?" test and gives the context note's path. Deliverable Link holds the OneDrive folder link. CRM Campaign Name holds the HubSpot and Salesforce names, or "None".
