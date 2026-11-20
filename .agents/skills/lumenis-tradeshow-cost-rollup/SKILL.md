@@ -21,7 +21,7 @@ Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning s
 | Print (Mimeo) | F4 |
 | Dinner venue, food, decor | N3, N8, N9 |
 | KOL honoraria | K3 |
-| Shipping, supplies | F4, F7 |
+| Shipping, supplies | F4, F7 (Tier 1: F4, F9) |
 
 2. Mark each line Invoiced or Estimated. An estimate needs a note saying what's outstanding.
 3. Total the show and the dinner separately, then together. Write them to P11 Key Info.

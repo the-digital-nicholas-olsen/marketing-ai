@@ -21,7 +21,7 @@ With no marketer on site, name an owner for each job on the roster and confirm i
 | Greet each KOL, set them up, introduce them to clinical | Booth captain | Attending rep |
 | Move shipments from the hotel and set out print materials | Booth captain or sales | Attending rep |
 | Print and set out the consent and Calendly QR signs (L3) | Booth captain or clinical trainer | Attending rep or clinical trainer |
-| Bring clinical supplies to the booth (F7) | Clinical trainer | Clinical trainer or rep |
+| Set out the clinical supplies that arrive with the devices from SLC (F7) | Clinical trainer | Clinical trainer or rep |
 | Keep the front desk or table staffed, including breaks | Booth captain | Attending rep(s) |
 | Treatments, and covering each other's breaks | Clinical trainers only (sales reps and KOLs never treat) | Clinical trainer only; no clinical trainer means no treatments (sales reps and KOLs never treat) |
 
