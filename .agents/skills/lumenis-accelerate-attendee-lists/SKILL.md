@@ -37,7 +37,7 @@ The badge carries the name the person goes by. The registration sheets' name fie
 3. **Spelling variants** of one name: take the registration sheet's spelling.
 4. **Two surnames on file:** if one contains the other it is a truncation, so use the fuller surname. If they share nothing, check whether either surname matches another attendee at the same practice - a match identifies the married or professional name, so use that one. With no match, use the registration sheet.
 5. **Omit middle names** from the badge file.
-6. **A missing surname does not block the list.** Leave it blank and report it.
+6. **A missing surname does not block the list.** First look it up online: the practice website's staff or doctor pages, or the person's LinkedIn profile, matched on first name and practice. Use it only when the source clearly shows that person, and say where it came from. If nothing turns up, leave it blank and report it; don't hold the list waiting for the owner.
 
 ### Duplicate resolution
 
@@ -77,7 +77,7 @@ These rules apply to the badge file (E12) only, on top of the Source, name and d
 
 1. **Nicknames:** use a nickname only when it is entered as the first name on the AES or VIS Rep Approval form. Do not switch to a nickname suggested only by an email address (for example, `drkate@` does not turn "Katherine" into "Kate").
 2. **Strip titles** such as "Dr" from name fields.
-3. **Missing or partial surname:** ask the owner for the name rather than leaving it blank, and flag it until it's supplied.
+3. **Missing or partial surname:** look it up online first, as in the source rules above (practice website, LinkedIn). If it can't be found, leave it blank and flag it; don't ask the owner. Subject owner's rule, 2026-11-20.
 4. **Shifted values** (a first name in the last-name field, a surname in the email field) can hide a second attendee. Flag any stray name found in an email or notes field.
 
 ### Possible typos
