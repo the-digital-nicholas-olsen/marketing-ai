@@ -25,7 +25,7 @@ With no marketer on site, name an owner for each job on the roster and confirm i
 | Keep the front desk or table staffed, including breaks | Booth captain | Attending rep(s) |
 | Treatments, and covering each other's breaks | Clinical trainers only (sales reps and KOLs never treat) | Clinical trainer only; no clinical trainer means no treatments (sales reps and KOLs never treat) |
 
-KOLs at Tier 2/3 shows only talk with customers. Their booth or table hours come from the lane plan (K1), not from this roster.
+KOLs at Tier 2/3 shows only talk with customers. Their booth or table hours come from the lane plan (E9), not from this roster.
 
 ## E3 Room block (T-70, Tier 1 only)
 
