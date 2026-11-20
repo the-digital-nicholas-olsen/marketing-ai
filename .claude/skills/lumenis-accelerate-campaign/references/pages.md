@@ -15,6 +15,8 @@ Registration/interest page: city and date hero with conversion anchor; specific 
 
 Clone the current approved Accelerate registration or agenda page when possible; search existing agency drafts and published variants for this city first, as the landing page skill describes.
 
+**Agenda session copy comes from the previous city's approved page, word for word.** When cloning a division's agenda page for a new city, copy every session's title, tagline and description exactly from the source city's published HubSpot agenda page, changing only city words (for example "Nashville style" becomes "Scottsdale style"). Speaker bios and headshots also come from existing approved pages. Don't rewrite sessions from the event's Smartsheet `Agenda` sheet: it is a working schedule, not approved copy. Smartsheet (Fast Facts, Rooms & Devices) is still the source for facts that differ by city: dates, address, times and room names. If a session on the new agenda has no approved copy on any earlier page, leave it for the owner to supply rather than writing it. Observed 2026-10-28 (subject owner's correction); owner review pending.
+
 ## Build, editor sequence and verification
 
 Build and place every Accelerate page with the [HubSpot landing page skill](../../lumenis-hubspot-landing-page/SKILL.md): one Custom HTML module written in the external output folder, hosted assets only, then its [editor, template and verification lessons](../../lumenis-hubspot-landing-page/references/editor-and-css.md). Each interest page needs its dedicated division form from the [HubSpot form skill](../../lumenis-hubspot-form/SKILL.md); the agenda page has none.
