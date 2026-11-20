@@ -3,6 +3,8 @@
 Owner: Kaelyn (event logistics).
 Status: draft procedure, written 2026-10-30 from the approved 5 x 7 table tent. QR positions updated 2026-11-05 for the revised master. Review required.
 
+**Out of scope for Vision Marketing since 2026-11-19.** The marketing team no longer makes Accelerate table tents or swaps agenda QR codes (see the [Accelerate print kit](../.agents/skills/lumenis-accelerate-print-kit/SKILL.md)). Don't offer or start this unless the subject owner asks for it. The method below is kept for reference.
+
 Use this to make the 5 x 7 in "Accelerate Agenda" table tent for an upcoming Accelerate. The design is fixed. The only per-event change is the two QR codes: one for the Aesthetics agenda and one for the Eye Care agenda.
 
 Don't redesign the table tent, rebuild it in another tool, or change the copy, photos or sizes. Every version is made by editing the master PDF directly, so the fonts, spacing and sizes can't drift.

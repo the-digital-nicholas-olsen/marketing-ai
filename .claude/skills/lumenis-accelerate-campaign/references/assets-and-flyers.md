@@ -71,7 +71,7 @@ File approval does not authorize print dispatch. Keep the finished PDF, event UR
 
 ## Repeat the agenda QR poster
 
-Status: draft for review.
+Status: draft for review. **Out of scope for Vision Marketing since 2026-11-19:** the marketing team no longer prints agenda posters or swaps agenda QR codes (see the [Accelerate print kit](../../lumenis-accelerate-print-kit/SKILL.md)). Don't offer or start this unless the subject owner asks for it. The method below is kept for reference.
 
 Use this for each Accelerate event that needs the "Scan for your weekend schedule" poster, which has one QR code for Aesthetics and one for Eye Care. The graphic is reused as it is. Only the two QR codes change.
 
