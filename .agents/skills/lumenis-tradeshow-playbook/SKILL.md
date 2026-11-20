@@ -22,8 +22,8 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 | Booth | Bigger than 10x10, built by Dircy | 10x10, RS Displays | A table, no vendor |
 | Sponsorships | Yes | Yes | No |
 | Dinner | Usually (two KOLs) | No | No |
-| KOLs | Booth (treating or talking, per K1) + dinner; social filming if the BU wants it | Booth KOLs who talk with customers; they don't treat. No filming | Table KOLs who talk with customers; they don't treat |
-| Treatments | Clinical, plus KOLs where K1 says treat; never sales reps | Clinical trainers only; never sales reps or KOLs | Clinical trainer only, so none without one; never sales reps or KOLs |
+| KOLs | Booth (treating or talking, per E9) + dinner; social filming if the BU wants it | Booth KOLs who talk with customers; they don't treat. No filming | Table KOLs who talk with customers; they don't treat |
+| Treatments | Clinical, plus KOLs where E9 says treat; never sales reps | Clinical trainers only; never sales reps or KOLs | Clinical trainer only, so none without one; never sales reps or KOLs |
 | Rooms | Team hotel block + sales huddle room | Sales boot camp room only | None |
 | Marketers on site | Two (operations + sales-facing) | Usually none: the booth captain and clinical run the booth | Usually none: the attending rep runs the table |
 | Show Days rows | Pre-flight + on-site marketing rows | L1, L3, L4 (pre-flight only; no on-site marketing rows) | L3, L4 (pre-flight only) |
@@ -50,8 +50,8 @@ Each tier has its own template, and the tier is recorded in R1 Key Info. Sprint 
 | Vendor artwork date known (B6) | BU artwork request (B7), artwork hand-off (B8) | Vendor date and internal date (vendor minus 10-14 days) in Key Info |
 | Venue contract signed (N4; Tier 1) | Dinner KOL choice (N5), menu, decor | Signed contract in the project folder |
 | Dinner KOL said yes (N6; Tier 1) | KOL purchase request (K3), Ted's next steps (N7) | Written yes that names the honorarium and preparation |
-| Lane plan set (K1) | Booth KOL invites (K2), treatment schedule (E7) | Tier 1: lanes, clinical hours and KOL hours to fill in Key Info. Tier 2/3: lanes, clinical treatment hours and breaks, and KOL booth or table hours in Key Info; no KOL treatment hours |
-| Lane plan in the show notes (K1; Tier 1-2) | Calendly schedule (D9), and so the booth demo form (D4) | Lanes and show hours in Key Info |
+| Lane plan set (E9) | Booth KOL invites (K2), treatment schedule (E7) | Tier 1: lanes, clinical hours and KOL hours to fill in Key Info. Tier 2/3: lanes, clinical treatment hours and breaks, and KOL booth or table hours in Key Info; no KOL treatment hours |
+| Lane plan in the show notes (E9; Tier 1-2) | Calendly schedule (D9), and so the booth demo form (D4) | Lanes and show hours in Key Info |
 | Treatment schedule shared (E7; Tier 3) | Calendly slots (D9) | EJ and Hannah have confirmed it |
 | BU filming answer (K5; Tier 1) | Booth and dinner KOL invites (K2, N6) | Yes or no in Key Info; a yes adds the filming line to both invites |
 | Talk brief set (C24; Tier 1-2) | Presenter interview (C17) or reuse of an existing deck | Presenter, length, audience, topic and new-or-reused in Key Info |
@@ -84,7 +84,7 @@ At shows with Canadian attendees, make it an unticked checkbox instead: Canadian
 | K5-K8 social filming | [lumenis-social-filming](../lumenis-social-filming/SKILL.md) |
 | M1-M2 PR | [lumenis-press-briefing](../lumenis-press-briefing/SKILL.md) |
 | B11-B12 booth monitors | [lumenis-booth-video-loop](../lumenis-booth-video-loop/SKILL.md) |
-| K1, D9 Calendly, E7 | [lumenis-treatment-lane-planner](../lumenis-treatment-lane-planner/SKILL.md) |
+| E9, D9 Calendly, E7 | [lumenis-treatment-lane-planner](../lumenis-treatment-lane-planner/SKILL.md) |
 | E1-E6 roster, rooms, badges, KBYG | [lumenis-tradeshow-staffing](../lumenis-tradeshow-staffing/SKILL.md) |
 | F2-F4, L3 print and QR signs | [lumenis-tradeshow-print-kit](../lumenis-tradeshow-print-kit/SKILL.md) |
 | P1-P5, P16 leads | [lumenis-tradeshow-leads](../lumenis-tradeshow-leads/SKILL.md) |
