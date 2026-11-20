@@ -17,6 +17,7 @@ Thank each KOL with a robot-pen card sent through Handwrytten and signed by the 
 
 - **Event name.** Ask if it isn't given.
 - **KOL names.** Usually pasted by the user. Otherwise look for KOL line items in the event's Master Budget sheet in Smartsheet (for example "Booth Session KOL: Dr. X") and confirm the list with the user.
+- **Custom notes (tradeshows).** The P8a row says who writes them: Nicholas or Ted at Tier 1 shows, and sales (the booth captain, attending rep or the RSM who recommended the KOL) at Tier 2 and Tier 3 shows. Request them with the P8a email in [tradeshow emails](../lumenis-kol-comms/references/tradeshow-emails.md).
 - **Addresses.** Look up each KOL's practice address online. Say which source each one came from and flag any that are unconfirmed: a missing ZIP, a residential-looking unit or conflicting listings. Never fill a gap silently; ask.
 - **Access.** Smartsheet and Handwrytten connectors. Without Handwrytten, return the drafts and stop at step 3. Without Smartsheet, ask the user for the event dates and what each KOL did.
 
@@ -28,8 +29,8 @@ Addresses, messages and order records stay in Handwrytten and the work folder. N
 2. **Run the compliance check.**
    - Country isn't US: route to Legal and don't draft.
    - Cards only. Never add gift cards, inserts, gifts, food, swag or anything else. If one is requested, stop and flag it.
-3. **Draft the cards.** Write one message per KOL, 50–80 words, warm and specific. For a webinar, start from the [P5 handwritten note](../lumenis-kol-comms/references/webinar-emails.md).
-   - Name what they did at this event: the session, the topic or a moment.
+3. **Draft the cards.** Write one message per KOL, 50–80 words, warm and specific. For a webinar, start from the [P5 handwritten note](../lumenis-kol-comms/references/webinar-emails.md). For a tradeshow, build each card around the custom note from P8a; if a KOL's note hasn't come in, ask Kaelyn to chase it rather than writing a generic card.
+   - Name what they did at this event: the session, the topic or a moment. At Tier 2 and Tier 3 tradeshows KOLs talk with customers at the booth or table and don't treat, so never thank them for treating.
    - Close with a short sign-off (for example "With gratitude,") and "The Lumenis Vision Team".
    - No product claims, pricing, sales asks or enclosures.
    - If a KOL already got a card for a recent event, vary the wording.

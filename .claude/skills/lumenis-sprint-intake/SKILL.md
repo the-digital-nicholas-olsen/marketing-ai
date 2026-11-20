@@ -54,7 +54,7 @@ Pull out every item and sort it into one kind:
 | Kind | What happens |
 |---|---|
 | New task on an existing project | Add a row under that project |
-| Change to an existing task (done, new date, new owner, blocked) | Update that row; append a dated note |
+| Change to an existing task (done, new date, new owner, blocked) | Update that row; append a dated note, and a [date log](references/date-log.md) line for a new date, start, block or finish |
 | New project | Add a Project row and its tasks, create the folder |
 | Context only (a decision, a fact, someone's view) | Write it to the project's `_Context/` and add a line to the Project row's notes if it changes the plan |
 | Someone else's work we're waiting on | A task owned by the team member who chases it, Status **Waiting on Someone**, note "Waiting on <name>" |
@@ -102,6 +102,7 @@ Follow the sheet's conventions:
 - **Task text** is the finished state: "Ted has packaged the implementation assets into one kit." Not "Package assets".
 - **Owner** from the Owner list only. Outside owners: see step 2.
 - **Due Date** is when it's due, not when to start. Check the local config for team days off before setting a date on someone's day off.
+- **Original Due Date** is set to the same date when a row first gets one, and never changed afterwards. Every later move of Due Date, and every start, block or finish, gets one line in **Date Log** ([date log](references/date-log.md)). Never type in **Times Rescheduled**; it's automatic.
 - **Sprint** is the Monday of the due week. No date means Backlog.
 - **Step ID** short and unique within the project (`MV1`, `MV2`). **Depends On** uses those IDs.
 - **Notes / Blocker** are dated lines: `11/11 Nicholas: …`. Always add to the existing notes; never replace them. Read the cell first.
@@ -128,6 +129,7 @@ Read the new and changed rows back from Smartsheet. Then report in chat:
 
 - Creating a project for a one-off task, or a second project for something that exists under another name.
 - Replacing a Notes cell instead of adding to it.
+- Moving a Due Date without a Date Log line, or changing Original Due Date.
 - Writing a task only the author understands ("follow up re: the thing").
 - Putting the why in Smartsheet. One short note line there; the full story goes in `_Context/`.
 - Making up due dates without saying so.
