@@ -100,7 +100,7 @@ Avoid: "Moved the old brochures to Archive and deleted the empty folders." Nobod
 
 ## Routine upkeep
 
-When files build up at the My Library root or in generic folders:
+When files build up at the My Library root or in generic folders, or when someone asks to "organize uncategorized files" (uncategorized means at the My Library root or in a generic folder, not in a product or file-type folder):
 
 1. The person signs in.
 2. List those files and propose each destination in the existing structure, with a reason.
@@ -111,6 +111,15 @@ When files build up at the My Library root or in generic folders:
 This routine comes from the cleanup. It has not yet been run on its own.
 
 A repository merge does not authorize any change in Mimeo. Filing a piece in a folder or portal is not approval to use it.
+
+## Restoring from Trash
+
+The library and the Trash are on two different Mimeo sites: the library on the older site, the Trash on the newer print site. The Trash list on screen is unreliable: it lags behind clicks and showed fewer than half of the deleted items in October 2026. The Trash page's own requests (deleted folders, deleted files per folder, restore files, restore folder) were reliable, using the page's signed-in session.
+
+- Restore files one at a time; it's fast and dependable.
+- A folder restore often returns a server error but still succeeds. Check the Trash again before retrying.
+- A restored folder can reveal deleted subfolders inside it. Check it again after each restore.
+- Restore only what the person asked for, and report anything that wouldn't restore.
 
 ## Sources and open items
 
