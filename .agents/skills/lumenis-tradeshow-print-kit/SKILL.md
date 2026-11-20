@@ -1,6 +1,6 @@
 ---
 name: lumenis-tradeshow-print-kit
-description: Plan and order a tradeshow's printed materials - the print list for Nicholas and Audrey's approval, the Mimeo order to the booth vendor's warehouse (or the hotel for Tier 3 tabletops), and the consent and Calendly QR signs (printed by marketing on site at Tier 1; sent to sales or clinical to print at Tier 2/3). Use from F2 (T-25) to L3 (T-1, or T-3 at Tier 2/3) of a tradeshow. Drafts orders; a person places them.
+description: Plan and order a tradeshow's printed materials - the print list for Nicholas and Audrey's approval, the Mimeo order to the booth vendor's warehouse (or the hotel for Tier 3 tabletops), and the consent and Calendly QR signs (printed by marketing on site at Tier 1; sent to sales or clinical to print at Tier 2/3). Use from F1 (T-60, Tier 1-2) and F2 (T-42 at Tier 1-2, T-25 at Tier 3) to L3 (T-1, or T-3 at Tier 2/3) of a tradeshow. Drafts orders; a person places them.
 ---
 
 # Tradeshow print kit
@@ -8,11 +8,13 @@ description: Plan and order a tradeshow's printed materials - the print list for
 Owner: Kaelyn.
 Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning session; not yet run. Review required.
 
-## F2 Print list (T-25)
+## F2 Print list (T-42 at Tier 1-2, T-25 at Tier 3)
 
-Start from last year's print list at this show: brochures, quotes, flyers (C1, C4), signage. One row per item: quantity, file, vendor. Send to Nicholas and Audrey for approval.
+At Tier 1 and Tier 2, print must be at the booth vendor's warehouse (Dircy or RS Displays) by T-30, so the chain is F1 deadline confirmed (T-60), C1 flyer (T-45), F2 list (T-42), F3 quotes (T-40), F4 order (T-37).
 
-## F4 Mimeo order (T-21)
+Start from last year's print list at this show: brochures, quotes, the show flyer (C1, Tier 1-2), signage. One row per item: quantity, file, vendor. Send to Nicholas and Audrey for approval.
+
+## F4 Mimeo order (T-37 at Tier 1-2, T-21 at Tier 3)
 
 Tier 1 (Dircy) and Tier 2 (RS Displays): ship to the booth vendor's warehouse by the date in F1, and send the tracking to the vendor. Tier 3 (tabletop, no vendor): ship a small kit to the hotel or the attending rep. Record the Mimeo tracking in Key Info, and at Tier 2/3 also send it to the on-site owner from sales (see below). Updated quotes from the Sales Support Manager must be in Mimeo first (F3).
 

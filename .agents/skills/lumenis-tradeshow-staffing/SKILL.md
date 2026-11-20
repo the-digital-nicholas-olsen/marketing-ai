@@ -1,6 +1,6 @@
 ---
 name: lumenis-tradeshow-staffing
-description: Run a tradeshow's people logistics - the attendance roster (sales, booth captain, BU, clinical, service, marketing), who covers on-site jobs when marketing isn't there (Tier 2/3), the hotel room block, the badge registration list and the internal Know Before You Go on BoomPop. Use from E1 (T-75) to E6 (T-30) of a tradeshow. Drafts only; Kaelyn sends and registers.
+description: Run a tradeshow's people logistics - the attendance roster (sales, booth captain, BU, clinical, service, marketing), who covers on-site jobs when marketing isn't there (Tier 2/3), the hotel room block, the badge registration list and the internal Know Before You Go on BoomPop. Use from E1 (T-75) to E6 (T-60 at Tier 1-2, T-45 at Tier 3) of a tradeshow. Drafts only; Kaelyn sends and registers.
 ---
 
 # Tradeshow staffing
@@ -8,7 +8,7 @@ description: Run a tradeshow's people logistics - the attendance roster (sales, 
 Owner: Kaelyn.
 Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning session; not yet run. Review required.
 
-## E1-E2 Roster (T-75)
+## E1 Roster (T-75)
 
 Ask sales for attendance, the booth captain(s) and the sales boot camp lead; ask the BU, clinical, service and marketing for theirs. Tier 1 shows have two marketers on site. At Tier 2 and Tier 3 shows marketing usually isn't on site, so sales and clinical run the booth or table (Tier 3 is often just the rep(s) and sometimes a clinical trainer). Keep one roster: name, team, role, dates on site, badge needed, room needed. Booth KOLs aren't staff and don't go on the roster.
 
@@ -36,11 +36,11 @@ Tier 2 books only a sales boot camp room (E4) and attendees book their own rooms
 
 Record the hotel and booking link in Key Info.
 
-## E5 Badge list (T-45)
+## E5 Badge list (T-45; Tier 3: T-50)
 
 From the roster, everyone who needs a badge: name, title, email, company. A person enters them in the exhibitor portal; check the portal count matches.
 
-## E6 Internal Know Before You Go (T-30)
+## E6 Internal Know Before You Go (T-60 at Tier 1-2, T-45 at Tier 3)
 
 Duplicate the last show's BoomPop page and fill it: hotel and booking link, arrival times, huddle room and time (E4), booth number, dress, what to bring. Send early enough for people to book. Tier 3 tabletops: a plain email is enough (arrival, table location, schedule, print materials). Add the schedule (E7) and the lead retrieval instructions (B10) when they arrive. At Tier 2/3 shows, include the on-site jobs table above with each owner's name, and the KOL booth or table hours with each KOL's name, so sales knows who to greet and when.
 

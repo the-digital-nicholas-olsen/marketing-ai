@@ -1,6 +1,6 @@
 ---
 name: lumenis-treatment-lane-planner
-description: Plan a tradeshow booth's treatment capacity - how many lanes are open, how many hours clinical can cover with breaks, and (Tier 1 only) how many KOL treatment hours must be backfilled, or (Tier 2/3) when KOLs are at the booth to talk with customers - then build the show and treatment schedule. Use at E9 (T-100), D9 (T-40, Calendly) and E7 (T-80 at Tier 1-2, T-65 at Tier 3) of a tradeshow. Drafts the plan; Kaelyn and Nicholas approve.
+description: Plan a tradeshow booth's treatment capacity - how many lanes are open, how many hours clinical can cover with breaks, and (Tier 1 only) how many KOL treatment hours must be backfilled, or (Tier 2/3) when KOLs are at the booth to talk with customers - then build the show and treatment schedule. Use at E9 (T-100 at Tier 1-2, T-75 at Tier 3), E7 (T-80 at Tier 1-2, T-65 at Tier 3) and D9 (Calendly: T-50 at Tier 1-2, T-37 at Tier 3) of a tradeshow. Drafts the plan; Kaelyn and Nicholas approve.
 ---
 
 # Treatment lane planner
@@ -10,8 +10,8 @@ Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning s
 
 ## Inputs
 
-- Show hours per day (exhibitor portal), booth layout and lane count from B2.
-- Clinical trainers attending (E2), and how long each is willing to treat per day.
+- Show hours per day (exhibitor portal), and the booth layout and lane count: B2 at Tier 1, B3 at Tier 2. Tier 3 is one lane at a table.
+- Clinical trainers attending, and how long each is willing to treat per day. At Tier 1-2 the lane plan (T-100) comes before attendance is confirmed (E1, T-75), so plan with the clinical trainers expected and update the plan when E1 confirms them. At Tier 3, E9 waits for E1.
 - The show's tier and type (R1): optometry or ophthalmology.
 
 ## Tier 2 and Tier 3 shows: KOLs don't treat
@@ -25,7 +25,7 @@ At Tier 2 (small) and Tier 3 (tabletop) shows, KOLs are only at the booth or tab
 
 Steps 4 and 5 apply to Tier 1 shows only.
 
-## E9 Lane plan (T-100)
+## E9 Lane plan (T-100 at Tier 1-2, T-75 at Tier 3)
 
 1. **Lanes.** With sales and clinical, decide how many lanes are open at once (usually 1-3).
 2. **Hours needed** = open lanes x show hours, per day.
@@ -42,7 +42,7 @@ Output: one table per day (time slots x lanes, clinical or "KOL needed"), saved 
 
 Build it from the E9 grid before the KOL invites go out (K2), so each invite offers a real time slot. Mark each KOL block as open, then add every other item: Meet the Experts, dinner (N6), education sessions, wet labs. Fill in each KOL's name as they confirm (K4), and avoid KOL overlap. Send to everyone attending; EJ and Hannah confirm it works for clinical. At Tier 3, the Calendly slots (D9) are built from this schedule.
 
-## D9 Calendly schedule (T-40)
+## D9 Calendly schedule (T-50 at Tier 1-2, T-37 at Tier 3)
 
 Owner: EJ. At Tier 1 and Tier 2, build it from the E9 lane plan in the show notes, not from E7, because the landing page form redirects to it from T-35. Tier 3 has no landing page: build one column from the E7 schedule.
 
