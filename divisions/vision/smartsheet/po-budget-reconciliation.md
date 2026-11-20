@@ -185,7 +185,7 @@ When asked whether an unpaid expense fits an open PO:
 - Comparing an event's total to its budget. The check is per PO only.
 - Copying actual records or restricted review evidence into public issues or pull requests.
 
-Related: [KOL invoice filing](kol-invoice-filing.md) files a single KOL honorarium invoice and updates its line item's actuals; this audit then reconciles those actuals.
+Related: [Invoice filing](invoice-filing.md) files a single invoice and updates its line item's actuals; this audit then reconciles those actuals.
 
 ## Maintenance
 

@@ -10,11 +10,10 @@ Conventions:
 Contents:
 - [Purchase requisition form rules](purchase-requisition-form.md): preparing event and non-event Vision Marketing requests.
 - [Trade show PO-to-budget reconciliation](po-budget-reconciliation.md): finding missing POs and allocating trade show budget lines against shared PO pools, with a separate optional SAP balance check.
-- [KOL invoice filing](kol-invoice-filing.md) (draft): checking a KOL honorarium invoice against its requisition and PO, filing it, sending it to finance and updating actuals.
 - [Accelerate flight approval check](accelerate-flight-approval-check.md) (draft): matching Vision or Aesthetics travelers on the shared flight sheet against that division's rep approval sheet, requiring RSM approval, then filling rep, RSM and cost center details after review.
 - [BoomPop Know Before You Go](../../../.agents/skills/lumenis-boompop-kbyg/SKILL.md) (draft): building a trade show's guest page in BoomPop from the event schedule and show folder, then filing the invite link in Fast Facts.
 - [Trade show planner from a template](trade-show-planner.md) (draft): looking a show up on the event schedule, matching its tier to a template and duplicating that template folder into the right year's Trade Shows folder.
-- [Trade show invoice filing](trade-show-invoice-filing.md) (draft): filing a trade show invoice, linking it on the Master Budget and syncing actuals to the budget tracker.
+- [Invoice filing](invoice-filing.md) (draft): one process for trade show, KOL and Accelerate invoices: checking KOL invoices against the PR and PO, filing the PDF, logging it on the event's Master Budget (Accelerates in the Accelerate Marketing Events workspace) and syncing actuals to the budget tracker.
 - [Trade show finals close-out](trade-show-finals-close-out.md) (draft): syncing the budget tracker from a show's Master Budget once final actuals are in, marking the show done and running one last audit.
 - [Sprint intake](../../../.agents/skills/lumenis-sprint-intake/SKILL.md) (draft): turning a transcript, note or request into sprint plan rows, with context saved in OneDrive and one name across Smartsheet, OneDrive, HubSpot and Salesforce.
 - [Intake filing](../../../.agents/skills/lumenis-intake-filing/SKILL.md): creating OneDrive folders for new sprint plan projects and filing Daily Brief box requests into _Context; runs on any teammate's computer with OneDrive synced.
