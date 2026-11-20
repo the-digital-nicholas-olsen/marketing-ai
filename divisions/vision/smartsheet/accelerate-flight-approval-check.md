@@ -5,7 +5,7 @@
 - System: Smartsheet event folder (see the [event backend shape](../../../.agents/skills/lumenis-accelerate-campaign/references/smartsheet.md#shape)) and the internal sales org chart sheets, Smartsheet copies of the monthly sales org chart (one for Vision Sales, one for Aesthetics Sales). Traveler names, practices, contact details, sheet links, IDs and cost center codes remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: draft for review.
-- Source and review: Kaelyn Gray's working procedure, set 2026-10-07 and narrowed to Vision only on 2026-10-23; extended to Aesthetics, with a human email check after org chart changes, on 2026-10-28; rep follow-up email templates added 2026-11-10. Sheet names, column names and Division values were observed read-only in two Q4 2026 event folders on 2026-10-23 (Vision) and 2026-10-28 (Aesthetics).
+- Source and review: Kaelyn Gray's working procedure, set 2026-10-07 and narrowed to Vision only on 2026-10-23; extended to Aesthetics, with a human email check after org chart changes, on 2026-10-28; rep follow-up email templates added 2026-11-10; practices with more than two travelers barred from fill suggestions without explicit reviewer approval, and same-person matching by email, first name and area added, on 2026-11-20. Sheet names, column names and Division values were observed read-only in two Q4 2026 event folders on 2026-10-23 (Vision) and 2026-10-28 (Aesthetics).
 - Division-specific gate: Vision retains its rep-entered `RSM Approval`; Aesthetics requires `RSM Approved (RSM to complete)`, as detailed below.
 
 ## Use this when
@@ -40,11 +40,11 @@ If a required sheet is missing, or the city has more than one event folder, stop
 
 ## 1. Read the sheets
 
-**Flight sheet.** Filter `Division` to the division being checked before anything else. Drop the other division's rows entirely: do not match, count, flag or fill them. Read the first, middle and last name columns (labelled "as it appears on your government ID"), `Company Name` (the practice), `Sales Rep`, `City`, `State` and the four output columns: `Salesperson Email`, `Sales Manager EMail`, `Cost Center` and `Lumenis Notes`.
+**Flight sheet.** Filter `Division` to the division being checked before anything else. Drop the other division's rows entirely: do not match, count, flag or fill them. Read the first, middle and last name columns (labelled "as it appears on your government ID"), `Email`, `Company Name` (the practice), `Sales Rep`, `City`, `State` and the four output columns: `Salesperson Email`, `Sales Manager EMail`, `Cost Center` and `Lumenis Notes`.
 
 Observed 2026-10-23: the `Division` picklist offers only `Vision`, but Aesthetics rows hold a typed `Aesthetics` value because validation is off. A blank or other value is unclear. List it in the review rather than guessing.
 
-**Rep approval sheet.** Read `Rep Name`, `RSM Name`, the division's RSM approval column (see "Division settings"), `Practice / Account Name` and both attendee name pairs (`Attendee #1` and `Attendee #2`). Each approval row can approve two people. A traveler qualifies as flight-approved only when their matching approval row's RSM approval column = `Yes`. A matching name and practice alone is not approval. Blank, `No`, pending or unexpected values are not approved; list the current value in the review and leave those travelers' flight-sheet cells unchanged. Approval of the review list does not replace this requirement.
+**Rep approval sheet.** Read `Rep Name`, `RSM Name`, the division's RSM approval column (see "Division settings"), `Practice / Account Name` and both attendees' first name, last name and email address (`Attendee #1` and `Attendee #2`). Each approval row can approve two people. A traveler qualifies as flight-approved only when their matching approval row's RSM approval column = `Yes`. A matching name and practice alone is not approval. Blank, `No`, pending or unexpected values are not approved; list the current value in the review and leave those travelers' flight-sheet cells unchanged. Approval of the review list does not replace this requirement.
 
 Confirm that every row was read, not a sample.
 
@@ -52,11 +52,19 @@ Confirm that every row was read, not a sample.
 
 A match needs the **name and the practice** to line up: flight `Company Name` against approval `Practice / Account Name`.
 
+**Same person by email.** Treat a traveler and an approval attendee as the same person, even when the last name or the practice differs, when all three hold:
+
+- **Same email:** flight `Email` equals that attendee's email address on the approval row (ignore letter case and spaces).
+- **Same first name or a nickname of it**, such as Liz for Elizabeth or Tish for Talisa.
+- **Same area:** the flight row's `City` / `State` is in the same city or metro area as the approval row's practice. If the approval row gives no location, it's the same area when the practice is in the rep's territory and that territory covers the flight row's state.
+
+A different last name (maiden/married) or practice name (a second location, a new business name) does not block the match. Show both versions side by side. When the approval row's RSM approval column = `Yes`, put the traveler under **In both sheets — approved** and suggest filling the row. The fill still waits for the reviewer's approval of the list, and the rule for practices with more than two travelers still applies. If any of the three checks fails, the email is blank or shared (such as a general practice inbox used by more than one attendee), or the RSM approval isn't `Yes`, it stays a possible match.
+
 | Group | Meaning |
 |---|---|
-| In both sheets — approved | Traveler found on the division's rep approval sheet with matching name and practice, and the RSM approval column = `Yes` |
+| In both sheets — approved | Traveler found on the division's rep approval sheet with matching name and practice, or as the same person by email (above), and the RSM approval column = `Yes` |
 | In both sheets — not RSM approved (flag) | Name and practice match, but the RSM approval column is blank, `No`, pending or another value. Report the value, the rep and the rep's RSM; do not fill the flight row |
-| Possible match (flag) | Nickname, maiden/married name or small practice-name difference. Show both versions and why they look alike; don't decide |
+| Possible match (flag) | Nickname, maiden/married name or small practice-name difference that doesn't pass the same-person-by-email check. Show both versions and why they look alike; don't decide |
 | Flight sheet only | Traveler not found on the division's rep approval sheet |
 
 For each flight-only traveler, find their sales rep and say where it came from: the flight sheet's `Sales Rep` cell, or the practice appearing elsewhere with a rep. If it can't be found, say so.
@@ -67,10 +75,12 @@ Include, per division:
 
 - Name, practice and the sheets each traveler is on.
 - **Not RSM approved:** every traveler who is on both the flight sheet and the rep approval sheet but whose RSM approval is not `Yes`. Give the traveler, practice, current approval value, **the rep's name and the rep's RSM** (name and email, from the org chart sheet; use the approval row's `RSM Name` if the rep isn't on the chart, and say so). These are not flight-approved; the list feeds the rep follow-up emails in step 5.
+- Same-person-by-email matches that are RSM approved: suggest filling them, and show both names and practices plus the shared email so the reviewer can see why.
 - Possible-match flags, with both spellings side by side and the matching approval row's RSM approval value.
 - For flight-only travelers: the salesperson's name and email, and their RSM's email (looked up as in step 4). This is for the report only; nothing is written to these rows.
 - Practices with more than one traveler.
-- **Always flag a practice with more than two travelers**, with every name, the practice's sales rep and that rep's RSM. If the rep or RSM can't be found, say so.
+- **Always flag a practice with more than two travelers**, with every name, the practice's sales rep and that rep's RSM. If the rep or RSM can't be found, say so. Count travelers across the whole flight sheet for the division, including rows already sent to the travel agent.
+- **Never suggest filling a practice with more than two travelers.** List it under the flag only: not under "approved", not as "ready to fill", and with no offer such as "confirm and I'll fill these". This holds even when every traveler is RSM approved. A suggestion can be accepted by mistake as a flight approval, and these flights need the division VP's and Stacey's sign-off first (see step 5).
 - Any Canada flag from step 4.
 - The org chart edition used, and whether its emails have been verified since it last changed.
 
@@ -78,7 +88,11 @@ Ask: "Does this look good?" Apply the reviewer's corrections before writing.
 
 ## 4. After approval, fill the flight sheet
 
-For travelers in **In both sheets — approved**, plus identity-match flags the reviewer confirms **whose matching approval row also has the RSM approval column = `Yes`**. Re-read the approval field immediately before writing; if it is no longer `Yes`, leave the flight row unchanged and flag it. A reviewer confirming an identity match or approving the review list does not override a missing or negative RSM approval:
+For travelers in **In both sheets — approved**, plus identity-match flags the reviewer confirms **whose matching approval row also has the RSM approval column = `Yes`**. Re-read the approval field immediately before writing; if it is no longer `Yes`, leave the flight row unchanged and flag it. A reviewer confirming an identity match or approving the review list does not override a missing or negative RSM approval.
+
+**Practices with more than two travelers are excluded** unless the reviewer explicitly approves filling that practice, by name, after the review list is posted. Approving the review list as a whole, confirming an identity match, or saying "looks good" does not count. Without that explicit approval, leave every row from the practice unchanged.
+
+For each row that qualifies:
 
 1. **Sales rep:** `Rep Name` from the rep approval row.
 2. **`Salesperson Email`:** the rep's company address, from the org chart sheet's `Email`.
@@ -184,12 +198,13 @@ Fictional check: the chart prints "Jonh Example", so the formula gives `jonh.exa
 
 ### Fictional example
 
-A practice has three Aesthetics travelers on the flight sheet. Two match an AES approval row exactly; the third is listed as "Liz" on the flight sheet and "Elizabeth" on the approval row. The approval row for the first two has `RSM Approved (RSM to complete)` = `Yes`; the row for Elizabeth is blank. The review list flags the Liz/Elizabeth pair, lists Elizabeth as not RSM approved with her rep and the rep's RSM so the team can email the RSM, flags the practice for having more than two travelers, and names its rep and RSM. After the reviewer approves the list, the first two rows get the rep's email, the RSM's email, the RSM's cost center and a note listing all three names. Elizabeth's row stays unchanged until her approval row says `Yes`.
+A practice has three Aesthetics travelers on the flight sheet. Two match an AES approval row exactly; the third is listed as "Liz" on the flight sheet and "Elizabeth" on the approval row. The approval row for the first two has `RSM Approved (RSM to complete)` = `Yes`; the row for Elizabeth is blank. The review list flags the Liz/Elizabeth pair, lists Elizabeth as not RSM approved with her rep and the rep's RSM so the team can email the RSM, flags the practice for having more than two travelers, and names its rep and RSM. Because the practice has three travelers, the review list does not offer to fill any of its rows, and approving the list leaves all three unchanged. Only if the reviewer later says to fill that practice by name do the first two rows get the rep's email, the RSM's email, the RSM's cost center and a note listing all three names. Elizabeth's row stays unchanged until her approval row says `Yes`.
 
 ## Avoid
 
 - Writing to any sheet before the review list is approved.
 - Treating a name/practice match as flight approval, or filling a flight row when its matching approval row's RSM approval column is not `Yes`.
+- Suggesting, offering or filling rows for a practice with more than two travelers without the reviewer's explicit approval of that practice.
 - Using the AES sheet's plain `RSM Approval` column instead of `RSM Approved (RSM to complete)`.
 - Mixing divisions: matching against the other division's approval sheet or looking reps up on the other division's org chart.
 - Changing the AES or VIS Rep Approval sheets. They are read-only references.
