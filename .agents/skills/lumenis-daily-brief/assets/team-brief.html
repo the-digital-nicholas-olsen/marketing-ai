@@ -941,7 +941,7 @@ footer a { color: var(--accent); }
     var ctxId = TODAY + "-" + slug;
     var ctxList = (plan.context || []).filter(function (c, i) { return pick.context[i] && String(c.notes || "").trim(); });
     var ctxKeys = ctxList.map(function (c) { return String(c.project); });
-    var hasCtx = ctxList.length > 0, ctxSaved = false;
+    var hasCtx = ctxList.length > 0, ctxSaved = false, ctxTagFail = false;
     function tag(projectKey) { return hasCtx && (projectKey === "*" || ctxKeys.indexOf(String(projectKey)) >= 0) ? " [needs context " + ctxId + "]" : ""; }
     var keyToId = {}, added = 0, changed = 0;
     askMsg(""); askBusy(true, "Writing your changes to the sprint plan…");
@@ -1012,7 +1012,7 @@ footer a { color: var(--accent); }
         if (!hasCtx) return;
         var jobs = ctxList.map(function (c) {
           var rowId = keyToId[c.project] || ((ask.projects || []).some(function (x) { return x.id === String(c.project); }) ? String(c.project) : null);
-          return rowId ? { rowId: rowId, notes: String(c.notes).trim() } : null;
+          return rowId ? { rowId: rowId, isNew: !!keyToId[c.project], notes: String(c.notes).trim() } : null;
         }).filter(Boolean);
         return jobs.reduce(function (pr, job) {
           var rowId = job.rowId, parts = [], size = 3600;
@@ -1020,13 +1020,36 @@ footer a { color: var(--accent); }
           var head = "Context " + ctxId + " | " + stamp.replace(/: $/, "") + " | from the daily brief. lumenis-intake-filing: save as _Context/" + ctxId + ".md in this project's folder, then replace [needs context " + ctxId + "] on this project's rows with the file path.\n\n";
           return pr.then(function () {
             return discWrite("create_discussion", { sheet_id: +CONFIG.sheetId, target_type: "ROW", row_id: +rowId, discussion: { comment: { text: head + "Part 1 of " + parts.length + "\n" + parts[0] } } }).then(function (res) {
-              var d = (res && res.payload) || {}, did = ((d.result || d.data || {}).id);
+              var d = (res && res.payload) || {}, did = (d.result || d.data || d.discussion || d).id;
+              // Without the thread id the later parts can't be added; fail so the person sees the warning
+              // instead of a note the filing step would wait on forever.
+              if (parts.length > 1 && !did) throw { code: "ctx_parts", message: "context note parts 2+ couldn't be added" };
               return parts.slice(1).reduce(function (p2, t, n) {
                 return p2.then(function () { if (!did) return; return discWrite("add_comment", { sheet_id: +CONFIG.sheetId, discussion_id: +did, comment: { text: "Context " + ctxId + " | Part " + (n + 2) + " of " + parts.length + "\n" + t } }); });
               }, Promise.resolve());
             });
           });
-        }, Promise.resolve()).then(function () { ctxSaved = true; }, function () { ctxSaved = false; });
+        }, Promise.resolve()).then(function () {
+          ctxSaved = true;
+          // Tag each existing Project row that got a note, so the note is filed even when the project
+          // got no new or changed steps (those are the only other rows that carry the tag).
+          var rowIds = jobs.filter(function (j) { return !j.isNew; }).map(function (j) { return String(j.rowId); });
+          if (!rowIds.length) return;
+          if (!NOTES_READ) { ctxTagFail = true; return; }
+          return state.mcp.callTool("Smartsheet", "get_sheet_summary", NOTES_READ, { cache: false }).then(function (res) {
+            var cur = {}; rowsOf(res).forEach(function (v) { cur[String(v._id)] = v["Notes / Blocker"] || ""; });
+            var t = "[needs context " + ctxId + "]";
+            var rows = rowIds.filter(function (id) { return (cur[id] || "").indexOf(t) < 0; }).map(function (id) {
+              var old = cur[id] || "", nn = (old ? old + "\n" : "") + stamp + "context note saved in this row's comments. " + t;
+              if (nn.length > 3900) nn = "…" + nn.slice(nn.length - 3899);
+              return { id: +id, cells: [{ columnId: c["Notes / Blocker"], value: nn }] };
+            });
+            if (!rows.length) return;
+            return state.mcp.callTool("Smartsheet", "update_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (r2) {
+              if ((((r2 && r2.payload) || {}).failedItems || []).length) ctxTagFail = true;
+            });
+          }).catch(function () { ctxTagFail = true; });
+        }, function () { ctxSaved = false; });
       });
       return chain;
     }).then(function () {
@@ -1035,6 +1058,7 @@ footer a { color: var(--accent); }
       if (state.mcp.invalidate) state.mcp.invalidate("Smartsheet", "get_sheet_summary").catch(function () {});
       ask.turns = []; ask.plan = null; ask.projects = null; $("askText").value = ""; $("askReset").hidden = true;
       askMsg(""); showSuccess(added, changed);
+      if (!ctxWarn && hasCtx && ctxTagFail) askMsg("The rows and context notes are saved, but a project row couldn't be tagged for filing, so its note won't reach OneDrive on its own. Tell Nicholas so he can file it.");
       if (ctxWarn) askMsg("The rows are in the plan, but the context notes couldn't be saved to Smartsheet comments, so they won't be filed. Paste the transcript to Claude to file them.");
     }).catch(function (err) {
       askBusy(false);
