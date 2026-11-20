@@ -16,6 +16,10 @@ Someone asks to check flight approvals for an Accelerate city. The goal is to co
 
 The check is **read-only until the review list is approved**. Post the list and ask whether it looks good. Write nothing before a clear yes.
 
+**"Unchecked guests only"** means flight sheet rows whose `Send to Travel Agent` checkbox is not ticked. Skip rows whose notes columns say `DUPE` or `DISREGARD`, and the sheet's placeholder example rows. Such a run still covers both divisions unless the request names one; report each division separately.
+
+**`Send to Travel Agent` is not part of the fill.** Tick it only when the reviewer asks, in a separate request after the rows are filled.
+
 ## Division settings
 
 The steps are the same for both divisions. Only these inputs change:
