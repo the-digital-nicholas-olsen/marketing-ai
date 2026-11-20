@@ -38,6 +38,7 @@ Each profile's frontmatter has a `division` list naming the Lumenis business uni
 | Sandra Zhang, OD | Gemini Optometry (Moreno Valley, CA) | [sandra-zhang.md](./sandra-zhang.md) | HubSpot candidate; provided by Ted; rights unverified |
 | Jacob Rullo, MD, PhD | Queen's University / Kingston Health Sciences Centre (Kingston, ON, Canada) | [jacob-rullo.md](./jacob-rullo.md) | Source images found; not yet in HubSpot catalog; rights unverified |
 | Clare Halleran, OD, FAAO | East Coast Eye Care (Clarenville, NL, Canada) | [clare-halleran.md](./clare-halleran.md) | Practice-site source found; not yet in HubSpot catalog; low resolution; rights unverified |
+| Melynda Torres, OD | SALT + LIGHT EYE CARE (Albuquerque, NM) | [melynda-torres.md](./melynda-torres.md) | Two source images found (article photo provided by Dr. Torres); not yet in HubSpot catalog; rights unverified |
 
 ## Aesthetics
 
@@ -57,6 +58,7 @@ No entries yet.
 - **Michael H. Gold:** education and residency were not published on his practice site or IMCAS profile. The only Lumenis-hosted image is a 139×129 agenda thumbnail. The practice-site photo needs a rights check before it goes through the `lumenis-image-library` workflow.
 - **Jacob Rullo:** some event materials title him a neuro-ophthalmologist. No public source gives that title or a neuro-ophthalmology fellowship; Queen's lists him as Assistant Professor and Clinician Scientist, though many of his recent case reports are neuro-ophthalmic. Confirm his preferred title with him. The CPSO register also lists a practice location in Hamilton, ON that no other source describes. No public source links him to dry eye treatment or IPL.
 - **Clare Halleran:** her graduation year and BSc school are not published. FAAO appears on the practice's team page only and was not checked against the American Academy of Optometry directory. No public source names the IPL or other devices she uses. The only headshot found is 600 × 568 px from 2019; request a current high-resolution file.
+- **Melynda Torres:** her practice site says she started the practice in 2020; Women In Optometry (May 2025) says she was seeing patients in their homes during the 2020 closures and became independent in 2021. Confirm the founding year with her. Her residency year and any fellowships or memberships are not published. Her own site names her a KOL for OptiLIGHT IPL and OptiPLUS; confirm her current Lumenis KOL scope internally. The best headshot is from a 2025 article that credits the photos to her, so ask her for the original file.
 - No headshot in this library has documented reuse clearance in this public repository. Public availability or a HubSpot URL is not reuse approval.
 
 ## Next steps
