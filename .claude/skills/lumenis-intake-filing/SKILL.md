@@ -1,15 +1,17 @@
 ---
 name: lumenis-intake-filing
-description: Vision only. Finish what the Daily Brief "Add to the plan" box can't do itself: create OneDrive folders for new sprint plan projects, link them in Smartsheet, and file each box request into the project's _Context folder. Safe to run from any teammate's computer (Mac or Windows) with OneDrive synced, and from several computers on a schedule. Use when asked to run intake filing, create missing project folders, or set up the filing schedule on a new computer.
+description: Vision only. Finish what the Daily Brief "Add to the plan" box can't do itself: create OneDrive folders for new sprint plan projects, link them in Smartsheet, file each project's context notes (left as row comments by the box) into the project's _Context folder, and log box requests. Safe to run from any teammate's computer (Mac or Windows) with OneDrive synced, and from several computers on a schedule. Use when asked to run intake filing, create missing project folders, file context notes, or set up the filing schedule on a new computer.
 ---
 
 # Intake filing
 
 Owner: Nicholas (marketing operations).
 Scope: **Vision Marketing (US) only.** Listed in the [Vision Smartsheet procedures](../../../divisions/vision/smartsheet/README.md).
-Status: approved 2026-11-11; runs hourly on more than one teammate's computer.
+Status: approved 2026-11-11; runs hourly on more than one teammate's computer. Updated 2026-11-19 (Kaelyn): files per-project context notes from row comments.
 
 The brief page's request box ([daily brief](../lumenis-daily-brief/SKILL.md)) writes rows to Smartsheet but can't reach OneDrive: the Microsoft 365 connector is read-only. This skill does the OneDrive half. Any teammate can run it, because everyone's OneDrive syncs the same shared library: a folder created on one computer appears for everyone.
+
+When someone pastes a transcript or notes, the box has Claude write one **context note per project** (small talk, rants and personal topics left out; the person checks them before saving). It saves each note as a comment thread on that project's row, starting `Context <id> | ...`, and tags the project's rows `[needs context <id>]`. The raw transcript is never stored. The row notes also keep a short quote of the request (`(from the daily brief: "...")`), cut at 300 characters.
 
 ## Prerequisites
 
@@ -17,8 +19,9 @@ The brief page's request box ([daily brief](../lumenis-daily-brief/SKILL.md)) wr
   - Mac: look under `~/Library/CloudStorage/` for a folder starting `OneDrive-`, then the team folder inside it that contains `Librarian/AGENTS.md`.
   - Windows: look under `%USERPROFILE%` for a folder starting `OneDrive - `, then the same.
   - If it isn't found, stop and say "OneDrive's team folder isn't synced on this computer." Don't create anything.
+- **Year campaign libraries.** Every project from 2027 on, of any type (Accelerate, Webinar, Trade Show, Rep Event, Sponsored Session, Campaign, Content, KOL, Ops), whose name ends in that year or in a date in that year (e.g. `Accelerate - Q1 Tampa - 2027`, `Webinar - Webinar 1 OptiLIFT - Jan 28 2027`, `KOL - Dr. Madan - 2027`), lives in that year's parent folder. Names spanning two years (`… - 2026-2027`) stay where they are, its own synced library `Lumenis Vision US MKT - <year> Campaigns` (SharePoint: MKT-Vision > Shared Documents > Internal Working Files > `<year>` > `<year> Campaigns`; link pattern `https://lumenis.sharepoint.com/sites/MKT-Vision/Shared%20Documents/Internal%20Working%20Files/<year>/<year>%20Campaigns/<folder>`), not in the main campaign root. Look for it next to the team folder (same `OneDrive - ` parent). In notes it is written `<year> Campaigns/<folder>`. If a project needs it and it isn't synced on this computer, don't create anything there or in the main root: append `M/D Claude (<me>): Needs the <year> Campaigns library synced; skipped.` and move on.
 - **The local config** `Librarian/AGENTS.md`: the campaign root, the live sprint plan sheet and the SharePoint link pattern. Paths in it are relative to the `Librarian/` folder.
-- **The Smartsheet connector** with edit access to the live sprint plan.
+- **The Smartsheet connector** with edit access to the live sprint plan, including reading row discussions (`list_discussions` / `get_discussion` with comments).
 - Never ask for or enter credentials.
 
 ## Procedure
@@ -31,21 +34,34 @@ Read the live plan's Project rows (Row Type = Project) where **Deliverable Link*
 
 1. **Claim it.** Re-read the row's Notes / Blocker. If it contains `[folder claimed` from someone else today, or `[folder done]`, skip it: another computer has it. Otherwise append the line `M/D Claude (<me>): [folder claimed]` to the notes (keep every existing line), then re-read the row. If another claim appears above yours, skip it.
 2. **Name.** The canonical name is the Task text before ` — ` ([naming convention](../lumenis-sprint-intake/references/naming.md)). Replace any of `: / \ * ? " < > |` with `-`.
-3. **Look before creating.** Check the campaign root for the exact name, then near-matches (same topic, other year, abbreviation), including inside series folders (`Accelerate <year>/`, `Webinars <year>/`, `AI Week <year>/`). If one clearly matches, use it. If it's ambiguous, don't create anything: replace your claim line with `M/D Claude (<me>): Possible existing folder <path>; confirm before one is created.` and move on.
-4. **Create** `<name>/_Context/`: inside `Webinars <year>/` for webinars, `Accelerate <year>/` for Accelerates, otherwise at the campaign root. Write `_Context/README.md`: what the project is (from Key Info) and the original request if the notes quote one.
+3. **Look before creating.** If the notes contain `[use folder: <path>]` (a teammate's decision; `Campaigns/...` is the main campaign root, `<year> Campaigns/...` is that year's library), use that folder, create it if it's missing, and skip the near-match search. Otherwise, for **any project in a year that has its own campaigns library** (2027 on; see Prerequisites), look only in that library. Trade show folders there are `<Show> <year>` and may use a longer or shorter show name (`Vision Expo One 2027` for "Vision Expo Planning - 2027", `Vision Source Exchange 2027`); Accelerates go in `Accelerate <year>/`, webinars in `Webinars <year>/`; Content (case studies included), KOL, Ops and Campaign projects sit at the top of that library under their canonical name. Use a clear match; otherwise create the folder there. Never offer a previous year's folder (`ASCRS 2026`, `VSX 2026`) or a main-root folder as the match for a new year's project. For pre-2027 projects and two-year names, check the campaign root for the exact name, then near-matches (same topic, other year, abbreviation), including inside series folders (`Accelerate <year>/`, `Webinars <year>/`, `AI Week <year>/`). If one clearly matches, use it. If it's ambiguous, don't create anything: replace your claim line with `M/D Claude (<me>): Possible existing folder <path>; confirm before one is created.` and move on.
+4. **Create** `<name>/_Context/`: for any 2027-or-later project, inside that year's campaigns library (in `Accelerate <year>/` or `Webinars <year>/` there for those series; trade shows as `<Show> <year>`; everything else at the top of the library). Otherwise inside `Webinars <year>/` for webinars, `Accelerate <year>/` for Accelerates, or at the campaign root. Write `_Context/README.md`: what the project is (from Key Info) and the original request if the notes quote one.
 5. **Link it.** Set Deliverable Link to `OneDrive folder` with the SharePoint link (pattern in the local config, path URL-encoded). In the notes, replace your claim line with `M/D Claude (<me>): OneDrive folder created: <relative path>.` and change `[needs folder]` to `[folder done]`.
 
-### 2. File box requests as context
+### 2. File context notes
+
+Find rows whose Notes / Blocker contain `[needs context <id>]`. Group them by project and `<id>`. For each project and id:
+
+1. **Folder.** Find the project's folder (its Project row's Deliverable Link, or the canonical name). A Deliverable Link under `Internal Working Files/<year>/<year> Campaigns/` is in that year's library; if it isn't synced here, leave it for a computer that has it. No folder yet: leave it for the next run.
+2. **Read the note.** List the discussions on the **Project row** with comments included. Take the thread whose first comment starts `Context <id> |`. Join its comments in `Part 1 of N` … `Part N of N` order, dropping each comment's header line (`Context <id> | …` and the `Part x of N` line). If a part is missing, leave the tag for the next run.
+   - No such thread on the Project row: check the tagged row itself (older pages put it on the first changed row). Still none: the request had no context note for this project. Remove the tag from those rows, append nothing, and count it under "skipped".
+3. **Check it before saving.** It should already be clean. If it still contains small talk, rants or venting, or anything personal (pay, bonus, MBO, performance reviews, health, time off), remove those parts and keep the business point stated neutrally. Never add facts that aren't in the note.
+4. **Write** `<folder>/_Context/<id>.md`. If that file already exists with the same content, another computer filed it: go on to step 5. If it exists with different content, write `<id>-2.md` (never overwrite). Add a link line for it to `_Context/README.md` under `## Context notes` (create the heading if missing; skip if the line is already there).
+5. **Untag.** On each tagged row of that project, replace `[needs context <id>]` with `[context: <relative path to the .md>]`. Change nothing else in the cell.
+
+Leave the comment thread in Smartsheet as it is; it's the record of what was saved.
+
+### 3. Log box requests
 
 Find note lines that contain `(from the daily brief` and don't end in `[filed]`. For each:
 
 1. Find the project's folder (its Project row's Deliverable Link, or the canonical name). No folder yet: leave it for the next run.
-2. Append to `<folder>/_Context/YYYY-MM-DD-brief-requests.md` (the note's date; create it with the heading `# Requests from the Daily Brief` if missing): one bullet with who asked, the request in quotes, and the step text it created or changed. Skip if that exact quoted request is already in the file (another computer filed it).
+2. Append to `<folder>/_Context/YYYY-MM-DD-brief-requests.md` (the note's date; create it with the heading `# Requests from the Daily Brief` if missing): one bullet with who asked, the request in quotes, and the step text it created or changed. Skip if that exact quoted request is already in the file (another computer filed it). The quote is only the first 300 characters: it is a log, not the context. The context is filed in step 2.
 3. Append ` [filed]` to that note line in Smartsheet. Change nothing else in the cell.
 
-### 3. Report
+### 4. Report
 
-One short list: folders created (paths), requests filed (project and count), items skipped and why. If there was nothing to do, say "Nothing to file."
+One short list: folders created (paths), context notes filed (project and path), requests logged (project and count), items skipped and why. If there was nothing to do, say "Nothing to file."
 
 ## Set it up on a computer
 
@@ -61,3 +77,6 @@ Give each computer a different minute (for example :05 and :35) so runs don't ov
 - Renaming, moving or deleting existing folders or files, or overwriting a file.
 - Writing to the Project column (it's a formula) or changing task text, owners or dates.
 - Assuming the OneDrive path. It differs between Macs, Windows laptops and people.
+- Filing any 2027-or-later project in the main Campaigns root, or matching it to last year's folder. On 11/19 this put `Vision Expo 2027`, `Trade Show - Dry Eye Summit - 2027`, `Accelerate 2027/`, `Webinars 2027/` and the 2027 Content, KOL and case study folders in `2026/Campaigns`; they were moved to `2027/2027 Campaigns` on 11/19 (Vision Expo merged into `Vision Expo One 2027`).
+- Treating the 300-character quote in the notes as the context. The context note is in the Project row's comments.
+- Saving pay, bonus, MBO, review or other personal topics into `_Context`, or deleting the Smartsheet comment thread after filing.
