@@ -15,7 +15,11 @@ This is how to turn a print plan in Smartsheet into a checked Mimeo cart with it
 - A Mimeo login. The person signs in; the AI never handles the password.
 - Access to the print planning sheet, in Vision Marketing Events > Print Planner. Sheet links stay in the internal work system.
 - The show or order name and the date the prints are needed.
-- Access to the event's **Shipping** sheet in the event's own Smartsheet folder (for example, Accelerate Marketing Events > `<year>` Accelerates > `<NN City>` > Shipping). Its **Shipping Address** column holds the ship-to address and any ATTN or C/O line.
+- Access to the event's **Shipping** sheet in the event's own Smartsheet folder. Its **Shipping Address** column holds the ship-to address and any ATTN or C/O line. Event folders live in two workspaces, so check both:
+  - **Accelerate Marketing Events**, for example `<year>` Accelerates > `<NN City>` > Shipping
+  - **Vision Marketing Events**, for example `<year>` Trade Shows > `<NN Show>` > Shipping
+
+  Every event has its own sheet named **Shipping**, and the workspace templates have one too. Search Smartsheet for sheets named "Shipping" and pick the one whose path matches the event's workspace, year and folder. Never use a template's or another event's sheet. If you can't find one, or find more than one candidate for the event, stop and ask.
 
 ## Rules
 
@@ -102,7 +106,7 @@ Mimeo shows a banner on the cart when the order is at risk, with a submit-by tim
 
 ### 8. Enter the ship-to address
 
-Pull the address from the event's **Shipping** sheet (Smartsheet, in the event's folder), **Shipping Address** column. If it still holds a placeholder such as `GUEST NAME`, or no hotel name, stop and ask; don't guess who the boxes are held under.
+Pull the address from the event's **Shipping** sheet, **Shipping Address** column. Look in both the Accelerate Marketing Events and Vision Marketing Events workspaces (see What you need). If it still holds a placeholder such as `GUEST NAME`, or no hotel name, stop and ask; don't guess who the boxes are held under.
 
 1. On the cart, click **Continue**.
 2. **Special Instructions:** leave every option unticked unless the person asks for one. They include do-not-ship, warehouse-return and discard instructions.
@@ -211,7 +215,8 @@ Avoid: printing a new copy of a book that has warehouse stock, or putting the ho
 - [ ] Check stock on inventoried lines
 - [ ] Compare the production banner to the needed date
 - [ ] Leave Special Instructions unticked unless asked
-- [ ] Pull the ship-to from the event's Shipping sheet; stop if it has a placeholder
+- [ ] Find the event's Shipping sheet, checking both the Accelerate Marketing Events and Vision Marketing Events workspaces
+- [ ] Pull the ship-to from it; stop if it has a placeholder
 - [ ] Guest name in First Name, `Lumenis` in Last Name, hotel name on Address 2; Display Name blank
 - [ ] Phone number from the person (required, not printed)
 - [ ] Use the USPS-recommended address if it keeps the guest and hotel lines
