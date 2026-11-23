@@ -2,7 +2,7 @@
 
 - Division: US Vision Marketing. Do not apply this procedure to Aesthetics or Hospital budgets.
 - Scope: trade show Master Budgets only. Accelerate budgets are out of scope.
-- System: Smartsheet PR tracking sheets (one for 2026, one for 2027), trade show Master Budgets and the Vision budget trackers (FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder). Actual PO/PR numbers, amounts, payees, identifiers, links and audit findings remain in the internal work system.
+- System: Smartsheet PR tracking sheets (one for 2026, one for 2027), trade show Master Budgets and the Vision budget trackers (FY26 in the 2026 Budget Dashboard folder, FY27 in the 2027 Budget Dashboard folder). Actual PO/PR numbers, amounts, payees, identifiers, links and audit findings remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: reviewed Vision workflow guidance.
 - Source and review: working rules and layouts observed 2026-10-01, with read-only follow-up on 2026-10-05. Allocation order and trade-show-only scope reviewed 2026-10-06. Both tracking sheets, every PO status, the per-PO-only check and the reverse tracker check added 2026-10-21 to 2026-10-23. Budget tracker, ready-PO and report rules added 2026-10-27 and 2026-10-30 from Kaelyn's working rules. Separate FY26 and FY27 trackers, the Category / SAP Category split and the `Unassigned` lines added 2026-11-02. Restricted confirmation evidence stays internal.
@@ -116,7 +116,7 @@ Section 6 swaps `PR In` for the PO once the PR has one.
 
 ## 8. Update the Vision budget tracker (every run)
 
-Each fiscal year has its own tracker and dashboard: FY26 in the Budget Dashboard folder, FY27 in the Budget Dashboard 2027 folder. Each tracker feeds its dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace. Skip Accelerates. Skip PRs whose quarter code has an `A` instead of a `V` (such as `Q426A`). They aren't Vision budget items, so they aren't tracked. Use the tracker for the event's fiscal year, from the quarter code (`Q426V` = FY26, `Q127V` = FY27). Both trackers use the same Budget Line codes.
+Each fiscal year has its own tracker and dashboard: FY26 in the 2026 Budget Dashboard folder, FY27 in the 2027 Budget Dashboard folder. Each tracker feeds its dashboard, so this step is what carries a PR and its PO onto the dashboard. It covers each Vision PR, with or without a PO, whose event has a folder in the Vision events workspace. Skip Accelerates. Skip PRs whose quarter code has an `A` instead of a `V` (such as `Q426A`). They aren't Vision budget items, so they aren't tracked. Use the tracker for the event's fiscal year, from the quarter code (`Q426V` = FY26, `Q127V` = FY27). Both trackers use the same Budget Line codes.
 
 Two category columns:
 
