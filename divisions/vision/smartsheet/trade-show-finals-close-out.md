@@ -2,10 +2,10 @@
 
 - Division: US Vision Marketing only. Do not apply this procedure to Aesthetics or Hospital.
 - Scope: closing out a trade show once its final actuals are in: sync the Vision budget tracker from the show's Master Budget, mark the show done, and run one last audit.
-- Systems: Smartsheet, in the Vision Marketing Events workspace and the Budget Dashboard folders (FY26 in Budget Dashboard, FY27 in Budget Dashboard 2027). Use the tracker for the show's fiscal year. Sheet links and IDs remain in the internal work system.
+- Systems: Smartsheet, in the Vision Marketing Events workspace and the budget dashboard folders (FY26 in 2026 Budget Dashboard, FY27 in 2027 Budget Dashboard). Use the tracker for the show's fiscal year. Sheet links and IDs remain in the internal work system.
 - Subject owner: Kaelyn Gray; maintainer: @the-digital-nicholas-olsen.
 - Status: draft for review.
-- Source and review: Kaelyn Gray's working procedure, submitted 2026-10-30. Revalidate sheet and column names before operational use.
+- Source and review: Kaelyn Gray's working procedure, submitted 2026-10-30. Folder names, the `Total` row title, the cancellation conflict check and the shared Unassigned line case added 2026-11-23 from a read-only close-out run; the Unassigned line handling is proposed and awaits subject-owner review. Revalidate sheet and column names before operational use.
 
 ## Use this when
 
@@ -19,13 +19,16 @@ The subject owner says "finals are in for [SHOW]" or "final actuals are in". An 
 
 ## Rules
 
-1. **The Master Budget is the source of truth for actuals.** The tracker follows it, never the other way round. Use the **Actual Cost** on the **Estimated Total** row when the show has a Master Budget.
+1. **The Master Budget is the source of truth for actuals.** The tracker follows it, never the other way round. Use the **Actual Cost** on the **Estimated Total** row when the show has a Master Budget. Some Master Budgets title this row `Total`; it is the same summary row. This procedure calls it the Estimated Total either way.
 2. **The final audit doesn't change anything.** It confirms the numbers were already right. Report anything that doesn't match and ask, rather than fixing it.
 3. **The PR tracking sheets are view only.** Don't change them, even to fix a mistake.
 4. **If the show is unclear, stop and ask.** "AAO" could be either AAO Optometry or AAO Ophthalmology, for example.
 5. **Don't copy actuals into this repository.** Amounts, names, PR and PO numbers stay in Smartsheet.
 
-Before writing, run the line-total and PO-allocation checks in section 2 read-only. Hold the affected sync and Done marker if totals, allocations or finality are unresolved.
+Before writing, run the line-total and PO-allocation checks in section 2 read-only. Hold the affected sync and Done marker if totals, allocations or finality are unresolved. Finality is unresolved when:
+
+- A line item has a blank Actual Cost with no note saying it is included, not applicable or $0.
+- The Master Budget marks a line `Cancelled`, but its PR on the PR tracking sheet still has an active status such as `PO Created, Pending Invoice`. The tracker keeps counting that PR in Committed until the PR is cancelled. Report both statuses and ask which is right; other records, such as a confirmed presentation, may show the line was not cancelled.
 
 ## 1. Sync the tracker
 
@@ -37,6 +40,14 @@ The budget dashboard reads from the tracker's **`_Master Budget Actual`** column
 | **PR rows** | The Actual Cost of the Master Budget line items with that PO number. Use recorded Actual Cost, including invoiced but unpaid costs; do not infer zero from payment status. Blank or unknown actuals remain unresolved until confirmed. |
 
 Use the confirmed actual-cost allocation across all shared POs and shows, without resetting a shared pool per show. Do not infer invoice allocation from PO order or overwrite other shows' contributions; flag unresolved splits before syncing.
+
+### Shows without their own Budget Line (proposed)
+
+Some shows have no Budget Line of their own; their PR rows sit under the category's shared `Unassigned` line (such as `VIS-TS-UN`). That line's `_Master Budget Actual` holds the sum of every such show's Estimated Total, and its Notes list each show's share.
+
+- Update only this show's share of the Unassigned line's `_Master Budget Actual`, keeping every other show's contribution, and update its entry in Notes.
+- Sync the PR rows as above.
+- Don't add the Done marker to the Unassigned line's Budget Item: it would label every show on that line as done. Report that the show has no line for the marker and ask the subject owner how to record it.
 
 ## 2. Run the final audit
 
@@ -60,7 +71,7 @@ Budget Item is a cell formula that builds the label from the plan. Put the prefi
 
 `="✅ DONE · Example Eye Expo" + ...`
 
-If it already starts with `✅ DONE`, leave it and say so.
+If it already starts with `✅ DONE`, leave it and say so. If the show has no Budget Line of its own, follow [Shows without their own Budget Line](#shows-without-their-own-budget-line-proposed) instead.
 
 Read back the formula and dashboard label after adding the prefix. If the formula cannot be changed without breaking its calculation, hold the label change and report it.
 
@@ -83,5 +94,6 @@ If everything matches, say so in one line. If not, list each difference with the
 
 - A late invoice or correction must be reported to the subject owner. Until the owner confirms reopening and the label treatment, hold the changed close-out; never silently retain a Done marker for unresolved actuals.
 - Accelerate Master Budgets have no Actual Cost column, so this procedure covers trade shows only.
+- How to mark a show done when it shares a category's Unassigned line is undecided. Options include no marker, a Notes entry, or a dedicated Budget Line for the show; the subject owner decides.
 
 Related: [trade show PO-to-budget reconciliation](po-budget-reconciliation.md) audits POs against budgets across shows; this procedure closes out one show.

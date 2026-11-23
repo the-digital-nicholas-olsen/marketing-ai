@@ -49,7 +49,7 @@ Open the show's **Master Budget** in **Vision Marketing Events > <Year> Trade Sh
 
 ## 5. Check the Estimated Total updated
 
-The Actual Cost on the **Estimated Total** row is a formula over a fixed range of rows, such as `=SUM([Actual Cost]1:[Actual Cost]8)`. A line item below that range isn't counted. If the row falls outside the range, hold the affected tracker sync and ask the subject owner before widening it; do not copy an incomplete total to the dashboard.
+The Actual Cost on the **Estimated Total** row (titled `Total` on some Master Budgets) is a formula over a fixed range of rows, such as `=SUM([Actual Cost]1:[Actual Cost]8)`. A line item below that range isn't counted. If the row falls outside the range, hold the affected tracker sync and ask the subject owner before widening it; do not copy an incomplete total to the dashboard.
 
 ## 6. Sync the Vision budget tracker
 
