@@ -724,7 +724,7 @@ footer a { color: var(--accent); }
     box.disabled = true; banner(null);
     var prev = r.status;
     writeRow(r.id, "Complete", true, TODAY).then(function () {
-      state.done[r.id] = { prev: prev, on: TODAY }; save("brief.done", state.done); render();
+      state.done[r.id] = { prev: prev, on: TODAY, at: Date.now() }; save("brief.done", state.done); render();
       showToast("Marked done in Smartsheet: " + r.task, function () { undoDone(r); });
     }, function (err) { box.checked = false; box.disabled = false; writeError(err, "mark steps done"); });
   }
@@ -1161,8 +1161,15 @@ footer a { color: var(--accent); }
     if (!mcp) { explainNoMcp(); return; }
     state.mcp = mcp; render(); askSetup();
     var cutoff = addDays(TODAY, CONFIG.windowDays);
-    var live = { rows: null, blockers: null, notes: null };
-    function apply() { if (!live.rows) return; state.rows = addNotes(merge(live.rows, live.blockers || []), live.notes); state.source = "live"; banner(null); render(); }
+    var live = { rows: null, blockers: null, notes: null, rowsAt: 0, blockersAt: 0 };
+    // A step ticked here is hidden for the day. If a read taken after the tick still returns it (the reads skip Complete rows),
+    // someone reopened it in Smartsheet, so show it again. Ticks saved before "at" was recorded count as older than any read.
+    function reopened(rows, readAt) {
+      var changed = false;
+      (rows || []).forEach(function (r) { var rec = state.done[r.id]; if (rec && (rec.at || 0) < readAt) { delete state.done[r.id]; changed = true; } });
+      if (changed) save("brief.done", state.done);
+    }
+    function apply() { if (!live.rows) return; reopened(live.rows, live.rowsAt); reopened(live.blockers, live.blockersAt); state.rows = addNotes(merge(live.rows, live.blockers || []), live.notes); state.source = "live"; banner(null); render(); }
     function onErr(err) {
       var code = err && err.code;
       if (code === "needs_reauth") banner("Reconnect Smartsheet in claude.ai Settings → Connectors to see live data. Showing the last snapshot.");
@@ -1197,6 +1204,7 @@ footer a { color: var(--accent); }
       if (p.metadata && p.metadata.isSampled) { banner("The live sheet returned only part of the next two weeks, so live data is paused. The morning snapshot is complete."); return; }
       live.rows = fromPayload(p);
       state.updated = (ev.result.cache && ev.result.cache.storedAt) || Date.now();
+      live.rowsAt = state.updated;
       apply();
     }, { refetchInterval: 600000 });
     mcp.watchTool("Smartsheet", "get_sheet_summary", Object.assign({}, base, {
@@ -1205,7 +1213,7 @@ footer a { color: var(--accent); }
     }), function (ev) {
       if (ev.type === "error") return onErr(ev.error);
       var p = ev.result && ev.result.payload; if (!p || !p.rows) return;
-      live.blockers = fromPayload(p); apply();
+      live.blockers = fromPayload(p); live.blockersAt = (ev.result.cache && ev.result.cache.storedAt) || Date.now(); apply();
     }, { refetchInterval: 600000 });
     NOTES_READ = Object.assign({}, base, {
       columns: ["Task", "Notes / Blocker"],
