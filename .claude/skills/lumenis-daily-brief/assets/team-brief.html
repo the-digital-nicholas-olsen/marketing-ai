@@ -640,11 +640,20 @@ footer a { color: var(--accent); }
     b.hidden = false;
   }
 
+  // Some Smartsheet connectors expose get_columns, update_rows and add_rows only through the execute_sheets_read / execute_sheets_write
+  // wrappers. Try the direct tool first; if the connector or the page manifest does not have it, call it through the wrapper.
+  function sheetsCall(kind, name, args, opts) {
+    return state.mcp.callTool("Smartsheet", name, args, opts).catch(function (e) {
+      if (e && /^(not_in_manifest|tool_error|unknown_tool|tool_not_found)$/.test(e.code)) return state.mcp.callTool("Smartsheet", "execute_sheets_" + kind, { tool_name: name, arguments: args }, opts);
+      throw e;
+    });
+  }
+
   // ---- tick a step done: writes Status, Done and Date Completed to Smartsheet as the viewer ----
   var colIds = null, toastTimer = null, toastUndo = null;
   function getCols() {
     if (colIds) return Promise.resolve(colIds);
-    return state.mcp.callTool("Smartsheet", "get_columns", { sheet_id: +CONFIG.sheetId }, { cache: { staleTime: 86400000, gcTime: 86400000 } }).then(function (res) {
+    return sheetsCall("read", "get_columns", { sheet_id: +CONFIG.sheetId }, { cache: { staleTime: 86400000, gcTime: 86400000 } }).then(function (res) {
       var p = res && res.payload, map = {};
       ((p && p.data) || []).forEach(function (c) { map[c.title] = c.id; });
       if (!map["Status"] || !map["Done"] || !map["Date Completed"]) throw { code: "missing_columns" };
@@ -653,7 +662,7 @@ footer a { color: var(--accent); }
   }
   function writeRow(rowId, status, done, dateCompleted) {
     return getCols().then(function (c) {
-      return state.mcp.callTool("Smartsheet", "update_rows", {
+      return sheetsCall("write", "update_rows", {
         sheet_id: +CONFIG.sheetId,
         rows: [{ id: +rowId, cells: [
           { columnId: c["Status"], value: status },
@@ -690,7 +699,7 @@ footer a { color: var(--accent); }
         var cells = [];
         if (text) cells.push({ columnId: c["Notes / Blocker"], value: notes });
         if (newDue) cells.push({ columnId: c["Due Date"], value: newDue });
-        return state.mcp.callTool("Smartsheet", "update_rows", { sheet_id: +CONFIG.sheetId, rows: [{ id: +r.id, cells: cells }] }, { cache: false });
+        return sheetsCall("write", "update_rows", { sheet_id: +CONFIG.sheetId, rows: [{ id: +r.id, cells: cells }] }, { cache: false });
       }).then(function (res) {
         var p = res && res.payload;
         if (p && p.failedItems && p.failedItems.length) throw { code: "tool_error", message: "Smartsheet didn't accept the change for this row." };
@@ -775,7 +784,7 @@ footer a { color: var(--accent); }
   }
   function loadSprints() {
     if (ask.sprints) return Promise.resolve(ask.sprints);
-    return state.mcp.callTool("Smartsheet", "get_columns", { sheet_id: +CONFIG.sheetId }, { cache: { staleTime: 86400000, gcTime: 86400000 } }).then(function (res) {
+    return sheetsCall("read", "get_columns", { sheet_id: +CONFIG.sheetId }, { cache: { staleTime: 86400000, gcTime: 86400000 } }).then(function (res) {
       var col = (((res && res.payload) || {}).data || []).filter(function (c) { return c.title === "Sprint"; })[0];
       ask.sprints = (col && col.options) || []; return ask.sprints;
     }, function () { ask.sprints = []; return ask.sprints; });
@@ -922,7 +931,7 @@ footer a { color: var(--accent); }
     box.appendChild(replyBox("Or tell Claude what to change").wrap);
   }
   function addRows(rows) {
-    return state.mcp.callTool("Smartsheet", "add_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (res) {
+    return sheetsCall("write", "add_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (res) {
       var p = (res && res.payload) || {};
       return (p.result || p.data || []).map(function (r) { return String(r.id); });
     });
@@ -994,7 +1003,7 @@ footer a { color: var(--accent); }
             return cells.length ? { id: +u.rowId, cells: cells } : null;
           }).filter(Boolean);
           if (!rows.length) return;
-          return state.mcp.callTool("Smartsheet", "update_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (res) {
+          return sheetsCall("write", "update_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (res) {
             var p = (res && res.payload) || {};
             changed += rows.length - ((p.failedItems || []).length);
             if ((p.failedItems || []).length) throw { code: "tool_error", message: (p.failedItems.length) + " change(s) weren't accepted" };
@@ -1045,7 +1054,7 @@ footer a { color: var(--accent); }
               return { id: +id, cells: [{ columnId: c["Notes / Blocker"], value: nn }] };
             });
             if (!rows.length) return;
-            return state.mcp.callTool("Smartsheet", "update_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (r2) {
+            return sheetsCall("write", "update_rows", { sheet_id: +CONFIG.sheetId, rows: rows }, { cache: false }).then(function (r2) {
               if ((((r2 && r2.payload) || {}).failedItems || []).length) ctxTagFail = true;
             });
           }).catch(function () { ctxTagFail = true; });
