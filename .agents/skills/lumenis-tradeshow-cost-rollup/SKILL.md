@@ -1,6 +1,6 @@
 ---
 name: lumenis-tradeshow-cost-rollup
-description: Add up a tradeshow's total cost (registration, sponsorships, booth build, show services, print, dinner, KOL honoraria, shipping) from its purchase requests and invoices, and share it with EJ (Salesforce actuals) and Derek (budget vs actuals). Use at P11 (T+21) of a tradeshow. Drafts only.
+description: Add up a tradeshow's total cost (registration, sponsorships, booth build, show services, print, dinner, KOL honoraria, shipping) from its purchase requests and invoices, and share it with EJ (Salesforce actuals) and Derek (budget vs actuals), then hand off to the finals close-out so the show is marked completed on the budget dashboard tracker. Use at P11 (T+21) of a tradeshow. Drafts only.
 ---
 
 # Tradeshow cost rollup
@@ -26,6 +26,10 @@ Status: draft procedure, written 2026-11-03 from the Vision tradeshow planning s
 2. Mark each line Invoiced or Estimated. An estimate needs a note saying what's outstanding.
 3. Total the show and the dinner separately, then together. Write them to P11 Key Info.
 4. Draft an email to EJ (who enters the total in the Salesforce campaign, P12) and Derek (who reconciles budget vs actuals once every invoice is in, P13).
+
+## Then close out the show
+
+P11 is done only when the show is also marked completed on the budget dashboard tracker. Once final actuals are in, follow [trade show finals close-out](../../../divisions/vision/smartsheet/trade-show-finals-close-out.md) (US Vision only): sync the tracker from the Master Budget, run its read-only final audit, then add the Done marker. If actuals are still estimated, leave P11 open and say what is outstanding.
 
 ## Boundaries
 
